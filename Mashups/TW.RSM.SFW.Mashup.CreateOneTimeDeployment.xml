@@ -1,0 +1,3234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="true"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-10-24T21:00:18.634Z"
+         name="TW.RSM.SFW.Mashup.CreateOneTimeDeployment"
+         projectName=""
+         rows="0.0"
+         tags="Applications:RSM;Applications:SCM;TWUTL:RemoteServices">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions></ParameterDefinitions>
+            <Things>
+                <Thing>TW.RSM.SFW.SoftwareManager</Thing>
+                <Thing>TW.RSM.SFW.Timer.AutoRetryTimer</Thing>
+                <Thing>TW.RSM.SFW.Thing.SoftwareUtils</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_TW.RSM.SFW.Timer.AutoRetryTimer" : {
+                  "DataName" : "Things_TW.RSM.SFW.Timer.AutoRetryTimer",
+                  "EntityName" : "TW.RSM.SFW.Timer.AutoRetryTimer",
+                  "EntityType" : "Things",
+                  "Id" : "601e7a73-6b34-4832-918d-2ac3a1c6a3ed",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "d5d33d84-0049-4a94-8caa-cf81681ee2f2",
+                    "Name" : "GetBooleanPropertyValue",
+                    "Parameters" : {
+                      "propertyName" : "Enabled"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetBooleanPropertyValue"
+                  } ]
+                },
+                "Things_TW_RSM_SFW_SoftwareManager" : {
+                  "DataName" : "Things_TW_RSM_SFW_SoftwareManager",
+                  "EntityName" : "TW.RSM.SFW.SoftwareManager",
+                  "EntityType" : "Things",
+                  "Id" : "6a39f919-80c2-4540-b0bb-e49c418aca8c",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "962d1e5f-d11f-4a9e-8058-776403c90a18",
+                    "Name" : "GetDefinitionById",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDefinitionById"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "5b574ce0-651f-4ca1-970f-e22310299e0b",
+                    "Name" : "IsCdnAvailable",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "IsCdnAvailable"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "e6af574f-36bb-4f5f-aac9-459ddd054909",
+                    "Name" : "GetPackageUseCdnSetting",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetPackageUseCdnSetting"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "1a199977-6c5a-40fd-b620-d488fedc98b2",
+                    "Name" : "GetDefaultAutoRetryCountMax",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDefaultAutoRetryCountMax"
+                  } ]
+                },
+                "Things_TW_RSM_SFW_Thing_SoftwareUtils" : {
+                  "DataName" : "Things_TW_RSM_SFW_Thing_SoftwareUtils",
+                  "EntityName" : "TW.RSM.SFW.Thing.SoftwareUtils",
+                  "EntityType" : "Things",
+                  "Id" : "3d739777-d9bd-4531-bfb6-dbbaffb72756",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "e9842062-3c54-410b-9f21-cd4a4d0250dc",
+                    "Name" : "AddTargetParameter",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "AddTargetParameter"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "39a20c52-8b69-42db-8e07-04cd211b0633",
+                    "Name" : "RemoveTargetParameter",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "RemoveTargetParameter"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "5ebaa4e4-692f-47b4-807f-d53fa5aa254a",
+                    "Name" : "GetTargetParameters",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetTargetParameters"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "49e74b9d-e4b8-444b-8840-667dbda5f191",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "emailAddresses",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "TargetProperty" : "EmailAddressList",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Session",
+                "SourceDetails" : "AllData",
+                "SourceId" : "Session",
+                "SourceSection" : "Session",
+                "TargetArea" : "Data",
+                "TargetId" : "AddToEmailAddressList",
+                "TargetSection" : "Things_TW_RSM_SFW_Thing_SoftwareUtils"
+              }, {
+                "Id" : "71d61836-b1a4-46d5-8bfe-f4421bba6540",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "requiredDeploymentName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textboxvalidate-215",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-243",
+                "TargetSection" : ""
+              }, {
+                "Id" : "d52e1bf9-2123-4f44-b872-351fd0e814df",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "ParameterName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textboxvalidate-226",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "AddTargetParameter",
+                "TargetSection" : "Things_TW_RSM_SFW_Thing_SoftwareUtils"
+              }, {
+                "Id" : "b08067c9-856e-46ce-b625-9c4160e94ac0",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetTargetParameters",
+                "SourceSection" : "Things_TW_RSM_SFW_Thing_SoftwareUtils",
+                "TargetArea" : "UI",
+                "TargetId" : "Grid-232",
+                "TargetSection" : ""
+              }, {
+                "Id" : "3dea1f98-a02c-4c56-857e-28ab9818515f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Name",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "ParameterName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "SelectedRows",
+                "SourceId" : "GetTargetParameters",
+                "SourceSection" : "Things_TW_RSM_SFW_Thing_SoftwareUtils",
+                "TargetArea" : "Data",
+                "TargetId" : "RemoveTargetParameter",
+                "TargetSection" : "Things_TW_RSM_SFW_Thing_SoftwareUtils"
+              }, {
+                "Id" : "b8ad90e7-6a78-4b3f-8bd7-d701851acd91",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "isValid",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Validator-243",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Textboxvalidate-215",
+                "TargetSection" : ""
+              }, {
+                "Id" : "a7b90691-9224-49b1-bc29-18dbe8314699",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "deploymentName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Field"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textboxvalidate-215",
+                "SourceSection" : "",
+                "TargetArea" : "Session",
+                "TargetId" : "Session",
+                "TargetSection" : "Session"
+              }, {
+                "Id" : "f45b42cc-5be1-4702-955d-db9a510da304",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "deploymentDescription",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Field"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textbox-217",
+                "SourceSection" : "",
+                "TargetArea" : "Session",
+                "TargetId" : "Session",
+                "TargetSection" : "Session"
+              }, {
+                "Id" : "f5ad566b-ff0d-4fae-9d05-174df08922fa",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "testPackageGUID",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "DefinitionID",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Session",
+                "SourceDetails" : "AllData",
+                "SourceId" : "Session",
+                "SourceSection" : "Session",
+                "TargetArea" : "Data",
+                "TargetId" : "GetDefinitionById",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "57a9142f-08e2-4c88-a9ab-80a1b5df7c6a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ScriptName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDefinitionById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-242",
+                "TargetSection" : ""
+              }, {
+                "Id" : "83ce0055-e10e-4b80-baa3-263eaa5743a1",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "ParameterValue",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textboxvalidate-227",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "AddTargetParameter",
+                "TargetSection" : "Things_TW_RSM_SFW_Thing_SoftwareUtils"
+              }, {
+                "Id" : "95a6a7d0-a448-41ae-8ce8-49fd147a3bad",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "TargetProperty" : "deploymentTime",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "Field"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "DateTimePicker-249",
+                "SourceSection" : "",
+                "TargetArea" : "Session",
+                "TargetId" : "Session",
+                "TargetSection" : "Session"
+              }, {
+                "Id" : "eb9a0453-2766-4335-9f50-6e03ed969d31",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "downloadDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "DateTimePicker-249",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-259",
+                "TargetSection" : ""
+              }, {
+                "Id" : "326ae32b-b16e-4d87-81b9-c2cfaeb3281f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "downloadDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "DateTimePicker-249",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-260",
+                "TargetSection" : ""
+              }, {
+                "Id" : "3d0253bd-3086-43d9-b592-3d4c61c3028d",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "SelectedValue",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-252",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "RadioButton-250",
+                "TargetSection" : ""
+              }, {
+                "Id" : "58de3c2a-febb-43f6-8fc8-5990ae6018e4",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "SelectedValue",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "downloadImmediately",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Field"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "RadioButton-250",
+                "SourceSection" : "",
+                "TargetArea" : "Session",
+                "TargetId" : "Session",
+                "TargetSection" : "Session"
+              }, {
+                "Id" : "be83c171-54ca-43ca-8a7b-28ba415d9f4d",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "SelectedValue",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "downloadImmediately",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "RadioButton-250",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-257",
+                "TargetSection" : ""
+              }, {
+                "Id" : "a30eddbb-7bd4-4f83-9a0d-2aaf241758a6",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-261",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "DateTimePicker-249",
+                "TargetSection" : ""
+              }, {
+                "Id" : "58950399-8a35-4e47-8330-36fc0ff0df5f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "downloadImmediately",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "downloadImmediately",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Session",
+                "SourceDetails" : "AllData",
+                "SourceId" : "Session",
+                "SourceSection" : "Session",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-261",
+                "TargetSection" : ""
+              }, {
+                "Id" : "691b872c-e381-4251-99e5-e17e5ac78f48",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "SelectedValue",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-252",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "RadioButton-255",
+                "TargetSection" : ""
+              }, {
+                "Id" : "78b5c085-1f06-43be-b3f0-131d066287d8",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "SelectedValue",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "installImmediately",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "RadioButton-255",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-258",
+                "TargetSection" : ""
+              }, {
+                "Id" : "7fdf9251-6e5d-4e21-85f1-3c75b6f6fd97",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "installImmediately",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Field"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-258",
+                "SourceSection" : "",
+                "TargetArea" : "Session",
+                "TargetId" : "Session",
+                "TargetSection" : "Session"
+              }, {
+                "Id" : "1104437d-bc5c-4f8c-b76d-9837ad9dd689",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "SelectedValue",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "installImmediately",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "RadioButton-255",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-262",
+                "TargetSection" : ""
+              }, {
+                "Id" : "5f250c9c-539e-4428-82e2-a2397a18586c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-262",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "DateTimePicker-254",
+                "TargetSection" : ""
+              }, {
+                "Id" : "2dc134c6-c086-469d-9c9e-cb598c7dc3d5",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ExpirationDate",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "expirationDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDefinitionById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-264",
+                "TargetSection" : ""
+              }, {
+                "Id" : "f89860c1-9486-484f-b119-fce9a891934b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "installDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "DateTimePicker-254",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-260",
+                "TargetSection" : ""
+              }, {
+                "Id" : "b6f03247-a518-4c23-8526-d88e12c1b9f1",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "installImmediately",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "installImmediately",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Session",
+                "SourceDetails" : "AllData",
+                "SourceId" : "Session",
+                "SourceSection" : "Session",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-260",
+                "TargetSection" : ""
+              }, {
+                "Id" : "0191b401-0ce8-41f4-8cf9-747b39a0b345",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "TargetProperty" : "installationTime",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "Field"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "DateTimePicker-254",
+                "SourceSection" : "",
+                "TargetArea" : "Session",
+                "TargetId" : "Session",
+                "TargetSection" : "Session"
+              }, {
+                "Id" : "167310b7-c0cf-4e6a-8e20-689318ee0ee6",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "cdnAvail",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "IsCdnAvailable",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-270",
+                "TargetSection" : ""
+              }, {
+                "Id" : "f22d7088-a7af-472b-b896-67f2f8ac0d2f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "testPackageGUID",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "PackageID",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Session",
+                "SourceDetails" : "AllData",
+                "SourceId" : "Session",
+                "SourceSection" : "Session",
+                "TargetArea" : "Data",
+                "TargetId" : "GetPackageUseCdnSetting",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "b0742bc4-2565-4d23-84af-1866250362e6",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "deploymentUseCdn",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Field"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-268",
+                "SourceSection" : "",
+                "TargetArea" : "Session",
+                "TargetId" : "Session",
+                "TargetSection" : "Session"
+              }, {
+                "Id" : "58954d9a-b858-4034-9180-fac2b1d7b565",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "State",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-270",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "checkbox-268",
+                "TargetSection" : ""
+              }, {
+                "Id" : "97cfd30f-a656-4c8e-8d52-a6f3dd8c0be0",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "UseCdn",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "packValue",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDefinitionById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-270",
+                "TargetSection" : ""
+              }, {
+                "Id" : "60181e65-9501-4dff-82bf-630e061bf624",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "IsCdnAvailable",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "checkbox-268",
+                "TargetSection" : ""
+              }, {
+                "Id" : "3d0c34ca-2e51-4987-bd52-fd95fb2b3811",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "IsCdnAvailable",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-269",
+                "TargetSection" : ""
+              }, {
+                "Id" : "9c4fdac6-660b-4963-ad95-3d76d7de11a2",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetBooleanPropertyValue",
+                "SourceSection" : "Things_TW.RSM.SFW.Timer.AutoRetryTimer",
+                "TargetArea" : "UI",
+                "TargetId" : "label-272",
+                "TargetSection" : ""
+              }, {
+                "Id" : "02a03145-17f7-4f50-8cae-567653fa9964",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Value",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "retryMaxCount",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "numericentry-274",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-276",
+                "TargetSection" : ""
+              }, {
+                "Id" : "b8f4a897-649f-4ddc-8a2e-b78a3935c49c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "autoRetryOn",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetBooleanPropertyValue",
+                "SourceSection" : "Things_TW.RSM.SFW.Timer.AutoRetryTimer",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-276",
+                "TargetSection" : ""
+              }, {
+                "Id" : "56889a6a-ee93-4bb7-8edb-22cff48130b4",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "TargetProperty" : "maxAutoRetries",
+                  "TargetPropertyBaseType" : "INTEGER",
+                  "TargetPropertyType" : "Field"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-276",
+                "SourceSection" : "",
+                "TargetArea" : "Session",
+                "TargetId" : "Session",
+                "TargetSection" : "Session"
+              }, {
+                "Id" : "53f8cef0-e363-4873-8deb-04baf35c9785",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetBooleanPropertyValue",
+                "SourceSection" : "Things_TW.RSM.SFW.Timer.AutoRetryTimer",
+                "TargetArea" : "UI",
+                "TargetId" : "numericentry-274",
+                "TargetSection" : ""
+              }, {
+                "Id" : "e53e0f9e-2625-42ab-bc32-4fa8e95b45f6",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "INTEGER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Value",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDefaultAutoRetryCountMax",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "numericentry-274",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "ContainedMashup-68",
+                "EventHandlerService" : "Refresh",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "aee75231-87e5-4738-866a-ab9873cb7b0f"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Validator-243",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "Button-246",
+                "EventTriggerSection" : "",
+                "Id" : "d163d235-2b63-4d1c-991a-69b3aca4dc27"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_Thing_SoftwareUtils",
+                "EventHandlerService" : "GetTargetParameters",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "70e7fd36-827f-4869-8728-4b6609176c94"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_Thing_SoftwareUtils",
+                "EventHandlerService" : "GetTargetParameters",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "AddTargetParameter",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_Thing_SoftwareUtils",
+                "Id" : "1f3da44b-aa47-4976-bfd4-1d96ab921d38"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_Thing_SoftwareUtils",
+                "EventHandlerService" : "GetTargetParameters",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "RemoveTargetParameter",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_Thing_SoftwareUtils",
+                "Id" : "58d481ac-beed-41ef-8b28-28fc179944b2"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_Thing_SoftwareUtils",
+                "EventHandlerService" : "RemoveTargetParameter",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "ButtonTooltip-229",
+                "EventTriggerSection" : "",
+                "Id" : "c4f83e77-85a2-4726-8c11-84ba30905135"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDefinitionById",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "ad5dcd37-65a3-4ed9-9c3c-17c92751756f"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_Thing_SoftwareUtils",
+                "EventHandlerService" : "AddTargetParameter",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "ButtonTooltip-225",
+                "EventTriggerSection" : "",
+                "Id" : "d0857aed-9cdf-45e3-80cb-c78b50610222"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Textboxvalidate-226",
+                "EventHandlerService" : "ResetToDefaultValue",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "AddTargetParameter",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_Thing_SoftwareUtils",
+                "Id" : "b30c0b4a-7b4f-47e3-941b-926f49a65626"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Textboxvalidate-227",
+                "EventHandlerService" : "ResetToDefaultValue",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "AddTargetParameter",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_Thing_SoftwareUtils",
+                "Id" : "12440698-2e37-4c02-a0bb-df9b31d57a65"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Expression-257",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "SelectionChanged",
+                "EventTriggerId" : "RadioButton-250",
+                "EventTriggerSection" : "",
+                "Id" : "7ed5ab8c-7d07-4651-85e0-ebc5d9d018f5"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Expression-261",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "SelectionChanged",
+                "EventTriggerId" : "RadioButton-250",
+                "EventTriggerSection" : "",
+                "Id" : "2324556d-79be-4548-83e6-de685f07ef36"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Expression-258",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "SelectionChanged",
+                "EventTriggerId" : "RadioButton-255",
+                "EventTriggerSection" : "",
+                "Id" : "1a547896-e4c2-49bc-8008-cb622a14f9c8"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Expression-262",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "SelectionChanged",
+                "EventTriggerId" : "RadioButton-255",
+                "EventTriggerSection" : "",
+                "Id" : "1d256f9d-ba83-4cce-9671-4e8d8dd44701"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Navigation-263",
+                "EventHandlerService" : "Navigate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "Validator-264",
+                "EventTriggerSection" : "",
+                "Id" : "64d9d37b-d729-43db-8006-3baccb61780b"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Validator-264",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetDefinitionById",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "Id" : "04e39be9-42f8-4ca8-8556-1e0c85d8d7cc"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Navigation-265",
+                "EventHandlerService" : "Navigate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "PopupClosed",
+                "EventTriggerId" : "Navigation-263",
+                "EventTriggerSection" : "",
+                "Id" : "fbedacde-c6df-4c6c-b6fd-12cfd84e123b"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Navigation-266",
+                "EventHandlerService" : "Navigate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "Validator-260",
+                "EventTriggerSection" : "",
+                "Id" : "40e8dc63-2ccf-403a-8be9-88ba6b0a662a"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Validator-260",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "Validator-243",
+                "EventTriggerSection" : "",
+                "Id" : "af282d51-8003-475e-8d39-a03a8d588948"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Navigation-244",
+                "EventHandlerService" : "Navigate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "False",
+                "EventTriggerId" : "Validator-260",
+                "EventTriggerSection" : "",
+                "Id" : "bba063a8-7d3e-4e3b-8dd1-3c0337c63d9d"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "IsCdnAvailable",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "8f374ef2-6e9e-415c-a9f7-60658d56e336"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetPackageUseCdnSetting",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "0ebaadcf-10d0-4242-8e5b-21c55a50258e"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW.RSM.SFW.Timer.AutoRetryTimer",
+                "EventHandlerService" : "GetBooleanPropertyValue",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "786e5a72-2ccb-4cfe-90be-2137d8b650e3"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDefaultAutoRetryCountMax",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "9b7d98d3-ecc0-454f-bb71-7936c2f179e2"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 618,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "Master" : "TW.RSM.SFW.Master.ApplicationMaster",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : true,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultMashupStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 1024,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "id_index" : 278,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "Columns" : 1,
+                    "DisplayName" : "Layout-1",
+                    "Footer" : false,
+                    "FooterHeight" : 0,
+                    "Header" : false,
+                    "HeaderHeight" : 0,
+                    "Id" : "Layout-1",
+                    "IncludeSpacingInFixedAreas" : false,
+                    "IsPrintLayout" : false,
+                    "Left" : 355,
+                    "LeftSidebar" : true,
+                    "LeftSidebarWidth" : 950,
+                    "Orientation" : "horizontal",
+                    "PctColumn1" : 100,
+                    "PctColumn2" : 0,
+                    "PctColumn3" : 1,
+                    "PctColumn4" : 1,
+                    "PctColumn5" : 1,
+                    "PctColumn6" : 1,
+                    "PctColumn7" : 1,
+                    "PctColumn8" : 1,
+                    "PctRow1" : 50,
+                    "PctRow2" : 50,
+                    "PctRow3" : 0,
+                    "PctRow4" : 0,
+                    "PctRow5" : 0,
+                    "PctRow6" : 0,
+                    "PctRow7" : 0,
+                    "PctRow8" : 0,
+                    "PrintMarginLeftRight" : 0.5,
+                    "PrintMarginTopBottom" : 0.5,
+                    "PrintWidth" : 650,
+                    "ResponsiveLayout" : true,
+                    "RightSidebar" : false,
+                    "RightSidebarWidth" : 0,
+                    "Rows" : 0,
+                    "ShowDataLoading" : true,
+                    "Spacing" : 0,
+                    "Top" : 350,
+                    "Type" : "layout",
+                    "Visible" : true,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Layout"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Left Sidebar",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-2",
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "DefaultContainerStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Container"
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "Area" : "UI",
+                        "Columns" : 0,
+                        "DisplayName" : "Layout-4",
+                        "Footer" : false,
+                        "FooterHeight" : 0,
+                        "Header" : true,
+                        "HeaderHeight" : 130,
+                        "Id" : "Layout-4",
+                        "IncludeSpacingInFixedAreas" : false,
+                        "IsPrintLayout" : false,
+                        "Left" : 210,
+                        "LeftSidebar" : false,
+                        "LeftSidebarWidth" : 0,
+                        "Orientation" : "vertical",
+                        "PctColumn1" : 50,
+                        "PctColumn2" : 50,
+                        "PctColumn3" : 1,
+                        "PctColumn4" : 1,
+                        "PctColumn5" : 1,
+                        "PctColumn6" : 1,
+                        "PctColumn7" : 1,
+                        "PctColumn8" : 1,
+                        "PctRow1" : 100,
+                        "PctRow2" : 0,
+                        "PctRow3" : 0,
+                        "PctRow4" : 0,
+                        "PctRow5" : 0,
+                        "PctRow6" : 0,
+                        "PctRow7" : 0,
+                        "PctRow8" : 0,
+                        "PrintMarginLeftRight" : 0.5,
+                        "PrintMarginTopBottom" : 0.5,
+                        "PrintWidth" : 650,
+                        "ResponsiveLayout" : true,
+                        "RightSidebar" : false,
+                        "RightSidebarWidth" : 0,
+                        "Rows" : 1,
+                        "ShowDataLoading" : true,
+                        "Spacing" : 0,
+                        "Top" : 225,
+                        "Type" : "layout",
+                        "Visible" : true,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Layout"
+                      },
+                      "Widgets" : [ {
+                        "Properties" : {
+                          "AnimateExpandCollapse" : true,
+                          "Area" : "UI",
+                          "BGImageRepeat" : "no-repeat",
+                          "BGImageSize" : "auto",
+                          "DisplayName" : "Header",
+                          "ExpandCollapseTabLocation" : "outside",
+                          "Expanded" : true,
+                          "Id" : "container-5",
+                          "MinHeight" : 0,
+                          "MinWidth" : 0,
+                          "Overlay" : false,
+                          "OverlayIsTransparent" : false,
+                          "ResponsiveLayout" : true,
+                          "ShowDataLoading" : true,
+                          "ShowExpandCollapseTab" : false,
+                          "Style" : "DefaultContainerStyle",
+                          "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                          "TabExpandStyle" : "DefaultTabExpandStyle",
+                          "TabHeight" : 36,
+                          "TabLocation" : "center",
+                          "TabOffset" : 0,
+                          "TabWidth" : 36,
+                          "Type" : "container",
+                          "Visible" : true,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Container"
+                        },
+                        "Widgets" : [ {
+                          "Properties" : {
+                            "Area" : "UI",
+                            "DisplayName" : "Panel-37",
+                            "Height" : 200,
+                            "HideScrollbars" : false,
+                            "HorizontalAnchor" : "left",
+                            "Id" : "Panel-37",
+                            "Left" : 85,
+                            "ResponsiveLayout" : true,
+                            "ShowDataLoading" : true,
+                            "Style" : "TW.RSM.SFW.Style.Panel",
+                            "Top" : 30,
+                            "Type" : "panel",
+                            "VerticalAnchor" : "top",
+                            "Visible" : true,
+                            "Width" : 300,
+                            "Z-index" : 10,
+                            "__TypeDisplayName" : "Panel"
+                          },
+                          "Widgets" : [ {
+                            "Properties" : {
+                              "Alignment" : "left",
+                              "Area" : "UI",
+                              "DisplayName" : "Label-67",
+                              "Height" : 22,
+                              "Id" : "Label-67",
+                              "Left" : 50,
+                              "ResponsiveLayout" : false,
+                              "ShowDataLoading" : true,
+                              "Style" : "PTC.Core.Accent2PageTitleTextStyle",
+                              "Text" : "[[TW.RSM.SFW.Create One Time Deployment]]",
+                              "ToolTipField" : "",
+                              "Top" : 15,
+                              "Type" : "label",
+                              "Visible" : true,
+                              "Width" : 861,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Label"
+                            },
+                            "Widgets" : [ ]
+                          }, {
+                            "Properties" : {
+                              "Area" : "UI",
+                              "DisplayName" : "ContainedMashup-68",
+                              "Height" : 75,
+                              "Id" : "ContainedMashup-68",
+                              "Left" : 0,
+                              "MashupParameters" : [ {
+                                "BaseType" : "STRING",
+                                "Description" : "",
+                                "ParameterName" : "noPkgSelectedMashupName",
+                                "ParmDef" : {
+                                  "aspects" : {
+                                    "ordinal" : "2"
+                                  },
+                                  "baseType" : "STRING",
+                                  "description" : "",
+                                  "name" : "noPkgSelectedMashupName",
+                                  "ordinal" : 0
+                                }
+                              }, {
+                                "BaseType" : "STRING",
+                                "Description" : "",
+                                "ParameterName" : "targetMashupName",
+                                "ParmDef" : {
+                                  "aspects" : {
+                                    "ordinal" : "0"
+                                  },
+                                  "baseType" : "STRING",
+                                  "description" : "",
+                                  "name" : "targetMashupName",
+                                  "ordinal" : 0
+                                }
+                              }, {
+                                "BaseType" : "STRING",
+                                "Description" : "",
+                                "ParameterName" : "findPackageMashupName",
+                                "ParmDef" : {
+                                  "aspects" : {
+                                    "ordinal" : "1"
+                                  },
+                                  "baseType" : "STRING",
+                                  "description" : "",
+                                  "name" : "findPackageMashupName",
+                                  "ordinal" : 0
+                                }
+                              } ],
+                              "Name" : "TW.RSM.SFW.Mashup.PublishedPackagePanel",
+                              "NoPackageSelectedMashupName" : "TW.RSM.SFW.Mashup.NoPublishedPackageSelectedDialog",
+                              "ResponsiveLayout" : false,
+                              "ShowDataLoading" : true,
+                              "TabSequenceGroup" : 0,
+                              "Top" : 50,
+                              "Type" : "mashupcontainer",
+                              "Visible" : true,
+                              "Width" : 950,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Contained Mashup",
+                              "findPackageMashupName" : "ThisIsNotAFindPackageMashup",
+                              "finderMashup" : "false",
+                              "noPkgSelectedMashupName" : "TW.RSM.SFW.Mashup.FindPackageForDeployment",
+                              "targetMashupName" : "TW.RSM.SFW.Mashup.CreateOneTimeDeployment"
+                            },
+                            "Widgets" : [ ]
+                          }, {
+                            "Properties" : {
+                              "Alignment" : "left",
+                              "Area" : "UI",
+                              "ClickOutsideToClose" : false,
+                              "DisplayName" : "NavigationTooltip-205",
+                              "FixedPopupHeight" : 0,
+                              "FixedPopupWidth" : 0,
+                              "Height" : 25,
+                              "HelpContent" : "Create a one-time deployment for the selected package.  You can only create a deployment for published packages. If you want to change the package for this deployment, select the Switch Package icon.",
+                              "HelpTitle" : "Create One Time Deployment",
+                              "IconAlignment" : "left",
+                              "Id" : "NavigationTooltip-205",
+                              "Left" : 915,
+                              "MashupName" : "TW.RSM.SFW.Mashup.HelpDialog",
+                              "MashupParameters" : [ {
+                                "BaseType" : "STRING",
+                                "Description" : "Help Title",
+                                "ParameterName" : "HelpTitle",
+                                "ParmDef" : {
+                                  "aspects" : {
+                                    "ordinal" : "0"
+                                  },
+                                  "baseType" : "STRING",
+                                  "description" : "Help Title",
+                                  "name" : "HelpTitle",
+                                  "ordinal" : 0
+                                }
+                              }, {
+                                "BaseType" : "STRING",
+                                "Description" : "Help Content",
+                                "ParameterName" : "HelpContent",
+                                "ParmDef" : {
+                                  "aspects" : {
+                                    "ordinal" : "1"
+                                  },
+                                  "baseType" : "STRING",
+                                  "description" : "Help Content",
+                                  "name" : "HelpContent",
+                                  "ordinal" : 0
+                                }
+                              } ],
+                              "MessageToShow" : "Mashup must be selected",
+                              "ModalPopupOpacity" : 0.5,
+                              "NavigationActiveStyle" : "TW.RSM.Style.HelpIcon",
+                              "NavigationFocusStyle" : "TW.RSM.Style.HelpIcon",
+                              "NavigationHoverStyle" : "TW.RSM.Style.HelpIconRollover",
+                              "PopupScrolling" : "off",
+                              "PopupTitle" : "[[TW.RSM.SFW.HELP DIALOG]]",
+                              "PopupTitleStyle" : "TW.RSM.Style.PopupTitle",
+                              "ReloadOnReplace" : false,
+                              "ResponsiveLayout" : false,
+                              "RoundedCorners" : true,
+                              "ShowCloseButton" : true,
+                              "ShowDataLoading" : true,
+                              "ShowMessageIfNoMashup" : false,
+                              "Style" : "TW.RSM.Style.HelpIcon",
+                              "TabSequence" : 0,
+                              "TargetWindow" : "popup",
+                              "Text" : "",
+                              "ToolTipDuration" : 2,
+                              "ToolTipField" : "[[TW.RSM.SFW.Help]]",
+                              "ToolTipPosition" : "top right,bottom left",
+                              "ToolTipStyles" : "qtip-green",
+                              "Top" : 15,
+                              "Transparent" : false,
+                              "Type" : "navigation",
+                              "Visible" : true,
+                              "Width" : 30,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Navigation"
+                            },
+                            "Widgets" : [ ]
+                          }, {
+                            "Properties" : {
+                              "AlternateText" : "",
+                              "Area" : "UI",
+                              "BorderStyle" : "DefaultImageBorderStyle",
+                              "DisplayName" : "Image-213",
+                              "Height" : 30,
+                              "Id" : "Image-213",
+                              "Left" : 10,
+                              "PreventCaching" : false,
+                              "ResponsiveLayout" : false,
+                              "Scaling" : "none",
+                              "ShowDataLoading" : true,
+                              "SourceURL" : "TW.RSM.SFW.Icon.TestBolt",
+                              "ToolTipField" : "",
+                              "Top" : 10,
+                              "Type" : "image",
+                              "Visible" : true,
+                              "Width" : 30,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Image"
+                            },
+                            "Widgets" : [ ]
+                          } ]
+                        } ]
+                      }, {
+                        "Properties" : {
+                          "AnimateExpandCollapse" : true,
+                          "Area" : "UI",
+                          "BGImageRepeat" : "no-repeat",
+                          "BGImageSize" : "auto",
+                          "DisplayName" : "Row 1",
+                          "ExpandCollapseTabLocation" : "outside",
+                          "Expanded" : true,
+                          "Id" : "container-6",
+                          "MinHeight" : 0,
+                          "MinWidth" : 0,
+                          "Overlay" : false,
+                          "OverlayIsTransparent" : false,
+                          "ResponsiveLayout" : true,
+                          "ShowDataLoading" : true,
+                          "ShowExpandCollapseTab" : false,
+                          "Style" : "TW.RSM.SFW.Style.Panel",
+                          "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                          "TabExpandStyle" : "DefaultTabExpandStyle",
+                          "TabHeight" : 36,
+                          "TabLocation" : "center",
+                          "TabOffset" : 0,
+                          "TabWidth" : 36,
+                          "Type" : "container",
+                          "Visible" : true,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Container"
+                        },
+                        "Widgets" : [ {
+                          "Properties" : {
+                            "Area" : "UI",
+                            "Columns" : 0,
+                            "DisplayName" : "Layout-193",
+                            "Footer" : false,
+                            "FooterHeight" : 0,
+                            "Header" : true,
+                            "HeaderHeight" : 140,
+                            "Id" : "Layout-193",
+                            "IncludeSpacingInFixedAreas" : false,
+                            "IsPrintLayout" : false,
+                            "Left" : 170,
+                            "LeftSidebar" : false,
+                            "LeftSidebarWidth" : 0,
+                            "Orientation" : "vertical",
+                            "PctColumn1" : 50,
+                            "PctColumn2" : 50,
+                            "PctColumn3" : 1,
+                            "PctColumn4" : 1,
+                            "PctColumn5" : 1,
+                            "PctColumn6" : 1,
+                            "PctColumn7" : 1,
+                            "PctColumn8" : 1,
+                            "PctRow1" : 100,
+                            "PctRow2" : 100,
+                            "PctRow3" : 0,
+                            "PctRow4" : 0,
+                            "PctRow5" : 0,
+                            "PctRow6" : 0,
+                            "PctRow7" : 0,
+                            "PctRow8" : 0,
+                            "PrintMarginLeftRight" : 0.5,
+                            "PrintMarginTopBottom" : 0.5,
+                            "PrintWidth" : 650,
+                            "ResponsiveLayout" : true,
+                            "RightSidebar" : false,
+                            "RightSidebarWidth" : 0,
+                            "Rows" : 1,
+                            "ShowDataLoading" : true,
+                            "Spacing" : 0,
+                            "Top" : 75,
+                            "Type" : "layout",
+                            "Visible" : true,
+                            "Z-index" : 10,
+                            "__TypeDisplayName" : "Layout"
+                          },
+                          "Widgets" : [ {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Header",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "container-194",
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : true,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : "DefaultContainerStyle",
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Container"
+                            },
+                            "Widgets" : [ {
+                              "Properties" : {
+                                "Area" : "UI",
+                                "DisplayName" : "Panel-240",
+                                "Height" : 200,
+                                "HideScrollbars" : false,
+                                "HorizontalAnchor" : "left",
+                                "Id" : "Panel-240",
+                                "Left" : 175,
+                                "ResponsiveLayout" : true,
+                                "ShowDataLoading" : true,
+                                "Style" : "TW.RSM.Style.Panel",
+                                "Top" : 45,
+                                "Type" : "panel",
+                                "VerticalAnchor" : "top",
+                                "Visible" : true,
+                                "Width" : 300,
+                                "Z-index" : 10,
+                                "__TypeDisplayName" : "Panel"
+                              },
+                              "Widgets" : [ {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "Area" : "UI",
+                                  "Description" : "",
+                                  "DisplayName" : "Label-214",
+                                  "Height" : 22,
+                                  "Id" : "Label-214",
+                                  "Left" : 10,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Style" : "TW.RSM.Style.GridTitle",
+                                  "Text" : "[[TW.RSM.SFW.Deployment Information]]",
+                                  "ToolTipField" : "",
+                                  "Top" : 10,
+                                  "Type" : "label",
+                                  "Visible" : true,
+                                  "Width" : 930,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Label"
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Area" : "UI",
+                                  "CursorPosition" : 0,
+                                  "DefaultTextboxFocusStyle" : "TW.RSM.Style.TextBoxForeground",
+                                  "DisplayName" : "Textboxvalidate-215",
+                                  "Height" : 24,
+                                  "Id" : "Textboxvalidate-215",
+                                  "InnerShadow" : true,
+                                  "InvalidInputStyle" : "TW.RSM.Style.InvalidInput",
+                                  "Label" : "",
+                                  "LabelAlignment" : "left",
+                                  "Left" : 185,
+                                  "MaskInputCharacters" : false,
+                                  "MaxChars" : 300,
+                                  "PlaceholderText" : "",
+                                  "ReadOnly" : false,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : false,
+                                  "Style" : "DefaultTextBoxStyle",
+                                  "TabSequence" : 0,
+                                  "Text" : "",
+                                  "TextAlign" : "left",
+                                  "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                                  "ToolTip" : "",
+                                  "ToolTipDuration" : 2,
+                                  "ToolTipPosition" : "Lower Right",
+                                  "ToolTipStyles" : ".qtip-shadow",
+                                  "Top" : 35.00001525878906,
+                                  "Type" : "textboxValidate",
+                                  "ValidInputStyle" : "TW.RSM.Style.ValidInput",
+                                  "ValidationHint" : "[[TW.RSM.SFW.Required]]",
+                                  "ValidationHinting" : true,
+                                  "Visible" : true,
+                                  "Width" : 250,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Textboxvalidate",
+                                  "__supportsLabel" : true,
+                                  "isValid" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "Area" : "UI",
+                                  "DisplayName" : "Label-216",
+                                  "Height" : 22,
+                                  "Id" : "Label-216",
+                                  "Left" : 10,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Style" : "TW.RSM.Style.Label",
+                                  "Text" : "[[TW.RSM.SFW.Deployment Name:]]",
+                                  "ToolTipField" : "",
+                                  "Top" : 37,
+                                  "Type" : "label",
+                                  "Visible" : true,
+                                  "Width" : 175,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Label"
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Area" : "UI",
+                                  "CursorPosition" : 0,
+                                  "DefaultTextboxFocusStyle" : "TW.RSM.Style.TextBoxForeground",
+                                  "DisplayName" : "Textbox-217",
+                                  "Height" : 24,
+                                  "Id" : "Textbox-217",
+                                  "InnerShadow" : false,
+                                  "Label" : "",
+                                  "LabelAlignment" : "left",
+                                  "Left" : 185,
+                                  "MaskInputCharacters" : false,
+                                  "PlaceholderText" : "",
+                                  "ReadOnly" : false,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Style" : "TW.RSM.Style.TextBox",
+                                  "TabSequence" : 0,
+                                  "Text" : "",
+                                  "TextAlign" : "left",
+                                  "TextboxLabelStyle" : "TW.RSM.Style.TextBoxLabel",
+                                  "ToolTipField" : "",
+                                  "Top" : 70,
+                                  "Type" : "textbox",
+                                  "Visible" : true,
+                                  "Width" : 250,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Textbox",
+                                  "__supportsLabel" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "Area" : "UI",
+                                  "Description" : "",
+                                  "DisplayName" : "Label-218",
+                                  "Height" : 22,
+                                  "Id" : "Label-218",
+                                  "Left" : 10,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Style" : "TW.RSM.Style.Label",
+                                  "Text" : "[[TW.RSM.SFW.Deployment Description:]]",
+                                  "ToolTipField" : "",
+                                  "Top" : 70,
+                                  "Type" : "label",
+                                  "Visible" : true,
+                                  "Width" : 175,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Label"
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "Area" : "UI",
+                                  "Description" : "",
+                                  "DisplayName" : "Label-223",
+                                  "Height" : 22,
+                                  "Id" : "Label-223",
+                                  "Left" : 10,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Style" : "TW.RSM.Style.GridTitle",
+                                  "Text" : "[[TW.RSM.SFW.Optional Script Parameters]]",
+                                  "ToolTipField" : "",
+                                  "Top" : 115,
+                                  "Type" : "label",
+                                  "Visible" : true,
+                                  "Width" : 930,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Label"
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Area" : "UI",
+                                  "AutoEvaluate" : false,
+                                  "DisplayName" : "Validator-243",
+                                  "Expression" : "requiredDeploymentName.length>0",
+                                  "Height" : 18,
+                                  "Id" : "Validator-243",
+                                  "Left" : 445,
+                                  "Output" : false,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Top" : 109,
+                                  "Type" : "validator",
+                                  "Visible" : true,
+                                  "Width" : 165,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Validator",
+                                  "_currentParameterDefs" : [ {
+                                    "BaseType" : "STRING",
+                                    "Description" : "",
+                                    "ParameterName" : "requiredDeploymentName"
+                                  } ]
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Area" : "UI",
+                                  "AutoEvaluate" : false,
+                                  "DataChangeType" : "VALUE",
+                                  "DisplayName" : "Expression-259",
+                                  "Expression" : "",
+                                  "FireOnFirstValue" : false,
+                                  "Height" : 18,
+                                  "Id" : "Expression-259",
+                                  "Left" : 610,
+                                  "OutputBaseType" : "NUMBER",
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Top" : 129,
+                                  "Type" : "expression",
+                                  "Visible" : true,
+                                  "Width" : 170,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Expression",
+                                  "_currentParameterDefs" : [ {
+                                    "BaseType" : "DATETIME",
+                                    "Description" : "",
+                                    "ParameterName" : "downloadDate"
+                                  }, {
+                                    "BaseType" : "DATETIME",
+                                    "Description" : "",
+                                    "ParameterName" : "installDate"
+                                  }, {
+                                    "BaseType" : "BOOLEAN",
+                                    "Description" : "",
+                                    "ParameterName" : "downloadImmediately"
+                                  }, {
+                                    "BaseType" : "BOOLEAN",
+                                    "Description" : "",
+                                    "ParameterName" : "installImmediately"
+                                  } ]
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Area" : "UI",
+                                  "AutoEvaluate" : false,
+                                  "DisplayName" : "Validator-260",
+                                  "Expression" : "(downloadDate>installDate) && !installImmediately",
+                                  "Height" : 18,
+                                  "Id" : "Validator-260",
+                                  "Left" : 445,
+                                  "Output" : false,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Top" : 149,
+                                  "Type" : "validator",
+                                  "Visible" : true,
+                                  "Width" : 170,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Validator",
+                                  "_currentParameterDefs" : [ {
+                                    "BaseType" : "DATETIME",
+                                    "Description" : "",
+                                    "ParameterName" : "downloadDate"
+                                  }, {
+                                    "BaseType" : "DATETIME",
+                                    "Description" : "",
+                                    "ParameterName" : "installDate"
+                                  }, {
+                                    "BaseType" : "BOOLEAN",
+                                    "Description" : "",
+                                    "ParameterName" : "installImmediately"
+                                  }, {
+                                    "BaseType" : "BOOLEAN",
+                                    "Description" : "",
+                                    "ParameterName" : "downloadImmediately"
+                                  } ]
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Area" : "UI",
+                                  "AutoEvaluate" : true,
+                                  "DataChangeType" : "VALUE",
+                                  "Description" : "",
+                                  "DisplayName" : "Expression-261",
+                                  "Expression" : "!downloadImmediately",
+                                  "FireOnFirstValue" : true,
+                                  "Height" : 18,
+                                  "Id" : "Expression-261",
+                                  "Left" : 610,
+                                  "OutputBaseType" : "BOOLEAN",
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Top" : 109,
+                                  "Type" : "expression",
+                                  "Visible" : true,
+                                  "Width" : 170,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Expression",
+                                  "_currentParameterDefs" : [ {
+                                    "BaseType" : "BOOLEAN",
+                                    "Description" : "",
+                                    "ParameterName" : "downloadImmediately"
+                                  } ]
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Area" : "UI",
+                                  "AutoEvaluate" : true,
+                                  "DataChangeType" : "VALUE",
+                                  "Description" : "",
+                                  "DisplayName" : "Expression-262",
+                                  "Expression" : "!installImmediately",
+                                  "FireOnFirstValue" : true,
+                                  "Height" : 18,
+                                  "Id" : "Expression-262",
+                                  "Left" : 260,
+                                  "OutputBaseType" : "BOOLEAN",
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Top" : 105,
+                                  "Type" : "expression",
+                                  "Visible" : true,
+                                  "Width" : 175,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Expression",
+                                  "_currentParameterDefs" : [ {
+                                    "BaseType" : "BOOLEAN",
+                                    "Description" : "",
+                                    "ParameterName" : "installImmediately"
+                                  } ]
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "Area" : "UI",
+                                  "ClickOutsideToClose" : false,
+                                  "DisplayName" : "Navigation-263",
+                                  "FixedPopupHeight" : 0,
+                                  "FixedPopupWidth" : 0,
+                                  "Height" : 30,
+                                  "IconAlignment" : "left",
+                                  "Id" : "Navigation-263",
+                                  "Left" : 783,
+                                  "MashupName" : "TW.RSM.Mashup.MessageDialog",
+                                  "MashupParameters" : [ {
+                                    "BaseType" : "STRING",
+                                    "Description" : "",
+                                    "ParameterName" : "title",
+                                    "ParmDef" : {
+                                      "aspects" : {
+                                        "ordinal" : "0"
+                                      },
+                                      "baseType" : "STRING",
+                                      "description" : "",
+                                      "name" : "title",
+                                      "ordinal" : 0
+                                    }
+                                  }, {
+                                    "BaseType" : "STRING",
+                                    "Description" : "",
+                                    "ParameterName" : "message",
+                                    "ParmDef" : {
+                                      "aspects" : {
+                                        "ordinal" : "1"
+                                      },
+                                      "baseType" : "STRING",
+                                      "description" : "",
+                                      "name" : "message",
+                                      "ordinal" : 0
+                                    }
+                                  } ],
+                                  "MessageToShow" : "Mashup must be selected",
+                                  "ModalPopupOpacity" : 0.5,
+                                  "NavigationActiveStyle" : "DefaultNavigationActiveStyle",
+                                  "NavigationFocusStyle" : "DefaultNavigationFocusStyle",
+                                  "NavigationHoverStyle" : "DefaultNavigationHoverStyle",
+                                  "PopupScrolling" : "visible",
+                                  "PopupTitle" : "",
+                                  "PopupTitleStyle" : "DefaultPopupTitleStyle",
+                                  "ReloadOnReplace" : false,
+                                  "ResponsiveLayout" : false,
+                                  "RoundedCorners" : true,
+                                  "ShowCloseButton" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowMessageIfNoMashup" : false,
+                                  "Style" : "DefaultNavigationStyle",
+                                  "TabSequence" : 0,
+                                  "TargetWindow" : "popup",
+                                  "Text" : "",
+                                  "ToolTipField" : "",
+                                  "Top" : 90,
+                                  "Transparent" : false,
+                                  "Type" : "navigation",
+                                  "Visible" : false,
+                                  "Width" : 50,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Navigation",
+                                  "message" : "[[TW.RSM.SFW.PackageExpiredMessage]]",
+                                  "title" : "[[TW.RSM.SFW.Package Expired]]"
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Area" : "UI",
+                                  "AutoEvaluate" : false,
+                                  "Description" : "",
+                                  "DisplayName" : "Validator-264",
+                                  "Expression" : "expirationDate < new Date()",
+                                  "Height" : 18,
+                                  "Id" : "Validator-264",
+                                  "Left" : 445,
+                                  "Output" : false,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Top" : 129,
+                                  "Type" : "validator",
+                                  "Visible" : true,
+                                  "Width" : 170,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Validator",
+                                  "_currentParameterDefs" : [ {
+                                    "BaseType" : "DATETIME",
+                                    "Description" : "",
+                                    "ParameterName" : "expirationDate"
+                                  } ]
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "center",
+                                  "Area" : "UI",
+                                  "ClickOutsideToClose" : false,
+                                  "Description" : "",
+                                  "DisplayName" : "Navigation-266",
+                                  "FixedPopupHeight" : 0,
+                                  "FixedPopupWidth" : 0,
+                                  "Height" : 30,
+                                  "IconAlignment" : "left",
+                                  "Id" : "Navigation-266",
+                                  "Left" : 890,
+                                  "MashupName" : "TW.RSM.Mashup.MessageDialog",
+                                  "MashupParameters" : [ {
+                                    "BaseType" : "STRING",
+                                    "Description" : "",
+                                    "ParameterName" : "title",
+                                    "ParmDef" : {
+                                      "aspects" : {
+                                        "ordinal" : "0"
+                                      },
+                                      "baseType" : "STRING",
+                                      "description" : "",
+                                      "name" : "title",
+                                      "ordinal" : 0
+                                    }
+                                  }, {
+                                    "BaseType" : "STRING",
+                                    "Description" : "",
+                                    "ParameterName" : "message",
+                                    "ParmDef" : {
+                                      "aspects" : {
+                                        "ordinal" : "1"
+                                      },
+                                      "baseType" : "STRING",
+                                      "description" : "",
+                                      "name" : "message",
+                                      "ordinal" : 0
+                                    }
+                                  } ],
+                                  "MessageToShow" : "Mashup must be selected",
+                                  "ModalPopupOpacity" : 0.5,
+                                  "NavigationActiveStyle" : "DefaultNavigationActiveStyle",
+                                  "NavigationFocusStyle" : "DefaultNavigationFocusStyle",
+                                  "NavigationHoverStyle" : "DefaultNavigationHoverStyle",
+                                  "PopupScrolling" : "visible",
+                                  "PopupTitle" : "",
+                                  "PopupTitleStyle" : "DefaultPopupTitleStyle",
+                                  "ReloadOnReplace" : false,
+                                  "ResponsiveLayout" : false,
+                                  "RoundedCorners" : true,
+                                  "ShowCloseButton" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowMessageIfNoMashup" : false,
+                                  "Style" : "DefaultNavigationStyle",
+                                  "TabSequence" : 0,
+                                  "TargetWindow" : "popup",
+                                  "Text" : "",
+                                  "ToolTipField" : "",
+                                  "Top" : 90,
+                                  "Transparent" : false,
+                                  "Type" : "navigation",
+                                  "Visible" : false,
+                                  "Width" : 50,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Navigation",
+                                  "message" : "[[TW.UTL.SFW.InstallDateMustBeGreaterThanDownloadDate]]",
+                                  "title" : "[[TW.UTL.SFW.InvalidInstallationDate]]"
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "Area" : "UI",
+                                  "ClickOutsideToClose" : false,
+                                  "DisplayName" : "Navigation-265",
+                                  "FixedPopupHeight" : 0,
+                                  "FixedPopupWidth" : 0,
+                                  "Height" : 30,
+                                  "IconAlignment" : "left",
+                                  "Id" : "Navigation-265",
+                                  "Left" : 837,
+                                  "MashupName" : "TW.RSM.SFW.Mashup.FindPackageForDeployment",
+                                  "MashupParameters" : [ ],
+                                  "MessageToShow" : "Mashup must be selected",
+                                  "ModalPopupOpacity" : 0.5,
+                                  "NavigationActiveStyle" : "DefaultNavigationActiveStyle",
+                                  "NavigationFocusStyle" : "DefaultNavigationFocusStyle",
+                                  "NavigationHoverStyle" : "DefaultNavigationHoverStyle",
+                                  "PopupScrolling" : "auto",
+                                  "PopupTitle" : "",
+                                  "PopupTitleStyle" : "DefaultPopupTitleStyle",
+                                  "ReloadOnReplace" : false,
+                                  "ResponsiveLayout" : false,
+                                  "RoundedCorners" : true,
+                                  "ShowCloseButton" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowMessageIfNoMashup" : false,
+                                  "Style" : "DefaultNavigationStyle",
+                                  "TabSequence" : 0,
+                                  "TargetWindow" : "replace",
+                                  "Text" : "",
+                                  "ToolTipField" : "",
+                                  "Top" : 90,
+                                  "Transparent" : false,
+                                  "Type" : "navigation",
+                                  "Visible" : false,
+                                  "Width" : 50,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Navigation"
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Area" : "UI",
+                                  "Description" : "",
+                                  "Disabled" : false,
+                                  "DisplayName" : "CDN checkbox",
+                                  "FocusStyle" : "DefaultFocusStyle",
+                                  "Height" : 20,
+                                  "Id" : "checkbox-268",
+                                  "Left" : 630,
+                                  "Prompt" : "",
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "State" : false,
+                                  "Style" : "DefaultCheckboxStyle",
+                                  "TabSequence" : 0,
+                                  "ToolTipField" : "",
+                                  "Top" : 37,
+                                  "Type" : "checkbox",
+                                  "Visible" : false,
+                                  "Width" : 55,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "checkbox"
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "Area" : "UI",
+                                  "DisplayName" : "CDN Label",
+                                  "Height" : 22,
+                                  "Id" : "Label-269",
+                                  "Left" : 475,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Style" : "TW.RSM.Style.Label",
+                                  "Text" : "[[TW.RSM.SFW.UseCDN:]]",
+                                  "ToolTipField" : "",
+                                  "Top" : 37,
+                                  "Type" : "label",
+                                  "Visible" : false,
+                                  "Width" : 150,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Label"
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Area" : "UI",
+                                  "AutoEvaluate" : true,
+                                  "DataChangeType" : "VALUE",
+                                  "Description" : "",
+                                  "DisplayName" : "CdnInitialValueExp",
+                                  "Expression" : "cdnAvail && packValue",
+                                  "FireOnFirstValue" : false,
+                                  "Height" : 18,
+                                  "Id" : "expression-270",
+                                  "Left" : 610,
+                                  "OutputBaseType" : "BOOLEAN",
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : false,
+                                  "Top" : 149,
+                                  "Type" : "expression",
+                                  "Visible" : true,
+                                  "Width" : 170,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "expression",
+                                  "_currentParameterDefs" : [ {
+                                    "BaseType" : "BOOLEAN",
+                                    "Description" : "",
+                                    "ParameterName" : "cdnAvail"
+                                  }, {
+                                    "BaseType" : "BOOLEAN",
+                                    "Description" : "",
+                                    "ParameterName" : "packValue"
+                                  } ]
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "Area" : "UI",
+                                  "Description" : "",
+                                  "DisplayName" : "label-272",
+                                  "Height" : 22,
+                                  "Id" : "label-272",
+                                  "Left" : 475,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Style" : "TW.RSM.Style.Label",
+                                  "Text" : "[[TW.RSM.SFW.AutoRetry Count:]]",
+                                  "ToolTipField" : "",
+                                  "Top" : 70,
+                                  "Type" : "label",
+                                  "Visible" : false,
+                                  "Width" : 100,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Label"
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "AllowDecimals" : false,
+                                  "AllowNegatives" : false,
+                                  "Area" : "UI",
+                                  "ConstrainValue" : false,
+                                  "Description" : "",
+                                  "DisplayName" : "numericentry-274",
+                                  "FixedDigits" : 0,
+                                  "Height" : 24,
+                                  "Id" : "numericentry-274",
+                                  "InnerShadow" : true,
+                                  "Label" : "",
+                                  "LabelAlignment" : "left",
+                                  "Left" : 630,
+                                  "Maximum" : 100,
+                                  "Minimum" : 0,
+                                  "NumericEntryFocusStyle" : "DefaultFocusStyle",
+                                  "NumericEntryLabelStyle" : "DefaultWidgetLabelStyle",
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Style" : "DefaultTextBoxStyle",
+                                  "TabSequence" : 0,
+                                  "ToolTipField" : "",
+                                  "Top" : 69,
+                                  "Type" : "numericentry",
+                                  "Value" : 0,
+                                  "ValueAlign" : "right",
+                                  "Visible" : false,
+                                  "Width" : 55,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Numeric Entry",
+                                  "__supportsLabel" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Area" : "UI",
+                                  "AutoEvaluate" : true,
+                                  "DataChangeType" : "VALUE",
+                                  "Description" : "",
+                                  "DisplayName" : "expression-276",
+                                  "Expression" : "autoRetryOn ? retryMaxCount : 0",
+                                  "FireOnFirstValue" : true,
+                                  "Height" : 28,
+                                  "Id" : "expression-276",
+                                  "Left" : 715,
+                                  "OutputBaseType" : "NUMBER",
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Top" : 15,
+                                  "Type" : "expression",
+                                  "Visible" : true,
+                                  "Width" : 200,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Expression",
+                                  "_currentParameterDefs" : [ {
+                                    "BaseType" : "BOOLEAN",
+                                    "Description" : "",
+                                    "ParameterName" : "autoRetryOn"
+                                  }, {
+                                    "BaseType" : "NUMBER",
+                                    "Description" : "",
+                                    "ParameterName" : "retryMaxCount"
+                                  } ]
+                                },
+                                "Widgets" : [ ]
+                              } ]
+                            } ]
+                          }, {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Row 1",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "container-195",
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : true,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : "DefaultContainerStyle",
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Container"
+                            },
+                            "Widgets" : [ {
+                              "Properties" : {
+                                "Area" : "UI",
+                                "Columns" : 0,
+                                "DisplayName" : "Layout-233",
+                                "Footer" : false,
+                                "FooterHeight" : 0,
+                                "Header" : true,
+                                "HeaderHeight" : 240,
+                                "Id" : "Layout-233",
+                                "IncludeSpacingInFixedAreas" : false,
+                                "IsPrintLayout" : false,
+                                "Left" : 180,
+                                "LeftSidebar" : false,
+                                "LeftSidebarWidth" : 0,
+                                "Orientation" : "vertical",
+                                "PctColumn1" : 50,
+                                "PctColumn2" : 50,
+                                "PctColumn3" : 1,
+                                "PctColumn4" : 1,
+                                "PctColumn5" : 1,
+                                "PctColumn6" : 1,
+                                "PctColumn7" : 1,
+                                "PctColumn8" : 1,
+                                "PctRow1" : 100,
+                                "PctRow2" : 0,
+                                "PctRow3" : 0,
+                                "PctRow4" : 0,
+                                "PctRow5" : 0,
+                                "PctRow6" : 0,
+                                "PctRow7" : 0,
+                                "PctRow8" : 0,
+                                "PrintMarginLeftRight" : 0.5,
+                                "PrintMarginTopBottom" : 0.5,
+                                "PrintWidth" : 650,
+                                "ResponsiveLayout" : true,
+                                "RightSidebar" : false,
+                                "RightSidebarWidth" : 0,
+                                "Rows" : 1,
+                                "ShowDataLoading" : true,
+                                "Spacing" : 0,
+                                "Top" : 140,
+                                "Type" : "layout",
+                                "Visible" : true,
+                                "Z-index" : 10,
+                                "__TypeDisplayName" : "Layout"
+                              },
+                              "Widgets" : [ {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "Description" : "",
+                                  "DisplayName" : "Header",
+                                  "ExpandCollapseTabLocation" : "outside",
+                                  "Expanded" : false,
+                                  "Id" : "container-234",
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : true,
+                                  "Style" : "TW.RSM.Style.Panel",
+                                  "TabCollapseStyle" : "TW.RSM.Style.CloseVertically",
+                                  "TabExpandStyle" : "TW.RSM.Style.OpenVertically",
+                                  "TabHeight" : 20,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 2,
+                                  "TabWidth" : 20,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container"
+                                },
+                                "Widgets" : [ {
+                                  "Properties" : {
+                                    "Area" : "UI",
+                                    "DisplayName" : "Panel-222",
+                                    "Height" : 200,
+                                    "HideScrollbars" : false,
+                                    "HorizontalAnchor" : "left",
+                                    "Id" : "Panel-222",
+                                    "Left" : 180,
+                                    "ResponsiveLayout" : true,
+                                    "ShowDataLoading" : true,
+                                    "Style" : "TW.RSM.Style.Panel",
+                                    "Top" : 40,
+                                    "Type" : "panel",
+                                    "VerticalAnchor" : "top",
+                                    "Visible" : true,
+                                    "Width" : 300,
+                                    "Z-index" : 10,
+                                    "__TypeDisplayName" : "Panel"
+                                  },
+                                  "Widgets" : [ {
+                                    "Properties" : {
+                                      "Alignment" : "left",
+                                      "Area" : "UI",
+                                      "DisplayName" : "Label-224",
+                                      "Height" : 22,
+                                      "Id" : "Label-224",
+                                      "Left" : 10,
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Style" : "TW.RSM.Style.Label",
+                                      "Text" : "[[TW.RSM.SFW.Parameter Name:]]",
+                                      "ToolTipField" : "",
+                                      "Top" : 37.986114501953125,
+                                      "Type" : "label",
+                                      "Visible" : true,
+                                      "Width" : 175,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Label"
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "ActiveStyle" : "TW.RSM.Style.AddIconHover",
+                                      "Area" : "UI",
+                                      "CancelConfirmationButton" : "button2",
+                                      "ConfirmationButton1Label" : "[[TW.RSM.SFW.Yes]]",
+                                      "ConfirmationButton2Label" : "[[TW.RSM.SFW.No]]",
+                                      "ConfirmationPrompt" : "[[TW.RSM.SFW.Are you sure you want to delete the selected file?]]",
+                                      "ConfirmationRequired" : false,
+                                      "ConfirmationTitle" : "[[TW.RSM.SFW.Delete File?]]",
+                                      "ContextId" : "",
+                                      "DefaultConfirmationButton" : "button1",
+                                      "Disabled" : false,
+                                      "DisabledStyle" : "TW.RSM.Style.AddIcon",
+                                      "DisplayName" : "ButtonTooltip-225",
+                                      "FocusStyle" : "TW.RSM.Style.AddIcon",
+                                      "Height" : 25,
+                                      "HoverStyle" : "TW.RSM.Style.AddIconHover",
+                                      "IconAlignment" : "left",
+                                      "Id" : "ButtonTooltip-225",
+                                      "Label" : "",
+                                      "Left" : 790.0000305175781,
+                                      "ResponsiveLayout" : false,
+                                      "RoundedCorners" : false,
+                                      "ShowDataLoading" : true,
+                                      "Style" : "TW.RSM.Style.AddIcon",
+                                      "TabSequence" : 0,
+                                      "ToolTipDuration" : 2,
+                                      "ToolTipField" : "[[TW.RSM.SFW.Add Script Parameter]]",
+                                      "ToolTipPosition" : "top right,bottom left",
+                                      "ToolTipStyles" : "qtip-green",
+                                      "Top" : 40.97222900390625,
+                                      "Type" : "button",
+                                      "Visible" : true,
+                                      "Width" : 40,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Button"
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "Area" : "UI",
+                                      "CursorPosition" : 0,
+                                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                                      "DisplayName" : "Textboxvalidate-226",
+                                      "Height" : 24,
+                                      "Id" : "Textboxvalidate-226",
+                                      "InnerShadow" : false,
+                                      "InvalidInputStyle" : "TW.RSM.Style.InvalidInput",
+                                      "Label" : "",
+                                      "LabelAlignment" : "left",
+                                      "Left" : 185,
+                                      "MaskInputCharacters" : false,
+                                      "MaxChars" : 300,
+                                      "PlaceholderText" : "",
+                                      "ReadOnly" : false,
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Style" : "DefaultTextBoxStyle",
+                                      "TabSequence" : 0,
+                                      "Text" : "",
+                                      "TextAlign" : "left",
+                                      "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                                      "ToolTip" : "",
+                                      "ToolTipDuration" : 2,
+                                      "ToolTipPosition" : "Lower Right",
+                                      "ToolTipStyles" : ".qtip-shadow",
+                                      "Top" : 41.9444580078125,
+                                      "Type" : "textboxValidate",
+                                      "ValidInputStyle" : "TW.RSM.Style.ValidInput",
+                                      "ValidationHint" : "[[TW.RSM.SFW.Required]]",
+                                      "ValidationHinting" : true,
+                                      "Visible" : true,
+                                      "Width" : 250,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Textboxvalidate",
+                                      "__supportsLabel" : true,
+                                      "isValid" : true
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "Area" : "UI",
+                                      "CursorPosition" : 0,
+                                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                                      "DisplayName" : "Textboxvalidate-227",
+                                      "Height" : 24,
+                                      "Id" : "Textboxvalidate-227",
+                                      "InnerShadow" : false,
+                                      "InvalidInputStyle" : "TW.RSM.Style.InvalidInput",
+                                      "Label" : "",
+                                      "LabelAlignment" : "left",
+                                      "Left" : 540,
+                                      "MaskInputCharacters" : false,
+                                      "MaxChars" : 300,
+                                      "PlaceholderText" : "",
+                                      "ReadOnly" : false,
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Style" : "DefaultTextBoxStyle",
+                                      "TabSequence" : 0,
+                                      "Text" : "",
+                                      "TextAlign" : "left",
+                                      "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                                      "ToolTip" : "",
+                                      "ToolTipDuration" : 2,
+                                      "ToolTipPosition" : "Lower Right",
+                                      "ToolTipStyles" : ".qtip-shadow",
+                                      "Top" : 41.9444580078125,
+                                      "Type" : "textboxValidate",
+                                      "ValidInputStyle" : "TW.RSM.Style.ValidInput",
+                                      "ValidationHint" : "[[TW.RSM.SFW.Required]]",
+                                      "ValidationHinting" : true,
+                                      "Visible" : true,
+                                      "Width" : 250,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Textboxvalidate",
+                                      "__supportsLabel" : true,
+                                      "isValid" : true
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "Alignment" : "left",
+                                      "Area" : "UI",
+                                      "Description" : "",
+                                      "DisplayName" : "Label-228",
+                                      "Height" : 22,
+                                      "Id" : "Label-228",
+                                      "Left" : 440.0000305175781,
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Style" : "TW.RSM.Style.Label",
+                                      "Text" : "[[TW.RSM.SFW.Value:]]",
+                                      "ToolTipField" : "",
+                                      "Top" : 42.986114501953125,
+                                      "Type" : "label",
+                                      "Visible" : true,
+                                      "Width" : 155,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Label"
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "ActiveStyle" : "TW.RSM.Style.DeleteIconRollover",
+                                      "Area" : "UI",
+                                      "CancelConfirmationButton" : "button2",
+                                      "ConfirmationButton1Label" : "[[TW.RSM.SFW.Yes]]",
+                                      "ConfirmationButton2Label" : "[[TW.RSM.SFW.No]]",
+                                      "ConfirmationPrompt" : "[[TW.RSM.SFW.Are you sure you want to remove the selected parameter?]]",
+                                      "ConfirmationRequired" : true,
+                                      "ConfirmationTitle" : "[[TW.RSM.SFW.Remove Parameter]]",
+                                      "ContextId" : "",
+                                      "DefaultConfirmationButton" : "button1",
+                                      "Disabled" : false,
+                                      "DisabledStyle" : "TW.RSM.Style.DeleteIcon",
+                                      "DisplayName" : "ButtonTooltip-229",
+                                      "FocusStyle" : "TW.RSM.Style.DeleteIcon",
+                                      "Height" : 25,
+                                      "HoverStyle" : "TW.RSM.Style.DeleteIconRollover",
+                                      "IconAlignment" : "left",
+                                      "Id" : "ButtonTooltip-229",
+                                      "Label" : "",
+                                      "Left" : 901.9966125488281,
+                                      "ResponsiveLayout" : false,
+                                      "RoundedCorners" : false,
+                                      "ShowDataLoading" : true,
+                                      "Style" : "TW.RSM.Style.DeleteIcon",
+                                      "TabSequence" : 0,
+                                      "ToolTipDuration" : 2,
+                                      "ToolTipField" : "[[TW.RSM.SFW.Remove Script Parameter]]",
+                                      "ToolTipPosition" : "top right,bottom left",
+                                      "ToolTipStyles" : "qtip-green",
+                                      "TooltipDuration" : 2,
+                                      "Top" : 75,
+                                      "Type" : "button",
+                                      "Visible" : true,
+                                      "Width" : 30,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Button"
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "Alignment" : "right",
+                                      "Area" : "UI",
+                                      "DisplayName" : "Label-230",
+                                      "Height" : 22,
+                                      "Id" : "Label-230",
+                                      "Left" : 680,
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Style" : "TW.RSM.Style.Label",
+                                      "Text" : "[[TW.RSM.SFW.Table Row Actions:]]",
+                                      "ToolTipField" : "",
+                                      "Top" : 80,
+                                      "Type" : "label",
+                                      "Visible" : true,
+                                      "Width" : 200,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Label"
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "Alignment" : "left",
+                                      "Area" : "UI",
+                                      "DisplayName" : "Label-231",
+                                      "Height" : 22,
+                                      "Id" : "Label-231",
+                                      "Left" : 10,
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Style" : "TW.RSM.Style.Label",
+                                      "Text" : "[[TW.RSM.SFW.Script Parameters]]",
+                                      "ToolTipField" : "",
+                                      "Top" : 80,
+                                      "Type" : "label",
+                                      "Visible" : true,
+                                      "Width" : 200,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Label"
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "AlignHeader" : false,
+                                      "Area" : "UI",
+                                      "AutoSelectFirstRow" : false,
+                                      "CellTextWrapping" : true,
+                                      "ColumnFormat" : {
+                                        "formatInfo" : [ {
+                                          "Align" : "left",
+                                          "AllowEdit" : false,
+                                          "FieldName" : "Name",
+                                          "FormatOptions" : {
+                                            "FormatString" : "full",
+                                            "formatInfo" : {
+                                              "FieldName" : "",
+                                              "StateDefinition" : "",
+                                              "StateDefinitionType" : "fixed",
+                                              "StateFormats" : [ {
+                                                "state" : "",
+                                                "stateName" : "fixed"
+                                              } ]
+                                            },
+                                            "renderer" : "STRING"
+                                          },
+                                          "Title" : "[[TW.RSM.SFW.Name]]",
+                                          "ValidationExpression" : "",
+                                          "ValidationMessage" : "",
+                                          "Width" : "221"
+                                        }, {
+                                          "Align" : "left",
+                                          "AllowEdit" : false,
+                                          "FieldName" : "Value",
+                                          "FormatOptions" : {
+                                            "FormatString" : "full",
+                                            "formatInfo" : {
+                                              "FieldName" : "",
+                                              "StateDefinition" : "",
+                                              "StateDefinitionType" : "fixed",
+                                              "StateFormats" : [ {
+                                                "state" : "",
+                                                "stateName" : "fixed"
+                                              } ]
+                                            },
+                                            "renderer" : "STRING"
+                                          },
+                                          "Title" : "[[TW.RSM.SFW.Value]]",
+                                          "ValidationExpression" : "",
+                                          "ValidationMessage" : "",
+                                          "Width" : "221"
+                                        } ]
+                                      },
+                                      "CurrentScrollTop" : 0,
+                                      "DisplayName" : "Grid-232",
+                                      "FocusStyle" : "DefaultFocusStyle",
+                                      "GridBackgroundStyle" : "TW.RSM.Style.GridBackground",
+                                      "GridEditableFieldStyle" : "TW.RSM.Style.GridEditableField",
+                                      "GridHeaderStyle" : "TW.RSM.Style.GridHeader",
+                                      "GridHeaderTextCase" : "none",
+                                      "GridInvalidFieldStyle" : "TW.RSM.Style.GridInvalidField",
+                                      "Height" : 130,
+                                      "Id" : "Grid-232",
+                                      "IsEditable" : false,
+                                      "IsPrintLayout" : false,
+                                      "Left" : 10,
+                                      "MultiSelect" : false,
+                                      "ResponsiveLayout" : false,
+                                      "RowAlternateBackgroundStyle" : "TW.RSM.Style.GridRowAlternateBackgroundStyle",
+                                      "RowBackgroundStyle" : "TW.RSM.Style.GridRowBackgroundStyle",
+                                      "RowFormat_StateParameters" : [ ],
+                                      "RowHeight" : 30,
+                                      "RowHoverStyle" : "TW.RSM.Style.GridHoverStyle",
+                                      "RowSelectedStyle" : "PTC.Core.Accent2RowSelectedStyle",
+                                      "ScrollTop" : 0,
+                                      "ShowAllColumns" : false,
+                                      "ShowDataLoading" : true,
+                                      "TabSequence" : 0,
+                                      "Top" : 102,
+                                      "Type" : "dhxgrid",
+                                      "Visible" : true,
+                                      "Width" : 936,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Grid"
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "Alignment" : "left",
+                                      "Area" : "UI",
+                                      "DisplayName" : "Label-241",
+                                      "Height" : 22,
+                                      "Id" : "Label-241",
+                                      "Left" : 10,
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Style" : "TW.RSM.Style.Label",
+                                      "Text" : "[[TW.RSM.SFW.Script Name:]]",
+                                      "ToolTipField" : "",
+                                      "Top" : 4.5,
+                                      "Type" : "label",
+                                      "Visible" : true,
+                                      "Width" : 175,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Label"
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "Alignment" : "left",
+                                      "Area" : "UI",
+                                      "DisplayName" : "Label-242",
+                                      "Height" : 22,
+                                      "Id" : "Label-242",
+                                      "Left" : 185,
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Style" : "TW.RSM.Style.LabelValue",
+                                      "Text" : "",
+                                      "ToolTipField" : "",
+                                      "Top" : 5,
+                                      "Type" : "label",
+                                      "Visible" : true,
+                                      "Width" : 606,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Label"
+                                    },
+                                    "Widgets" : [ ]
+                                  } ]
+                                } ]
+                              }, {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "DisplayName" : "Row 1",
+                                  "ExpandCollapseTabLocation" : "outside",
+                                  "Expanded" : true,
+                                  "Id" : "container-235",
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : false,
+                                  "Style" : "DefaultContainerStyle",
+                                  "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                  "TabExpandStyle" : "DefaultTabExpandStyle",
+                                  "TabHeight" : 36,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 0,
+                                  "TabWidth" : 36,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container"
+                                },
+                                "Widgets" : [ {
+                                  "Properties" : {
+                                    "Area" : "UI",
+                                    "DisplayName" : "Panel-237",
+                                    "Height" : 200,
+                                    "HideScrollbars" : false,
+                                    "HorizontalAnchor" : "left",
+                                    "Id" : "Panel-237",
+                                    "Left" : 150,
+                                    "ResponsiveLayout" : true,
+                                    "ShowDataLoading" : true,
+                                    "Style" : "TW.RSM.Style.Panel",
+                                    "Top" : 10,
+                                    "Type" : "panel",
+                                    "VerticalAnchor" : "top",
+                                    "Visible" : true,
+                                    "Width" : 300,
+                                    "Z-index" : 10,
+                                    "__TypeDisplayName" : "Panel"
+                                  },
+                                  "Widgets" : [ {
+                                    "Properties" : {
+                                      "Alignment" : "center",
+                                      "Area" : "UI",
+                                      "ClickOutsideToClose" : false,
+                                      "DisplayName" : "Navigation-244",
+                                      "FixedPopupHeight" : 0,
+                                      "FixedPopupWidth" : 0,
+                                      "Height" : 30,
+                                      "IconAlignment" : "left",
+                                      "Id" : "Navigation-244",
+                                      "Left" : 655,
+                                      "MashupName" : "TW.RSM.SFW.Mashup.TargetAssets",
+                                      "MashupParameters" : [ {
+                                        "BaseType" : "STRING",
+                                        "Description" : "",
+                                        "ParameterName" : "packageName",
+                                        "ParmDef" : {
+                                          "aspects" : {
+                                            "ordinal" : "0"
+                                          },
+                                          "baseType" : "STRING",
+                                          "description" : "",
+                                          "name" : "packageName",
+                                          "ordinal" : 0
+                                        }
+                                      }, {
+                                        "BaseType" : "BOOLEAN",
+                                        "Description" : "",
+                                        "ParameterName" : "ShowBack",
+                                        "ParmDef" : {
+                                          "aspects" : {
+                                            "ordinal" : "1"
+                                          },
+                                          "baseType" : "BOOLEAN",
+                                          "description" : "",
+                                          "name" : "ShowBack",
+                                          "ordinal" : 0
+                                        }
+                                      } ],
+                                      "MessageToShow" : "Mashup must be selected",
+                                      "ModalPopupOpacity" : 0.5,
+                                      "NavigationActiveStyle" : "DefaultNavigationActiveStyle",
+                                      "NavigationFocusStyle" : "DefaultNavigationFocusStyle",
+                                      "NavigationHoverStyle" : "DefaultNavigationHoverStyle",
+                                      "PopupScrolling" : "auto",
+                                      "PopupTitle" : "",
+                                      "PopupTitleStyle" : "DefaultPopupTitleStyle",
+                                      "ReloadOnReplace" : false,
+                                      "ResponsiveLayout" : false,
+                                      "RoundedCorners" : true,
+                                      "ShowCloseButton" : true,
+                                      "ShowDataLoading" : true,
+                                      "ShowMessageIfNoMashup" : false,
+                                      "Style" : "DefaultNavigationStyle",
+                                      "TabSequence" : 0,
+                                      "TargetWindow" : "replace",
+                                      "Text" : "",
+                                      "ToolTipField" : "",
+                                      "Top" : 110,
+                                      "Transparent" : false,
+                                      "Type" : "navigation",
+                                      "Visible" : false,
+                                      "Width" : 50,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Navigation"
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "ActiveStyle" : "PTC.Core.ButtonActiveStyle",
+                                      "Area" : "UI",
+                                      "CancelConfirmationButton" : "button2",
+                                      "ConfirmationButton1Label" : "[[TW.RSM.SFW.Yes]]",
+                                      "ConfirmationButton2Label" : "[[TW.RSM.SFW.No]]",
+                                      "ConfirmationPrompt" : "[[TW.RSM.SFW.Do Action?]]",
+                                      "ConfirmationRequired" : false,
+                                      "ConfirmationTitle" : "[[TW.RSM.SFW.Confirm Action]]",
+                                      "ContextId" : "",
+                                      "DefaultConfirmationButton" : "button1",
+                                      "Disabled" : false,
+                                      "DisabledStyle" : "TW.RSM.Style.ButtonDisabled",
+                                      "DisplayName" : "Button-246",
+                                      "FocusStyle" : "PTC.Core.ButtonFocusStyle",
+                                      "Height" : 30,
+                                      "HoverStyle" : "PTC.Core.Accent2ButtonHoverStyle",
+                                      "IconAlignment" : "left",
+                                      "Id" : "Button-246",
+                                      "Label" : "[[TW.RSM.SFW.NEXT]]",
+                                      "Left" : 855.0000305175781,
+                                      "ResponsiveLayout" : false,
+                                      "RoundedCorners" : false,
+                                      "ShowDataLoading" : true,
+                                      "Style" : "PTC.Core.Accent2ButtonStyle",
+                                      "TabSequence" : 0,
+                                      "ToolTipField" : "",
+                                      "Top" : 120,
+                                      "Type" : "button",
+                                      "Visible" : true,
+                                      "Width" : 75,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Button"
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "Area" : "UI",
+                                      "DisplayName" : "Fieldset-248",
+                                      "FieldsetLabelStyle" : "TW.RSM.Style.FieldSetLabel",
+                                      "FieldsetStyle" : "TW.RSM.Style.FieldSetPanel",
+                                      "Height" : 80,
+                                      "Id" : "Fieldset-248",
+                                      "Left" : 10,
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Title" : "",
+                                      "Top" : 25,
+                                      "Type" : "fieldset",
+                                      "Visible" : true,
+                                      "Width" : 465,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Fieldset"
+                                    },
+                                    "Widgets" : [ {
+                                      "Properties" : {
+                                        "Area" : "UI",
+                                        "DateDelimiter" : "-",
+                                        "DateDisplay" : "numeric",
+                                        "DateFormat" : "yy-mm-dd",
+                                        "DateFormatToken" : "",
+                                        "DateOnly" : false,
+                                        "DateOrder" : "yy-mm-dd",
+                                        "DisplayName" : "DateTimePicker-249",
+                                        "DisplaySeconds" : true,
+                                        "Height" : 28,
+                                        "Id" : "DateTimePicker-249",
+                                        "InitializeWithCurrentDateTime" : true,
+                                        "Interval" : 0,
+                                        "IntervalType" : "h",
+                                        "Label" : "",
+                                        "Left" : 170,
+                                        "ResponsiveLayout" : false,
+                                        "ShowDataLoading" : true,
+                                        "Style" : "TW.RSM.Style.DatePicker",
+                                        "TabSequence" : 0,
+                                        "TimeFormat" : "hh:mm:ss",
+                                        "ToolTipField" : "",
+                                        "Top" : 40,
+                                        "Type" : "datetimepicker",
+                                        "Visible" : true,
+                                        "Width" : 135,
+                                        "Z-index" : 10,
+                                        "__TypeDisplayName" : "Date Time Picker",
+                                        "__supportsLabel" : true
+                                      },
+                                      "Widgets" : [ ]
+                                    }, {
+                                      "Properties" : {
+                                        "Area" : "UI",
+                                        "ButtonStates" : "TW.RSM.SFW.StateDef.DeploymentTime",
+                                        "ButtonTextOverflow" : "wrap",
+                                        "DisplayName" : "RadioButton-250",
+                                        "Height" : 28,
+                                        "Id" : "RadioButton-250",
+                                        "Left" : 10,
+                                        "Orientation" : "horz",
+                                        "RadioButtonDepressedStyle" : "PTC.Core.Accent2RadioButtonDepressedStyle",
+                                        "RadioButtonStyle" : "TW.RSM.Style.RadioButton",
+                                        "ReadOnly" : false,
+                                        "ResponsiveLayout" : false,
+                                        "ShowDataLoading" : true,
+                                        "State false Label" : "[[TW.RSM.SFW.Date:]]",
+                                        "State true Label" : "[[TW.RSM.SFW.Immediately]]",
+                                        "Top" : 40,
+                                        "Type" : "radiobuttonlist",
+                                        "Visible" : true,
+                                        "Width" : 180,
+                                        "Z-index" : 10,
+                                        "__TypeDisplayName" : "Radio Button"
+                                      },
+                                      "Widgets" : [ ]
+                                    }, {
+                                      "Properties" : {
+                                        "Alignment" : "left",
+                                        "Area" : "UI",
+                                        "Description" : "",
+                                        "DisplayName" : "Label-251",
+                                        "Height" : 22,
+                                        "Id" : "Label-251",
+                                        "Left" : 10,
+                                        "ResponsiveLayout" : false,
+                                        "ShowDataLoading" : true,
+                                        "Style" : "TW.RSM.Style.GridTitle",
+                                        "Text" : "[[TW.RSM.SFW.Package Download Time]]",
+                                        "ToolTipField" : "",
+                                        "Top" : 10,
+                                        "Type" : "label",
+                                        "Visible" : true,
+                                        "Width" : 400,
+                                        "Z-index" : 10,
+                                        "__TypeDisplayName" : "Label"
+                                      },
+                                      "Widgets" : [ ]
+                                    } ]
+                                  }, {
+                                    "Properties" : {
+                                      "Area" : "UI",
+                                      "DisplayName" : "Fieldset-253",
+                                      "FieldsetLabelStyle" : "TW.RSM.Style.FieldSetLabel",
+                                      "FieldsetStyle" : "TW.RSM.Style.FieldSetPanel",
+                                      "Height" : 80,
+                                      "Id" : "Fieldset-253",
+                                      "Left" : 480.0000305175781,
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Title" : "",
+                                      "Top" : 25,
+                                      "Type" : "fieldset",
+                                      "Visible" : true,
+                                      "Width" : 465,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Fieldset"
+                                    },
+                                    "Widgets" : [ {
+                                      "Properties" : {
+                                        "Area" : "UI",
+                                        "DateDelimiter" : "-",
+                                        "DateDisplay" : "numeric",
+                                        "DateFormat" : "yy-mm-dd",
+                                        "DateFormatToken" : "",
+                                        "DateOnly" : false,
+                                        "DateOrder" : "yy-mm-dd",
+                                        "DisplayName" : "DateTimePicker-254",
+                                        "DisplaySeconds" : true,
+                                        "Height" : 28,
+                                        "Id" : "DateTimePicker-254",
+                                        "InitializeWithCurrentDateTime" : true,
+                                        "Interval" : 0,
+                                        "IntervalType" : "h",
+                                        "Label" : "",
+                                        "Left" : 170,
+                                        "ResponsiveLayout" : false,
+                                        "ShowDataLoading" : true,
+                                        "Style" : "TW.RSM.Style.DatePicker",
+                                        "TabSequence" : 0,
+                                        "TimeFormat" : "hh:mm:ss",
+                                        "ToolTipField" : "",
+                                        "Top" : 40,
+                                        "Type" : "datetimepicker",
+                                        "Visible" : true,
+                                        "Width" : 135,
+                                        "Z-index" : 10,
+                                        "__TypeDisplayName" : "Date Time Picker",
+                                        "__supportsLabel" : true
+                                      },
+                                      "Widgets" : [ ]
+                                    }, {
+                                      "Properties" : {
+                                        "Area" : "UI",
+                                        "ButtonStates" : "TW.RSM.SFW.StateDef.DeploymentTime",
+                                        "ButtonTextOverflow" : "wrap",
+                                        "DisplayName" : "RadioButton-255",
+                                        "Height" : 28,
+                                        "Id" : "RadioButton-255",
+                                        "Left" : 10,
+                                        "Orientation" : "horz",
+                                        "RadioButtonDepressedStyle" : "PTC.Core.Accent2RadioButtonDepressedStyle",
+                                        "RadioButtonStyle" : "TW.RSM.Style.RadioButton",
+                                        "ReadOnly" : false,
+                                        "ResponsiveLayout" : false,
+                                        "ShowDataLoading" : true,
+                                        "State false Label" : "[[TW.RSM.SFW.Date:]]",
+                                        "State true Label" : "[[TW.RSM.SFW.Immediately]]",
+                                        "Top" : 40,
+                                        "Type" : "radiobuttonlist",
+                                        "Visible" : true,
+                                        "Width" : 180,
+                                        "Z-index" : 10,
+                                        "__TypeDisplayName" : "Radio Button"
+                                      },
+                                      "Widgets" : [ ]
+                                    }, {
+                                      "Properties" : {
+                                        "Alignment" : "left",
+                                        "Area" : "UI",
+                                        "DisplayName" : "Label-256",
+                                        "Height" : 22,
+                                        "Id" : "Label-256",
+                                        "Left" : 10,
+                                        "ResponsiveLayout" : false,
+                                        "ShowDataLoading" : true,
+                                        "Style" : "TW.RSM.Style.GridTitle",
+                                        "Text" : "[[TW.RSM.SFW.Package Install Time]]",
+                                        "ToolTipField" : "",
+                                        "Top" : 10,
+                                        "Type" : "label",
+                                        "Visible" : true,
+                                        "Width" : 400,
+                                        "Z-index" : 10,
+                                        "__TypeDisplayName" : "Label"
+                                      },
+                                      "Widgets" : [ ]
+                                    } ]
+                                  }, {
+                                    "Properties" : {
+                                      "Area" : "UI",
+                                      "AutoEvaluate" : true,
+                                      "DataChangeType" : "VALUE",
+                                      "DisplayName" : "Expression-257",
+                                      "Expression" : "downloadImmediately==\"true\"",
+                                      "FireOnFirstValue" : true,
+                                      "Height" : 18,
+                                      "Id" : "Expression-257",
+                                      "Left" : 480,
+                                      "OutputBaseType" : "BOOLEAN",
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Top" : 110,
+                                      "Type" : "expression",
+                                      "Visible" : true,
+                                      "Width" : 170,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Expression",
+                                      "_currentParameterDefs" : [ {
+                                        "BaseType" : "STRING",
+                                        "Description" : "",
+                                        "ParameterName" : "downloadImmediately"
+                                      } ]
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "Area" : "UI",
+                                      "AutoEvaluate" : true,
+                                      "DataChangeType" : "VALUE",
+                                      "DisplayName" : "Expression-258",
+                                      "Expression" : "installImmediately==\"true\"",
+                                      "FireOnFirstValue" : true,
+                                      "Height" : 18,
+                                      "Id" : "Expression-258",
+                                      "Left" : 190,
+                                      "OutputBaseType" : "BOOLEAN",
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Top" : 110,
+                                      "Type" : "expression",
+                                      "Visible" : true,
+                                      "Width" : 170,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Expression",
+                                      "_currentParameterDefs" : [ {
+                                        "BaseType" : "STRING",
+                                        "Description" : "",
+                                        "ParameterName" : "installImmediately"
+                                      } ]
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "Area" : "UI",
+                                      "AutoEvaluate" : true,
+                                      "DataChangeType" : "ALWAYS",
+                                      "Description" : "",
+                                      "DisplayName" : "Expression-252",
+                                      "Expression" : "",
+                                      "FireOnFirstValue" : true,
+                                      "Height" : 18,
+                                      "Id" : "Expression-252",
+                                      "Left" : 15,
+                                      "Output" : "true",
+                                      "OutputBaseType" : "STRING",
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Top" : 110,
+                                      "Type" : "expression",
+                                      "Visible" : true,
+                                      "Width" : 175,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Expression"
+                                    },
+                                    "Widgets" : [ ]
+                                  } ]
+                                } ]
+                              } ]
+                            } ]
+                          } ]
+                        } ]
+                      } ]
+                    } ]
+                  }, {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Column 1",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-3",
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "DefaultContainerStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Container"
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="true"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent="&lt;p&gt;&lt;br&gt;&lt;/p&gt; "
+         homeMashup=""
+         lastModifiedDate="2018-10-24T21:00:08.635Z"
+         name="TW.RSM.Mashup.FileTransfer.NotConnected"
+         projectName=""
+         rows="0.0"
+         tags="Applications:RSM;Applications:RAC;Applications:FileTransfer;TWUTL:RemoteServices">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="3"
+                 baseType="STRING"
+                 description=""
+                 name="selectedFile"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.dataShape="EntityList"
+                 aspect.isDataTableEntry="true"
+                 aspect.ordinal="1"
+                 baseType="INFOTABLE"
+                 description=""
+                 name="selectedFiles"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="2"
+                 baseType="STRING"
+                 description=""
+                 name="selectedRemotePath"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="THINGNAME"
+                 description=""
+                 name="thingName"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="4"
+                 baseType="NUMBER"
+                 description=""
+                 name="updateMarker"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things></Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "cb4e5160-0313-417a-ae41-9b975cbfe0ca",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "TargetProperty" : "updateMarker",
+                  "TargetPropertyBaseType" : "NUMBER"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-22",
+                "SourceSection" : "",
+                "TargetArea" : "Mashup",
+                "TargetId" : "mashup-root",
+                "TargetSection" : ""
+              }, {
+                "Id" : "2281e476-9ac7-46a1-8486-340ee6305d10",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "selectedRemotePath",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "TextBox-20",
+                "SourceSection" : "",
+                "TargetArea" : "Mashup",
+                "TargetId" : "mashup-root",
+                "TargetSection" : ""
+              }, {
+                "Id" : "276fbeb8-2a34-41b4-b5a0-53d6ca260521",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "selectedFile",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "TextBox-21",
+                "SourceSection" : "",
+                "TargetArea" : "Mashup",
+                "TargetId" : "mashup-root",
+                "TargetSection" : ""
+              }, {
+                "Id" : "946d4490-6187-46f1-a7bd-56c10c260200",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "selectedFile",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "TextBox-21",
+                "TargetSection" : ""
+              }, {
+                "Id" : "29da0d77-5a0b-48e8-b289-300448d12860",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "selectedRemotePath",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "TextBox-20",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Expression-22",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Changed",
+                "EventTriggerId" : "TextBox-20",
+                "EventTriggerSection" : "",
+                "Id" : "bb44ce6a-2334-4faf-86d7-dec52a1a9162"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Expression-22",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Changed",
+                "EventTriggerId" : "TextBox-21",
+                "EventTriggerSection" : "",
+                "Id" : "b8519c95-7831-4553-99ce-e6397e7e3879"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 618,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : true,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultMashupStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 1024,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "THINGNAME",
+                    "Description" : "",
+                    "ParameterName" : "thingName"
+                  }, {
+                    "Aspects" : {
+                      "dataShape" : "EntityList",
+                      "isDataTableEntry" : true
+                    },
+                    "BaseType" : "INFOTABLE",
+                    "Description" : "",
+                    "ParameterName" : "selectedFiles"
+                  }, {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "selectedRemotePath"
+                  }, {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "selectedFile"
+                  }, {
+                    "BaseType" : "NUMBER",
+                    "Description" : "",
+                    "ParameterName" : "updateMarker"
+                  } ],
+                  "id_index" : 22,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "Panel-19",
+                    "Height" : 200,
+                    "HideScrollbars" : false,
+                    "HorizontalAnchor" : "left",
+                    "Id" : "Panel-19",
+                    "Left" : 305,
+                    "ResponsiveLayout" : true,
+                    "ShowDataLoading" : false,
+                    "Style" : "PTC.NoStyle",
+                    "Top" : 270,
+                    "Type" : "panel",
+                    "VerticalAnchor" : "top",
+                    "Visible" : true,
+                    "Width" : 300,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Panel"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "CursorPosition" : 0,
+                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                      "DisplayName" : "Directory",
+                      "Height" : 24,
+                      "Id" : "TextBox-20",
+                      "InnerShadow" : true,
+                      "Label" : "[[TW.RSM.Directory]]",
+                      "LabelAlignment" : "left",
+                      "Left" : 10,
+                      "MaskInputCharacters" : false,
+                      "PlaceholderText" : "",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : false,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 1,
+                      "Text" : "",
+                      "TextAlign" : "left",
+                      "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ToolTipField" : "",
+                      "Top" : 65,
+                      "Type" : "textbox",
+                      "Visible" : true,
+                      "Width" : 250,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "TextBox",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "CursorPosition" : 0,
+                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                      "DisplayName" : "File",
+                      "Height" : 24,
+                      "Id" : "TextBox-21",
+                      "InnerShadow" : true,
+                      "Label" : "[[TW.RSM.FileToTransferFromRemote]]",
+                      "LabelAlignment" : "left",
+                      "Left" : 10,
+                      "MaskInputCharacters" : false,
+                      "PlaceholderText" : "",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : false,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 2,
+                      "Text" : "",
+                      "TextAlign" : "left",
+                      "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ToolTipField" : "",
+                      "Top" : 140,
+                      "Type" : "textbox",
+                      "Visible" : true,
+                      "Width" : 250,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "TextBox",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "AutoEvaluate" : false,
+                      "DataChangeType" : "ALWAYS",
+                      "DisplayName" : "Expression-22",
+                      "Expression" : "new Date().getTime()",
+                      "FireOnFirstValue" : false,
+                      "Height" : 18,
+                      "Id" : "Expression-22",
+                      "Left" : 15,
+                      "OutputBaseType" : "NUMBER",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : false,
+                      "Top" : 20,
+                      "Type" : "expression",
+                      "Visible" : true,
+                      "Width" : 175,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Expression"
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

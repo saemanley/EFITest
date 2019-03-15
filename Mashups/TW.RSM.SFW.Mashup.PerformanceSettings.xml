@@ -1,0 +1,3379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-10-24T21:00:18.648Z"
+         name="TW.RSM.SFW.Mashup.PerformanceSettings"
+         projectName=""
+         rows="0.0"
+         tags="Applications:RSM;Applications:SCM;TWUTL:RemoteServicesAdmin">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="BOOLEAN"
+                 description=""
+                 name="showTest"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things>
+                <Thing>TW.RSM.RSMCoreUtils</Thing>
+                <Thing>TW.RSM.SFW.SoftwareManager</Thing>
+                <Thing>TW.RSM.SFW.Timer.AutoRetryTimer</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_TW.RSM.SFW.Timer.AutoRetryTimer" : {
+                  "DataName" : "Things_TW.RSM.SFW.Timer.AutoRetryTimer",
+                  "EntityName" : "TW.RSM.SFW.Timer.AutoRetryTimer",
+                  "EntityType" : "Things",
+                  "Id" : "4a9e7129-e48b-4a96-bcad-6bdc51aa8f3a",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "9e38f99c-9219-497a-b521-87706188ba97",
+                    "Name" : "GetBooleanPropertyValue",
+                    "Parameters" : {
+                      "propertyName" : "Enabled"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetBooleanPropertyValue"
+                  } ]
+                },
+                "Things_TW_RSM_RSMCoreUtils" : {
+                  "DataName" : "Things_TW_RSM_RSMCoreUtils",
+                  "EntityName" : "TW.RSM.RSMCoreUtils",
+                  "EntityType" : "Things",
+                  "Id" : "dc09cfa7-4c1d-458e-bb3d-cfdb8ca8093a",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "f7a382cf-8eea-4389-8357-93b5f22fc49b",
+                    "Name" : "IsRSMAdminUser",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "IsRSMAdminUser"
+                  } ]
+                },
+                "Things_TW_RSM_SFW_SoftwareManager" : {
+                  "DataName" : "Things_TW_RSM_SFW_SoftwareManager",
+                  "EntityName" : "TW.RSM.SFW.SoftwareManager",
+                  "EntityType" : "Things",
+                  "Id" : "bb3e0b20-7633-4078-8c28-3fbff7df6800",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "0f5c8f8f-cc21-4144-87eb-85f919d6c51f",
+                    "Name" : "UpdatePerformanceSettings",
+                    "Parameters" : { },
+                    "Properties" : {
+                      "CustomErrorMessage" : "[server-message]",
+                      "ShowErrorMessage" : true,
+                      "ShowSuccessMessage" : false
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "UpdatePerformanceSettings"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "4aab2004-b82b-4a1d-8a79-0d95f419fb5c",
+                    "Name" : "GetConcurrentDownloadsConfig",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetConcurrentDownloadsConfig"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "4c82ddef-4fb6-4051-a86b-9d1480581a06",
+                    "Name" : "GetConcurrentNotificationsConfig",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetConcurrentNotificationsConfig"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "7d6b5173-4e45-44bc-9cec-fa9d598431cd",
+                    "Name" : "GetDeploymentTimeoutConfig",
+                    "Parameters" : {
+                      "SettingName" : "notification"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDeploymentTimeoutConfig"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "161b2f9f-3052-463e-b55a-f8e4fa9cce9a",
+                    "Name" : "GetDeploymentTimeoutConfig1",
+                    "Parameters" : {
+                      "SettingName" : "scheduling"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDeploymentTimeoutConfig"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "eecb1328-a35f-4467-b9ae-4d07f78b4ab5",
+                    "Name" : "GetDeploymentTimeoutConfig2",
+                    "Parameters" : {
+                      "SettingName" : "download"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDeploymentTimeoutConfig"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "49855513-64fd-4007-afb7-443ea1028835",
+                    "Name" : "GetDeploymentTimeoutConfig3",
+                    "Parameters" : {
+                      "SettingName" : "installation"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDeploymentTimeoutConfig"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "5aa5b353-fee7-4cbd-b24a-d824b31df794",
+                    "Name" : "UpdateDeploymentTimeoutSettings",
+                    "Parameters" : { },
+                    "Properties" : {
+                      "CustomErrorMessage" : "[server-message]",
+                      "CustomSuccessMessage" : "[[TW.UTL.SFW.DeploymentSettingsUpdated]]",
+                      "ShowErrorMessage" : true,
+                      "ShowSuccessMessage" : true
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "UpdateDeploymentTimeoutSettings"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "068813e7-2356-4d2f-87df-9fa9d13ed9d0",
+                    "Name" : "GetDeploymentTimeoutEnabledConfig",
+                    "Parameters" : {
+                      "SettingName" : "notification"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDeploymentTimeoutEnabledConfig"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "e777d783-299f-40f1-849d-b75f9ef2a55e",
+                    "Name" : "GetDeploymentTimeoutEnabledConfig1",
+                    "Parameters" : {
+                      "SettingName" : "scheduling"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDeploymentTimeoutEnabledConfig"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "a1476e2e-7c6c-4d89-8413-22adffde4489",
+                    "Name" : "GetDeploymentTimeoutEnabledConfig2",
+                    "Parameters" : {
+                      "SettingName" : "download"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDeploymentTimeoutEnabledConfig"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "587725d7-e426-40c0-8284-c49f3fb98655",
+                    "Name" : "GetDeploymentTimeoutEnabledConfig3",
+                    "Parameters" : {
+                      "SettingName" : "installation"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDeploymentTimeoutEnabledConfig"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "9c284f4a-9360-45d2-b375-767decdb96ab",
+                    "Name" : "GetAutoRetryRate",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetAutoRetryRate"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "89178550-30e4-46ed-b1d0-378d1227a431",
+                    "Name" : "UpdateAutoRetrySettings",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "UpdateAutoRetrySettings"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "5290c7a2-3b85-42c9-b7ce-e7cc906ee9da",
+                    "Name" : "GetMaxAutoRetriesPerInterval",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetMaxAutoRetriesPerInterval"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "8ba1b73f-efda-4998-9f86-26be0f6589f5",
+                    "Name" : "IsAutoRetryIfDisconnected",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "IsAutoRetryIfDisconnected"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "68ed6532-8878-46e6-b9d6-7d89c0298a13",
+                    "Name" : "GetDefaultAutoRetryCountMax",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDefaultAutoRetryCountMax"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "1488af11-545d-4655-8331-8a15b756d979",
+                    "Name" : "GetDeploymentTimeoutConfig4",
+                    "Parameters" : {
+                      "SettingName" : "pending"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDeploymentTimeoutConfig"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "e2fb902c-9daa-463c-9ecb-c8bfcad00f5d",
+                    "Name" : "GetDeploymentTimeoutEnabledConfig4",
+                    "Parameters" : {
+                      "SettingName" : "pending"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDeploymentTimeoutEnabledConfig"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "3fef4bf6-9110-46f1-aba0-39651490766a",
+                    "Name" : "GetDeploymentTimeoutConfig5",
+                    "Parameters" : {
+                      "SettingName" : "pending retry"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDeploymentTimeoutConfig"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "818f4f21-e59b-417e-b381-319729ec62ee",
+                    "Name" : "GetDeploymentTimeoutEnabledConfig5",
+                    "Parameters" : {
+                      "SettingName" : "pending retry"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDeploymentTimeoutEnabledConfig"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "64208697-976a-441f-a93a-90603d0c58c3",
+                    "Name" : "GetDeploymentTimeoutConfig6",
+                    "Parameters" : {
+                      "SettingName" : "notified"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDeploymentTimeoutConfig"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "25ae958a-0528-4c54-94dc-c9affd489854",
+                    "Name" : "GetDeploymentTimeoutEnabledConfig6",
+                    "Parameters" : {
+                      "SettingName" : "notified"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDeploymentTimeoutEnabledConfig"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "fab008e2-df11-4756-b90d-54362c2c6b68",
+                    "Name" : "GetDeploymentTimeoutConfig7",
+                    "Parameters" : {
+                      "SettingName" : "downloaded"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDeploymentTimeoutConfig"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "2fbc97fa-d1f2-455a-9520-623707a218ae",
+                    "Name" : "GetDeploymentTimeoutEnabledConfig7",
+                    "Parameters" : {
+                      "SettingName" : "downloaded"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDeploymentTimeoutEnabledConfig"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "45568eb2-b8c2-435e-af5b-edba38afc09b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "testPackageGUID",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "DefinitionID",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Session",
+                "SourceDetails" : "AllData",
+                "SourceId" : "Session",
+                "SourceSection" : "Session",
+                "TargetArea" : "Data",
+                "TargetId" : "GetDefinitionById",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "88023651-ee31-4c5a-8294-fcff27955369",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "testPackageGUID",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "ID",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Session",
+                "SourceDetails" : "AllData",
+                "SourceId" : "Session",
+                "SourceSection" : "Session",
+                "TargetArea" : "Data",
+                "TargetId" : "PublishPackage",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "ea335912-cba4-4e38-871d-aa144bbdc326",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetConcurrentDownloadsConfig",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Textboxvalidate-57",
+                "TargetSection" : ""
+              }, {
+                "Id" : "d4f4514a-6063-479d-a3cf-c58e66984e16",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "IsRSMAdminUser",
+                "SourceSection" : "Things_TW_RSM_RSMCoreUtils",
+                "TargetArea" : "UI",
+                "TargetId" : "Button-58",
+                "TargetSection" : ""
+              }, {
+                "Id" : "e3e71a95-d027-4345-8afc-b7c19ce09b5f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "IsRSMAdminUser",
+                "SourceSection" : "Things_TW_RSM_RSMCoreUtils",
+                "TargetArea" : "UI",
+                "TargetId" : "Textboxvalidate-57",
+                "TargetSection" : ""
+              }, {
+                "Id" : "78f4b44a-aa10-4894-a0d0-15e02b77f0d9",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "INTEGER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetConcurrentNotificationsConfig",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "textboxValidate-61",
+                "TargetSection" : ""
+              }, {
+                "Id" : "97995019-27e1-4c66-9f3e-3bc44e9643a2",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "INTEGER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDeploymentTimeoutConfig",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "textboxValidate-63",
+                "TargetSection" : ""
+              }, {
+                "Id" : "d2637d68-5e3a-4a79-a7ba-c0ee019b6abb",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "INTEGER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDeploymentTimeoutConfig1",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "textboxValidate-67",
+                "TargetSection" : ""
+              }, {
+                "Id" : "bfdc1df2-e7cb-4295-b576-148e65f7f554",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "INTEGER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDeploymentTimeoutConfig2",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "textboxValidate-71",
+                "TargetSection" : ""
+              }, {
+                "Id" : "3feca5bd-3b7c-4478-b70f-38fbae7485d8",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "INTEGER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDeploymentTimeoutConfig3",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "textboxValidate-73",
+                "TargetSection" : ""
+              }, {
+                "Id" : "8928e6a4-bbf8-464e-b12d-2b12e2ffe856",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "NotificationTimeoutEnabled",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-74",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateDeploymentTimeoutSettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "7db76217-a5ab-428a-9341-2a61f02caa33",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "SchedulingTimeoutEnabled",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-75",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateDeploymentTimeoutSettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "c1471c8e-b729-4a6b-83a0-9a26e52cb9d8",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "DownloadTimeoutEnabled",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-76",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateDeploymentTimeoutSettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "155c395b-a645-41bc-a02b-6be112c06da1",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "InstallationTimeoutEnabled",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-77",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateDeploymentTimeoutSettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "a7deafe2-dce5-465d-85c9-f34f42118012",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "State",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDeploymentTimeoutEnabledConfig",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "checkbox-74",
+                "TargetSection" : ""
+              }, {
+                "Id" : "07af0a7a-7b77-4ec0-af3b-f1e27dcd122a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "State",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDeploymentTimeoutEnabledConfig1",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "checkbox-75",
+                "TargetSection" : ""
+              }, {
+                "Id" : "b57c8bdd-c5dd-4a37-b5b1-80258d54ee17",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "State",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDeploymentTimeoutEnabledConfig2",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "checkbox-76",
+                "TargetSection" : ""
+              }, {
+                "Id" : "0f5ab14e-91c6-4ca2-b0a8-6194b09f650b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "State",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDeploymentTimeoutEnabledConfig3",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "checkbox-77",
+                "TargetSection" : ""
+              }, {
+                "Id" : "533be9d0-030c-4bed-9d7e-a5d2ca44eae3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Value",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textboxValidate-63",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "numericentry-78",
+                "TargetSection" : ""
+              }, {
+                "Id" : "75a44cfb-79be-49cc-8729-e17e2e92a0f5",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Value",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "TargetProperty" : "NotificationTimeout",
+                  "TargetPropertyBaseType" : "INTEGER",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "numericentry-78",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateDeploymentTimeoutSettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "fc11e5b2-902d-48da-8652-20c4e0c1fb0d",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Value",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textboxValidate-67",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "numericentry-79",
+                "TargetSection" : ""
+              }, {
+                "Id" : "42c28141-7231-496b-9e16-991863c4579f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Value",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "TargetProperty" : "SchedulingTimeout",
+                  "TargetPropertyBaseType" : "INTEGER",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "numericentry-79",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateDeploymentTimeoutSettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "eee9415c-14ce-4e45-b6d7-a20186bc7b64",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Value",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textboxValidate-71",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "numericentry-80",
+                "TargetSection" : ""
+              }, {
+                "Id" : "fe5ed992-8fd1-4e46-b11b-6ddd519ace72",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Value",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "TargetProperty" : "DownloadTimeout",
+                  "TargetPropertyBaseType" : "INTEGER",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "numericentry-80",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateDeploymentTimeoutSettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "7778ccc1-5079-4ce9-bb9b-18f52c9f47f8",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Value",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textboxValidate-73",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "numericentry-81",
+                "TargetSection" : ""
+              }, {
+                "Id" : "16376398-0cc8-4054-af26-dee26fd6a537",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Value",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "TargetProperty" : "InstallationTimeout",
+                  "TargetPropertyBaseType" : "INTEGER",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "numericentry-81",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateDeploymentTimeoutSettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "ac205789-190f-4f8d-9391-56314c9528f9",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Value",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "TargetProperty" : "ConcurrentDownloads",
+                  "TargetPropertyBaseType" : "INTEGER",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "numericentry-82",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdatePerformanceSettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "a63484be-0b29-4909-b763-cfe29a234e6a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Value",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textboxvalidate-57",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "numericentry-82",
+                "TargetSection" : ""
+              }, {
+                "Id" : "ba9b1013-3d33-4569-b541-d29903e7f697",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Value",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "TargetProperty" : "ConcurrentNotifications",
+                  "TargetPropertyBaseType" : "INTEGER",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "numericentry-83",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdatePerformanceSettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "bcdacd7c-8a1b-4903-b171-5bd8095c70e0",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Value",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textboxValidate-61",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "numericentry-83",
+                "TargetSection" : ""
+              }, {
+                "Id" : "aa52e72c-1256-4125-99cd-fd0fedbbf2c3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "INTEGER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Value",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetAutoRetryRate",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "numericentry-97",
+                "TargetSection" : ""
+              }, {
+                "Id" : "99d88076-3893-44bb-ba33-d90571c05e07",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "enabled",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-85",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateAutoRetrySettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "8109aa51-4533-43d7-a3ff-5cae2e4dec40",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "autoRetryIfDisconnected",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-91",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateAutoRetrySettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "936418c7-4b28-4c30-85bc-d6025d6e8e8f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Value",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "TargetProperty" : "maxAutoRetriesPerInterval",
+                  "TargetPropertyBaseType" : "INTEGER",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "numericentry-89",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateAutoRetrySettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "69a082bb-1de5-4ac5-a454-80c65b598104",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Value",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "TargetProperty" : "defaultMaxAutoRetries",
+                  "TargetPropertyBaseType" : "INTEGER",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "numericentry-90",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateAutoRetrySettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "be92101b-4462-4fb7-bc87-1bcb49162ebc",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Value",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "TargetProperty" : "autoRetryRate",
+                  "TargetPropertyBaseType" : "LONG",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "numericentry-97",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateAutoRetrySettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "6912d21c-d59b-4222-97eb-ec5ab45b340a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "State",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetBooleanPropertyValue",
+                "SourceSection" : "Things_TW.RSM.SFW.Timer.AutoRetryTimer",
+                "TargetArea" : "UI",
+                "TargetId" : "checkbox-85",
+                "TargetSection" : ""
+              }, {
+                "Id" : "9a8db15a-c8c5-4ea7-934c-ce749d9bcc2b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "INTEGER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Value",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetMaxAutoRetriesPerInterval",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "numericentry-89",
+                "TargetSection" : ""
+              }, {
+                "Id" : "e5be4e7a-22e8-4426-a371-17601853e77e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "State",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "IsAutoRetryIfDisconnected",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "checkbox-91",
+                "TargetSection" : ""
+              }, {
+                "Id" : "64b6f474-5081-44d3-92e5-807ae6e76b2a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "INTEGER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Value",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDefaultAutoRetryCountMax",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "numericentry-90",
+                "TargetSection" : ""
+              }, {
+                "Id" : "2907f7d5-2f6d-4423-991b-44095999faaa",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "INTEGER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDeploymentTimeoutConfig4",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "textboxValidate-100",
+                "TargetSection" : ""
+              }, {
+                "Id" : "81c479ce-3c27-438d-b2d3-e4d12716bb3e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Value",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textboxValidate-100",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "numericentry-99",
+                "TargetSection" : ""
+              }, {
+                "Id" : "73af5c7f-0739-4b02-bcd0-fd53190febb8",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "State",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDeploymentTimeoutEnabledConfig4",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "checkbox-101",
+                "TargetSection" : ""
+              }, {
+                "Id" : "96f3b15f-0b32-4550-be73-2e59b2b7498d",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "INTEGER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDeploymentTimeoutConfig5",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "textboxValidate-104",
+                "TargetSection" : ""
+              }, {
+                "Id" : "03ba5de5-b861-408c-97bb-9825149f8648",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Value",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textboxValidate-104",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "numericentry-102",
+                "TargetSection" : ""
+              }, {
+                "Id" : "85d73382-d220-46c5-a9de-1f12c615e7e3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "State",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDeploymentTimeoutEnabledConfig5",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "checkbox-105",
+                "TargetSection" : ""
+              }, {
+                "Id" : "4f1786a9-595a-4f5f-99ac-7f094c714ec8",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "PendingTimeoutEnabled",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-101",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateDeploymentTimeoutSettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "f7ecc654-1474-4993-afe8-57a94a60c732",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Value",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "TargetProperty" : "PendingTimeout",
+                  "TargetPropertyBaseType" : "INTEGER",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "numericentry-99",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateDeploymentTimeoutSettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "9ec8523f-f1a0-49d6-8aa2-cd0b12b4ac5e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "PendingRetryTimeoutEnabled",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-105",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateDeploymentTimeoutSettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "e4dbb495-023d-4f31-bdb3-271d1415519f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Value",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "TargetProperty" : "PendingRetryTimeout",
+                  "TargetPropertyBaseType" : "INTEGER",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "numericentry-102",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateDeploymentTimeoutSettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "06f934dc-9bff-45b6-ab99-b95cd9feb58c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "INTEGER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDeploymentTimeoutConfig6",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "textboxValidate-108",
+                "TargetSection" : ""
+              }, {
+                "Id" : "20367415-ed19-4d53-afbc-36a6bb766636",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Value",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textboxValidate-108",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "numericentry-106",
+                "TargetSection" : ""
+              }, {
+                "Id" : "2ffc956f-d9b0-4c70-b3cb-950411429a9e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Value",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "TargetProperty" : "NotifiedTimeout",
+                  "TargetPropertyBaseType" : "INTEGER",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "numericentry-106",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateDeploymentTimeoutSettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "9bc1ffc9-bc77-433f-8b0d-afb5b8cce145",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "NotifiedTimeoutEnabled",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-109",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateDeploymentTimeoutSettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "aab1607f-6529-4a75-b0ae-3760b018e351",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "State",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDeploymentTimeoutEnabledConfig6",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "checkbox-109",
+                "TargetSection" : ""
+              }, {
+                "Id" : "871cbf9a-f8ee-43b9-9ed3-b92a1cfab73b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "INTEGER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDeploymentTimeoutConfig7",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "textboxValidate-111",
+                "TargetSection" : ""
+              }, {
+                "Id" : "08568b70-7314-4d72-9c7e-9a274c4876d6",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Value",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textboxValidate-111",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "numericentry-112",
+                "TargetSection" : ""
+              }, {
+                "Id" : "b9579739-d744-4921-aee7-8a921d744262",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Value",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "TargetProperty" : "DownloadedTimeout",
+                  "TargetPropertyBaseType" : "INTEGER",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "numericentry-112",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateDeploymentTimeoutSettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "bb35463b-fd43-4153-98ee-619d90558c68",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "DownloadedTimeoutEnabled",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-113",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateDeploymentTimeoutSettings",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "dba04be0-61e8-4555-957d-f1997548c596",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "State",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDeploymentTimeoutEnabledConfig7",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "checkbox-113",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetConcurrentDownloadsConfig",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "881c7fa7-9d1c-4d67-a1f4-784a75f8647d"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "UpdatePerformanceSettings",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "Button-58",
+                "EventTriggerSection" : "",
+                "Id" : "63012138-f8f6-4241-88ec-f25ae3e74e05"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetConcurrentDownloadsConfig",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "UpdatePerformanceSettings",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "Id" : "db97ee52-c7ea-4eaa-81f2-0f19c55a1583"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_RSMCoreUtils",
+                "EventHandlerService" : "IsRSMAdminUser",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "ec151cde-aaef-41cf-807d-1396b368da52"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetConcurrentNotificationsConfig",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "33ee731c-56a1-412e-843e-7b03ad725846"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetConcurrentNotificationsConfig",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "UpdatePerformanceSettings",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "Id" : "3ce65832-fe0e-4f4d-8bde-8118654919e5"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutConfig",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "61d518ee-9b8a-4f48-98fc-a6b2a3722d3a"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutConfig1",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "e89e3b47-b1ff-4016-a427-73492c69df56"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutConfig2",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "37ae287e-678c-4328-926b-812c348e1180"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutConfig3",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "fdd72c2f-ccd7-4bfc-87dd-4117ebd0b1c9"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutConfig",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "UpdateDeploymentTimeoutSettings",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "Id" : "083fdd6b-2edd-4dcb-b9c4-4ba0cccfbaab"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutConfig3",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "UpdateDeploymentTimeoutSettings",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "Id" : "241f7d0a-c18f-490c-a5f8-9eb5f8a16537"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutConfig2",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "UpdateDeploymentTimeoutSettings",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "Id" : "15fa584c-01e0-48a4-a198-fd4fd3e486ef"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutConfig1",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "UpdateDeploymentTimeoutSettings",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "Id" : "b28c948f-ebd9-4ca3-85dd-316332a65fd7"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "UpdateDeploymentTimeoutSettings",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "UpdatePerformanceSettings",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "Id" : "64c7947b-a81a-4c8c-8a24-3805075a313c"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutEnabledConfig",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "16112898-0c0b-4ef6-b956-0fd28b057e15"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutEnabledConfig1",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "9e943a5c-f196-4ed2-8604-c04f7b0be7ea"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutEnabledConfig2",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "d67600f0-ed2a-44dc-8b7b-bb3082ea5b27"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutEnabledConfig3",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "5c89e4ea-9a17-4abe-b3a6-83d48cfab8aa"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutEnabledConfig",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "UpdateDeploymentTimeoutSettings",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "Id" : "2638f025-2e87-4a93-b5cd-9a76b4a4d4d9"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutEnabledConfig1",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "UpdateDeploymentTimeoutSettings",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "Id" : "7fd0d43e-3a82-4ea4-bb8f-ccd9a3839da4"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutEnabledConfig2",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "UpdateDeploymentTimeoutSettings",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "Id" : "1758b18c-cc30-49e5-9d7e-be9a51a5c8a8"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutEnabledConfig3",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "UpdateDeploymentTimeoutSettings",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "Id" : "9283bfc3-fcd4-4b89-8fa5-f8d18036da8b"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW.RSM.SFW.Timer.AutoRetryTimer",
+                "EventHandlerService" : "GetBooleanPropertyValue",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "cbc6f536-3f7e-4697-b73b-f1d2bbd8091e"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetAutoRetryRate",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "a6a8974c-61ce-457f-966d-cbea2a60a89a"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "UpdateAutoRetrySettings",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "Button-58",
+                "EventTriggerSection" : "",
+                "Id" : "566e387a-e5ff-4e5d-91e3-e65c9a6438ba"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetMaxAutoRetriesPerInterval",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "fa20b4fa-ea3e-4d47-bb03-68f6675d8794"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "IsAutoRetryIfDisconnected",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "4569886d-e3ef-4809-bde7-0476d28e10c9"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDefaultAutoRetryCountMax",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "de739c51-0964-4864-a7f2-229e57904cc3"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutConfig4",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "4b7c220f-5373-4b5d-bdec-d78a2e2caa96"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutEnabledConfig4",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "659416af-b890-4234-934b-0b56d73669e0"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutConfig5",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "81557db5-7308-433c-8bb7-810fb7c3e9a9"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutEnabledConfig5",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "0a70b296-5305-472c-a838-ba5e900792c2"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutConfig6",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "733f868d-cd78-40cb-b076-4c64bc3d9420"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutEnabledConfig6",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "9e5cc16e-0cba-4bee-8536-76f0f40de4e7"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutConfig7",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "6bac2146-f973-4641-8042-80924b30bf90"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentTimeoutEnabledConfig7",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "2c148ce4-8ca8-4122-8d42-83c67be30d7c"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 971,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "Master" : "TW.RSM.SFW.Master.ApplicationMaster",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "TW.RSM.Style.Panel",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 950,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "BOOLEAN",
+                    "Description" : "",
+                    "ParameterName" : "showTest"
+                  } ],
+                  "id_index" : 115,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "Fieldset-16",
+                    "FieldsetLabelStyle" : "TW.RSM.Style.FieldSetLabel",
+                    "FieldsetStyle" : "TW.RSM.Style.FieldSetPanel",
+                    "Height" : 801,
+                    "Id" : "Fieldset-16",
+                    "Left" : 1,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Title" : "",
+                    "Top" : 85,
+                    "Type" : "fieldset",
+                    "Visible" : true,
+                    "Width" : 950,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Fieldset"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "Label-20",
+                      "Height" : 22,
+                      "Id" : "Label-20",
+                      "Left" : 15,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.Concurrent Downloads:]]",
+                      "ToolTipField" : "",
+                      "Top" : 50,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 210,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "CursorPosition" : 0,
+                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                      "Description" : "",
+                      "DisplayName" : "Downloads",
+                      "Height" : 24,
+                      "Id" : "Textboxvalidate-57",
+                      "InvalidInputStyle" : "DefaultTextBoxStyle",
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 235,
+                      "MaskInputCharacters" : false,
+                      "MaxChars" : 7,
+                      "PlaceholderText" : "",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "Text" : "",
+                      "TextAlign" : "left",
+                      "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ToolTip" : "",
+                      "ToolTipDuration" : 2,
+                      "ToolTipPosition" : "Lower Right",
+                      "ToolTipStyles" : "qtip-green",
+                      "Top" : 50,
+                      "Type" : "textboxValidate",
+                      "ValidInputStyle" : "DefaultTextBoxStyle",
+                      "ValidationHint" : "[[TW.RSM.SFW.Invalid Input. Please enter a valid integer.]]",
+                      "ValidationHinting" : false,
+                      "Visible" : false,
+                      "Width" : 105,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Textboxvalidate",
+                      "__supportsLabel" : true,
+                      "isValid" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "ActiveStyle" : "PTC.Core.ButtonActiveStyle",
+                      "Area" : "UI",
+                      "CancelConfirmationButton" : "button2",
+                      "ConfirmationButton1Label" : "[[TW.RSM.SFW.Yes]]",
+                      "ConfirmationButton2Label" : "[[TW.RSM.SFW.No]]",
+                      "ConfirmationPrompt" : "[[TW.RSM.SFW.Do Action?]]",
+                      "ConfirmationRequired" : false,
+                      "ConfirmationTitle" : "[[TW.RSM.SFW.Confirm Action]]",
+                      "ContextId" : "",
+                      "DefaultConfirmationButton" : "button1",
+                      "Disabled" : false,
+                      "DisabledStyle" : "TW.RSM.Style.ButtonDisabled",
+                      "DisplayName" : "Button-58",
+                      "FocusStyle" : "PTC.Core.ButtonFocusStyle",
+                      "Height" : 30,
+                      "HoverStyle" : "PTC.Core.Accent2ButtonHoverStyle",
+                      "IconAlignment" : "left",
+                      "Id" : "Button-58",
+                      "Label" : "[[TW.RSM.SFW.SAVE]]",
+                      "Left" : 845,
+                      "ResponsiveLayout" : false,
+                      "RoundedCorners" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "PTC.Core.Accent2ButtonStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 761,
+                      "Type" : "button",
+                      "Visible" : false,
+                      "Width" : 75,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Button"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "label-60",
+                      "Height" : 22,
+                      "Id" : "label-60",
+                      "Left" : 15,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.Concurrent Notifications:]]",
+                      "ToolTipField" : "",
+                      "Top" : 90,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 210,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "CursorPosition" : 0,
+                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                      "Description" : "",
+                      "DisplayName" : "Notifications",
+                      "Height" : 24,
+                      "Id" : "textboxValidate-61",
+                      "InvalidInputStyle" : "DefaultTextBoxStyle",
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 235,
+                      "MaskInputCharacters" : false,
+                      "MaxChars" : 7,
+                      "PlaceholderText" : "",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 1,
+                      "Text" : "",
+                      "TextAlign" : "left",
+                      "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ToolTip" : "",
+                      "ToolTipDuration" : 2,
+                      "ToolTipPosition" : "Lower Right",
+                      "ToolTipStyles" : "qtip-green",
+                      "Top" : 90,
+                      "Type" : "textboxValidate",
+                      "ValidInputStyle" : "DefaultTextBoxStyle",
+                      "ValidationHint" : "[[TW.RSM.SFW.Invalid Input. Please enter a valid integer.]]",
+                      "ValidationHinting" : false,
+                      "Visible" : true,
+                      "Width" : 105,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Textboxvalidate",
+                      "__supportsLabel" : true,
+                      "isValid" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "label-62",
+                      "Height" : 22,
+                      "Id" : "label-62",
+                      "Left" : 15,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.Notification Timeout:]]",
+                      "ToolTipField" : "",
+                      "Top" : 221,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 210,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "CursorPosition" : 0,
+                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                      "Description" : "",
+                      "DisplayName" : "NotificationTimeout",
+                      "Height" : 24,
+                      "Id" : "textboxValidate-63",
+                      "InvalidInputStyle" : "DefaultTextBoxStyle",
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 235,
+                      "MaskInputCharacters" : false,
+                      "MaxChars" : 7,
+                      "PlaceholderText" : "",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 3,
+                      "Text" : "",
+                      "TextAlign" : "left",
+                      "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ToolTip" : "",
+                      "ToolTipDuration" : 2,
+                      "ToolTipPosition" : "Lower Right",
+                      "ToolTipStyles" : "qtip-green",
+                      "Top" : 221,
+                      "Type" : "textboxValidate",
+                      "ValidInputStyle" : "DefaultTextBoxStyle",
+                      "ValidationHint" : "[[TW.RSM.SFW.Invalid Input. Please enter a valid integer.]]",
+                      "ValidationHinting" : false,
+                      "Visible" : true,
+                      "Width" : 105,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Textboxvalidate",
+                      "__supportsLabel" : true,
+                      "isValid" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "DisplayName" : "Performance Subheading",
+                      "Height" : 22,
+                      "Id" : "label-64",
+                      "Left" : 10,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.SubTitle",
+                      "Text" : "[[TW.RSM.SFW.Performance Configuration]]",
+                      "ToolTipField" : "",
+                      "Top" : 10,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 575,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "DisplayName" : "Timeout Subheading",
+                      "Height" : 22,
+                      "Id" : "label-65",
+                      "Left" : 10,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.SubTitle",
+                      "Text" : "[[TW.RSM.SFW.Timeout Configuration]]",
+                      "ToolTipField" : "",
+                      "Top" : 141,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 575,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "label-66",
+                      "Height" : 22,
+                      "Id" : "label-66",
+                      "Left" : 15,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.Scheduling Timeout:]]",
+                      "ToolTipField" : "",
+                      "Top" : 301,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 210,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "CursorPosition" : 0,
+                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                      "Description" : "",
+                      "DisplayName" : "SchedulingTimeout",
+                      "Height" : 24,
+                      "Id" : "textboxValidate-67",
+                      "InvalidInputStyle" : "DefaultTextBoxStyle",
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 235,
+                      "MaskInputCharacters" : false,
+                      "MaxChars" : 7,
+                      "PlaceholderText" : "",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 5,
+                      "Text" : "",
+                      "TextAlign" : "left",
+                      "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ToolTip" : "",
+                      "ToolTipDuration" : 2,
+                      "ToolTipPosition" : "Lower Right",
+                      "ToolTipStyles" : "qtip-green",
+                      "Top" : 301,
+                      "Type" : "textboxValidate",
+                      "ValidInputStyle" : "DefaultTextBoxStyle",
+                      "ValidationHint" : "[[TW.RSM.SFW.Invalid Input. Please enter a valid integer.]]",
+                      "ValidationHinting" : false,
+                      "Visible" : true,
+                      "Width" : 105,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Textboxvalidate",
+                      "__supportsLabel" : true,
+                      "isValid" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "label-70",
+                      "Height" : 22,
+                      "Id" : "label-70",
+                      "Left" : 15,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.Download Timeout:]]",
+                      "ToolTipField" : "",
+                      "Top" : 341,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 210,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "CursorPosition" : 0,
+                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                      "Description" : "",
+                      "DisplayName" : "Download Timeout",
+                      "Height" : 24,
+                      "Id" : "textboxValidate-71",
+                      "InvalidInputStyle" : "DefaultTextBoxStyle",
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 235,
+                      "MaskInputCharacters" : false,
+                      "MaxChars" : 7,
+                      "PlaceholderText" : "",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 6,
+                      "Text" : "",
+                      "TextAlign" : "left",
+                      "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ToolTip" : "",
+                      "ToolTipDuration" : 2,
+                      "ToolTipPosition" : "Lower Right",
+                      "ToolTipStyles" : "qtip-green",
+                      "Top" : 341,
+                      "Type" : "textboxValidate",
+                      "ValidInputStyle" : "DefaultTextBoxStyle",
+                      "ValidationHint" : "[[TW.RSM.SFW.Invalid Input. Please enter a valid integer.]]",
+                      "ValidationHinting" : false,
+                      "Visible" : true,
+                      "Width" : 105,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Textboxvalidate",
+                      "__supportsLabel" : true,
+                      "isValid" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "label-72",
+                      "Height" : 22,
+                      "Id" : "label-72",
+                      "Left" : 15,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.Installation Timeout:]]",
+                      "ToolTipField" : "",
+                      "Top" : 421,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 210,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "CursorPosition" : 0,
+                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                      "Description" : "",
+                      "DisplayName" : "Installation Timeout",
+                      "Height" : 24,
+                      "Id" : "textboxValidate-73",
+                      "InvalidInputStyle" : "DefaultTextBoxStyle",
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 235,
+                      "MaskInputCharacters" : false,
+                      "MaxChars" : 7,
+                      "PlaceholderText" : "",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 8,
+                      "Text" : "",
+                      "TextAlign" : "left",
+                      "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ToolTip" : "",
+                      "ToolTipDuration" : 2,
+                      "ToolTipPosition" : "Lower Right",
+                      "ToolTipStyles" : "qtip-green",
+                      "Top" : 421,
+                      "Type" : "textboxValidate",
+                      "ValidInputStyle" : "DefaultTextBoxStyle",
+                      "ValidationHint" : "[[TW.RSM.SFW.Invalid Input. Please enter a valid integer.]]",
+                      "ValidationHinting" : false,
+                      "Visible" : true,
+                      "Width" : 105,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Textboxvalidate",
+                      "__supportsLabel" : true,
+                      "isValid" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "Disabled" : false,
+                      "DisplayName" : "NotificationTimeoutEnabled",
+                      "FocusStyle" : "DefaultFocusStyle",
+                      "Height" : 20,
+                      "Id" : "checkbox-74",
+                      "Left" : 375,
+                      "Prompt" : "[[TW.RSM.SFW.Notification Timeout Enabled]]",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "State" : false,
+                      "Style" : "DefaultCheckboxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 221,
+                      "Type" : "checkbox",
+                      "Visible" : true,
+                      "Width" : 220,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Checkbox"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "Disabled" : false,
+                      "DisplayName" : "Scheduling Timeout Enabled",
+                      "FocusStyle" : "DefaultFocusStyle",
+                      "Height" : 20,
+                      "Id" : "checkbox-75",
+                      "Left" : 375,
+                      "Prompt" : "[[TW.RSM.SFW.Scheduling Timeout Enabled]]",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "State" : false,
+                      "Style" : "DefaultCheckboxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 301,
+                      "Type" : "checkbox",
+                      "Visible" : true,
+                      "Width" : 220,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Checkbox"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "Disabled" : false,
+                      "DisplayName" : "Download Timeout Enabled",
+                      "FocusStyle" : "DefaultFocusStyle",
+                      "Height" : 20,
+                      "Id" : "checkbox-76",
+                      "Left" : 375,
+                      "Prompt" : "[[TW.RSM.SFW.Scheduling Timeout Enabled]]",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "State" : false,
+                      "Style" : "DefaultCheckboxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 341,
+                      "Type" : "checkbox",
+                      "Visible" : true,
+                      "Width" : 220,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Checkbox"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "Disabled" : false,
+                      "DisplayName" : "Installation Timeout Enabled",
+                      "FocusStyle" : "DefaultFocusStyle",
+                      "Height" : 20,
+                      "Id" : "checkbox-77",
+                      "Left" : 375,
+                      "Prompt" : "[[TW.RSM.SFW.Scheduling Timeout Enabled]]",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "State" : false,
+                      "Style" : "DefaultCheckboxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 421,
+                      "Type" : "checkbox",
+                      "Visible" : true,
+                      "Width" : 220,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Checkbox"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "AllowDecimals" : false,
+                      "AllowNegatives" : false,
+                      "Area" : "UI",
+                      "ConstrainValue" : false,
+                      "DisplayName" : "NotificationTimeoutNum",
+                      "FixedDigits" : 0,
+                      "Height" : 24,
+                      "Id" : "numericentry-78",
+                      "InnerShadow" : false,
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 630,
+                      "Maximum" : 1000000,
+                      "Minimum" : 0,
+                      "NumericEntryFocusStyle" : "DefaultFocusStyle",
+                      "NumericEntryLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 221,
+                      "Type" : "numericentry",
+                      "Value" : 0,
+                      "ValueAlign" : "right",
+                      "Visible" : false,
+                      "Width" : 35,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Numeric Entry",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "AllowDecimals" : false,
+                      "AllowNegatives" : false,
+                      "Area" : "UI",
+                      "ConstrainValue" : false,
+                      "DisplayName" : "SchedulingTimeoutNum",
+                      "FixedDigits" : 0,
+                      "Height" : 24,
+                      "Id" : "numericentry-79",
+                      "InnerShadow" : false,
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 630,
+                      "Maximum" : 1000000,
+                      "Minimum" : 0,
+                      "NumericEntryFocusStyle" : "DefaultFocusStyle",
+                      "NumericEntryLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 301,
+                      "Type" : "numericentry",
+                      "Value" : 0,
+                      "ValueAlign" : "right",
+                      "Visible" : false,
+                      "Width" : 35,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Numeric Entry",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "AllowDecimals" : false,
+                      "AllowNegatives" : false,
+                      "Area" : "UI",
+                      "ConstrainValue" : false,
+                      "DisplayName" : "DownloadTimeoutNum",
+                      "FixedDigits" : 0,
+                      "Height" : 24,
+                      "Id" : "numericentry-80",
+                      "InnerShadow" : false,
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 630,
+                      "Maximum" : 1000000,
+                      "Minimum" : 0,
+                      "NumericEntryFocusStyle" : "DefaultFocusStyle",
+                      "NumericEntryLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 341,
+                      "Type" : "numericentry",
+                      "Value" : 0,
+                      "ValueAlign" : "right",
+                      "Visible" : false,
+                      "Width" : 35,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Numeric Entry",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "AllowDecimals" : false,
+                      "AllowNegatives" : false,
+                      "Area" : "UI",
+                      "ConstrainValue" : false,
+                      "DisplayName" : "Installation Timeout Num",
+                      "FixedDigits" : 0,
+                      "Height" : 24,
+                      "Id" : "numericentry-81",
+                      "InnerShadow" : false,
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 630,
+                      "Maximum" : 1000000,
+                      "Minimum" : 0,
+                      "NumericEntryFocusStyle" : "DefaultFocusStyle",
+                      "NumericEntryLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 421,
+                      "Type" : "numericentry",
+                      "Value" : 0,
+                      "ValueAlign" : "right",
+                      "Visible" : false,
+                      "Width" : 35,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Numeric Entry",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "AllowDecimals" : false,
+                      "AllowNegatives" : false,
+                      "Area" : "UI",
+                      "ConstrainValue" : false,
+                      "DisplayName" : "DownloadsNum",
+                      "FixedDigits" : 0,
+                      "Height" : 24,
+                      "Id" : "numericentry-82",
+                      "InnerShadow" : false,
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 375,
+                      "Maximum" : 1000000,
+                      "Minimum" : 0,
+                      "NumericEntryFocusStyle" : "DefaultFocusStyle",
+                      "NumericEntryLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 50,
+                      "Type" : "numericentry",
+                      "Value" : 0,
+                      "ValueAlign" : "right",
+                      "Visible" : false,
+                      "Width" : 35,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Numeric Entry",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "AllowDecimals" : false,
+                      "AllowNegatives" : false,
+                      "Area" : "UI",
+                      "ConstrainValue" : false,
+                      "DisplayName" : "numericentry-83",
+                      "FixedDigits" : 0,
+                      "Height" : 24,
+                      "Id" : "numericentry-83",
+                      "InnerShadow" : false,
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 375,
+                      "Maximum" : 1000000,
+                      "Minimum" : 0,
+                      "NumericEntryFocusStyle" : "DefaultFocusStyle",
+                      "NumericEntryLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 90,
+                      "Type" : "numericentry",
+                      "Value" : 0,
+                      "ValueAlign" : "right",
+                      "Visible" : false,
+                      "Width" : 35,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Numeric Entry",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "DisplayName" : "label-84",
+                      "Height" : 22,
+                      "Id" : "label-84",
+                      "Left" : 10,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.SubTitle",
+                      "Text" : "[[TW.RSM.SFW.AutoRetry]]",
+                      "ToolTipField" : "",
+                      "Top" : 572,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 575,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "Disabled" : false,
+                      "DisplayName" : "AutoRetryEnabled",
+                      "FocusStyle" : "DefaultFocusStyle",
+                      "Height" : 20,
+                      "Id" : "checkbox-85",
+                      "Left" : 15,
+                      "Prompt" : "[[TW.RSM.SFW.Notification Timeout Enabled]]",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "State" : false,
+                      "Style" : "DefaultCheckboxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 613,
+                      "Type" : "checkbox",
+                      "Visible" : true,
+                      "Width" : 65,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Checkbox"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "label-86",
+                      "Height" : 22,
+                      "Id" : "label-86",
+                      "Left" : 15,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.Max AutoRetries Per Interval:]]",
+                      "ToolTipField" : "",
+                      "Top" : 653,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 170,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "label-87",
+                      "Height" : 22,
+                      "Id" : "label-87",
+                      "Left" : 15,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.Default Max Auto-Retries:]]",
+                      "ToolTipField" : "",
+                      "Top" : 693,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 170,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "AllowDecimals" : false,
+                      "AllowNegatives" : false,
+                      "Area" : "UI",
+                      "ConstrainValue" : true,
+                      "DisplayName" : "AutoRetryMaxPerInterval",
+                      "FixedDigits" : 0,
+                      "Height" : 24,
+                      "Id" : "numericentry-89",
+                      "InnerShadow" : false,
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 235,
+                      "Maximum" : 1000,
+                      "Minimum" : 0,
+                      "NumericEntryFocusStyle" : "DefaultFocusStyle",
+                      "NumericEntryLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 653,
+                      "Type" : "numericentry",
+                      "Value" : 0,
+                      "ValueAlign" : "right",
+                      "Visible" : true,
+                      "Width" : 105,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Numeric Entry",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "AllowDecimals" : false,
+                      "AllowNegatives" : false,
+                      "Area" : "UI",
+                      "ConstrainValue" : true,
+                      "DisplayName" : "DefaultAutoRetryCountMax",
+                      "FixedDigits" : 0,
+                      "Height" : 24,
+                      "Id" : "numericentry-90",
+                      "InnerShadow" : false,
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 235,
+                      "Maximum" : 1000,
+                      "Minimum" : 0,
+                      "NumericEntryFocusStyle" : "DefaultFocusStyle",
+                      "NumericEntryLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 693,
+                      "Type" : "numericentry",
+                      "Value" : 0,
+                      "ValueAlign" : "right",
+                      "Visible" : true,
+                      "Width" : 105,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Numeric Entry",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "Disabled" : false,
+                      "DisplayName" : "AutoRetryIfDisconnected",
+                      "FocusStyle" : "DefaultFocusStyle",
+                      "Height" : 20,
+                      "Id" : "checkbox-91",
+                      "Left" : 235,
+                      "Prompt" : "[[TW.RSM.SFW.AutoRetry For Disconnected Targets]]",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "State" : false,
+                      "Style" : "DefaultCheckboxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 613,
+                      "Type" : "checkbox",
+                      "Visible" : true,
+                      "Width" : 200,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Checkbox"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "label-96",
+                      "Height" : 22,
+                      "Id" : "label-96",
+                      "Left" : 15,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.AutoRetryRate]]",
+                      "ToolTipField" : "",
+                      "Top" : 733,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 170,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "AllowDecimals" : false,
+                      "AllowNegatives" : false,
+                      "Area" : "UI",
+                      "ConstrainValue" : true,
+                      "DisplayName" : "AutoRetryRate",
+                      "FixedDigits" : 0,
+                      "Height" : 24,
+                      "Id" : "numericentry-97",
+                      "InnerShadow" : false,
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 235,
+                      "Maximum" : 9007199254740991,
+                      "Minimum" : 0,
+                      "NumericEntryFocusStyle" : "DefaultFocusStyle",
+                      "NumericEntryLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 733,
+                      "Type" : "numericentry",
+                      "Value" : 0,
+                      "ValueAlign" : "right",
+                      "Visible" : true,
+                      "Width" : 105,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Numeric Entry",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "label-98",
+                      "Height" : 22,
+                      "Id" : "label-98",
+                      "Left" : 15,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.Pending Timeout:]]",
+                      "ToolTipField" : "",
+                      "Top" : 181,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 210,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "AllowDecimals" : false,
+                      "AllowNegatives" : false,
+                      "Area" : "UI",
+                      "ConstrainValue" : false,
+                      "DisplayName" : "PendingTimeoutNum",
+                      "FixedDigits" : 0,
+                      "Height" : 24,
+                      "Id" : "numericentry-99",
+                      "InnerShadow" : false,
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 630,
+                      "Maximum" : 1000000,
+                      "Minimum" : 0,
+                      "NumericEntryFocusStyle" : "DefaultFocusStyle",
+                      "NumericEntryLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 181,
+                      "Type" : "numericentry",
+                      "Value" : 0,
+                      "ValueAlign" : "right",
+                      "Visible" : false,
+                      "Width" : 35,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Numeric Entry",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "CursorPosition" : 0,
+                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                      "Description" : "",
+                      "DisplayName" : "PendingTimeout",
+                      "Height" : 24,
+                      "Id" : "textboxValidate-100",
+                      "InvalidInputStyle" : "DefaultTextBoxStyle",
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 235,
+                      "MaskInputCharacters" : false,
+                      "MaxChars" : 7,
+                      "PlaceholderText" : "",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 2,
+                      "Text" : "",
+                      "TextAlign" : "left",
+                      "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ToolTip" : "",
+                      "ToolTipDuration" : 2,
+                      "ToolTipPosition" : "Lower Right",
+                      "ToolTipStyles" : "qtip-green",
+                      "Top" : 181,
+                      "Type" : "textboxValidate",
+                      "ValidInputStyle" : "DefaultTextBoxStyle",
+                      "ValidationHint" : "[[TW.RSM.SFW.Invalid Input. Please enter a valid integer.]]",
+                      "ValidationHinting" : false,
+                      "Visible" : true,
+                      "Width" : 105,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Textboxvalidate",
+                      "__supportsLabel" : true,
+                      "isValid" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "Disabled" : false,
+                      "DisplayName" : "PendingTimeoutEnabled",
+                      "FocusStyle" : "DefaultFocusStyle",
+                      "Height" : 20,
+                      "Id" : "checkbox-101",
+                      "Left" : 375,
+                      "Prompt" : "[[TW.RSM.SFW.Notification Timeout Enabled]]",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "State" : false,
+                      "Style" : "DefaultCheckboxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 181,
+                      "Type" : "checkbox",
+                      "Visible" : true,
+                      "Width" : 220,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Checkbox"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "AllowDecimals" : false,
+                      "AllowNegatives" : false,
+                      "Area" : "UI",
+                      "ConstrainValue" : false,
+                      "DisplayName" : "PendingRetryTimeoutNum",
+                      "FixedDigits" : 0,
+                      "Height" : 24,
+                      "Id" : "numericentry-102",
+                      "InnerShadow" : false,
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 630,
+                      "Maximum" : 1000000,
+                      "Minimum" : 0,
+                      "NumericEntryFocusStyle" : "DefaultFocusStyle",
+                      "NumericEntryLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 461,
+                      "Type" : "numericentry",
+                      "Value" : 0,
+                      "ValueAlign" : "right",
+                      "Visible" : false,
+                      "Width" : 35,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Numeric Entry",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "label-103",
+                      "Height" : 22,
+                      "Id" : "label-103",
+                      "Left" : 15,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.Pending Retry Timeout:]]",
+                      "ToolTipField" : "",
+                      "Top" : 461,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 210,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "CursorPosition" : 0,
+                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                      "Description" : "",
+                      "DisplayName" : "PendingRetryTimeout",
+                      "Height" : 24,
+                      "Id" : "textboxValidate-104",
+                      "InvalidInputStyle" : "DefaultTextBoxStyle",
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 235,
+                      "MaskInputCharacters" : false,
+                      "MaxChars" : 7,
+                      "PlaceholderText" : "",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 9,
+                      "Text" : "",
+                      "TextAlign" : "left",
+                      "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ToolTip" : "",
+                      "ToolTipDuration" : 2,
+                      "ToolTipPosition" : "Lower Right",
+                      "ToolTipStyles" : "qtip-green",
+                      "Top" : 461,
+                      "Type" : "textboxValidate",
+                      "ValidInputStyle" : "DefaultTextBoxStyle",
+                      "ValidationHint" : "[[TW.RSM.SFW.Invalid Input. Please enter a valid integer.]]",
+                      "ValidationHinting" : false,
+                      "Visible" : true,
+                      "Width" : 105,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Textboxvalidate",
+                      "__supportsLabel" : true,
+                      "isValid" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "Disabled" : false,
+                      "DisplayName" : "PendingRetryTimeoutEnabled",
+                      "FocusStyle" : "DefaultFocusStyle",
+                      "Height" : 20,
+                      "Id" : "checkbox-105",
+                      "Left" : 375,
+                      "Prompt" : "[[TW.RSM.SFW.Scheduling Timeout Enabled]]",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "State" : false,
+                      "Style" : "DefaultCheckboxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 461,
+                      "Type" : "checkbox",
+                      "Visible" : true,
+                      "Width" : 220,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Checkbox"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "label-107",
+                      "Height" : 22,
+                      "Id" : "label-107",
+                      "Left" : 15,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.Notified Timeout:]]",
+                      "ToolTipField" : "",
+                      "Top" : 261,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 210,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "CursorPosition" : 0,
+                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                      "Description" : "",
+                      "DisplayName" : "NotifiedTimeout",
+                      "Height" : 24,
+                      "Id" : "textboxValidate-108",
+                      "InvalidInputStyle" : "DefaultTextBoxStyle",
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 235,
+                      "MaskInputCharacters" : false,
+                      "MaxChars" : 7,
+                      "PlaceholderText" : "",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 4,
+                      "Text" : "",
+                      "TextAlign" : "left",
+                      "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ToolTip" : "",
+                      "ToolTipDuration" : 2,
+                      "ToolTipPosition" : "Lower Right",
+                      "ToolTipStyles" : "qtip-green",
+                      "Top" : 261,
+                      "Type" : "textboxValidate",
+                      "ValidInputStyle" : "DefaultTextBoxStyle",
+                      "ValidationHint" : "[[TW.RSM.SFW.Invalid Input. Please enter a valid integer.]]",
+                      "ValidationHinting" : false,
+                      "Visible" : true,
+                      "Width" : 105,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Textboxvalidate",
+                      "__supportsLabel" : true,
+                      "isValid" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "AllowDecimals" : false,
+                      "AllowNegatives" : false,
+                      "Area" : "UI",
+                      "ConstrainValue" : false,
+                      "DisplayName" : "NotifiedTimeoutNum",
+                      "FixedDigits" : 0,
+                      "Height" : 24,
+                      "Id" : "numericentry-106",
+                      "InnerShadow" : false,
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 630,
+                      "Maximum" : 1000000,
+                      "Minimum" : 0,
+                      "NumericEntryFocusStyle" : "DefaultFocusStyle",
+                      "NumericEntryLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 261,
+                      "Type" : "numericentry",
+                      "Value" : 0,
+                      "ValueAlign" : "right",
+                      "Visible" : false,
+                      "Width" : 35,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Numeric Entry",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "Description" : "",
+                      "Disabled" : false,
+                      "DisplayName" : "NotifiedTimeoutEnabled",
+                      "FocusStyle" : "DefaultFocusStyle",
+                      "Height" : 20,
+                      "Id" : "checkbox-109",
+                      "Left" : 375,
+                      "Prompt" : "[[TW.RSM.SFW.Notified Timeout Enabled]]",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "State" : false,
+                      "Style" : "DefaultCheckboxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 261,
+                      "Type" : "checkbox",
+                      "Visible" : true,
+                      "Width" : 220,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Checkbox"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "label-110",
+                      "Height" : 22,
+                      "Id" : "label-110",
+                      "Left" : 15,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.Downloaded Timeout:]]",
+                      "ToolTipField" : "",
+                      "Top" : 381,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 210,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "CursorPosition" : 0,
+                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                      "Description" : "",
+                      "DisplayName" : "DownloadedTimeout",
+                      "Height" : 24,
+                      "Id" : "textboxValidate-111",
+                      "InvalidInputStyle" : "DefaultTextBoxStyle",
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 235,
+                      "MaskInputCharacters" : false,
+                      "MaxChars" : 7,
+                      "PlaceholderText" : "",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 7,
+                      "Text" : "",
+                      "TextAlign" : "left",
+                      "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ToolTip" : "",
+                      "ToolTipDuration" : 2,
+                      "ToolTipPosition" : "Lower Right",
+                      "ToolTipStyles" : "qtip-green",
+                      "Top" : 381,
+                      "Type" : "textboxValidate",
+                      "ValidInputStyle" : "DefaultTextBoxStyle",
+                      "ValidationHint" : "[[TW.RSM.SFW.Invalid Input. Please enter a valid integer.]]",
+                      "ValidationHinting" : false,
+                      "Visible" : true,
+                      "Width" : 105,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Textboxvalidate",
+                      "__supportsLabel" : true,
+                      "isValid" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "AllowDecimals" : false,
+                      "AllowNegatives" : false,
+                      "Area" : "UI",
+                      "ConstrainValue" : false,
+                      "Description" : "",
+                      "DisplayName" : "DownloadedTimeoutNum",
+                      "FixedDigits" : 0,
+                      "Height" : 24,
+                      "Id" : "numericentry-112",
+                      "InnerShadow" : false,
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 630,
+                      "Maximum" : 1000000,
+                      "Minimum" : 0,
+                      "NumericEntryFocusStyle" : "DefaultFocusStyle",
+                      "NumericEntryLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 381,
+                      "Type" : "numericentry",
+                      "Value" : 0,
+                      "ValueAlign" : "right",
+                      "Visible" : false,
+                      "Width" : 35,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Numeric Entry",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "Description" : "",
+                      "Disabled" : false,
+                      "DisplayName" : "DownloadedTimeoutEnabled",
+                      "FocusStyle" : "DefaultFocusStyle",
+                      "Height" : 20,
+                      "Id" : "checkbox-113",
+                      "Left" : 375,
+                      "Prompt" : "[[TW.RSM.SFW.Downloaded Timeout Enabled]]",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "State" : false,
+                      "Style" : "DefaultCheckboxStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 381,
+                      "Type" : "checkbox",
+                      "Visible" : true,
+                      "Width" : 220,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Checkbox"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "label-114",
+                      "Height" : 22,
+                      "Id" : "label-114",
+                      "Left" : 15,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.Notified Timeout Note]]",
+                      "ToolTipField" : "",
+                      "Top" : 501,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 500,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "label-115",
+                      "Height" : 22,
+                      "Id" : "label-115",
+                      "Left" : 15,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.Downloaded Timeout Note]]",
+                      "ToolTipField" : "",
+                      "Top" : 521,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 500,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "Description" : "",
+                    "DisplayName" : "Main Title",
+                    "Height" : 22,
+                    "Id" : "Label-28",
+                    "Left" : 50,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "PTC.Core.Accent2PageTitleTextStyle",
+                    "Text" : "[[TW.RSM.SFW.Deployment Configuration]]",
+                    "ToolTipField" : "",
+                    "Top" : 15,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 610,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "ClickOutsideToClose" : false,
+                    "DisplayName" : "NavigationTooltip-52",
+                    "FixedPopupHeight" : 0,
+                    "FixedPopupWidth" : 0,
+                    "Height" : 25,
+                    "HelpContent" : "This page includes the configuration for performance related metrics. Please enter a valid configuration and click \"Save\" when finished.",
+                    "HelpTitle" : "Configure Performance Settings",
+                    "IconAlignment" : "left",
+                    "Id" : "NavigationTooltip-52",
+                    "Left" : 915,
+                    "MashupName" : "TW.RSM.SFW.Mashup.HelpDialog",
+                    "MashupParameters" : [ {
+                      "BaseType" : "STRING",
+                      "Description" : "Help Title",
+                      "ParameterName" : "HelpTitle",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "0"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "Help Title",
+                        "name" : "HelpTitle",
+                        "ordinal" : 0
+                      }
+                    }, {
+                      "BaseType" : "STRING",
+                      "Description" : "Help Content",
+                      "ParameterName" : "HelpContent",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "1"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "Help Content",
+                        "name" : "HelpContent",
+                        "ordinal" : 0
+                      }
+                    } ],
+                    "MessageToShow" : "Mashup must be selected",
+                    "ModalPopupOpacity" : 0.5,
+                    "NavigationActiveStyle" : "TW.RSM.Style.HelpIcon",
+                    "NavigationFocusStyle" : "TW.RSM.Style.HelpIcon",
+                    "NavigationHoverStyle" : "TW.RSM.Style.HelpIconRollover",
+                    "PopupScrolling" : "off",
+                    "PopupTitle" : "Help",
+                    "PopupTitleStyle" : "TW.RSM.Style.PopupTitle",
+                    "ReloadOnReplace" : false,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : true,
+                    "ShowCloseButton" : true,
+                    "ShowDataLoading" : true,
+                    "ShowMessageIfNoMashup" : false,
+                    "Style" : "TW.RSM.Style.HelpIcon",
+                    "TabSequence" : 0,
+                    "TargetWindow" : "popup",
+                    "Text" : "",
+                    "ToolTipDuration" : 2,
+                    "ToolTipField" : "[[TW.RSM.SFW.Help]]",
+                    "ToolTipPosition" : "top right,bottom left",
+                    "ToolTipStyles" : "qtip-green",
+                    "Top" : 15,
+                    "Transparent" : false,
+                    "Type" : "navigation",
+                    "Visible" : true,
+                    "Width" : 30,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Navigation"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "AlternateText" : "",
+                    "Area" : "UI",
+                    "BorderStyle" : "DefaultImageBorderStyle",
+                    "DisplayName" : "Image-59",
+                    "Height" : 30,
+                    "Id" : "Image-59",
+                    "Left" : 10,
+                    "PreventCaching" : false,
+                    "ResponsiveLayout" : false,
+                    "Scaling" : "none",
+                    "ShowDataLoading" : true,
+                    "SourceURL" : "TW.RSM.Icon.BlogTitle",
+                    "ToolTipField" : "",
+                    "Top" : 10,
+                    "Type" : "image",
+                    "Visible" : true,
+                    "Width" : 30,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Image"
+                  },
+                  "Widgets" : [ ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

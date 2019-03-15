@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <ThingShapes>
+        <ThingShape
+         aspect.isExtension="true"
+         className=""
+         description="[DEPRECATED] Provides the capabilites posessed by operatable resources"
+         documentationContent="&lt;p&gt;&lt;br&gt;&lt;/p&gt; "
+         homeMashup=""
+         lastModifiedDate="2018-10-24T20:59:54.835Z"
+         name="PTC.Capability.OperatableServiceProvider"
+         projectName=""
+         tags="PTC:CORE;TWUTL:ResourceProvider">
+            <PropertyDefinitions></PropertyDefinitions>
+            <ServiceDefinitions>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Gets the operating resource related to the operatable resource specified in the &quot;objects&quot; parameter"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetOperator">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description="InfoTable of the operating resource (singleton)"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="This is the DataShape to apply to the resulting InfoTable.  If both dataShapName and dataShape are specified, dataShape takes precedence over dataShapeName."
+                         name="dataShape"
+                         ordinal="4"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="DATASHAPENAME"
+                         description="This is the name of the DataShape to apply to the resulting InfoTable.  This is an alternative to dataShape."
+                         name="dataShapeName"
+                         ordinal="3"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="JSON"
+                         description="Extra parameters that are passed to ResourceProvider service calls"
+                         name="extraParams"
+                         ordinal="6"></FieldDefinition>
+                        <FieldDefinition
+                         aspect.isRequired="true"
+                         baseType="INFOTABLE"
+                         description="InfoTable that contains the operatable resource used to retrieve the referenced operating resource"
+                         name="objects"
+                         ordinal="1"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="JSON"
+                         description="A query for the operating resource"
+                         name="query"
+                         ordinal="5"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="THINGTEMPLATENAME"
+                         description="ThingTemplate of the resource providers for the operating resource"
+                         name="resourceType"
+                         ordinal="2"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Gets the operating contact resource related to the operatable contact resource specified in the &quot;objects&quot; parameter"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetOperatorContact">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description="InfoTable of the operating resource (singleton)"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="This is the DataShape to apply to the resulting InfoTable.  If both dataShapName and dataShape are specified, dataShape takes precedence over dataShapeName."
+                         name="dataShape"
+                         ordinal="4"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="DATASHAPENAME"
+                         description="This is the name of the DataShape to apply to the resulting InfoTable.  This is an alternative to dataShape."
+                         name="dataShapeName"
+                         ordinal="3"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="JSON"
+                         description="Extra parameters that are passed to ResourceProvider service calls"
+                         name="extraParams"
+                         ordinal="6"></FieldDefinition>
+                        <FieldDefinition
+                         aspect.isRequired="true"
+                         baseType="INFOTABLE"
+                         description="InfoTable that contains the operatable resource used to retrieve the referenced operating resource"
+                         name="objects"
+                         ordinal="1"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="JSON"
+                         description="A query for the operating resource"
+                         name="query"
+                         ordinal="5"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="THINGTEMPLATENAME"
+                         description="ThingTemplate of the resource providers for the operating resource"
+                         name="resourceType"
+                         ordinal="2"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+            </ServiceDefinitions>
+            <EventDefinitions></EventDefinitions>
+            <ServiceMappings></ServiceMappings>
+            <ServiceImplementations>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetOperator">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         description="Script"
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    var params = {
+                                      resourceProvider: me.name /* THINGNAME */,
+                                      table: objects /* INFOTABLE */
+                                    };
+                                    
+                                    // Update the Id of resources to URN format for ResourceManager
+                                    var table = Things["PTC.Resource.ResourceManager"].AddUrn(params);
+                                    
+                                    params = {
+                                        relationship: "PTC.Capability.OperatingServiceProvider" /* THINGSHAPENAME */,
+                                        dataShapeName: dataShapeName /* DATASHAPENAME */,
+                                        dataShape: dataShape /* INFOTABLE */,
+                                        objects: table /* INFOTABLE */,
+                                        query: query /* JSON */,
+                                        extraParams: extraParams /* JSON */,
+                                        foreignKey: "Operator" /* STRING */,
+                                        resourceType: resourceType /* THINGTEMPLATENAME */
+                                    };
+                                    
+                                    // Navigate the relationship
+                                    var result = Things["PTC.Resource.ResourceManager"].NavigateForeignKeyRelationship(params);
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetOperatorContact">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         description="Script"
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    var params = {
+                                      resourceProvider: me.name /* THINGNAME */,
+                                      table: objects /* INFOTABLE */
+                                    };
+                                    
+                                    // Update the Id of resources to URN format for ResourceManager
+                                    var table = Things["PTC.Resource.ResourceManager"].AddUrn(params);
+                                    
+                                    params = {
+                                        relationship: "PTC.Capability.OperatingServiceProvider" /* THINGSHAPENAME */,
+                                        dataShapeName: dataShapeName /* DATASHAPENAME */,
+                                        dataShape: dataShape /* INFOTABLE */,
+                                        objects: table /* INFOTABLE */,
+                                        query: query /* JSON */,
+                                        extraParams: extraParams /* JSON */,
+                                        foreignKey: "OperatorContact" /* STRING */,
+                                        resourceType: resourceType /* THINGTEMPLATENAME */
+                                    };
+                                    
+                                    // Navigate the relationship
+                                    var result = Things["PTC.Resource.ResourceManager"].NavigateForeignKeyRelationship(params);
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+            </ServiceImplementations>
+            <Subscriptions></Subscriptions>
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <InstanceRunTimePermissions></InstanceRunTimePermissions>
+        </ThingShape>
+    </ThingShapes>
+</Entities>

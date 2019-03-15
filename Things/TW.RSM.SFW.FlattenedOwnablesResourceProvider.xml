@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Things>
+        <Thing
+         aspect.isExtension="true"
+         description=""
+         documentationContent="&lt;p&gt;&lt;br&gt;&lt;/p&gt; "
+         effectiveThingPackage="PTC.Resource.FlattenedCompositeResourceProviderPackage"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         lastModifiedDate="2018-10-24T21:00:18.991Z"
+         name="TW.RSM.SFW.FlattenedOwnablesResourceProvider"
+         projectName=""
+         published="false"
+         tags="PTC:AssetManagement;Applications:SCM;TWUTL:RemoteServices"
+         thingTemplate="PTC.Resource.FlattenedCompositeResourceProviderTemplate"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 description="Resource Attribute Mapping Configuration"
+                 isMultiRow="true"
+                 name="Attribute Mapping Configuration"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="STRING"
+                             baseType="BASETYPENAME"
+                             description="The base type of the attribute (must be the same for normalized and originalattributes"
+                             name="BaseType"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="true"
+                             baseType="STRING"
+                             description="The normalized attribute name of the resource"
+                             name="Normalized"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="The original name of the attribute used in the business service for the resource"
+                             name="Original"
+                             ordinal="2"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <BaseType>
+                            <![CDATA[
+                            STRING
+                            ]]>
+                            </BaseType>
+                            <Normalized>
+                            <![CDATA[
+                            _OriginalId
+                            ]]>
+                            </Normalized>
+                            <Original>
+                            <![CDATA[
+                            Id
+                            ]]>
+                            </Original>
+                        </Row>
+                        <Row>
+                            <BaseType>
+                            <![CDATA[
+                            STRING
+                            ]]>
+                            </BaseType>
+                            <Normalized>
+                            <![CDATA[
+                            Id
+                            ]]>
+                            </Normalized>
+                            <Original>
+                            <![CDATA[
+                            Id
+                            ]]>
+                            </Original>
+                        </Row>
+                        <Row>
+                            <BaseType>
+                            <![CDATA[
+                            DATETIME
+                            ]]>
+                            </BaseType>
+                            <Normalized>
+                            <![CDATA[
+                            CreateTimestamp
+                            ]]>
+                            </Normalized>
+                            <Original>
+                            <![CDATA[
+                            CreateTimestamp
+                            ]]>
+                            </Original>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="Expand Terms"
+                 isMultiRow="true"
+                 name="Expand Terms"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Role to expand; use '.' as a separator when specifying nested expands and '*' to match all roles at a given level"
+                             name="Term"
+                             ordinal="1"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <Term>
+                            <![CDATA[
+                            Owner
+                            ]]>
+                            </Term>
+                        </Row>
+                        <Row>
+                            <Term>
+                            <![CDATA[
+                            Operator
+                            ]]>
+                            </Term>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="Resource Provider Configuration"
+                 isMultiRow="false"
+                 name="Resource Provider Configuration"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             baseType="THINGNAME"
+                             description="The Thing name of the connector to a business service for the resource"
+                             name="Connector"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="MASHUPNAME"
+                             description="The name of the mashup to create a new asset"
+                             name="CreateMashup"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="MASHUPNAME"
+                             description="The name of the mashup to show the details of the resource"
+                             name="DetailMashup"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <Connector></Connector>
+                            <CreateMashup></CreateMashup>
+                            <DetailMashup></DetailMashup>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="Target Provider Capabilities"
+                 isMultiRow="true"
+                 name="Target Provider Capabilities"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             baseType="THINGSHAPENAME"
+                             description="Names of ThingShapes target resource providers must implement"
+                             name="Capability"
+                             ordinal="1"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="Target Provider Tags"
+                 isMultiRow="false"
+                 name="Target Provider Tags"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             baseType="TAGS"
+                             description="Model tags required of target resource providers"
+                             name="Tags"
+                             ordinal="1"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <Tags>Role:Ownables;SCM:Updatables</Tags>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions></ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations></ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ImplementedShapes></ImplementedShapes>
+            <ThingProperties></ThingProperties>
+        </Thing>
+    </Things>
+</Entities>

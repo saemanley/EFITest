@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isResponsive="true"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-11-06T02:37:24.401Z"
+         name="NCR.DCS.AssetComponentComputerSystemMenuMashup"
+         projectName="DCS. Project.Main"
+         rows="0.0"
+         tags="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR_All"
+                         type="Group"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR_All"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR_All"
+                         type="Group"></Principal>
+                    </EventInvoke>
+                    <EventSubscribe>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR_All"
+                         type="Group"></Principal>
+                    </EventSubscribe>
+                </Permissions>
+            </RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:ReleaseManagement"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:SCM"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:TCS"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="NCR"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="STRING"
+                 description=""
+                 name="assetName"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things>
+                <Thing>NCR.BaseDeviceHelper</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "CustomMashupCss" : "",
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_NCR.BaseDeviceHelper" : {
+                  "DataName" : "Things_NCR.BaseDeviceHelper",
+                  "EntityName" : "NCR.BaseDeviceHelper",
+                  "EntityType" : "Things",
+                  "Id" : "48fdda05-44f7-4967-9085-785b73e79a97",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "3f13a353-8293-44d3-945e-569a60729cf4",
+                    "Name" : "GetHTMLPropertyTableForComponent",
+                    "Parameters" : {
+                      "propertyName" : "CS_ALL"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetHTMLPropertyTableForComponent"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "4f5f9e6b-f8e8-4f30-9ac1-7b291cc2012e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "assetName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "assetName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetPropertiesForComputerSystem",
+                "TargetSection" : "Things_NCR.BaseDeviceHelper"
+              }, {
+                "Id" : "34ac4cf7-d094-4ee6-8ffb-33f8d3b5bf49",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "HTML",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetHTMLPropertyTableForComponent",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "htmltextarea-5",
+                "TargetSection" : ""
+              }, {
+                "Id" : "8095f971-49ac-445f-b57c-6d8b7c6307c8",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "assetName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "assetName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetHTMLPropertyTableForComponent",
+                "TargetSection" : "Things_NCR.BaseDeviceHelper"
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.BaseDeviceHelper",
+                "EventHandlerService" : "GetHTMLPropertyTableForComponent",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "assetNameChanged",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "a55b6a8f-bbf7-4e25-9971-33f71f2b1e69"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 618,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : true,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : {
+                    "backgroundColor" : "",
+                    "displayString" : "",
+                    "fontEmphasisBold" : false,
+                    "fontEmphasisItalic" : false,
+                    "fontEmphasisUnderline" : false,
+                    "foregroundColor" : "",
+                    "image" : "",
+                    "lineColor" : "",
+                    "lineStyle" : "none",
+                    "lineThickness" : 1,
+                    "secondaryBackgroundColor" : "",
+                    "textSize" : "normal"
+                  },
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 1024,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "assetName"
+                  } ],
+                  "id_index" : 5,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "htmltextarea-5",
+                    "Height" : 214,
+                    "Id" : "htmltextarea-5",
+                    "Label" : "",
+                    "LabelAlignment" : "left",
+                    "LabelStyle" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : false,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "none",
+                      "lineThickness" : 0,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "normal"
+                    },
+                    "Left" : 0,
+                    "ReadOnly" : true,
+                    "ResponsiveLayout" : true,
+                    "ShowBorder" : false,
+                    "ShowDataLoading" : true,
+                    "Text" : "",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                    "Top" : 0,
+                    "Type" : "htmltextarea",
+                    "Visible" : true,
+                    "Width" : 744,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Html TextArea",
+                    "__supportsLabel" : true,
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

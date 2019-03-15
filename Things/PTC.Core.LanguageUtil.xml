@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Things>
+        <Thing
+         aspect.isExtension="true"
+         description="Temporary utility to help set language property on all users."
+         documentationContent=" "
+         effectiveThingPackage="ConfiguredThing"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         lastModifiedDate="2018-10-24T20:59:56.022Z"
+         name="PTC.Core.LanguageUtil"
+         projectName=""
+         published="false"
+         tags="PTC:CORE"
+         thingTemplate="GenericThing"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="Set the language of any user who has none set. This will not set the values for system users."
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="setDefaultLanguage">
+                        <ResultType
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="Administrator, SuperUser,__INITIAL_SALESFORCE_USER_ID__, System"
+                             baseType="STRING"
+                             description="comma separated list of users name to skip"
+                             name="excludeUsers"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="false"
+                             baseType="BOOLEAN"
+                             description="Also set the language for existing users who have a language set already."
+                             name="forceExistingUsers"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="es"
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="The language to use"
+                             name="language"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                </ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="setDefaultLanguage">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        excludeUsers += ',Administrator, SuperUser, System';
+                                        excludeUsers = excludeUsers.replace(/ /g, '');
+                                        var excluded = excludeUsers.split(',');
+                                        var users = Resources["EntityServices"].GetEntityList({ type: 'User'});
+                                        var tableLength = users.rows.length;
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape({ infoTableName : "InfoTable",
+                                            dataShapeName : "EntityReference"
+                                        });
+                                        
+                                        for (var x = 0; x < tableLength; x++) {
+                                            var row = users.rows[x];
+                                            var user = Users[row.name];
+                                            if ( (forceExistingUsers || !user.language) && (excluded.indexOf(row.name) < 0) && (user.language != language)) {
+                                                user.language = language;
+                                                result.AddRow(row);
+                                            }
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ImplementedShapes></ImplementedShapes>
+            <ThingProperties></ThingProperties>
+        </Thing>
+    </Things>
+</Entities>

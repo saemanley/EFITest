@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="true"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description="Mashup for the PTC ThingWorx Utilities Console"
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-10-24T20:59:51.332Z"
+         name="PTC.ConvergeConsole"
+         projectName=""
+         rows="0.0"
+         tags="PTC:ConvergeConsole;TWUTL:Core">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions></ParameterDefinitions>
+            <Things>
+                <Thing>PTC.ConvergeConsoleHelper</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_PTC_ConvergeConsoleHelper" : {
+                  "DataName" : "Things_PTC_ConvergeConsoleHelper",
+                  "EntityName" : "PTC.ConvergeConsoleHelper",
+                  "EntityType" : "Things",
+                  "Id" : "d4d3e5ed-e274-4c14-897c-568d54a9cb8d",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "b99b556a-0d96-4eb0-befb-4348003ed4e7",
+                    "Name" : "GetConsoleTilesLocalized",
+                    "Parameters" : {
+                      "inConvergeConsole" : true
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetConsoleTilesLocalized"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "db8938fb-9cb7-48cc-b550-321aa009292e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetConsoleTilesLocalized",
+                "SourceSection" : "Things_PTC_ConvergeConsoleHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "Repeater-12",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_PTC_ConvergeConsoleHelper",
+                "EventHandlerService" : "GetConsoleTilesLocalized",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "c5a152dd-68a6-4fdb-8a9c-9375de9da693"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "contain",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 618,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "Master" : "PTC.ConvergeConsole.Master",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : true,
+                  "Rows" : 0,
+                  "ShowDataLoading" : false,
+                  "Style" : "PTC.NoStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 1024,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ ],
+                  "id_index" : 20,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "Columns" : 0,
+                    "DisplayName" : "Layout-1",
+                    "Footer" : false,
+                    "FooterHeight" : 0,
+                    "Header" : false,
+                    "HeaderHeight" : 0,
+                    "Id" : "Layout-1",
+                    "IncludeSpacingInFixedAreas" : false,
+                    "IsPrintLayout" : false,
+                    "Left" : 210,
+                    "LeftSidebar" : false,
+                    "LeftSidebarWidth" : 0,
+                    "Orientation" : "vertical",
+                    "PctColumn1" : 50,
+                    "PctColumn2" : 50,
+                    "PctColumn3" : 1,
+                    "PctColumn4" : 1,
+                    "PctColumn5" : 1,
+                    "PctColumn6" : 1,
+                    "PctColumn7" : 1,
+                    "PctColumn8" : 1,
+                    "PctRow1" : 100,
+                    "PctRow2" : 50,
+                    "PctRow3" : 0,
+                    "PctRow4" : 0,
+                    "PctRow5" : 0,
+                    "PctRow6" : 0,
+                    "PctRow7" : 0,
+                    "PctRow8" : 0,
+                    "PrintMarginLeftRight" : 0.5,
+                    "PrintMarginTopBottom" : 0.5,
+                    "PrintWidth" : 650,
+                    "ResponsiveLayout" : true,
+                    "RightSidebar" : false,
+                    "RightSidebarWidth" : 0,
+                    "Rows" : 1,
+                    "ShowDataLoading" : false,
+                    "Spacing" : 0,
+                    "Top" : 130,
+                    "Type" : "layout",
+                    "Visible" : true,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Layout"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Row 1",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-3",
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : false,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "PTC.NoStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Container"
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "Area" : "UI",
+                        "Columns" : 1,
+                        "DisplayName" : "Layout-6",
+                        "Footer" : false,
+                        "FooterHeight" : 0,
+                        "Header" : false,
+                        "HeaderHeight" : 0,
+                        "Id" : "Layout-6",
+                        "IncludeSpacingInFixedAreas" : false,
+                        "IsPrintLayout" : false,
+                        "Left" : 155,
+                        "LeftSidebar" : false,
+                        "LeftSidebarWidth" : 0,
+                        "Orientation" : "horizontal",
+                        "PctColumn1" : 100,
+                        "PctColumn2" : 10,
+                        "PctColumn3" : 1,
+                        "PctColumn4" : 1,
+                        "PctColumn5" : 1,
+                        "PctColumn6" : 1,
+                        "PctColumn7" : 1,
+                        "PctColumn8" : 1,
+                        "PctRow1" : 50,
+                        "PctRow2" : 50,
+                        "PctRow3" : 0,
+                        "PctRow4" : 0,
+                        "PctRow5" : 0,
+                        "PctRow6" : 0,
+                        "PctRow7" : 0,
+                        "PctRow8" : 0,
+                        "PrintMarginLeftRight" : 0.5,
+                        "PrintMarginTopBottom" : 0.5,
+                        "PrintWidth" : 650,
+                        "ResponsiveLayout" : true,
+                        "RightSidebar" : false,
+                        "RightSidebarWidth" : 0,
+                        "Rows" : 0,
+                        "ShowDataLoading" : false,
+                        "Spacing" : 0,
+                        "Top" : 50,
+                        "Type" : "layout",
+                        "Visible" : true,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Layout"
+                      },
+                      "Widgets" : [ {
+                        "Properties" : {
+                          "AnimateExpandCollapse" : true,
+                          "Area" : "UI",
+                          "BGImageRepeat" : "no-repeat",
+                          "BGImageSize" : "auto",
+                          "DisplayName" : "Column 1",
+                          "ExpandCollapseTabLocation" : "outside",
+                          "Expanded" : true,
+                          "Id" : "container-8",
+                          "MinHeight" : 0,
+                          "MinWidth" : 0,
+                          "Overlay" : false,
+                          "OverlayIsTransparent" : false,
+                          "ResponsiveLayout" : true,
+                          "ShowDataLoading" : false,
+                          "ShowExpandCollapseTab" : false,
+                          "Style" : "DefaultContainerStyle",
+                          "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                          "TabExpandStyle" : "DefaultTabExpandStyle",
+                          "TabHeight" : 36,
+                          "TabLocation" : "center",
+                          "TabOffset" : 0,
+                          "TabWidth" : 36,
+                          "Type" : "container",
+                          "Visible" : true,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Container"
+                        },
+                        "Widgets" : [ {
+                          "Properties" : {
+                            "AllowSelection" : false,
+                            "Area" : "UI",
+                            "AutoSelectFirstRow" : false,
+                            "CCTileColorURL" : "ConvergeConsoleTileColorURL",
+                            "CCTileImageURL" : "ConvergeConsoleTileImageURL",
+                            "CCTileLabelURL" : "ConvergeConsoleTileLabelURL",
+                            "CCTileURL" : "ConvergeConsoleTileURL",
+                            "DisplayName" : "Repeater-12",
+                            "FixedMashupHeight" : 250,
+                            "FixedMashupWidth" : 250,
+                            "Height" : 300,
+                            "HideInnerScrollbars" : false,
+                            "Id" : "Repeater-12",
+                            "IsMashup" : "IsMashup",
+                            "ItemLoadBehavior" : "load-destroy-on-demand",
+                            "LabelColor" : "LabelColor",
+                            "Left" : 200,
+                            "LocalizedLabel" : "LocalizedLabel",
+                            "LocalizedTooltip" : "LocalizedTooltip",
+                            "Mashup" : "PTC.ConvergeConsole.Tile",
+                            "MashupHeight" : 240,
+                            "MashupParameters" : [ {
+                              "BaseType" : "BOOLEAN",
+                              "Description" : "",
+                              "ParameterName" : "OpenInNewWindow"
+                            }, {
+                              "BaseType" : "STRING",
+                              "Description" : "",
+                              "ParameterName" : "TileMashupOrURL"
+                            }, {
+                              "BaseType" : "IMAGELINK",
+                              "Description" : "",
+                              "ParameterName" : "TileBackground"
+                            }, {
+                              "BaseType" : "IMAGELINK",
+                              "Description" : "",
+                              "ParameterName" : "TileIcon"
+                            }, {
+                              "BaseType" : "BOOLEAN",
+                              "Description" : "",
+                              "ParameterName" : "IsMashup"
+                            }, {
+                              "BaseType" : "TEXT",
+                              "Description" : "",
+                              "ParameterName" : "LocalizedLabel"
+                            }, {
+                              "BaseType" : "TEXT",
+                              "Description" : "",
+                              "ParameterName" : "LocalizedTooltip"
+                            }, {
+                              "BaseType" : "STRING",
+                              "Description" : "",
+                              "ParameterName" : "LabelColor"
+                            } ],
+                            "MashupWidth" : 240,
+                            "OpenInNewWindow" : "OpenInNewWindow",
+                            "RepeaterCellStyle" : "PTC.NoStyle",
+                            "RepeaterSelectedStyle" : "DefaultRepeaterSelectedStyle",
+                            "RepeaterStyle" : "PTC.NoStyle",
+                            "RepeaterUnselectedStyle" : "DefaultRepeaterUnselectedStyle",
+                            "ResponsiveLayout" : true,
+                            "ReuseMashups" : true,
+                            "SelectionHeight" : 25,
+                            "SelectionWidth" : 25,
+                            "ShowDataLoading" : true,
+                            "TileBackground" : "TileBackground",
+                            "TileBackgroundURL" : "ConvergeConsoleTileColorURL",
+                            "TileIcon" : "TileIcon",
+                            "TileIconURL" : "ConvergeConsoleTileImageURL",
+                            "TileLabelURL" : "ConvergeConsoleTileLabelURL",
+                            "TileMashupOrURL" : "TileMashupOrURL",
+                            "TileMashupURL" : "ConvergeConsoleTileURL",
+                            "Top" : 80,
+                            "Type" : "repeater",
+                            "View" : "horizontal-wrap",
+                            "Visible" : true,
+                            "Width" : 400,
+                            "Z-index" : 10,
+                            "__TypeDisplayName" : "Repeater"
+                          },
+                          "Widgets" : [ ]
+                        } ]
+                      } ]
+                    } ]
+                  } ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Things>
+        <Thing
+         description="Long Term event storage for DCS."
+         documentationContent=""
+         effectiveThingPackage="StreamThing"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         lastModifiedDate="2018-11-06T02:37:24.672Z"
+         name="NCR.DCS.LTEVENTSs"
+         projectName="DCS. Project.Main"
+         published="false"
+         tags="Applications:NCR"
+         thingTemplate="Stream"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read>
+                    <Principal
+                     isPermitted="true"
+                     name="NCR.DCS.DEVELOPERS"
+                     type="Group"></Principal>
+                </Read>
+                <Update>
+                    <Principal
+                     isPermitted="false"
+                     name="NCR.DCS.DEVELOPERS"
+                     type="Group"></Principal>
+                </Update>
+                <Delete>
+                    <Principal
+                     isPermitted="false"
+                     name="NCR.DCS.DEVELOPERS"
+                     type="Group"></Principal>
+                </Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+            </RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:Developers"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:ReleaseManagement"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:SCM"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:TCS"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 description="Data Thing Configuration"
+                 isMultiRow="false"
+                 name="DataThingSettings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Persistence Provider Name"
+                             name="persistenceProvider"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <persistenceProvider>
+                            <![CDATA[
+                            ThingworxPersistenceProvider
+                            ]]>
+                            </persistenceProvider>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="Data Shape Configuration"
+                 isMultiRow="false"
+                 name="Settings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.friendlyName="Data Shape"
+                             baseType="DATASHAPENAME"
+                             description="Data shape"
+                             name="dataShape"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <accumulatedDataShape>
+                                <json>
+                                <![CDATA[
+                                {"fieldDefinitions":{"severity":{"name":"severity","aspects":{},"description":"","baseType":"STRING","ordinal":11},"eventid":{"name":"eventid","aspects":{"isPrimaryKey":true},"description":"Primary Key. format t.b.d.","baseType":"STRING","ordinal":8},"data":{"name":"data","aspects":{},"description":"","baseType":"STRING","ordinal":4},"count":{"name":"count","aspects":{"minimumValue":1},"description":"Number of times this event occurred while active in the event table.","baseType":"INTEGER","ordinal":2},"description":{"name":"description","aspects":{"isPrimaryKey":false},"description":"","baseType":"STRING","ordinal":5},"duration":{"name":"duration","aspects":{"units":"minutes"},"description":"","baseType":"INTEGER","ordinal":7},"statuscode":{"name":"statuscode","aspects":{"isPrimaryKey":false},"description":"","baseType":"STRING","ordinal":12},"storeidentifier":{"name":"storeidentifier","aspects":{},"description":"","baseType":"STRING","ordinal":13},"managed":{"name":"managed","aspects":{},"description":"Flag to indicate if this event is qualified as a managed event in the  NCR.DCS.EventRulesDT","baseType":"BOOLEAN","ordinal":10},"assetName":{"name":"assetName","aspects":{"isPrimaryKey":true},"description":"","baseType":"STRING","ordinal":0},"category":{"name":"category","aspects":{},"description":"","baseType":"STRING","ordinal":1},"device":{"name":"device","aspects":{},"description":"The device where the alert is orginated from","baseType":"STRING","ordinal":6},"incident":{"name":"incident","aspects":{},"description":"","baseType":"STRING","ordinal":9},"customer":{"name":"customer","aspects":{},"description":"","baseType":"STRING","ordinal":3},"timestamp":{"name":"timestamp","aspects":{"isPrimaryKey":false},"description":"","baseType":"DATETIME","ordinal":14}}}
+                                ]]>
+                                </json>
+                            </accumulatedDataShape>
+                            <dataShape>
+                            <![CDATA[
+                            NCR.DCS.LTAssetEventsDS
+                            ]]>
+                            </dataShape>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="DeleteStreamEntriesByEventId">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="eventid"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                </ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="DeleteStreamEntriesByEventId">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        /*
+                                        {"filters": {"type": "EQ", "fieldName": "eventid","value": "PRTINH02"}}
+                                        {"filters": {"type": "EQ", "fieldName": "eventid","value": "PRTSRR02"}}
+                                        
+                                        */
+                                        
+                                        var query =
+                                            {
+                                                "filters": {
+                                                    "type": "EQ",
+                                                    "fieldName": "eventid",
+                                                    "value": eventid
+                                                }
+                                            }; 
+                                        
+                                        
+                                        var params = {
+                                        	oldestFirst: undefined /* BOOLEAN */,
+                                        	maxItems: 10000 /* NUMBER */,
+                                        	sourceTags: undefined /* TAGS */,
+                                        	endDate: undefined /* DATETIME */,
+                                        	query: query /* QUERY */,
+                                        	source: undefined /* STRING */,
+                                        	startDate: undefined /* DATETIME */,
+                                        	tags: undefined /* TAGS */
+                                        };
+                                        
+                                        // result: INFOTABLE dataShape: "undefined"
+                                        var itEvents = me.QueryStreamEntriesWithData(params);
+                                        
+                                        var tableLength = itEvents.rows.length;
+                                        
+                                        var result = "Deleted Entries: "; 
+                                        
+                                        try {
+                                        
+                                            for (var x = 0; x < tableLength; x++) {
+                                                var row = itEvents.rows[x];
+                                        
+                                                var paramsSE = {
+                                                    streamEntryId: row.id /* STRING */
+                                                };
+                                        
+                                                me.DeleteStreamEntry(paramsSE);
+                                        
+                                                result = result + " " + row.id;
+                                        
+                                            }
+                                        
+                                        } catch (e) {result = e.toString();}
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ImplementedShapes></ImplementedShapes>
+            <ThingProperties></ThingProperties>
+        </Thing>
+    </Things>
+</Entities>

@@ -1,0 +1,1171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="true"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent="&lt;p&gt;&lt;br&gt;&lt;/p&gt; "
+         homeMashup=""
+         lastModifiedDate="2018-10-24T21:00:08.662Z"
+         name="TW.RSM.Mashup.FileTransfer.Connected"
+         projectName=""
+         rows="0.0"
+         tags="Applications:RSM;Applications:RAC;Applications:FileTransfer;TWUTL:RemoteServices">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="3"
+                 baseType="STRING"
+                 description=""
+                 name="selectedFile"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.dataShape="EntityList"
+                 aspect.isDataTableEntry="true"
+                 aspect.ordinal="1"
+                 baseType="INFOTABLE"
+                 description=""
+                 name="selectedFiles"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="2"
+                 baseType="STRING"
+                 description=""
+                 name="selectedRemotePath"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="THINGNAME"
+                 description=""
+                 name="thingName"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="4"
+                 baseType="NUMBER"
+                 description=""
+                 name="updateMarker"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things>
+                <Thing>TW.RSM.FileTransferHelper</Thing>
+            </Things>
+            <ThingShapes>
+                <ThingShape>FileTransfer</ThingShape>
+            </ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "DynamicThingShapes_FileTransfer" : {
+                  "DataName" : "DynamicThingShapes_FileTransfer",
+                  "EntityName" : "FileTransfer",
+                  "EntityType" : "DynamicThingShapes",
+                  "Id" : "dd7ebd35-8c21-4ab7-8714-5c4315edf110",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "b5ebcbab-019f-407f-9f9a-c07ba999460e",
+                    "Name" : "GetDirectoryStructure",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDirectoryStructure"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "3d5cf79f-4050-4061-b01d-3ddee0534bfe",
+                    "Name" : "GetFileListing",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetFileListing"
+                  } ]
+                },
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_TW.RSM.FileTransferHelper" : {
+                  "DataName" : "Things_TW.RSM.FileTransferHelper",
+                  "EntityName" : "TW.RSM.FileTransferHelper",
+                  "EntityType" : "Things",
+                  "Id" : "98127611-57fe-4fec-807c-625f4080ce6c",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "a2c40775-c452-4261-b320-489ef96e355f",
+                    "Name" : "ConvertSelectedFilesToCommaDelimitedString",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "ConvertSelectedFilesToCommaDelimitedString"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "7bfda5da-8862-4fa0-87e0-c6a81172c114",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "thingName",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "TargetProperty" : "value",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Entity"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "EntityName",
+                "TargetSection" : "DynamicThingShapes_FileTransfer"
+              }, {
+                "Id" : "2eed2e01-7b49-4ec8-89d4-6476880aa41c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDirectoryStructure",
+                "SourceSection" : "DynamicThingShapes_FileTransfer",
+                "TargetArea" : "UI",
+                "TargetId" : "Tree-12",
+                "TargetSection" : ""
+              }, {
+                "Id" : "fa2be9d5-4c81-48e3-bbd5-e5f678f1cc3e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetFileListing",
+                "SourceSection" : "DynamicThingShapes_FileTransfer",
+                "TargetArea" : "UI",
+                "TargetId" : "Grid-16",
+                "TargetSection" : ""
+              }, {
+                "Id" : "25c4c456-800c-4e57-8a63-a1cb3deeda84",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "path",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "path",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "SelectedRows",
+                "SourceId" : "GetDirectoryStructure",
+                "SourceSection" : "DynamicThingShapes_FileTransfer",
+                "TargetArea" : "Data",
+                "TargetId" : "GetFileListing",
+                "TargetSection" : "DynamicThingShapes_FileTransfer"
+              }, {
+                "Id" : "a3922326-c88b-4f43-93f5-ab2c0b52d132",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "path",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "selectedRemotePath",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "SelectedRows",
+                "SourceId" : "GetDirectoryStructure",
+                "SourceSection" : "DynamicThingShapes_FileTransfer",
+                "TargetArea" : "Mashup",
+                "TargetId" : "mashup-root",
+                "TargetSection" : ""
+              }, {
+                "Id" : "9564e447-4936-4532-a5cc-eedd60b14d58",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "TargetProperty" : "updateMarker",
+                  "TargetPropertyBaseType" : "NUMBER"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-20",
+                "SourceSection" : "",
+                "TargetArea" : "Mashup",
+                "TargetId" : "mashup-root",
+                "TargetSection" : ""
+              }, {
+                "Id" : "de61215a-2792-45ad-a155-b2d976eb8472",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "TargetProperty" : "selectedFiles",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "SelectedRows",
+                "SourceId" : "GetFileListing",
+                "SourceSection" : "DynamicThingShapes_FileTransfer",
+                "TargetArea" : "Data",
+                "TargetId" : "ConvertSelectedFilesToCommaDelimitedString",
+                "TargetSection" : "Things_TW.RSM.FileTransferHelper"
+              }, {
+                "Id" : "2c781538-169a-4072-b4cc-fcd8bfce7876",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "selectedFile",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ConvertSelectedFilesToCommaDelimitedString",
+                "SourceSection" : "Things_TW.RSM.FileTransferHelper",
+                "TargetArea" : "Mashup",
+                "TargetId" : "mashup-root",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "DynamicThingShapes_FileTransfer",
+                "EventHandlerService" : "GetDirectoryStructure",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "thingNameChanged",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "6a689f20-478f-4744-bb12-eae0b322162a"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "DynamicThingShapes_FileTransfer",
+                "EventHandlerService" : "GetFileListing",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "SelectedRowsChanged",
+                "EventTriggerId" : "GetDirectoryStructure",
+                "EventTriggerSection" : "DynamicThingShapes_FileTransfer",
+                "Id" : "cd02938e-b57f-48f9-80af-0c5e542d9eea"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "DynamicThingShapes_FileTransfer",
+                "EventHandlerService" : "GetFileListing",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "RefreshRequested",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "3e8ca397-402a-4a5d-a552-1657e3c51494"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Expression-20",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "SelectedRowsChanged",
+                "EventTriggerId" : "GetDirectoryStructure",
+                "EventTriggerSection" : "DynamicThingShapes_FileTransfer",
+                "Id" : "a918d062-ae5a-496b-93a2-74c1a97cf4d2"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW.RSM.FileTransferHelper",
+                "EventHandlerService" : "ConvertSelectedFilesToCommaDelimitedString",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "SelectedRowsChanged",
+                "EventTriggerId" : "GetFileListing",
+                "EventTriggerSection" : "DynamicThingShapes_FileTransfer",
+                "Id" : "8f630c8e-2185-422f-a24c-187594508768"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Expression-20",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "ConvertSelectedFilesToCommaDelimitedString",
+                "EventTriggerSection" : "Things_TW.RSM.FileTransferHelper",
+                "Id" : "4daece05-0355-49d3-a4b2-f89e2a6f1ff6"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW.RSM.FileTransferHelper",
+                "EventHandlerService" : "ConvertSelectedFilesToCommaDelimitedString",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "9dd5be5d-a0d0-414d-8dfc-f8558ac41c2a"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 618,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : true,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultMashupStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 1024,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "THINGNAME",
+                    "Description" : "",
+                    "ParameterName" : "thingName"
+                  }, {
+                    "Aspects" : {
+                      "dataShape" : "EntityList",
+                      "isDataTableEntry" : true
+                    },
+                    "BaseType" : "INFOTABLE",
+                    "Description" : "",
+                    "ParameterName" : "selectedFiles"
+                  }, {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "selectedRemotePath"
+                  }, {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "selectedFile"
+                  }, {
+                    "BaseType" : "NUMBER",
+                    "Description" : "",
+                    "ParameterName" : "updateMarker"
+                  } ],
+                  "id_index" : 20,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "Columns" : 0,
+                    "Description" : "",
+                    "DisplayName" : "Layout-1",
+                    "Footer" : false,
+                    "FooterHeight" : 0,
+                    "Header" : true,
+                    "HeaderHeight" : 55,
+                    "Id" : "Layout-1",
+                    "IncludeSpacingInFixedAreas" : false,
+                    "IsPrintLayout" : false,
+                    "Left" : 255,
+                    "LeftSidebar" : false,
+                    "LeftSidebarWidth" : 0,
+                    "Orientation" : "vertical",
+                    "PctColumn1" : 50,
+                    "PctColumn2" : 50,
+                    "PctColumn3" : 1,
+                    "PctColumn4" : 1,
+                    "PctColumn5" : 1,
+                    "PctColumn6" : 1,
+                    "PctColumn7" : 1,
+                    "PctColumn8" : 1,
+                    "PctRow1" : 100,
+                    "PctRow2" : 0,
+                    "PctRow3" : 0,
+                    "PctRow4" : 0,
+                    "PctRow5" : 0,
+                    "PctRow6" : 0,
+                    "PctRow7" : 0,
+                    "PctRow8" : 0,
+                    "PrintMarginLeftRight" : 0.5,
+                    "PrintMarginTopBottom" : 0.5,
+                    "PrintWidth" : 650,
+                    "ResponsiveLayout" : true,
+                    "RightSidebar" : false,
+                    "RightSidebarWidth" : 0,
+                    "Rows" : 1,
+                    "ShowDataLoading" : true,
+                    "Spacing" : 3,
+                    "Top" : 155,
+                    "Type" : "layout",
+                    "Visible" : true,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Layout"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Header",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "Container-2",
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "DefaultContainerStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Container"
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "Area" : "UI",
+                        "DisplayName" : "Panel-3",
+                        "Height" : 200,
+                        "HideScrollbars" : false,
+                        "HorizontalAnchor" : "left",
+                        "Id" : "Panel-3",
+                        "Left" : 95,
+                        "ResponsiveLayout" : true,
+                        "ShowDataLoading" : true,
+                        "Style" : "PTC.NoStyle",
+                        "Top" : 15,
+                        "Type" : "panel",
+                        "VerticalAnchor" : "top",
+                        "Visible" : true,
+                        "Width" : 300,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Panel"
+                      },
+                      "Widgets" : [ {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "AutoEvaluate" : false,
+                          "DataChangeType" : "ALWAYS",
+                          "DisplayName" : "UpdateExpression",
+                          "Expression" : "new Date().getTime()",
+                          "FireOnFirstValue" : false,
+                          "Height" : 18,
+                          "Id" : "Expression-20",
+                          "Left" : 15,
+                          "OutputBaseType" : "NUMBER",
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : false,
+                          "Top" : 20,
+                          "Type" : "expression",
+                          "Visible" : true,
+                          "Width" : 175,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Expression"
+                        },
+                        "Widgets" : [ ]
+                      } ]
+                    } ]
+                  }, {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Row",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "Container-4",
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "DefaultContainerStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Container"
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "Area" : "UI",
+                        "Columns" : 0,
+                        "Description" : "",
+                        "DisplayName" : "Layout-5",
+                        "Footer" : true,
+                        "FooterHeight" : 10,
+                        "Header" : false,
+                        "HeaderHeight" : 0,
+                        "Id" : "Layout-5",
+                        "IncludeSpacingInFixedAreas" : false,
+                        "IsPrintLayout" : false,
+                        "Left" : 115,
+                        "LeftSidebar" : false,
+                        "LeftSidebarWidth" : 0,
+                        "Orientation" : "vertical",
+                        "PctColumn1" : 50,
+                        "PctColumn2" : 50,
+                        "PctColumn3" : 1,
+                        "PctColumn4" : 1,
+                        "PctColumn5" : 1,
+                        "PctColumn6" : 1,
+                        "PctColumn7" : 1,
+                        "PctColumn8" : 1,
+                        "PctRow1" : 100,
+                        "PctRow2" : 100,
+                        "PctRow3" : 0,
+                        "PctRow4" : 0,
+                        "PctRow5" : 0,
+                        "PctRow6" : 0,
+                        "PctRow7" : 0,
+                        "PctRow8" : 0,
+                        "PrintMarginLeftRight" : 0.5,
+                        "PrintMarginTopBottom" : 0.5,
+                        "PrintWidth" : 650,
+                        "ResponsiveLayout" : true,
+                        "RightSidebar" : false,
+                        "RightSidebarWidth" : 0,
+                        "Rows" : 1,
+                        "ShowDataLoading" : true,
+                        "Spacing" : 1,
+                        "Top" : 170,
+                        "Type" : "layout",
+                        "Visible" : true,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Layout"
+                      },
+                      "Widgets" : [ {
+                        "Properties" : {
+                          "AnimateExpandCollapse" : true,
+                          "Area" : "UI",
+                          "BGImageRepeat" : "no-repeat",
+                          "BGImageSize" : "auto",
+                          "DisplayName" : "Container-6",
+                          "ExpandCollapseTabLocation" : "outside",
+                          "Expanded" : true,
+                          "Id" : "Container-6",
+                          "MinHeight" : 0,
+                          "MinWidth" : 0,
+                          "Overlay" : false,
+                          "OverlayIsTransparent" : false,
+                          "ResponsiveLayout" : true,
+                          "ShowDataLoading" : true,
+                          "ShowExpandCollapseTab" : false,
+                          "Style" : "DefaultContainerStyle",
+                          "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                          "TabExpandStyle" : "DefaultTabExpandStyle",
+                          "TabHeight" : 36,
+                          "TabLocation" : "center",
+                          "TabOffset" : 0,
+                          "TabWidth" : 36,
+                          "Type" : "container",
+                          "Visible" : true,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Container"
+                        },
+                        "Widgets" : [ {
+                          "Properties" : {
+                            "Area" : "UI",
+                            "Columns" : 1,
+                            "DisplayName" : "Layout-7",
+                            "Footer" : false,
+                            "FooterHeight" : 0,
+                            "Header" : false,
+                            "HeaderHeight" : 0,
+                            "Id" : "Layout-7",
+                            "IncludeSpacingInFixedAreas" : false,
+                            "IsPrintLayout" : false,
+                            "Left" : 230,
+                            "LeftSidebar" : true,
+                            "LeftSidebarWidth" : 200,
+                            "Orientation" : "horizontal",
+                            "PctColumn1" : 100,
+                            "PctColumn2" : 0,
+                            "PctColumn3" : 1,
+                            "PctColumn4" : 1,
+                            "PctColumn5" : 1,
+                            "PctColumn6" : 1,
+                            "PctColumn7" : 1,
+                            "PctColumn8" : 1,
+                            "PctRow1" : 50,
+                            "PctRow2" : 50,
+                            "PctRow3" : 0,
+                            "PctRow4" : 0,
+                            "PctRow5" : 0,
+                            "PctRow6" : 0,
+                            "PctRow7" : 0,
+                            "PctRow8" : 0,
+                            "PrintMarginLeftRight" : 0.5,
+                            "PrintMarginTopBottom" : 0.5,
+                            "PrintWidth" : 650,
+                            "ResponsiveLayout" : true,
+                            "RightSidebar" : false,
+                            "RightSidebarWidth" : 0,
+                            "Rows" : 0,
+                            "ShowDataLoading" : true,
+                            "Spacing" : 2,
+                            "Top" : 95,
+                            "Type" : "layout",
+                            "Visible" : true,
+                            "Z-index" : 10,
+                            "__TypeDisplayName" : "Layout"
+                          },
+                          "Widgets" : [ {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Container-8",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "Container-8",
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : true,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : "DefaultContainerStyle",
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Container"
+                            },
+                            "Widgets" : [ {
+                              "Properties" : {
+                                "Area" : "UI",
+                                "Columns" : 1,
+                                "DisplayName" : "Layout-9",
+                                "Footer" : false,
+                                "FooterHeight" : 0,
+                                "Header" : false,
+                                "HeaderHeight" : 0,
+                                "Id" : "Layout-9",
+                                "IncludeSpacingInFixedAreas" : false,
+                                "IsPrintLayout" : false,
+                                "Left" : 80,
+                                "LeftSidebar" : true,
+                                "LeftSidebarWidth" : 10,
+                                "Orientation" : "horizontal",
+                                "PctColumn1" : 100,
+                                "PctColumn2" : 0,
+                                "PctColumn3" : 1,
+                                "PctColumn4" : 1,
+                                "PctColumn5" : 1,
+                                "PctColumn6" : 1,
+                                "PctColumn7" : 1,
+                                "PctColumn8" : 1,
+                                "PctRow1" : 50,
+                                "PctRow2" : 50,
+                                "PctRow3" : 0,
+                                "PctRow4" : 0,
+                                "PctRow5" : 0,
+                                "PctRow6" : 0,
+                                "PctRow7" : 0,
+                                "PctRow8" : 0,
+                                "PrintMarginLeftRight" : 0.5,
+                                "PrintMarginTopBottom" : 0.5,
+                                "PrintWidth" : 650,
+                                "ResponsiveLayout" : true,
+                                "RightSidebar" : false,
+                                "RightSidebarWidth" : 0,
+                                "Rows" : 0,
+                                "ShowDataLoading" : true,
+                                "Spacing" : 0,
+                                "Top" : 110,
+                                "Type" : "layout",
+                                "Visible" : true,
+                                "Z-index" : 10,
+                                "__TypeDisplayName" : "Layout"
+                              },
+                              "Widgets" : [ {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "DisplayName" : "Container-10",
+                                  "ExpandCollapseTabLocation" : "outside",
+                                  "Expanded" : true,
+                                  "Id" : "Container-10",
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : false,
+                                  "Style" : "DefaultContainerStyle",
+                                  "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                  "TabExpandStyle" : "DefaultTabExpandStyle",
+                                  "TabHeight" : 36,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 0,
+                                  "TabWidth" : 36,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container"
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "DisplayName" : "Container-11",
+                                  "ExpandCollapseTabLocation" : "outside",
+                                  "Expanded" : true,
+                                  "Id" : "Container-11",
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : false,
+                                  "Style" : "DefaultContainerStyle",
+                                  "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                  "TabExpandStyle" : "DefaultTabExpandStyle",
+                                  "TabHeight" : 36,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 0,
+                                  "TabWidth" : 36,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container"
+                                },
+                                "Widgets" : [ {
+                                  "Properties" : {
+                                    "Area" : "UI",
+                                    "AutoSelectFirstRow" : true,
+                                    "ClosedNodeFormatter_StateParameters" : [ ],
+                                    "CollapseChildrenOfLevel" : 99,
+                                    "Description" : "",
+                                    "DisplayName" : "Tree-12",
+                                    "Height" : 300,
+                                    "IDField" : "path",
+                                    "Id" : "Tree-12",
+                                    "LabelField" : "name",
+                                    "Left" : 0,
+                                    "NoChildFormatter_StateParameters" : [ ],
+                                    "OpenNodeFormatter_StateParameters" : [ ],
+                                    "ParentIDField" : "parentPath",
+                                    "ResponsiveLayout" : true,
+                                    "RootParentID" : "/",
+                                    "ShowDataLoading" : true,
+                                    "TooltipField" : "path",
+                                    "Top" : 0,
+                                    "TreeBGStyle" : {
+                                      "backgroundColor" : "#f9f9f9",
+                                      "displayString" : "",
+                                      "fontEmphasisBold" : false,
+                                      "fontEmphasisItalic" : false,
+                                      "fontEmphasisUnderline" : false,
+                                      "foregroundColor" : "#333333",
+                                      "image" : "",
+                                      "lineColor" : "#c5c3c8",
+                                      "lineStyle" : "solid",
+                                      "lineThickness" : 1,
+                                      "secondaryBackgroundColor" : "",
+                                      "textSize" : "normal"
+                                    },
+                                    "TreeFormatter_StateParameters" : [ ],
+                                    "TreeSelectedStyle" : "DefaultTreeSelectedStyle",
+                                    "Type" : "tree",
+                                    "ValueField" : "path",
+                                    "Visible" : true,
+                                    "Width" : 225,
+                                    "Z-index" : 10,
+                                    "__TypeDisplayName" : "Tree"
+                                  },
+                                  "Widgets" : [ ]
+                                } ]
+                              } ]
+                            } ]
+                          }, {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Container-13",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "Container-13",
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : true,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : "DefaultContainerStyle",
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Container"
+                            },
+                            "Widgets" : [ {
+                              "Properties" : {
+                                "Area" : "UI",
+                                "Columns" : 1,
+                                "Description" : "",
+                                "DisplayName" : "Layout-14",
+                                "Footer" : false,
+                                "FooterHeight" : 0,
+                                "Header" : false,
+                                "HeaderHeight" : 0,
+                                "Id" : "Layout-14",
+                                "IncludeSpacingInFixedAreas" : false,
+                                "IsPrintLayout" : false,
+                                "Left" : 100,
+                                "LeftSidebar" : false,
+                                "LeftSidebarWidth" : 0,
+                                "Orientation" : "horizontal",
+                                "PctColumn1" : 100,
+                                "PctColumn2" : 0,
+                                "PctColumn3" : 1,
+                                "PctColumn4" : 1,
+                                "PctColumn5" : 1,
+                                "PctColumn6" : 1,
+                                "PctColumn7" : 1,
+                                "PctColumn8" : 1,
+                                "PctRow1" : 50,
+                                "PctRow2" : 50,
+                                "PctRow3" : 0,
+                                "PctRow4" : 0,
+                                "PctRow5" : 0,
+                                "PctRow6" : 0,
+                                "PctRow7" : 0,
+                                "PctRow8" : 0,
+                                "PrintMarginLeftRight" : 0.5,
+                                "PrintMarginTopBottom" : 0.5,
+                                "PrintWidth" : 650,
+                                "ResponsiveLayout" : true,
+                                "RightSidebar" : true,
+                                "RightSidebarWidth" : 10,
+                                "Rows" : 0,
+                                "ShowDataLoading" : true,
+                                "Spacing" : 0,
+                                "Top" : 145,
+                                "Type" : "layout",
+                                "Visible" : true,
+                                "Z-index" : 10,
+                                "__TypeDisplayName" : "Layout"
+                              },
+                              "Widgets" : [ {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "DisplayName" : "Container-15",
+                                  "ExpandCollapseTabLocation" : "outside",
+                                  "Expanded" : true,
+                                  "Id" : "Container-15",
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : false,
+                                  "Style" : "DefaultContainerStyle",
+                                  "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                  "TabExpandStyle" : "DefaultTabExpandStyle",
+                                  "TabHeight" : 36,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 0,
+                                  "TabWidth" : 36,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container"
+                                },
+                                "Widgets" : [ {
+                                  "Properties" : {
+                                    "AlignHeader" : false,
+                                    "Area" : "UI",
+                                    "AutoSelectFirstRow" : false,
+                                    "CellTextWrapping" : false,
+                                    "ColumnFormat" : {
+                                      "formatInfo" : [ {
+                                        "Align" : "left",
+                                        "AllowEdit" : false,
+                                        "FieldName" : "name",
+                                        "FormatOptions" : {
+                                          "FormatString" : "full",
+                                          "formatInfo" : {
+                                            "FieldName" : "",
+                                            "StateDefinition" : "",
+                                            "StateDefinitionType" : "fixed",
+                                            "StateFormats" : [ {
+                                              "state" : "",
+                                              "stateName" : "fixed"
+                                            } ]
+                                          },
+                                          "renderer" : "STRING"
+                                        },
+                                        "Title" : "[[TW.RSM.Name]]",
+                                        "ValidationExpression" : "",
+                                        "ValidationMessage" : "",
+                                        "Width" : "auto"
+                                      }, {
+                                        "Align" : "left",
+                                        "AllowEdit" : false,
+                                        "FieldName" : "lastModifiedDate",
+                                        "FormatOptions" : {
+                                          "FormatString" : "[[dateTimeFormat_Default]]",
+                                          "formatInfo" : {
+                                            "FieldName" : "",
+                                            "StateDefinition" : "",
+                                            "StateDefinitionType" : "fixed",
+                                            "StateFormats" : [ {
+                                              "state" : "",
+                                              "stateName" : "fixed"
+                                            } ]
+                                          },
+                                          "renderer" : "DATETIME"
+                                        },
+                                        "Title" : "[[TW.RSM.Modified Date]]",
+                                        "ValidationExpression" : "",
+                                        "ValidationMessage" : "",
+                                        "Width" : "auto"
+                                      }, {
+                                        "Align" : "left",
+                                        "AllowEdit" : false,
+                                        "FieldName" : "path",
+                                        "FormatOptions" : {
+                                          "FormatString" : "full",
+                                          "formatInfo" : {
+                                            "FieldName" : "",
+                                            "StateDefinition" : "",
+                                            "StateDefinitionType" : "fixed",
+                                            "StateFormats" : [ {
+                                              "state" : "",
+                                              "stateName" : "fixed"
+                                            } ]
+                                          },
+                                          "renderer" : "STRING"
+                                        },
+                                        "Title" : "[[TW.RSM.Path]]",
+                                        "ValidationExpression" : "",
+                                        "ValidationMessage" : "",
+                                        "Width" : "auto"
+                                      }, {
+                                        "Align" : "right",
+                                        "AllowEdit" : false,
+                                        "FieldName" : "size",
+                                        "FormatOptions" : {
+                                          "FormatString" : "0",
+                                          "formatInfo" : {
+                                            "FieldName" : "",
+                                            "StateDefinition" : "",
+                                            "StateDefinitionType" : "fixed",
+                                            "StateFormats" : [ {
+                                              "state" : "",
+                                              "stateName" : "fixed"
+                                            } ]
+                                          },
+                                          "renderer" : "INTEGER"
+                                        },
+                                        "Title" : "[[TW.RSM.bytes]]",
+                                        "ValidationExpression" : "",
+                                        "ValidationMessage" : "",
+                                        "Width" : "auto"
+                                      } ]
+                                    },
+                                    "CurrentScrollTop" : 0,
+                                    "DisplayName" : "Grid-16",
+                                    "FocusStyle" : "DefaultFocusStyle",
+                                    "GridBackgroundStyle" : "TW.RSM.Style.GridBackground",
+                                    "GridEditableFieldStyle" : "TW.RSM.Style.GridEditableField",
+                                    "GridHeaderStyle" : "TW.RSM.Style.GridHeader",
+                                    "GridHeaderTextCase" : "none",
+                                    "GridInvalidFieldStyle" : "TW.RSM.Style.GridInvalidField",
+                                    "Height" : 200,
+                                    "Id" : "Grid-16",
+                                    "IsEditable" : false,
+                                    "IsPrintLayout" : false,
+                                    "Left" : 0,
+                                    "MultiSelect" : true,
+                                    "ResponsiveLayout" : true,
+                                    "RowAlternateBackgroundStyle" : "TW.RSM.Style.RowAlternateBackground",
+                                    "RowBackgroundStyle" : "TW.RSM.Style.RowBackground",
+                                    "RowFormat_StateParameters" : [ ],
+                                    "RowHeight" : 30,
+                                    "RowHoverStyle" : "TW.RSM.Style.RowHover",
+                                    "RowSelectedStyle" : "PTC.Core.Accent2RowSelectedStyle",
+                                    "ScrollTop" : 0,
+                                    "ShowAllColumns" : false,
+                                    "ShowDataLoading" : false,
+                                    "TabSequence" : 0,
+                                    "Top" : 0,
+                                    "Type" : "dhxgrid",
+                                    "Visible" : true,
+                                    "Width" : 400,
+                                    "Z-index" : 10,
+                                    "__TypeDisplayName" : "Grid"
+                                  },
+                                  "Widgets" : [ ]
+                                } ]
+                              }, {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "DisplayName" : "Container-17",
+                                  "ExpandCollapseTabLocation" : "outside",
+                                  "Expanded" : true,
+                                  "Id" : "Container-17",
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : false,
+                                  "Style" : "DefaultContainerStyle",
+                                  "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                  "TabExpandStyle" : "DefaultTabExpandStyle",
+                                  "TabHeight" : 36,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 0,
+                                  "TabWidth" : 36,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container"
+                                },
+                                "Widgets" : [ ]
+                              } ]
+                            } ]
+                          } ]
+                        } ]
+                      }, {
+                        "Properties" : {
+                          "AnimateExpandCollapse" : true,
+                          "Area" : "UI",
+                          "BGImageRepeat" : "no-repeat",
+                          "BGImageSize" : "auto",
+                          "DisplayName" : "Container-18",
+                          "ExpandCollapseTabLocation" : "outside",
+                          "Expanded" : true,
+                          "Id" : "Container-18",
+                          "MinHeight" : 0,
+                          "MinWidth" : 0,
+                          "Overlay" : false,
+                          "OverlayIsTransparent" : false,
+                          "ResponsiveLayout" : true,
+                          "ShowDataLoading" : true,
+                          "ShowExpandCollapseTab" : false,
+                          "Style" : "DefaultContainerStyle",
+                          "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                          "TabExpandStyle" : "DefaultTabExpandStyle",
+                          "TabHeight" : 36,
+                          "TabLocation" : "center",
+                          "TabOffset" : 0,
+                          "TabWidth" : 36,
+                          "Type" : "container",
+                          "Visible" : true,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Container"
+                        },
+                        "Widgets" : [ ]
+                      } ]
+                    } ]
+                  } ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

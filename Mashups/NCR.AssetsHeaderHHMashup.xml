@@ -1,0 +1,1891 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isResponsive="true"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description="Mashup that contains Asset Details used as Header in Asset Management for Handheld devices"
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-11-06T02:37:24.085Z"
+         name="NCR.AssetsHeaderHHMashup"
+         projectName="DCS. Project.Main"
+         rows="0.0"
+         tags="DCS:Mashup;Applications:DCS">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR_All"
+                         type="Group"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR_All"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR_All"
+                         type="Group"></Principal>
+                    </EventInvoke>
+                    <EventSubscribe>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR_All"
+                         type="Group"></Principal>
+                    </EventSubscribe>
+                </Permissions>
+            </RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:ReleaseManagement"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:SCM"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:TCS"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="NCR"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="STRING"
+                 description=""
+                 name="assetName"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things>
+                <Thing>NCR.BaseDeviceHelper</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "CustomMashupCss" : "",
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_NCR.BaseDeviceHelper" : {
+                  "DataName" : "Things_NCR.BaseDeviceHelper",
+                  "EntityName" : "NCR.BaseDeviceHelper",
+                  "EntityType" : "Things",
+                  "Id" : "d1e80ea1-0ac4-4016-a5e3-578379add8d1",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "f8a21cb9-4066-466d-ac6d-4681d1bac956",
+                    "Name" : "GetImageForAsset",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetImageForAsset"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "43b326f9-b448-4afe-b3b1-59fe3ffc5fe6",
+                    "Name" : "GetPropertiesForThing",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetPropertiesForThing"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "f4a24294-4d38-42b0-a541-b4c56b15c50a",
+                    "Name" : "GetImageStatusForAsset",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetImageStatusForAsset"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "14f8cb6e-86c3-46b7-8a06-44a44e257713",
+                    "Name" : "GetInfoTableForOSCommonComponent",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetInfoTableForOSCommonComponent"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "eeab62a3-08b9-4963-8ec6-af0a7c1b173e",
+                    "Name" : "GetSerialNumberForAssetByType",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetSerialNumberForAssetByType"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "d23d7608-b9ae-4326-aa0a-6b230a566b8f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "assetName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "assetName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetPropertiesForThing",
+                "TargetSection" : "Things_NCR.BaseDeviceHelper"
+              }, {
+                "Id" : "a2eaf27b-5c1e-4b2e-890c-695165d96caf",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Asset_Type",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "assetType",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertiesForThing",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "Data",
+                "TargetId" : "GetImageForAsset",
+                "TargetSection" : "Things_NCR.BaseDeviceHelper"
+              }, {
+                "Id" : "703b7cf8-2798-4c97-a9d0-e253c3aadda8",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "isConnected",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "status",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertiesForThing",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "Data",
+                "TargetId" : "GetImageStatusForAsset",
+                "TargetSection" : "Things_NCR.BaseDeviceHelper"
+              }, {
+                "Id" : "4baa414b-2278-49bd-acf9-e2e55456a2d0",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Asset_Model",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "assetModel",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertiesForThing",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "Data",
+                "TargetId" : "GetImageForAsset",
+                "TargetSection" : "Things_NCR.BaseDeviceHelper"
+              }, {
+                "Id" : "f7b05824-9408-40b4-b10c-3cc301efd3b0",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "IMAGELINK",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "SourceURL",
+                  "TargetPropertyBaseType" : "IMAGELINK",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetImageForAsset",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "image-128",
+                "TargetSection" : ""
+              }, {
+                "Id" : "007e2bd1-7c6c-4eed-976b-108685c14b23",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "assetName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "ANYSCALAR"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-141",
+                "TargetSection" : ""
+              }, {
+                "Id" : "c5917b1c-4634-4edb-854c-8e16ec108459",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Asset_ID",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "ANYSCALAR",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertiesForThing",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-175",
+                "TargetSection" : ""
+              }, {
+                "Id" : "ce895ce5-b245-4105-8113-2e7dda59ca43",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Asset_Tag",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "ANYSCALAR",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertiesForThing",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-176",
+                "TargetSection" : ""
+              }, {
+                "Id" : "f0bb73c6-c074-4e99-b330-ed3c937a68e5",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Asset_Name",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "ANYSCALAR",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertiesForThing",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-177",
+                "TargetSection" : ""
+              }, {
+                "Id" : "9b659e48-6d1b-46f1-ae71-e5e1fa754916",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Asset_Model",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "ANYSCALAR",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertiesForThing",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-192",
+                "TargetSection" : ""
+              }, {
+                "Id" : "9a1f19e8-2cd4-48cf-b29a-2de342a46ef7",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Asset_Status",
+                  "SourcePropertyBaseType" : "INTEGER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "ANYSCALAR",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertiesForThing",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-196",
+                "TargetSection" : ""
+              }, {
+                "Id" : "aa1826ac-b6af-4dbf-8044-782dcfb69910",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "IMAGELINK",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "SourceURL",
+                  "TargetPropertyBaseType" : "IMAGELINK",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetImageStatusForAsset",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "image-205",
+                "TargetSection" : ""
+              }, {
+                "Id" : "a79e8b22-07fd-428f-b55b-68f242082fda",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Asset_ID",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "ToolTipField",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertiesForThing",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-175",
+                "TargetSection" : ""
+              }, {
+                "Id" : "4199f9dd-f27f-4e82-a42c-e0dfca3b4ec3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Asset_Tag",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "ToolTipField",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertiesForThing",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-176",
+                "TargetSection" : ""
+              }, {
+                "Id" : "2271cac6-c526-4f8a-8b33-5e54b8f356b3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Asset_Name",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "ToolTipField",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertiesForThing",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-177",
+                "TargetSection" : ""
+              }, {
+                "Id" : "c6fbbfff-ccae-4131-bef1-e70388f05d3c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Asset_Manufacturer",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "ToolTipField",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertiesForThing",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-190",
+                "TargetSection" : ""
+              }, {
+                "Id" : "0eddab68-13c2-41a0-8e24-8974705eb8b5",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Asset_Model",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "ToolTipField",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertiesForThing",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-192",
+                "TargetSection" : ""
+              }, {
+                "Id" : "9a7dbb3a-d82f-4748-8274-4dcdac3857a0",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Asset_Status",
+                  "SourcePropertyBaseType" : "INTEGER",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "ToolTipField",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertiesForThing",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-196",
+                "TargetSection" : ""
+              }, {
+                "Id" : "0f596bf7-898b-481d-b862-a5b73e15ca72",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "assetName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "assetName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetInfoTableForOSCommonComponent",
+                "TargetSection" : "Things_NCR.BaseDeviceHelper"
+              }, {
+                "Id" : "46e5a725-3d88-4b03-af3b-065f868f602f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Manufacturer",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "ANYSCALAR",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetInfoTableForOSCommonComponent",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-190",
+                "TargetSection" : ""
+              }, {
+                "Id" : "4dd64b4d-4ed9-410b-a025-b44c4daa7c33",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "assetName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "ToolTipField",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-141",
+                "TargetSection" : ""
+              }, {
+                "Id" : "b39e1209-bd54-4d68-80ce-a5b49eceb9cd",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "lastConnection",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "ANYSCALAR",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertiesForThing",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-213",
+                "TargetSection" : ""
+              }, {
+                "Id" : "c5f9695e-2ff6-473c-a699-db4a179e671d",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "lastConnection",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "ToolTipField",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertiesForThing",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-213",
+                "TargetSection" : ""
+              }, {
+                "Id" : "1313e7da-585a-458a-8f9d-313b2509b0d9",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Asset_StoreIdentifier",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "ANYSCALAR",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertiesForThing",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-216",
+                "TargetSection" : ""
+              }, {
+                "Id" : "1ca35b19-b109-4bd8-ace7-1ff8d5669490",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Asset_StoreIdentifier",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "ToolTipField",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertiesForThing",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-216",
+                "TargetSection" : ""
+              }, {
+                "Id" : "0c37a769-06f4-49fc-a4c4-6f2ee2ee13e9",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "assetName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "assetName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetSerialNumberForAssetByType",
+                "TargetSection" : "Things_NCR.BaseDeviceHelper"
+              }, {
+                "Id" : "266d0a3f-5a12-4de5-94c9-87235d7f8b0e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "ANYSCALAR",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetSerialNumberForAssetByType",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-178",
+                "TargetSection" : ""
+              }, {
+                "Id" : "6e796a4c-5819-4ede-9a4d-a28e22282519",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "ToolTipField",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetSerialNumberForAssetByType",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-178",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.BaseDeviceHelper",
+                "EventHandlerService" : "GetPropertiesForThing",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "assetNameChanged",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "7d3b21f7-d1a5-4789-a9dc-198fbf6d95f5"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.BaseDeviceHelper",
+                "EventHandlerService" : "GetImageForAsset",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetPropertiesForThing",
+                "EventTriggerSection" : "Things_NCR.BaseDeviceHelper",
+                "Id" : "b1527e10-b449-4a6a-afc7-6e2dddc5166e"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.BaseDeviceHelper",
+                "EventHandlerService" : "GetImageStatusForAsset",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetImageForAsset",
+                "EventTriggerSection" : "Things_NCR.BaseDeviceHelper",
+                "Id" : "464ffba8-bb2b-4128-b886-0612e945f580"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.BaseDeviceHelper",
+                "EventHandlerService" : "GetPropertiesForThing",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Refresh",
+                "EventTriggerId" : "autorefresh-152",
+                "EventTriggerSection" : "",
+                "Id" : "1f9bc395-d2c4-4ab5-b65e-09284ca14774"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.BaseDeviceHelper",
+                "EventHandlerService" : "GetInfoTableForOSCommonComponent",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "868bc4b6-a6d3-48f5-98bd-cfde467cc7a6"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.BaseDeviceHelper",
+                "EventHandlerService" : "GetInfoTableForOSCommonComponent",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "assetNameChanged",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "c4775071-afbf-4991-b8bb-c20490150930"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.BaseDeviceHelper",
+                "EventHandlerService" : "GetSerialNumberForAssetByType",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetPropertiesForThing",
+                "EventTriggerSection" : "Things_NCR.BaseDeviceHelper",
+                "Id" : "e8d3a0a7-1846-4aea-b995-856c2417d970"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 618,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : true,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultMashupStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 1024,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "assetName"
+                  } ],
+                  "id_index" : 216,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "Columns" : 1,
+                    "DisplayName" : "layout-120",
+                    "Footer" : false,
+                    "FooterHeight" : 0,
+                    "Header" : false,
+                    "HeaderHeight" : 0,
+                    "Id" : "layout-120",
+                    "IncludeSpacingInFixedAreas" : false,
+                    "IsPrintLayout" : false,
+                    "Left" : 85,
+                    "LeftSidebar" : true,
+                    "LeftSidebarWidth" : 10,
+                    "Orientation" : "horizontal",
+                    "PctColumn1" : 100,
+                    "PctColumn2" : 0,
+                    "PctColumn3" : 1,
+                    "PctColumn4" : 1,
+                    "PctColumn5" : 1,
+                    "PctColumn6" : 1,
+                    "PctColumn7" : 1,
+                    "PctColumn8" : 1,
+                    "PctRow1" : 50,
+                    "PctRow2" : 50,
+                    "PctRow3" : 0,
+                    "PctRow4" : 0,
+                    "PctRow5" : 0,
+                    "PctRow6" : 0,
+                    "PctRow7" : 0,
+                    "PctRow8" : 0,
+                    "PrintMarginLeftRight" : 0.5,
+                    "PrintMarginTopBottom" : 0.5,
+                    "PrintWidth" : 650,
+                    "ResponsiveLayout" : true,
+                    "RightSidebar" : true,
+                    "RightSidebarWidth" : 10,
+                    "Rows" : 0,
+                    "ShowDataLoading" : true,
+                    "Spacing" : 2,
+                    "Top" : 85,
+                    "Type" : "layout",
+                    "Visible" : true,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Layout"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Left Sidebar",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-121",
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "DefaultContainerStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Container"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Column 1",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-122",
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "DefaultContainerStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Container"
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "Area" : "UI",
+                        "Columns" : 2,
+                        "DisplayName" : "layout-125",
+                        "Footer" : false,
+                        "FooterHeight" : 0,
+                        "Header" : false,
+                        "HeaderHeight" : 0,
+                        "Id" : "layout-125",
+                        "IncludeSpacingInFixedAreas" : false,
+                        "IsPrintLayout" : false,
+                        "Left" : 85,
+                        "LeftSidebar" : false,
+                        "LeftSidebarWidth" : 0,
+                        "Orientation" : "horizontal",
+                        "PctColumn1" : 18,
+                        "PctColumn2" : 82,
+                        "PctColumn3" : 1,
+                        "PctColumn4" : 1,
+                        "PctColumn5" : 1,
+                        "PctColumn6" : 1,
+                        "PctColumn7" : 1,
+                        "PctColumn8" : 1,
+                        "PctRow1" : 50,
+                        "PctRow2" : 50,
+                        "PctRow3" : 0,
+                        "PctRow4" : 0,
+                        "PctRow5" : 0,
+                        "PctRow6" : 0,
+                        "PctRow7" : 0,
+                        "PctRow8" : 0,
+                        "PrintMarginLeftRight" : 0.5,
+                        "PrintMarginTopBottom" : 0.5,
+                        "PrintWidth" : 650,
+                        "ResponsiveLayout" : true,
+                        "RightSidebar" : false,
+                        "RightSidebarWidth" : 0,
+                        "Rows" : 0,
+                        "ShowDataLoading" : true,
+                        "Spacing" : 1,
+                        "Top" : 30,
+                        "Type" : "layout",
+                        "Visible" : true,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Layout"
+                      },
+                      "Widgets" : [ {
+                        "Properties" : {
+                          "AnimateExpandCollapse" : true,
+                          "Area" : "UI",
+                          "BGImageRepeat" : "no-repeat",
+                          "BGImageSize" : "auto",
+                          "DisplayName" : "Column 1",
+                          "ExpandCollapseTabLocation" : "outside",
+                          "Expanded" : true,
+                          "Id" : "container-126",
+                          "MinHeight" : 0,
+                          "MinWidth" : 0,
+                          "Overlay" : false,
+                          "OverlayIsTransparent" : false,
+                          "ResponsiveLayout" : true,
+                          "ShowDataLoading" : true,
+                          "ShowExpandCollapseTab" : false,
+                          "Style" : "DefaultContainerStyle",
+                          "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                          "TabExpandStyle" : "DefaultTabExpandStyle",
+                          "TabHeight" : 36,
+                          "TabLocation" : "center",
+                          "TabOffset" : 0,
+                          "TabWidth" : 36,
+                          "Type" : "container",
+                          "Visible" : true,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Container"
+                        },
+                        "Widgets" : [ {
+                          "Properties" : {
+                            "AlternateText" : "",
+                            "Area" : "UI",
+                            "BorderStyle" : "DefaultImageBorderStyle",
+                            "DisplayName" : "image-128",
+                            "Height" : 60,
+                            "Id" : "image-128",
+                            "Left" : 10,
+                            "PreventCaching" : false,
+                            "ResponsiveLayout" : true,
+                            "Scaling" : "height",
+                            "ShowDataLoading" : true,
+                            "SourceURL" : "",
+                            "ToolTipField" : "",
+                            "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                            "Top" : 10,
+                            "Type" : "image",
+                            "Visible" : true,
+                            "Width" : 135,
+                            "Z-index" : 10,
+                            "__TypeDisplayName" : "Image",
+                            "__supportsTooltip" : true
+                          },
+                          "Widgets" : [ ]
+                        } ]
+                      }, {
+                        "Properties" : {
+                          "AnimateExpandCollapse" : true,
+                          "Area" : "UI",
+                          "BGImageRepeat" : "no-repeat",
+                          "BGImageSize" : "auto",
+                          "DisplayName" : "Column 2",
+                          "ExpandCollapseTabLocation" : "outside",
+                          "Expanded" : true,
+                          "Id" : "container-127",
+                          "MinHeight" : 0,
+                          "MinWidth" : 0,
+                          "Overlay" : false,
+                          "OverlayIsTransparent" : false,
+                          "ResponsiveLayout" : true,
+                          "ShowDataLoading" : true,
+                          "ShowExpandCollapseTab" : false,
+                          "Style" : "DefaultContainerStyle",
+                          "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                          "TabExpandStyle" : "DefaultTabExpandStyle",
+                          "TabHeight" : 36,
+                          "TabLocation" : "center",
+                          "TabOffset" : 0,
+                          "TabWidth" : 36,
+                          "Type" : "container",
+                          "Visible" : true,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Container"
+                        },
+                        "Widgets" : [ {
+                          "Properties" : {
+                            "Area" : "UI",
+                            "Columns" : 0,
+                            "DisplayName" : "layout-138",
+                            "Footer" : false,
+                            "FooterHeight" : 0,
+                            "Header" : true,
+                            "HeaderHeight" : 40,
+                            "Id" : "layout-138",
+                            "IncludeSpacingInFixedAreas" : false,
+                            "IsPrintLayout" : false,
+                            "Left" : 100,
+                            "LeftSidebar" : false,
+                            "LeftSidebarWidth" : 0,
+                            "Orientation" : "vertical",
+                            "PctColumn1" : 50,
+                            "PctColumn2" : 50,
+                            "PctColumn3" : 1,
+                            "PctColumn4" : 1,
+                            "PctColumn5" : 1,
+                            "PctColumn6" : 1,
+                            "PctColumn7" : 1,
+                            "PctColumn8" : 1,
+                            "PctRow1" : 100,
+                            "PctRow2" : 0,
+                            "PctRow3" : 0,
+                            "PctRow4" : 0,
+                            "PctRow5" : 0,
+                            "PctRow6" : 0,
+                            "PctRow7" : 0,
+                            "PctRow8" : 0,
+                            "PrintMarginLeftRight" : 0.5,
+                            "PrintMarginTopBottom" : 0.5,
+                            "PrintWidth" : 650,
+                            "ResponsiveLayout" : true,
+                            "RightSidebar" : false,
+                            "RightSidebarWidth" : 0,
+                            "Rows" : 1,
+                            "ShowDataLoading" : true,
+                            "Spacing" : 0,
+                            "Top" : 35,
+                            "Type" : "layout",
+                            "Visible" : true,
+                            "Z-index" : 10,
+                            "__TypeDisplayName" : "Layout"
+                          },
+                          "Widgets" : [ {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Header",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "container-139",
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : true,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : "DefaultContainerStyle",
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Container"
+                            },
+                            "Widgets" : [ {
+                              "Properties" : {
+                                "Area" : "UI",
+                                "DisplayName" : "panel-212",
+                                "Height" : 200,
+                                "HideScrollbars" : false,
+                                "HorizontalAnchor" : "left",
+                                "Id" : "panel-212",
+                                "Left" : 90,
+                                "ResponsiveLayout" : true,
+                                "ShowDataLoading" : true,
+                                "Style" : {
+                                  "backgroundColor" : "",
+                                  "displayString" : "",
+                                  "fontEmphasisBold" : false,
+                                  "fontEmphasisItalic" : false,
+                                  "fontEmphasisUnderline" : false,
+                                  "foregroundColor" : "",
+                                  "image" : "",
+                                  "lineColor" : "",
+                                  "lineStyle" : "solid",
+                                  "lineThickness" : 1,
+                                  "secondaryBackgroundColor" : "",
+                                  "textSize" : "normal"
+                                },
+                                "Top" : 20,
+                                "Type" : "panel",
+                                "VerticalAnchor" : "top",
+                                "Visible" : true,
+                                "Width" : 300,
+                                "Z-index" : 10,
+                                "__TypeDisplayName" : "Panel"
+                              },
+                              "Widgets" : [ {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "Area" : "UI",
+                                  "BackgroundFill" : "content",
+                                  "DisplayName" : "valuedisplay-141",
+                                  "Height" : 20,
+                                  "Id" : "valuedisplay-141",
+                                  "ImageScaling" : "Width",
+                                  "Label" : " ",
+                                  "LabelAlignment" : "left",
+                                  "Left" : 10,
+                                  "Overflow" : "hidden",
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "TextIfNoValue" : "",
+                                  "TextIfNoValueOffset" : 0,
+                                  "TextIfNoValueStyle" : "DefaultValueDisplayNoTextStyle",
+                                  "TextWrap" : false,
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                                  "Top" : 10,
+                                  "Type" : "valuedisplay",
+                                  "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                                  "ValueDisplayStyle" : {
+                                    "backgroundColor" : "",
+                                    "displayString" : "",
+                                    "fontEmphasisBold" : true,
+                                    "fontEmphasisItalic" : false,
+                                    "fontEmphasisUnderline" : false,
+                                    "foregroundColor" : "#161f28",
+                                    "image" : "",
+                                    "lineColor" : "",
+                                    "lineStyle" : "solid",
+                                    "lineThickness" : 1,
+                                    "secondaryBackgroundColor" : "",
+                                    "textSize" : "xlarge"
+                                  },
+                                  "ValueFormat" : {
+                                    "renderer" : "DEFAULT"
+                                  },
+                                  "ValueFormat_StateParameters" : [ ],
+                                  "VerticalAlignment" : "middle",
+                                  "Visible" : true,
+                                  "Width" : 800,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Value Display",
+                                  "__supportsLabel" : true,
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              } ]
+                            } ]
+                          }, {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Row 1",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "container-140",
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : true,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : "DefaultContainerStyle",
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Container"
+                            },
+                            "Widgets" : [ {
+                              "Properties" : {
+                                "Area" : "UI",
+                                "DisplayName" : "panel-142",
+                                "Height" : 200,
+                                "HideScrollbars" : false,
+                                "HorizontalAnchor" : "left",
+                                "Id" : "panel-142",
+                                "Left" : 70,
+                                "ResponsiveLayout" : true,
+                                "ShowDataLoading" : true,
+                                "Style" : {
+                                  "backgroundColor" : "",
+                                  "displayString" : "",
+                                  "fontEmphasisBold" : false,
+                                  "fontEmphasisItalic" : false,
+                                  "fontEmphasisUnderline" : false,
+                                  "foregroundColor" : "",
+                                  "image" : "",
+                                  "lineColor" : "",
+                                  "lineStyle" : "solid",
+                                  "lineThickness" : 0,
+                                  "secondaryBackgroundColor" : "",
+                                  "textSize" : "normal"
+                                },
+                                "Top" : 40,
+                                "Type" : "panel",
+                                "VerticalAnchor" : "top",
+                                "Visible" : true,
+                                "Width" : 300,
+                                "Z-index" : 10,
+                                "__TypeDisplayName" : "Panel"
+                              },
+                              "Widgets" : [ {
+                                "Properties" : {
+                                  "ActiveStyle" : "NCR.DCS.AutoRefreshButtonActiveStyle",
+                                  "Area" : "UI",
+                                  "AutoRefresh" : true,
+                                  "AutoRefreshTabSequence" : 0,
+                                  "DisplayName" : "autorefresh-152",
+                                  "FocusStyle" : {
+                                    "backgroundColor" : "",
+                                    "displayString" : "",
+                                    "fontEmphasisBold" : false,
+                                    "fontEmphasisItalic" : false,
+                                    "fontEmphasisUnderline" : false,
+                                    "foregroundColor" : "",
+                                    "image" : "",
+                                    "lineColor" : "",
+                                    "lineStyle" : "solid",
+                                    "lineThickness" : 1,
+                                    "secondaryBackgroundColor" : "",
+                                    "textSize" : "normal"
+                                  },
+                                  "Height" : 15,
+                                  "HoverStyle" : "NCR.DCS.DefaultAutoRefreshHoverStyle",
+                                  "IconAlignment" : "left",
+                                  "Id" : "autorefresh-152",
+                                  "Label" : "Refresh Now",
+                                  "Left" : 9,
+                                  "RefreshInterval" : 30,
+                                  "RefreshNowTabSequence" : 0,
+                                  "RefreshToggleLabel" : "On",
+                                  "RefreshToggleLabelOff" : "Off",
+                                  "RefreshToggleSliderStyle" : "DefaultAutoRefreshToggleSliderStyle",
+                                  "RefreshToggleStyle" : "DefaultAutoRefreshToggleStyle",
+                                  "RefreshToggleStyleOff" : "DefaultAutoRefreshToggleOffStyle",
+                                  "ResponsiveLayout" : false,
+                                  "ShowControls" : true,
+                                  "ShowDataLoading" : true,
+                                  "Style" : "NCR.DCS.DefaultAutoRefreshStyle",
+                                  "Top" : 633,
+                                  "Type" : "autorefresh",
+                                  "Visible" : false,
+                                  "Width" : 140,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Auto Refresh"
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "AllowEllipsis" : false,
+                                  "Area" : "UI",
+                                  "DisplayName" : "label-154",
+                                  "Height" : 15,
+                                  "Id" : "label-154",
+                                  "Left" : 45,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Style" : "NCR.DCS.AssetStateLabelStyle",
+                                  "Text" : "Asset ID",
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "DefaultTooltipStyle",
+                                  "Top" : 5,
+                                  "Type" : "label",
+                                  "Visible" : true,
+                                  "Width" : 80,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Label",
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "AllowEllipsis" : false,
+                                  "Area" : "UI",
+                                  "DisplayName" : "label-157",
+                                  "Height" : 15,
+                                  "Id" : "label-157",
+                                  "Left" : 45,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Style" : "NCR.DCS.AssetStateLabelStyle",
+                                  "Text" : "Asset Tag",
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "DefaultTooltipStyle",
+                                  "Top" : 26.109375,
+                                  "Type" : "label",
+                                  "Visible" : true,
+                                  "Width" : 80,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Label",
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "AllowEllipsis" : false,
+                                  "Area" : "UI",
+                                  "DisplayName" : "label-162",
+                                  "Height" : 15,
+                                  "Id" : "label-162",
+                                  "Left" : 45,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Style" : "NCR.DCS.AssetStateLabelStyle",
+                                  "Text" : "Asset Name",
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "DefaultTooltipStyle",
+                                  "Top" : 48.328125,
+                                  "Type" : "label",
+                                  "Visible" : true,
+                                  "Width" : 80,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Label",
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "AllowEllipsis" : false,
+                                  "Area" : "UI",
+                                  "DisplayName" : "label-165",
+                                  "Height" : 15,
+                                  "Id" : "label-165",
+                                  "Left" : 45,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Style" : "NCR.DCS.AssetStateLabelStyle",
+                                  "Text" : "Serial Number",
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "DefaultTooltipStyle",
+                                  "Top" : 70,
+                                  "Type" : "label",
+                                  "Visible" : true,
+                                  "Width" : 80,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Label",
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "Area" : "UI",
+                                  "BackgroundFill" : "content",
+                                  "DisplayName" : "valuedisplay-175",
+                                  "Height" : 15,
+                                  "Id" : "valuedisplay-175",
+                                  "ImageScaling" : "Width",
+                                  "Label" : " ",
+                                  "LabelAlignment" : "left",
+                                  "Left" : 130,
+                                  "Overflow" : "hidden",
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "TextIfNoValue" : "",
+                                  "TextIfNoValueOffset" : 0,
+                                  "TextIfNoValueStyle" : "DefaultValueDisplayNoTextStyle",
+                                  "TextWrap" : false,
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                                  "Top" : 8,
+                                  "Type" : "valuedisplay",
+                                  "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                                  "ValueDisplayStyle" : "NCR.DCS.AssetStateValueDisplayStyle",
+                                  "ValueFormat" : {
+                                    "FormatString" : "full",
+                                    "renderer" : "STRING"
+                                  },
+                                  "ValueFormat_StateParameters" : [ ],
+                                  "VerticalAlignment" : "top",
+                                  "Visible" : true,
+                                  "Width" : 235,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Value Display",
+                                  "__supportsLabel" : true,
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "Area" : "UI",
+                                  "BackgroundFill" : "content",
+                                  "DisplayName" : "valuedisplay-176",
+                                  "Height" : 15,
+                                  "Id" : "valuedisplay-176",
+                                  "ImageScaling" : "Width",
+                                  "Label" : " ",
+                                  "LabelAlignment" : "left",
+                                  "Left" : 130,
+                                  "Overflow" : "hidden",
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "TextIfNoValue" : "",
+                                  "TextIfNoValueOffset" : 0,
+                                  "TextIfNoValueStyle" : "DefaultValueDisplayNoTextStyle",
+                                  "TextWrap" : false,
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                                  "Top" : 32,
+                                  "Type" : "valuedisplay",
+                                  "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                                  "ValueDisplayStyle" : "NCR.DCS.AssetStateValueDisplayStyle",
+                                  "ValueFormat" : {
+                                    "FormatString" : "full",
+                                    "renderer" : "STRING"
+                                  },
+                                  "ValueFormat_StateParameters" : [ ],
+                                  "VerticalAlignment" : "top",
+                                  "Visible" : true,
+                                  "Width" : 235,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Value Display",
+                                  "__supportsLabel" : true,
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "Area" : "UI",
+                                  "BackgroundFill" : "content",
+                                  "DisplayName" : "valuedisplay-177",
+                                  "Height" : 15,
+                                  "Id" : "valuedisplay-177",
+                                  "ImageScaling" : "Width",
+                                  "Label" : " ",
+                                  "LabelAlignment" : "left",
+                                  "Left" : 130,
+                                  "Overflow" : "hidden",
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "TextIfNoValue" : "",
+                                  "TextIfNoValueOffset" : 0,
+                                  "TextIfNoValueStyle" : "DefaultValueDisplayNoTextStyle",
+                                  "TextWrap" : false,
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                                  "Top" : 53,
+                                  "Type" : "valuedisplay",
+                                  "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                                  "ValueDisplayStyle" : "NCR.DCS.AssetStateValueDisplayStyle",
+                                  "ValueFormat" : {
+                                    "FormatString" : "full",
+                                    "renderer" : "STRING"
+                                  },
+                                  "ValueFormat_StateParameters" : [ ],
+                                  "VerticalAlignment" : "top",
+                                  "Visible" : true,
+                                  "Width" : 235,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Value Display",
+                                  "__supportsLabel" : true,
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "Area" : "UI",
+                                  "BackgroundFill" : "content",
+                                  "DisplayName" : "valuedisplay-178",
+                                  "Height" : 15,
+                                  "Id" : "valuedisplay-178",
+                                  "ImageScaling" : "Width",
+                                  "Label" : " ",
+                                  "LabelAlignment" : "left",
+                                  "Left" : 130,
+                                  "Overflow" : "hidden",
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "TextIfNoValue" : "",
+                                  "TextIfNoValueOffset" : 0,
+                                  "TextIfNoValueStyle" : "DefaultValueDisplayNoTextStyle",
+                                  "TextWrap" : false,
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                                  "Top" : 73,
+                                  "Type" : "valuedisplay",
+                                  "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                                  "ValueDisplayStyle" : "NCR.DCS.AssetStateValueDisplayStyle",
+                                  "ValueFormat" : {
+                                    "FormatString" : "full",
+                                    "renderer" : "STRING"
+                                  },
+                                  "ValueFormat_StateParameters" : [ ],
+                                  "VerticalAlignment" : "middle",
+                                  "Visible" : true,
+                                  "Width" : 235,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Value Display",
+                                  "__supportsLabel" : true,
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "Area" : "UI",
+                                  "BackgroundFill" : "content",
+                                  "DisplayName" : "valuedisplay-190",
+                                  "Height" : 15,
+                                  "Id" : "valuedisplay-190",
+                                  "ImageScaling" : "Width",
+                                  "Label" : " ",
+                                  "LabelAlignment" : "left",
+                                  "Left" : 465,
+                                  "Overflow" : "hidden",
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "TextIfNoValue" : "",
+                                  "TextIfNoValueOffset" : 0,
+                                  "TextIfNoValueStyle" : "DefaultValueDisplayNoTextStyle",
+                                  "TextWrap" : false,
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                                  "Top" : 8,
+                                  "Type" : "valuedisplay",
+                                  "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                                  "ValueDisplayStyle" : "NCR.DCS.AssetStateValueDisplayStyle",
+                                  "ValueFormat" : {
+                                    "FormatString" : "full",
+                                    "renderer" : "STRING"
+                                  },
+                                  "ValueFormat_StateParameters" : [ ],
+                                  "VerticalAlignment" : "top",
+                                  "Visible" : true,
+                                  "Width" : 200,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Value Display",
+                                  "__supportsLabel" : true,
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "AllowEllipsis" : false,
+                                  "Area" : "UI",
+                                  "DisplayName" : "label-191",
+                                  "Height" : 15,
+                                  "Id" : "label-191",
+                                  "Left" : 380,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Style" : "NCR.DCS.AssetStateLabelStyle",
+                                  "Text" : "Manufacturer",
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "DefaultTooltipStyle",
+                                  "Top" : 5,
+                                  "Type" : "label",
+                                  "Visible" : true,
+                                  "Width" : 80,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Label",
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "Area" : "UI",
+                                  "BackgroundFill" : "content",
+                                  "DisplayName" : "valuedisplay-192",
+                                  "Height" : 15,
+                                  "Id" : "valuedisplay-192",
+                                  "ImageScaling" : "Width",
+                                  "Label" : " ",
+                                  "LabelAlignment" : "left",
+                                  "Left" : 465,
+                                  "Overflow" : "hidden",
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "TextIfNoValue" : "",
+                                  "TextIfNoValueOffset" : 0,
+                                  "TextIfNoValueStyle" : "DefaultValueDisplayNoTextStyle",
+                                  "TextWrap" : false,
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                                  "Top" : 32,
+                                  "Type" : "valuedisplay",
+                                  "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                                  "ValueDisplayStyle" : "NCR.DCS.AssetStateValueDisplayStyle",
+                                  "ValueFormat" : {
+                                    "FormatString" : "full",
+                                    "renderer" : "STRING"
+                                  },
+                                  "ValueFormat_StateParameters" : [ ],
+                                  "VerticalAlignment" : "top",
+                                  "Visible" : true,
+                                  "Width" : 200,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Value Display",
+                                  "__supportsLabel" : true,
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "AllowEllipsis" : false,
+                                  "Area" : "UI",
+                                  "DisplayName" : "label-193",
+                                  "Height" : 15,
+                                  "Id" : "label-193",
+                                  "Left" : 380.00000762939453,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Style" : "NCR.DCS.AssetStateLabelStyle",
+                                  "Text" : "Asset Model",
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "DefaultTooltipStyle",
+                                  "Top" : 26.109375,
+                                  "Type" : "label",
+                                  "Visible" : true,
+                                  "Width" : 80,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Label",
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "Area" : "UI",
+                                  "BackgroundFill" : "content",
+                                  "DisplayName" : "valuedisplay-196",
+                                  "Height" : 15,
+                                  "Id" : "valuedisplay-196",
+                                  "ImageScaling" : "Width",
+                                  "Label" : " ",
+                                  "LabelAlignment" : "left",
+                                  "Left" : 465,
+                                  "Overflow" : "hidden",
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "TextIfNoValue" : "",
+                                  "TextIfNoValueOffset" : 0,
+                                  "TextIfNoValueStyle" : "DefaultValueDisplayNoTextStyle",
+                                  "TextWrap" : false,
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                                  "Top" : 53,
+                                  "Type" : "valuedisplay",
+                                  "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                                  "ValueDisplayStyle" : "NCR.DCS.AssetStateValueDisplayStyle",
+                                  "ValueFormat" : {
+                                    "renderer" : "DEFAULT"
+                                  },
+                                  "ValueFormat_StateParameters" : [ ],
+                                  "VerticalAlignment" : "top",
+                                  "Visible" : true,
+                                  "Width" : 200,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Value Display",
+                                  "__supportsLabel" : true,
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "AllowEllipsis" : false,
+                                  "Area" : "UI",
+                                  "DisplayName" : "label-197",
+                                  "Height" : 15,
+                                  "Id" : "label-197",
+                                  "Left" : 380,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Style" : "NCR.DCS.AssetStateLabelStyle",
+                                  "Text" : "Status",
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "DefaultTooltipStyle",
+                                  "Top" : 48.328125,
+                                  "Type" : "label",
+                                  "Visible" : true,
+                                  "Width" : 80,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Label",
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "center",
+                                  "Area" : "UI",
+                                  "BackgroundFill" : "content",
+                                  "DisplayName" : "valuedisplay-213",
+                                  "Height" : 15,
+                                  "Id" : "valuedisplay-213",
+                                  "ImageScaling" : "Width",
+                                  "Label" : " ",
+                                  "LabelAlignment" : "left",
+                                  "Left" : 655,
+                                  "Overflow" : "hidden",
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "TextIfNoValue" : "",
+                                  "TextIfNoValueOffset" : 0,
+                                  "TextIfNoValueStyle" : "DefaultValueDisplayNoTextStyle",
+                                  "TextWrap" : false,
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                                  "Top" : 27,
+                                  "Type" : "valuedisplay",
+                                  "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                                  "ValueDisplayStyle" : "NCR.DCS.AssetStateValueDisplayStyle",
+                                  "ValueFormat" : {
+                                    "FormatString" : "[[dateTimeFormat_Default]]",
+                                    "renderer" : "DATETIME"
+                                  },
+                                  "ValueFormat_StateParameters" : [ ],
+                                  "VerticalAlignment" : "top",
+                                  "Visible" : true,
+                                  "Width" : 215,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Value Display",
+                                  "__supportsLabel" : true,
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "center",
+                                  "AllowEllipsis" : false,
+                                  "Area" : "UI",
+                                  "DisplayName" : "label-214",
+                                  "Height" : 15,
+                                  "Id" : "label-214",
+                                  "Left" : 650,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Style" : "NCR.DCS.AssetStateLabelStyle",
+                                  "Text" : "Connected Since",
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                                  "Top" : 5,
+                                  "Type" : "label",
+                                  "Visible" : true,
+                                  "Width" : 215,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Label",
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "AlternateText" : "",
+                                  "Area" : "UI",
+                                  "BorderStyle" : "DefaultImageBorderStyle",
+                                  "DisplayName" : "image-205",
+                                  "Height" : 25,
+                                  "Id" : "image-205",
+                                  "Left" : 750,
+                                  "PreventCaching" : false,
+                                  "ResponsiveLayout" : false,
+                                  "Scaling" : "height",
+                                  "ShowDataLoading" : true,
+                                  "SourceURL" : "",
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "DefaultTooltipStyle",
+                                  "Top" : 50,
+                                  "Type" : "image",
+                                  "Visible" : true,
+                                  "Width" : 25,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Image",
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "AllowEllipsis" : false,
+                                  "Area" : "UI",
+                                  "DisplayName" : "label-215",
+                                  "Height" : 15,
+                                  "Id" : "label-215",
+                                  "Left" : 380,
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "Style" : "NCR.DCS.AssetStateLabelStyle",
+                                  "Text" : "Site",
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "DefaultTooltipStyle",
+                                  "Top" : 70,
+                                  "Type" : "label",
+                                  "Visible" : true,
+                                  "Width" : 80,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Label",
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "Alignment" : "left",
+                                  "Area" : "UI",
+                                  "BackgroundFill" : "content",
+                                  "DisplayName" : "valuedisplay-216",
+                                  "Height" : 15,
+                                  "Id" : "valuedisplay-216",
+                                  "ImageScaling" : "Width",
+                                  "Label" : " ",
+                                  "LabelAlignment" : "left",
+                                  "Left" : 465,
+                                  "Overflow" : "hidden",
+                                  "ResponsiveLayout" : false,
+                                  "ShowDataLoading" : true,
+                                  "TextIfNoValue" : "",
+                                  "TextIfNoValueOffset" : 0,
+                                  "TextIfNoValueStyle" : "DefaultValueDisplayNoTextStyle",
+                                  "TextWrap" : false,
+                                  "ToolTipField" : "",
+                                  "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                                  "Top" : 73,
+                                  "Type" : "valuedisplay",
+                                  "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                                  "ValueDisplayStyle" : "NCR.DCS.AssetStateValueDisplayStyle",
+                                  "ValueFormat" : {
+                                    "FormatString" : "full",
+                                    "renderer" : "STRING"
+                                  },
+                                  "ValueFormat_StateParameters" : [ ],
+                                  "VerticalAlignment" : "top",
+                                  "Visible" : true,
+                                  "Width" : 200,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Value Display",
+                                  "__supportsLabel" : true,
+                                  "__supportsTooltip" : true
+                                },
+                                "Widgets" : [ ]
+                              } ]
+                            } ]
+                          } ]
+                        } ]
+                      } ]
+                    } ]
+                  }, {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Right Sidebar",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-123",
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "DefaultContainerStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Container"
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

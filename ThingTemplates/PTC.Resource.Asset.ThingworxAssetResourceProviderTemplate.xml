@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <ThingTemplates>
+        <ThingTemplate
+         aspect.isExtension="true"
+         aspect.isSystemObject="false"
+         baseThingTemplate="PTC.Resource.ThingBasedResourceProviderTemplate"
+         description="Basic Asset Resource Provider Template"
+         documentationContent=""
+         effectiveThingPackage="PTC.Resource.Asset.ThingworxAssetResourceProviderPackage"
+         homeMashup=""
+         lastModifiedDate="2018-10-24T20:59:55.128Z"
+         name="PTC.Resource.Asset.ThingworxAssetResourceProviderTemplate"
+         projectName=""
+         tags="PTC:Asset"
+         thingPackage="PTC.Resource.Asset.ThingworxAssetResourceProviderPackage"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 description="Resource Attribute Mapping Configuration"
+                 isMultiRow="true"
+                 name="Attribute Mapping Configuration"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="STRING"
+                             baseType="BASETYPENAME"
+                             description="The base type of the attribute (must be the same for normalized and originalattributes"
+                             name="BaseType"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="true"
+                             baseType="STRING"
+                             description="The normalized attribute name of the resource"
+                             name="Normalized"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="The original name of the attribute used in the business service for the resource"
+                             name="Original"
+                             ordinal="2"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="Resource Provider Configuration"
+                 isMultiRow="false"
+                 name="Resource Provider Configuration"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             baseType="THINGNAME"
+                             description="The Thing name of the connector to a business service for the resource"
+                             name="Connector"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="MASHUPNAME"
+                             description="The name of the mashup to create a new asset"
+                             name="CreateMashup"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="MASHUPNAME"
+                             description="The name of the mashup to show the details of the resource"
+                             name="DetailMashup"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <Connector></Connector>
+                            <CreateMashup></CreateMashup>
+                            <DetailMashup></DetailMashup>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="Thing Resource Provider Configuration"
+                 isMultiRow="false"
+                 name="Thing Resource Provider Configuration"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             baseType="THINGTEMPLATENAME"
+                             description="ThingTemplate used by this provider when creating new Things when the resource data does not specify the ThingTemplate to use"
+                             name="DefaultResourceTemplate"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="THINGSHAPENAME"
+                             description="ThingShape that denotes Things to be treated as resources by this provider"
+                             name="ResourceThingShape"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <DefaultResourceTemplate></DefaultResourceTemplate>
+                            <ResourceThingShape></ResourceThingShape>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions></ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations></ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <ImplementedShapes>
+                <ImplementedShape
+                 name="PTC.Capability.AlertableServiceProvider"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="PTC.Capability.BlogAssociableServiceProvider"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="PTC.Capability.ImageAssociableServiceProvider"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="PTC.Capability.LocatableServiceProvider"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="PTC.Capability.ModelNumberedServiceProvider"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="PTC.Capability.SerialNumberedServiceProvider"
+                 type="ThingShape"></ImplementedShape>
+            </ImplementedShapes>
+            <SharedConfigurationTables></SharedConfigurationTables>
+            <InstanceDesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </InstanceDesignTimePermissions>
+            <InstanceRunTimePermissions></InstanceRunTimePermissions>
+            <InstanceVisibilityPermissions>
+                <Visibility></Visibility>
+            </InstanceVisibilityPermissions>
+        </ThingTemplate>
+    </ThingTemplates>
+</Entities>

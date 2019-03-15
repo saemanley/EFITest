@@ -1,0 +1,1238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-10-24T21:00:18.482Z"
+         name="TW.RSM.SFW.Mashup.PublishedPackagePanel"
+         projectName=""
+         rows="0.0"
+         tags="Applications:RSM;Applications:SCM;TWUTL:RemoteServices">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="1"
+                 baseType="STRING"
+                 description=""
+                 name="findPackageMashupName"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="2"
+                 baseType="STRING"
+                 description=""
+                 name="noPkgSelectedMashupName"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="STRING"
+                 description=""
+                 name="targetMashupName"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things>
+                <Thing>TW.RSM.SFW.SoftwareManager</Thing>
+                <Thing>TW.RSM.SFW.Thing.SoftwareUtils</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_TW_RSM_SFW_SoftwareManager" : {
+                  "DataName" : "Things_TW_RSM_SFW_SoftwareManager",
+                  "EntityName" : "TW.RSM.SFW.SoftwareManager",
+                  "EntityType" : "Things",
+                  "Id" : "42451fb6-6890-4597-8ea1-5ee9c1ab40b4",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "4d9f85fe-add7-44eb-aee9-06902e12a16f",
+                    "Name" : "GetDefinitionById",
+                    "Parameters" : { },
+                    "Properties" : {
+                      "CustomErrorMessage" : "[server-message]",
+                      "ShowErrorMessage" : true
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDefinitionById"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "bdfd7b12-e260-412b-91b8-0a4aa393de3e",
+                    "Name" : "GetConcatenatedVersion",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetConcatenatedVersion"
+                  } ]
+                },
+                "Things_TW_RSM_SFW_Thing_SoftwareUtils" : {
+                  "DataName" : "Things_TW_RSM_SFW_Thing_SoftwareUtils",
+                  "EntityName" : "TW.RSM.SFW.Thing.SoftwareUtils",
+                  "EntityType" : "Things",
+                  "Id" : "908abdd3-ec2f-4bc2-b1d8-15984464034c",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "fa1b1a91-3cbb-41e2-86fb-7dca351b234f",
+                    "Name" : "SetTargetMashupName",
+                    "Parameters" : { },
+                    "Properties" : {
+                      "CustomErrorMessage" : "[server-message]",
+                      "ShowErrorMessage" : true
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "SetTargetMashupName"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "8df2d864-d2a5-4abd-8a01-2d5b9de98a75",
+                    "Name" : "SetTargetMashupName1",
+                    "Parameters" : {
+                      "MashupName" : "TW.RSM.SFW.Mashup.ViewPackageDetails"
+                    },
+                    "Properties" : {
+                      "CustomErrorMessage" : "[server-message]",
+                      "ShowErrorMessage" : true
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "SetTargetMashupName"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "4fcc474f-6908-49c8-92b8-a8747d57c6e4",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "testPackageGUID",
+                  "SourcePropertyBaseType" : "GUID",
+                  "TargetProperty" : "DefinitionID",
+                  "TargetPropertyBaseType" : "GUID",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Session",
+                "SourceDetails" : "AllData",
+                "SourceId" : "Session",
+                "SourceSection" : "Session",
+                "TargetArea" : "Data",
+                "TargetId" : "GetDefinitionById",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "56167df4-b957-46f7-8eb2-39b1ed30eae0",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ExpirationDate",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDefinitionById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-21",
+                "TargetSection" : ""
+              }, {
+                "Id" : "39eff2cb-09b7-4485-a221-4c757686927a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Published",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "ANYSCALAR",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDefinitionById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "ValueDisplay-26",
+                "TargetSection" : ""
+              }, {
+                "Id" : "56bebb9b-0ada-436c-95ef-5e09eb09113a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "testPackageGUID",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "testPackageGUID",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Session",
+                "SourceDetails" : "AllData",
+                "SourceId" : "Session",
+                "SourceSection" : "Session",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-31",
+                "TargetSection" : ""
+              }, {
+                "Id" : "7390e676-ffee-499f-8fe7-edcfc45d4855",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "targetMashupName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "MashupName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "SetTargetMashupName",
+                "TargetSection" : "Things_TW_RSM_SFW_Thing_SoftwareUtils"
+              }, {
+                "Id" : "e7688038-cc06-4f99-88cb-ba552e1173c7",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "findPackageMashupName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "findPackageMashupName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Mashup",
+                "TargetId" : "mashup-root",
+                "TargetSection" : ""
+              }, {
+                "Id" : "ffe22ed5-a529-4855-82d6-6ff43c04a0c9",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Name",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDefinitionById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "UtlLabelTooltip-33",
+                "TargetSection" : ""
+              }, {
+                "Id" : "ff47ada6-950a-432b-ad57-d0ab1daf837c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Description",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDefinitionById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "UtlLabelTooltip-34",
+                "TargetSection" : ""
+              }, {
+                "Id" : "b92d65d4-fc1d-4a17-8ec1-fb87fc806d10",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "findPackageMashupName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "FindPkgName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-31",
+                "TargetSection" : ""
+              }, {
+                "Id" : "9a1df3dc-d5d0-490e-a287-6b83b37f0b3d",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "noPkgSelectedMashupName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "MashupName",
+                  "TargetPropertyBaseType" : "MASHUPNAME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Navigation-28",
+                "TargetSection" : ""
+              }, {
+                "Id" : "b2152c6c-9055-42ea-a9ce-8c07398ea25e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Published",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "isPublished",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDefinitionById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-38",
+                "TargetSection" : ""
+              }, {
+                "Id" : "c4acc081-0c28-4bff-ae1d-3d49e46eb9b7",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Name",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "ToolTipField",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDefinitionById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "UtlLabelTooltip-33",
+                "TargetSection" : ""
+              }, {
+                "Id" : "5e3aad22-0dda-4856-b697-e01fd16eb1e3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Description",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "ToolTipField",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDefinitionById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "UtlLabelTooltip-34",
+                "TargetSection" : ""
+              }, {
+                "Id" : "38c14f7a-b720-4e64-8505-61ab5f5d3c10",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Version1",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "version1",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDefinitionById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "Data",
+                "TargetId" : "GetConcatenatedVersion",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "bdbd3ffd-ca08-4891-8067-569f71c6def6",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Version2",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "version2",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDefinitionById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "Data",
+                "TargetId" : "GetConcatenatedVersion",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "21c33d3a-ee9d-425a-ac09-f6f5caa7e9af",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Version3",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "version3",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDefinitionById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "Data",
+                "TargetId" : "GetConcatenatedVersion",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "57cafaad-235c-4468-af1a-6a29d5fe9cf7",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Version4",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "version4",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDefinitionById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "Data",
+                "TargetId" : "GetConcatenatedVersion",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "20143f15-4ad5-40a9-a7bc-a350104d8a9b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetConcatenatedVersion",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "UtlLabelTooltip-39",
+                "TargetSection" : ""
+              }, {
+                "Id" : "54f4878d-46d4-41ce-b2b3-8bb26b54aef6",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "ToolTipField",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetConcatenatedVersion",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "UtlLabelTooltip-39",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Navigation-28",
+                "EventHandlerService" : "Navigate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "ButtonTooltip-76",
+                "EventTriggerSection" : "",
+                "Id" : "9c9e02f7-1336-475c-84b9-8e4e44ddf8c7"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Navigation-29",
+                "EventHandlerService" : "Navigate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "Validator-31",
+                "EventTriggerSection" : "",
+                "Id" : "0e5ef0ae-2703-407e-90c6-990d808982f5"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_Thing_SoftwareUtils",
+                "EventHandlerService" : "SetTargetMashupName",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "ButtonTooltip-76",
+                "EventTriggerSection" : "",
+                "Id" : "ba627433-b628-433a-8a1e-28f9a07f2651"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_Thing_SoftwareUtils",
+                "EventHandlerService" : "SetTargetMashupName1",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "6f9426b0-d449-4ad5-9925-b91ad269551f"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Validator-31",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "RefreshRequested",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "cb8c3a8f-fd02-4f83-84e2-71d5c2ad5a93"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDefinitionById",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "False",
+                "EventTriggerId" : "Validator-31",
+                "EventTriggerSection" : "",
+                "Id" : "c7e25e9f-6ef4-48fc-86b1-785f96cd07fd"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Validator-31",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "findPackageMashupNameChanged",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "63c74b15-6d98-47e5-89f4-d07a37120eb4"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Navigation-37",
+                "EventHandlerService" : "Navigate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "False",
+                "EventTriggerId" : "Validator-38",
+                "EventTriggerSection" : "",
+                "Id" : "96486c08-c316-4211-85ce-4b4833cbf12d"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Validator-38",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetDefinitionById",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "Id" : "ac5ba692-c384-423b-8657-bf6256564cc7"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetConcatenatedVersion",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetDefinitionById",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "Id" : "1f0006ce-5b1b-4c9d-9278-7d5364db9a06"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 75,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "Master" : "TW.RSM.SFW.Master.ApplicationMaster",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "TW.RSM.SFW.Style.PackagePanel",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 950,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "targetMashupName"
+                  }, {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "findPackageMashupName"
+                  }, {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "noPkgSelectedMashupName"
+                  } ],
+                  "id_index" : 39,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "DisplayName" : "Label-2",
+                    "Height" : 22,
+                    "Id" : "Label-2",
+                    "Left" : 10,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.Style.Label",
+                    "Text" : "[[TW.RSM.SFW.Selected Package:]]",
+                    "ToolTipField" : "",
+                    "Top" : 10,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 140,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "DisplayName" : "Label-3",
+                    "Height" : 22,
+                    "Id" : "Label-3",
+                    "Left" : 10,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.Style.Label",
+                    "Text" : "[[TW.RSM.SFW.Package Description:]]",
+                    "ToolTipField" : "",
+                    "Top" : 40,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 140,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "Description" : "",
+                    "DisplayName" : "Label-6",
+                    "Height" : 22,
+                    "Id" : "Label-6",
+                    "Left" : 440,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.Style.Label",
+                    "Text" : "[[TW.RSM.SFW.Package Version:]]",
+                    "ToolTipField" : "",
+                    "Top" : 10,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 140,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "Description" : "",
+                    "DisplayName" : "Label-7",
+                    "Height" : 22,
+                    "Id" : "Label-7",
+                    "Left" : 440,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.Style.Label",
+                    "Text" : "[[TW.RSM.SFW.Expiration:]]",
+                    "ToolTipField" : "",
+                    "Top" : 40,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 140,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "Description" : "",
+                    "DisplayName" : "ExpirationDate",
+                    "Height" : 22,
+                    "Id" : "Label-21",
+                    "Left" : 605,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.Style.LabelValue",
+                    "Text" : "",
+                    "ToolTipField" : "",
+                    "Top" : 40,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 300,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "BackgroundFill" : "content",
+                    "DisplayName" : "ValueDisplay-26",
+                    "Height" : 26,
+                    "Id" : "ValueDisplay-26",
+                    "ImageScaling" : "width",
+                    "Label" : "",
+                    "LabelAlignment" : "left",
+                    "Left" : 600,
+                    "Overflow" : "hidden",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "TextIfNoValue" : "",
+                    "TextIfNoValueOffset" : 0,
+                    "TextIfNoValueStyle" : "DefaultValueDisplayNoTextStyle",
+                    "TextWrap" : true,
+                    "ToolTipField" : "",
+                    "Top" : 8,
+                    "Type" : "valuedisplay",
+                    "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                    "ValueDisplayStyle" : "DefaultValueDisplayStyle",
+                    "ValueFormat" : {
+                      "FormatString" : "notext",
+                      "formatInfo" : {
+                        "FieldName" : "Published",
+                        "StateDefinition" : "TW.RSM.SFW.StateDef.Published",
+                        "StateDefinitionType" : "string",
+                        "StateFormats" : [ {
+                          "comparator" : "==",
+                          "state" : "TW.RSM.SFW.Style.PublishIcon",
+                          "stateName" : "Published",
+                          "value" : "true"
+                        }, {
+                          "comparator" : "==",
+                          "state" : "TW.RSM.SFW.Style.UnpublishedIcon",
+                          "stateName" : "Not Published",
+                          "value" : "false"
+                        }, {
+                          "state" : "TW.RSM.Style.HelpIcon",
+                          "stateName" : ""
+                        } ]
+                      },
+                      "renderer" : "BOOLEAN"
+                    },
+                    "ValueFormat_StateParameters" : [ {
+                      "BaseType" : "STRING",
+                      "DefaultValue" : "true",
+                      "Description" : "Published",
+                      "ParameterName" : "ValueFormat_Published"
+                    }, {
+                      "BaseType" : "STRING",
+                      "DefaultValue" : "false",
+                      "Description" : "Not Published",
+                      "ParameterName" : "ValueFormat_Not Published"
+                    } ],
+                    "VerticalAlignment" : "middle",
+                    "Visible" : true,
+                    "Width" : 26,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Value Display",
+                    "__supportsLabel" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "ActiveStyle" : "TW.RSM.SFW.Style.PackageSwitchRollover",
+                    "Area" : "UI",
+                    "CancelConfirmationButton" : "button2",
+                    "ConfirmationButton1Label" : "[[TW.RSM.SFW.Yes]]",
+                    "ConfirmationButton2Label" : "[[TW.RSM.SFW.No]]",
+                    "ConfirmationPrompt" : "[[TW.RSM.SFW.confirm-switch-package]]",
+                    "ConfirmationRequired" : true,
+                    "ConfirmationTitle" : "[[TW.RSM.SFW.Switch Package?]]",
+                    "ContextId" : "",
+                    "DefaultConfirmationButton" : "button1",
+                    "Disabled" : false,
+                    "DisabledStyle" : "TW.RSM.SFW.Style.PackageSwitch",
+                    "DisplayName" : "ButtonTooltip-76",
+                    "FocusStyle" : "TW.RSM.SFW.Style.PackageSwitch",
+                    "Height" : 35,
+                    "HoverStyle" : "TW.RSM.SFW.Style.PackageSwitchRollover",
+                    "IconAlignment" : "left",
+                    "Id" : "ButtonTooltip-76",
+                    "Label" : "",
+                    "Left" : 904,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.SFW.Style.PackageSwitch",
+                    "TabSequence" : 0,
+                    "ToolTipDuration" : 2,
+                    "ToolTipField" : "[[TW.RSM.SFW.Switch Package]]",
+                    "ToolTipPosition" : "top right,bottom left",
+                    "ToolTipStyles" : "qtip-green",
+                    "Top" : 5,
+                    "Type" : "button",
+                    "Visible" : true,
+                    "Width" : 40,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Button"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "ClickOutsideToClose" : false,
+                    "DisplayName" : "Navigation-28",
+                    "FixedPopupHeight" : 0,
+                    "FixedPopupWidth" : 0,
+                    "Height" : 30,
+                    "IconAlignment" : "left",
+                    "Id" : "Navigation-28",
+                    "Left" : 812.0000305175781,
+                    "MashupName" : "",
+                    "MashupParameters" : [ ],
+                    "MessageToShow" : "Mashup must be selected",
+                    "ModalPopupOpacity" : 0.5,
+                    "NavigationActiveStyle" : "DefaultNavigationActiveStyle",
+                    "NavigationFocusStyle" : "DefaultNavigationFocusStyle",
+                    "NavigationHoverStyle" : "DefaultNavigationHoverStyle",
+                    "PopupScrolling" : "Off",
+                    "PopupTitle" : "",
+                    "PopupTitleStyle" : "DefaultPopupTitleStyle",
+                    "ReloadOnReplace" : false,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : true,
+                    "ShowCloseButton" : true,
+                    "ShowDataLoading" : true,
+                    "ShowMessageIfNoMashup" : false,
+                    "Style" : "DefaultNavigationStyle",
+                    "TabSequence" : 0,
+                    "TargetWindow" : "replace",
+                    "Text" : "[[TW.RSM.SFW.Mashup Link]]",
+                    "ToolTipField" : "",
+                    "Top" : 5,
+                    "Transparent" : false,
+                    "Type" : "navigation",
+                    "Visible" : false,
+                    "Width" : 46,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Navigation"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "ClickOutsideToClose" : false,
+                    "Description" : "No pkg selected yet.",
+                    "DisplayName" : "NoPkg-Navigation-29",
+                    "FixedPopupHeight" : 0,
+                    "FixedPopupWidth" : 0,
+                    "Height" : 30,
+                    "IconAlignment" : "left",
+                    "Id" : "Navigation-29",
+                    "Left" : 750.0000305175781,
+                    "MashupName" : "TW.RSM.SFW.Mashup.NoPublishedPackageSelectedDialog",
+                    "MashupParameters" : [ {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "alertName",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "2"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "",
+                        "name" : "alertName",
+                        "ordinal" : 0
+                      }
+                    }, {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "sourceProperty",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "1"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "",
+                        "name" : "sourceProperty",
+                        "ordinal" : 0
+                      }
+                    }, {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "source",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "3"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "",
+                        "name" : "source",
+                        "ordinal" : 0
+                      }
+                    }, {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "message",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "0"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "",
+                        "name" : "message",
+                        "ordinal" : 0
+                      }
+                    } ],
+                    "MessageToShow" : "Mashup must be selected",
+                    "ModalPopupOpacity" : 0.5,
+                    "NavigationActiveStyle" : "DefaultNavigationActiveStyle",
+                    "NavigationFocusStyle" : "DefaultNavigationFocusStyle",
+                    "NavigationHoverStyle" : "DefaultNavigationHoverStyle",
+                    "PopupScrolling" : "visible",
+                    "PopupTitle" : "",
+                    "PopupTitleStyle" : "DefaultPopupTitleStyle",
+                    "ReloadOnReplace" : false,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : true,
+                    "ShowCloseButton" : true,
+                    "ShowDataLoading" : true,
+                    "ShowMessageIfNoMashup" : false,
+                    "Style" : "DefaultNavigationStyle",
+                    "TabSequence" : 0,
+                    "TargetWindow" : "modal-popup",
+                    "Text" : "TW.RSM.SFW.Mashup.PublishedDialog",
+                    "ToolTipField" : "",
+                    "Top" : 5,
+                    "Transparent" : false,
+                    "Type" : "navigation",
+                    "Visible" : false,
+                    "Width" : 50,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Navigation"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : false,
+                    "Description" : "",
+                    "DisplayName" : "NoPkg-Validator-31",
+                    "Expression" : "(FindPkgName != \"TW.RSM.SFW.Mashup.FindPackage\") && (testPackageGUID == null) || (testPackageGUID == undefined) || (testPackageGUID.length == 0)",
+                    "Height" : 28,
+                    "Id" : "Validator-31",
+                    "Left" : 320.0000305175781,
+                    "Output" : false,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 15,
+                    "Type" : "validator",
+                    "Visible" : true,
+                    "Width" : 66,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Validator",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "testPackageGUID"
+                    }, {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "FindPkgName"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "Description" : "IMPORTANT: ID name is used for CSS Overflow / Ellipsis.",
+                    "DisplayName" : "LabelTooltip-33",
+                    "Height" : 22,
+                    "Id" : "UtlLabelTooltip-33",
+                    "Left" : 152,
+                    "MaximumCharacters" : 22,
+                    "MinimumCharacters" : 0,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : true,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "#000000",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "large"
+                    },
+                    "ToolTipDuration" : 2,
+                    "ToolTipField" : "",
+                    "ToolTipPosition" : "top right,bottom left",
+                    "ToolTipStyles" : "qtip-green",
+                    "Top" : 10,
+                    "Truncation" : true,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 275,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "Description" : "IMPORTANT: ID name is used for CSS Overflow / Ellipsis.",
+                    "DisplayName" : "LabelTooltip-34",
+                    "Height" : 22,
+                    "Id" : "UtlLabelTooltip-34",
+                    "Left" : 160,
+                    "MaximumCharacters" : 25,
+                    "MinimumCharacters" : 0,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.Style.LabelValue",
+                    "Text" : "",
+                    "ToolTipDuration" : 2,
+                    "ToolTipField" : "",
+                    "ToolTipPosition" : "top right,bottom left",
+                    "ToolTipStyles" : "qtip-green",
+                    "Top" : 41,
+                    "Truncation" : true,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 270,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "Shape-35",
+                    "DynamicFillOrientation" : "vertical",
+                    "DynamicRangeMaximum" : 100,
+                    "DynamicRangeMinimum" : 0,
+                    "EnableDynamicFill" : false,
+                    "GradientOrientation" : "vertical",
+                    "GradientType" : "linear",
+                    "Height" : 30,
+                    "Id" : "Shape-35",
+                    "Left" : 150,
+                    "RectangleCornerRadius" : 5,
+                    "ResponsiveLayout" : false,
+                    "ShapeFormatter_StateParameters" : [ ],
+                    "ShapeStyle" : "PTC.Core.Accent2.SelectPackagePanelStyle",
+                    "ShapeType" : "rectangle",
+                    "ShowDataLoading" : true,
+                    "Top" : 7,
+                    "Type" : "shape",
+                    "UnfilledBackgroundStyle" : "DefaultShapeUnfilledBackgroundStyle",
+                    "Visible" : true,
+                    "Width" : 280,
+                    "Z-index" : 0,
+                    "__TypeDisplayName" : "Shape"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "ClickOutsideToClose" : false,
+                    "DisplayName" : "Navigation-37",
+                    "FixedPopupHeight" : 0,
+                    "FixedPopupWidth" : 0,
+                    "Height" : 30,
+                    "IconAlignment" : "left",
+                    "Id" : "Navigation-37",
+                    "Left" : 815,
+                    "MashupName" : "TW.RSM.SFW.Mashup.NoPublishedPackageSelectedDialog",
+                    "MashupParameters" : [ {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "alertName",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "2"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "",
+                        "name" : "alertName",
+                        "ordinal" : 0
+                      }
+                    }, {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "sourceProperty",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "1"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "",
+                        "name" : "sourceProperty",
+                        "ordinal" : 0
+                      }
+                    }, {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "source",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "3"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "",
+                        "name" : "source",
+                        "ordinal" : 0
+                      }
+                    }, {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "message",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "0"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "",
+                        "name" : "message",
+                        "ordinal" : 0
+                      }
+                    } ],
+                    "MessageToShow" : "Mashup must be selected",
+                    "ModalPopupOpacity" : 0.5,
+                    "NavigationActiveStyle" : "DefaultNavigationActiveStyle",
+                    "NavigationFocusStyle" : "DefaultNavigationFocusStyle",
+                    "NavigationHoverStyle" : "DefaultNavigationHoverStyle",
+                    "PopupScrolling" : "visible",
+                    "PopupTitle" : "",
+                    "PopupTitleStyle" : "DefaultPopupTitleStyle",
+                    "ReloadOnReplace" : false,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : false,
+                    "ShowCloseButton" : true,
+                    "ShowDataLoading" : true,
+                    "ShowMessageIfNoMashup" : false,
+                    "Style" : "DefaultNavigationStyle",
+                    "TabSequence" : 0,
+                    "TargetWindow" : "modal-popup",
+                    "Text" : "[[TW.RSM.SFW.Mashup Link]]",
+                    "ToolTipField" : "",
+                    "Top" : 50,
+                    "Transparent" : false,
+                    "Type" : "navigation",
+                    "Visible" : false,
+                    "Width" : 40,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Navigation"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : false,
+                    "DisplayName" : "Validator-38",
+                    "Expression" : "isPublished?true:false",
+                    "Height" : 28,
+                    "Id" : "Validator-38",
+                    "Left" : 875,
+                    "Output" : false,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 35,
+                    "Type" : "validator",
+                    "Visible" : true,
+                    "Width" : 200,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Validator",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "BOOLEAN",
+                      "Description" : "",
+                      "ParameterName" : "isPublished"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "Description" : "IMPORTANT: ID name is used for CSS Overflow / Ellipsis.",
+                    "DisplayName" : "LabelTooltip-39",
+                    "Height" : 22,
+                    "Id" : "UtlLabelTooltip-39",
+                    "Left" : 630,
+                    "MaximumCharacters" : 25,
+                    "MinimumCharacters" : 0,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.Style.LabelValue",
+                    "ToolTipDuration" : 2,
+                    "ToolTipField" : "",
+                    "ToolTipPosition" : "top right,bottom left",
+                    "ToolTipStyles" : "qtip-green",
+                    "Top" : 10,
+                    "Truncation" : true,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 275,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

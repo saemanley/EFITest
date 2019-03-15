@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent="&lt;p&gt;&lt;br&gt;&lt;/p&gt;"
+         homeMashup=""
+         lastModifiedDate="2018-10-24T21:00:18.550Z"
+         name="TW.RSM.SFW.Mashup.HistoricalSettings"
+         projectName=""
+         rows="0.0"
+         tags="Applications:RSM;Applications:SCM;TWUTL:RemoteServicesAdmin">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="BOOLEAN"
+                 description=""
+                 name="showTest"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things>
+                <Thing>TW.RSM.SFW.SoftwareManager</Thing>
+                <Thing>TW.RSM.RSMCoreUtils</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_TW_RSM_RSMCoreUtils" : {
+                  "DataName" : "Things_TW_RSM_RSMCoreUtils",
+                  "EntityName" : "TW.RSM.RSMCoreUtils",
+                  "EntityType" : "Things",
+                  "Id" : "f77ccfad-3764-4777-9aaa-582aee427994",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "a63c7971-09b0-470e-8998-10a2a887de81",
+                    "Name" : "IsRSMAdminUser",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "IsRSMAdminUser"
+                  } ]
+                },
+                "Things_TW_RSM_SFW_SoftwareManager" : {
+                  "DataName" : "Things_TW_RSM_SFW_SoftwareManager",
+                  "EntityName" : "TW.RSM.SFW.SoftwareManager",
+                  "EntityType" : "Things",
+                  "Id" : "bb3e0b20-7633-4078-8c28-3fbff7df6800",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "1342d45b-eb8b-48ad-9f09-3b52e659b22d",
+                    "Name" : "GetPurgeDateRanges",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetPurgeDateRanges"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "fd8e2a5f-25b9-4ad1-8b25-6a55108d9b52",
+                    "Name" : "GetDeploymentsHistoricalConfig",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDeploymentsHistoricalConfig"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "2b183e80-02f9-4308-8319-784b90dc0e75",
+                    "Name" : "UpdateDeploymentsHistoricalConfig",
+                    "Parameters" : { },
+                    "Properties" : {
+                      "CustomErrorMessage" : "[server-message]",
+                      "ShowErrorMessage" : true
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "UpdateDeploymentsHistoricalConfig"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "45568eb2-b8c2-435e-af5b-edba38afc09b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "testPackageGUID",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "DefinitionID",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Session",
+                "SourceDetails" : "AllData",
+                "SourceId" : "Session",
+                "SourceSection" : "Session",
+                "TargetArea" : "Data",
+                "TargetId" : "GetDefinitionById",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "88023651-ee31-4c5a-8294-fcff27955369",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "testPackageGUID",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "ID",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Session",
+                "SourceDetails" : "AllData",
+                "SourceId" : "Session",
+                "SourceSection" : "Session",
+                "TargetArea" : "Data",
+                "TargetId" : "PublishPackage",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "48487a68-089c-40ae-8781-da143bfd3073",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPurgeDateRanges",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "List-53",
+                "TargetSection" : ""
+              }, {
+                "Id" : "0ff4ca72-812d-4bb2-b488-8145bf39a894",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Name",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "SelectedText",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDeploymentsHistoricalConfig",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "List-53",
+                "TargetSection" : ""
+              }, {
+                "Id" : "82e8798d-60b5-4f72-888e-d94d0612b198",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Value",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "HistoricalAge",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "SelectedRows",
+                "SourceId" : "GetPurgeDateRanges",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "Data",
+                "TargetId" : "UpdateDeploymentsHistoricalConfig",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "7ccdea77-699f-4346-adf5-70062ac3364a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "SelectedItems",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetDeploymentsHistoricalConfig",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "List-53",
+                "TargetSection" : ""
+              }, {
+                "Id" : "fa378a84-dee4-47d8-8c54-be481c178e5a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "IsRSMAdminUser",
+                "SourceSection" : "Things_TW_RSM_RSMCoreUtils",
+                "TargetArea" : "UI",
+                "TargetId" : "List-53",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetPurgeDateRanges",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "e2899038-0b20-455a-89c0-dd0781a7e55e"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentsHistoricalConfig",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetPurgeDateRanges",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "Id" : "a03af5ec-4efa-422c-8bb0-f6c9741e01f2"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "UpdateDeploymentsHistoricalConfig",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "SelectedRowsChanged",
+                "EventTriggerId" : "GetPurgeDateRanges",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "Id" : "973c3529-6942-4bff-84be-43618690aa0e"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetDeploymentsHistoricalConfig",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "UpdateDeploymentsHistoricalConfig",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "Id" : "0cd18d81-55db-4b91-8306-87aa64db2fbe"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_RSMCoreUtils",
+                "EventHandlerService" : "IsRSMAdminUser",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "38042b7f-6481-4ee1-8b52-ede92fe4edcc"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 240,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "Master" : "TW.RSM.SFW.Master.ApplicationMaster",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "TW.RSM.Style.Panel",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 950,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "BOOLEAN",
+                    "Description" : "",
+                    "ParameterName" : "showTest"
+                  } ],
+                  "id_index" : 56,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "Fieldset-16",
+                    "FieldsetLabelStyle" : "TW.RSM.Style.FieldSetLabel",
+                    "FieldsetStyle" : "TW.RSM.Style.FieldSetPanel",
+                    "Height" : 73,
+                    "Id" : "Fieldset-16",
+                    "Left" : 1,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Title" : "",
+                    "Top" : 85,
+                    "Type" : "fieldset",
+                    "Visible" : true,
+                    "Width" : 950,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Fieldset"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "Label-20",
+                      "Height" : 22,
+                      "Id" : "Label-20",
+                      "Left" : 15,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.Purge Deployments After:]]",
+                      "ToolTipField" : "",
+                      "Top" : 20,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 170,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "AutoSelectFirstRow" : false,
+                      "ClearIfNoSelection" : false,
+                      "DisplayField" : "Name",
+                      "DisplayName" : "List-53",
+                      "DropdownButtonStyle" : "DefaultDropdownButtonStyle",
+                      "DropdownSelectedStyle" : "DefaultDropdownSelectedStyle",
+                      "DropdownStyle" : "DefaultDropdownStyle",
+                      "Height" : 28,
+                      "HeightOfDropdownView" : 200,
+                      "Id" : "List-53",
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 210,
+                      "ListBackgroundStyle" : "DefaultListBackgroundStyle",
+                      "ListItemAlternateStyle" : "DefaultListItemAlternateStyle",
+                      "ListItemHoverStyle" : "DefaultListItemHoverStyle",
+                      "ListItemSelectedStyle" : "DefaultListItemSelectedStyle",
+                      "ListItemStyle" : "DefaultListItemStyle",
+                      "ListLabelStyle" : "DefaultWidgetLabelStyle",
+                      "MultiSelect" : false,
+                      "NumberOfItemsInDropdownView" : 6,
+                      "ResponsiveLayout" : false,
+                      "RowHeight" : 28,
+                      "ShowDataLoading" : true,
+                      "Top" : 15,
+                      "Type" : "dhxlist",
+                      "ValueField" : "Value",
+                      "View" : "dropdown",
+                      "Visible" : false,
+                      "Width" : 165,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "List",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                }, {
+                  "Properties" : {
+                    "AlternateText" : "",
+                    "Area" : "UI",
+                    "BorderStyle" : "DefaultImageBorderStyle",
+                    "DisplayName" : "Image-27",
+                    "Height" : 30,
+                    "Id" : "Image-27",
+                    "Left" : 10,
+                    "PreventCaching" : false,
+                    "ResponsiveLayout" : false,
+                    "Scaling" : "none",
+                    "ShowDataLoading" : true,
+                    "SourceURL" : "TW.RSM.SFW.Icon.Purge",
+                    "ToolTipField" : "",
+                    "Top" : 10,
+                    "Type" : "image",
+                    "Visible" : true,
+                    "Width" : 30,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Image"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "Description" : "",
+                    "DisplayName" : "Label-28",
+                    "Height" : 22,
+                    "Id" : "Label-28",
+                    "Left" : 50,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "PTC.Core.Accent2PageTitleTextStyle",
+                    "Text" : "[[TW.RSM.SFW.Historical Data Configuration]]",
+                    "ToolTipField" : "",
+                    "Top" : 15,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 500,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "ClickOutsideToClose" : false,
+                    "DisplayName" : "NavigationTooltip-52",
+                    "FixedPopupHeight" : 0,
+                    "FixedPopupWidth" : 0,
+                    "Height" : 25,
+                    "HelpContent" : "To view the details for a package, double-click the package in the list. The View Package Details page appears. This page includes the package name, package description, package version, and expiration date (if applicable). This page also displays the package content zip file, and the instruction file name in the zip file.Click Next to advance to the Target Assets page.",
+                    "HelpTitle" : "View Package Details",
+                    "IconAlignment" : "left",
+                    "Id" : "NavigationTooltip-52",
+                    "Left" : 915,
+                    "MashupName" : "TW.RSM.SFW.Mashup.HelpDialog",
+                    "MashupParameters" : [ {
+                      "BaseType" : "STRING",
+                      "Description" : "Help Title",
+                      "ParameterName" : "HelpTitle",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "0"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "Help Title",
+                        "name" : "HelpTitle",
+                        "ordinal" : 0
+                      }
+                    }, {
+                      "BaseType" : "STRING",
+                      "Description" : "Help Content",
+                      "ParameterName" : "HelpContent",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "1"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "Help Content",
+                        "name" : "HelpContent",
+                        "ordinal" : 0
+                      }
+                    } ],
+                    "MessageToShow" : "Mashup must be selected",
+                    "ModalPopupOpacity" : 0.5,
+                    "NavigationActiveStyle" : "TW.RSM.Style.HelpIcon",
+                    "NavigationFocusStyle" : "TW.RSM.Style.HelpIcon",
+                    "NavigationHoverStyle" : "TW.RSM.Style.HelpIconRollover",
+                    "PopupScrolling" : "off",
+                    "PopupTitle" : "Help",
+                    "PopupTitleStyle" : "TW.RSM.Style.PopupTitle",
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : true,
+                    "ShowCloseButton" : true,
+                    "ShowDataLoading" : true,
+                    "ShowMessageIfNoMashup" : false,
+                    "Style" : "TW.RSM.Style.HelpIcon",
+                    "TargetWindow" : "popup",
+                    "Text" : "",
+                    "ToolTipDuration" : 2,
+                    "ToolTipField" : "[[TW.RSM.SFW.Help]]",
+                    "ToolTipPosition" : "top right,bottom left",
+                    "ToolTipStyles" : "qtip-green",
+                    "Top" : 15,
+                    "Transparent" : false,
+                    "Type" : "navigation",
+                    "Visible" : true,
+                    "Width" : 30,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Navigation"
+                  },
+                  "Widgets" : [ ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

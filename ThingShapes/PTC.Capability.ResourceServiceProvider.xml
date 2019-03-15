@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <ThingShapes>
+        <ThingShape
+         aspect.isExtension="true"
+         className="com.ptc.resource.ResourceServiceProvider"
+         description="Common, base ThingShape of all resource providers"
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-10-24T20:59:54.825Z"
+         name="PTC.Capability.ResourceServiceProvider"
+         projectName=""
+         tags="PTC:CORE;TWUTL:ResourceProvider">
+            <PropertyDefinitions></PropertyDefinitions>
+            <ServiceDefinitions>
+                <ServiceDefinition
+                 category="PTC"
+                 description="Creates resources"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="Create">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description="An InfoTable of the created resources"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="InfoTable with DataShape to use in the result table; alternative to dataShapeName"
+                         name="dataShape"
+                         ordinal="1"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="DATASHAPENAME"
+                         description="Name of data shape to use for the result table"
+                         name="dataShapeName"
+                         ordinal="0"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="JSON"
+                         description="Optional parameters used by overriding methods, including OData parameters"
+                         name="extraParams"
+                         ordinal="3"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="Resources and their attribute values to create"
+                         name="objects"
+                         ordinal="2"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 category="PTC"
+                 description="Create resources from comma-separate-value (CSV) data"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="CreateFromCsv">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description="InfoTable of the created resources"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="CSV data"
+                         name="data"
+                         ordinal="0"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 category="PTC"
+                 description="Create resources from tab-separate-value (TSV) data"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="CreateFromTsv">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description="InfoTable of the created resources"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="TSV data"
+                         name="data"
+                         ordinal="0"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 category="PTC"
+                 description="Deletes resources"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="Delete">
+                    <ResultType
+                     baseType="NOTHING"
+                     description="result"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="Resources to be deleted"
+                         name="objects"
+                         ordinal="0"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 category="PTC"
+                 description="Deletes resources and returns resources which could not be deleted"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="DeleteWithFeedback">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description="An InfoTable of resources which could not be deleted"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="InfoTable with DataShape to use as the result table; alternative to dataShapeName"
+                         name="dataShape"
+                         ordinal="1"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="DATASHAPENAME"
+                         description="Name of data shape to use for the result table"
+                         name="dataShapeName"
+                         ordinal="0"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="JSON"
+                         description="Optional parameters used by overriding methods, including OData parameters"
+                         name="extraParams"
+                         ordinal="3"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="Resources to be deleted"
+                         name="objects"
+                         ordinal="2"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 category="PTC"
+                 description="Gets a table of resources.  To customize override the findResources method."
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="Get">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description="An InfoTable of the resources"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="Data shape passed on InfoTable to use in the result table; alternative to dataShapeName"
+                         name="dataShape"
+                         ordinal="1"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="DATASHAPENAME"
+                         description="Name of data shape to use for the result table"
+                         name="dataShapeName"
+                         ordinal="0"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="JSON"
+                         description="Optional parameters used by overriding methods, including OData parameters"
+                         name="extraParams"
+                         ordinal="3"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="QUERY"
+                         description="A query/filter object"
+                         name="query"
+                         ordinal="2"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 category="PTC"
+                 description="Gets attributes of a specific resource specified by its id"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetById">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description="An InfoTable for the resource"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="InfoTable with a DataShape set to use as the result table; alternative to dataShapeName"
+                         name="dataShape"
+                         ordinal="2"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="DATASHAPENAME"
+                         description="Name of data shape to use for the result table"
+                         name="dataShapeName"
+                         ordinal="1"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="JSON"
+                         description="Optional parameters used by overriding methods, including OData parameters"
+                         name="extraParams"
+                         ordinal="3"></FieldDefinition>
+                        <FieldDefinition
+                         aspect.isRequired="true"
+                         baseType="STRING"
+                         description="The id of the resource"
+                         name="id"
+                         ordinal="0"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 category="PTC"
+                 description="Get the icon URL for the provider"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetProviderIconUrl">
+                    <ResultType
+                     baseType="STRING"
+                     description="Icon URL for the provider"
+                     name="icon"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 category="PTC"
+                 description="Returns data shape of resource."
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetResourceDataShape">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description="Resource data shape passed on InfoTable"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 category="PTC"
+                 description="Obtain additional and/or updated fields given an existing set of resources"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="Inflate">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description="An InfoTable of the inflated resources"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="InfoTable with DataShape to use in the result table; alternative to dataShapeName"
+                         name="dataShape"
+                         ordinal="1"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="DATASHAPENAME"
+                         description="Name of data shape to use for the result table"
+                         name="dataShapeName"
+                         ordinal="0"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="JSON"
+                         description="Optional parameters used by overriding methods, including OData parameters"
+                         name="extraParams"
+                         ordinal="4"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="Resources and their attribute values to inflate"
+                         name="objects"
+                         ordinal="2"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="BOOLEAN"
+                         description="Whether to skip refreshing the resources when all requested columns are present in the input"
+                         name="skipRefresh"
+                         ordinal="3"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 category="PTC"
+                 description="Updates resources"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="Update">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description="An InfoTable of the updated resources"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="InfoTable with DataShape to use as the result table; alternative to dataShapeName"
+                         name="dataShape"
+                         ordinal="1"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="DATASHAPENAME"
+                         description="Name of data shape to use for the result table"
+                         name="dataShapeName"
+                         ordinal="0"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="JSON"
+                         description="Optional parameters used by overriding methods, including OData parameters"
+                         name="extraParams"
+                         ordinal="3"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="Resources and attribute values thereof to be updated"
+                         name="objects"
+                         ordinal="2"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+            </ServiceDefinitions>
+            <EventDefinitions></EventDefinitions>
+            <ServiceMappings></ServiceMappings>
+            <ServiceImplementations>
+                <ServiceImplementation
+                 description="Creates resources"
+                 handlerName="Reflection"
+                 name="Create">
+                    <ConfigurationTables></ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description="Create resources from comma-separate-value (CSV) data"
+                 handlerName="Reflection"
+                 name="CreateFromCsv">
+                    <ConfigurationTables></ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description="Create resources from tab-separate-value (TSV) data"
+                 handlerName="Reflection"
+                 name="CreateFromTsv">
+                    <ConfigurationTables></ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description="Deletes resources"
+                 handlerName="Reflection"
+                 name="Delete">
+                    <ConfigurationTables></ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description="Deletes resources and returns resources which could not be deleted"
+                 handlerName="Reflection"
+                 name="DeleteWithFeedback">
+                    <ConfigurationTables></ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description="Gets a table of resources.  To customize override the findResources method."
+                 handlerName="Reflection"
+                 name="Get">
+                    <ConfigurationTables></ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description="Gets attributes of a specific resource specified by its id"
+                 handlerName="Reflection"
+                 name="GetById">
+                    <ConfigurationTables></ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description="Get the icon URL for the provider"
+                 handlerName="Reflection"
+                 name="GetProviderIconUrl">
+                    <ConfigurationTables></ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description="Returns data shape of resource."
+                 handlerName="Reflection"
+                 name="GetResourceDataShape">
+                    <ConfigurationTables></ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description="Obtain additional and/or updated fields given an existing set of resources"
+                 handlerName="Reflection"
+                 name="Inflate">
+                    <ConfigurationTables></ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description="Updates resources"
+                 handlerName="Reflection"
+                 name="Update">
+                    <ConfigurationTables></ConfigurationTables>
+                </ServiceImplementation>
+            </ServiceImplementations>
+            <Subscriptions></Subscriptions>
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <InstanceRunTimePermissions></InstanceRunTimePermissions>
+        </ThingShape>
+    </ThingShapes>
+</Entities>

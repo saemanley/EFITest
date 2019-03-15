@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description="Mashup for PTC App Switcher tile"
+         documentationContent="&lt;p&gt;&amp;nbsp;Use a static mashup of 70x70 to avoid any unexpected scroll bars.&lt;/p&gt;           "
+         homeMashup=""
+         lastModifiedDate="2018-10-24T20:59:51.339Z"
+         name="PTC.AppSwitcher.Tile"
+         projectName=""
+         rows="0.0"
+         tags="PTC:ConvergeConsole;TWUTL:Core">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="3"
+                 baseType="TEXT"
+                 description=""
+                 name="LocalizedLabel"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="2"
+                 baseType="IMAGELINK"
+                 description=""
+                 name="TileBackgroundURL"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="1"
+                 baseType="IMAGELINK"
+                 description=""
+                 name="TileIconURL"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="HYPERLINK"
+                 description=""
+                 name="TileMashupURL"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things></Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "1fde9c7e-7733-4e91-b4df-3f79791e0016",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "TileIconURL",
+                  "SourcePropertyBaseType" : "IMAGELINK",
+                  "TargetProperty" : "SourceURL",
+                  "TargetPropertyBaseType" : "IMAGELINK"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Image-4",
+                "TargetSection" : ""
+              }, {
+                "Id" : "dea7c838-85f5-4ba4-9622-e1f22ff9738c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "TileBackgroundURL",
+                  "SourcePropertyBaseType" : "IMAGELINK",
+                  "TargetProperty" : "SourceURL",
+                  "TargetPropertyBaseType" : "IMAGELINK"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Image-5",
+                "TargetSection" : ""
+              }, {
+                "Id" : "5c76a076-1481-4541-84e8-9693cbc06e92",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "TileMashupURL",
+                  "SourcePropertyBaseType" : "HYPERLINK",
+                  "TargetProperty" : "SourceURL",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "LinkTooltip-9",
+                "TargetSection" : ""
+              }, {
+                "Id" : "d5d197f5-4553-4d11-bdba-aec412e60ee4",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "LocalizedLabel",
+                  "SourcePropertyBaseType" : "TEXT",
+                  "TargetProperty" : "ToolTipField",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "LinkTooltip-9",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "Height" : 70,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "PTC.NoStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 70,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "HYPERLINK",
+                    "Description" : "",
+                    "ParameterName" : "TileMashupURL"
+                  }, {
+                    "BaseType" : "IMAGELINK",
+                    "Description" : "",
+                    "ParameterName" : "TileIconURL"
+                  }, {
+                    "BaseType" : "IMAGELINK",
+                    "Description" : "",
+                    "ParameterName" : "TileBackgroundURL"
+                  }, {
+                    "BaseType" : "TEXT",
+                    "Description" : "",
+                    "ParameterName" : "LocalizedLabel"
+                  } ],
+                  "id_index" : 9,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "Panel-2",
+                    "Height" : 70,
+                    "HorizontalAnchor" : "left",
+                    "Id" : "Panel-2",
+                    "Left" : 0,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "PTC.NoStyle",
+                    "Top" : 0,
+                    "Type" : "panel",
+                    "VerticalAnchor" : "top",
+                    "Visible" : true,
+                    "Width" : 70,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Panel"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "AlternateText" : "",
+                      "Area" : "UI",
+                      "BorderStyle" : "PTC.NoStyle",
+                      "Description" : "",
+                      "DisplayName" : "Image-Icon",
+                      "Height" : 50,
+                      "Id" : "Image-4",
+                      "Left" : 10,
+                      "PreventCaching" : false,
+                      "ResponsiveLayout" : false,
+                      "Scaling" : "none",
+                      "ShowDataLoading" : true,
+                      "SourceURL" : "PTC.BPE.BPM-AppIcon",
+                      "ToolTipField" : "",
+                      "Top" : 10,
+                      "Type" : "image",
+                      "Visible" : true,
+                      "Width" : 50,
+                      "Z-index" : 20,
+                      "__TypeDisplayName" : "Image"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "AlternateText" : "",
+                      "Area" : "UI",
+                      "BorderStyle" : "PTC.NoStyle",
+                      "Description" : "",
+                      "DisplayName" : "Image-Background",
+                      "Height" : 70,
+                      "Id" : "Image-5",
+                      "Left" : 0,
+                      "PreventCaching" : false,
+                      "ResponsiveLayout" : false,
+                      "Scaling" : "none",
+                      "ShowDataLoading" : true,
+                      "SourceURL" : "",
+                      "ToolTipField" : "",
+                      "Top" : 0,
+                      "Type" : "image",
+                      "Visible" : true,
+                      "Width" : 70,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Image"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "center",
+                      "Area" : "UI",
+                      "DisplayName" : "LinkTooltip-9",
+                      "Height" : 50,
+                      "Id" : "LinkTooltip-9",
+                      "Left" : 10,
+                      "LinkDisplay" : "noText",
+                      "LinkHoverStyle" : "PTC.NoStyle",
+                      "LinkStyle" : "PTC.NoStyle",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "SourceURL" : "",
+                      "TargetWindow" : "replace",
+                      "Text" : "",
+                      "ToolTipDuration" : 2,
+                      "ToolTipField" : "",
+                      "ToolTipPosition" : "top left,bottom right",
+                      "ToolTipStyles" : "qtip-bootstrap",
+                      "Top" : 10,
+                      "Type" : "link",
+                      "Visible" : true,
+                      "Width" : 50,
+                      "Z-index" : 100,
+                      "__TypeDisplayName" : "Link"
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

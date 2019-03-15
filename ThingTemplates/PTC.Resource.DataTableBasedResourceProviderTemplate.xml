@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <ThingTemplates>
+        <ThingTemplate
+         aspect.isExtension="true"
+         baseThingTemplate="PTC.Resource.ResourceProviderTemplate"
+         description="DataTable-based ResourceProvider Template"
+         documentationContent="A pre-existing DataTable can be specified in &lt;b&gt;DataTable Configuration&lt;/b&gt; of the resource provider. The fields of its DataShape can be mapped as &lt;b&gt;Original &lt;/b&gt;to &lt;b&gt;Normalized &lt;/b&gt;attributes of the resource in &lt;b&gt;Resource Attribute Mapping Configuration&lt;/b&gt;. In addition,&lt;ul&gt;&lt;li&gt;&lt;i&gt;Id&lt;/i&gt; attribute is always mapped to the internal &lt;i&gt;key&lt;/i&gt; field of the DataTable.&lt;/li&gt;&lt;li&gt;&lt;i&gt;CreateTimestamp &lt;/i&gt;is always mapped to the internal &lt;i&gt;timestamp&lt;/i&gt; field of the DataTable.&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;p&gt;If a DataTable is not specified in &lt;b&gt;DataTable Configuration&lt;/b&gt; when the resource provider is created, a DataTable will be automatically generated and named after the resource provider. A DataShape will also be automatically generated after the DataTable. This DataShape will include all the fields defined as &lt;b&gt;Original &lt;/b&gt;in &lt;b&gt;Resource Attribute Mapping Configuration&lt;/b&gt;. In addition, &lt;i&gt;key &lt;/i&gt;and &lt;i&gt;timestamp &lt;/i&gt;fields are included in this DataShape as well. &lt;i&gt;key &lt;/i&gt;field will be set as the primary key. Once the resource provider is created, this DataShape won't be updated any more.&lt;/p&gt;"
+         effectiveThingPackage="PTC.Resource.DataTableBasedResourceProviderPackage"
+         homeMashup=""
+         lastModifiedDate="2018-10-24T20:59:55.138Z"
+         name="PTC.Resource.DataTableBasedResourceProviderTemplate"
+         projectName=""
+         tags="PTC:CORE"
+         thingPackage="PTC.Resource.DataTableBasedResourceProviderPackage"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 description="Resource Attribute Mapping Configuration"
+                 isMultiRow="true"
+                 name="Attribute Mapping Configuration"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="STRING"
+                             baseType="BASETYPENAME"
+                             description="The base type of the attribute (must be the same for normalized and originalattributes"
+                             name="BaseType"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isPrimaryKey="true"
+                             baseType="STRING"
+                             description="The normalized attribute name of the resource"
+                             name="Normalized"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="The original name of the attribute used in the business service for the resource"
+                             name="Original"
+                             ordinal="2"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="DataTable Configuration"
+                 isMultiRow="false"
+                 name="Data Table Configuration"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.thingTemplate="DataTable"
+                             baseType="THINGNAME"
+                             description="The datatable currently used by this resource provider."
+                             name="DataTable"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <DataTable></DataTable>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="Resource Provider Configuration"
+                 isMultiRow="false"
+                 name="Resource Provider Configuration"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             baseType="THINGNAME"
+                             description="The Thing name of the connector to a business service for the resource"
+                             name="Connector"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="MASHUPNAME"
+                             description="The name of the mashup to create a new asset"
+                             name="CreateMashup"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="MASHUPNAME"
+                             description="The name of the mashup to show the details of the resource"
+                             name="DetailMashup"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <Connector></Connector>
+                            <CreateMashup></CreateMashup>
+                            <DetailMashup></DetailMashup>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions></ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations></ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <ImplementedShapes></ImplementedShapes>
+            <SharedConfigurationTables></SharedConfigurationTables>
+            <InstanceDesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </InstanceDesignTimePermissions>
+            <InstanceRunTimePermissions>
+                <Permissions
+                 resourceName="ProviderIcon">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="true"
+                         name="Users"
+                         type="Group"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke></ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+            </InstanceRunTimePermissions>
+            <InstanceVisibilityPermissions>
+                <Visibility></Visibility>
+            </InstanceVisibilityPermissions>
+        </ThingTemplate>
+    </ThingTemplates>
+</Entities>

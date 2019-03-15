@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isResponsive="false"
+         aspect.mashupType="gadget"
+         columns="1.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-11-06T02:37:24.050Z"
+         name="NCR.DCS.G.ByStatusCode"
+         projectName="DCS. Project.Main"
+         rows="1.0"
+         tags="DCS:Mashup;Applications:DCS">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="STRING"
+                 description=""
+                 name="customer"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things>
+                <Thing>NCR.DCS.EventsDT</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "CustomMashupCss" : "",
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_NCR.DCS.EventsDT" : {
+                  "DataName" : "Things_NCR.DCS.EventsDT",
+                  "EntityName" : "NCR.DCS.EventsDT",
+                  "EntityType" : "Things",
+                  "Id" : "9bfa25f4-691c-4051-98e4-41cd4c91d6c9",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "7ac9acfb-dee8-483f-a85f-757e3a60e412",
+                    "Name" : "GetDataTableEntries",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetDataTableEntries"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.DCS.EventsDT",
+                "EventHandlerService" : "GetDataTableEntries",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "ee5c1bdc-c884-4b90-bebe-94687988d1bc"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 1,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 240,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Rows" : 1,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultDashboardGadgetStyle",
+                  "Title" : "",
+                  "TitleBar" : true,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Events By Status Code",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 240,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "customer"
+                  } ],
+                  "id_index" : 3
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoScale" : true,
+                    "ChartAxisStyle" : "DefaultChartAxisStyle",
+                    "ChartBodyStyle" : "DefaultChartStyle",
+                    "ChartTitle" : "",
+                    "ChartTitleAlignment" : "center",
+                    "ChartTitleStyle" : "DefaultChartTitleStyle",
+                    "ChartTooltipStyle" : "DefaultTooltipStyle",
+                    "DataDisplay" : "EnableHover",
+                    "DataField1" : "count",
+                    "DataLabel1" : "Total",
+                    "DisplayName" : "barChart-3",
+                    "Duration" : 500,
+                    "EnableHover" : true,
+                    "Height" : 205,
+                    "Id" : "barChart-3",
+                    "LabelAngle" : 0,
+                    "Left" : 5,
+                    "Margins" : "0,0,0,0",
+                    "NumberOfSeries" : 1,
+                    "ResponsiveLayout" : false,
+                    "SeriesStyle1" : "DefaultChartStyle1",
+                    "SeriesStyle2" : "DefaultChartStyle2",
+                    "SeriesStyle3" : "DefaultChartStyle3",
+                    "SeriesStyle4" : "DefaultChartStyle4",
+                    "SeriesStyle5" : "DefaultChartStyle5",
+                    "SeriesStyle6" : "DefaultChartStyle6",
+                    "SeriesStyle7" : "DefaultChartStyle7",
+                    "SeriesStyle8" : "DefaultChartStyle8",
+                    "ShowAxisLabels" : true,
+                    "ShowDataLoading" : true,
+                    "ShowLegend" : true,
+                    "ShowValues" : false,
+                    "ShowValuesFormat" : 2,
+                    "ShowX-AxisLabels" : true,
+                    "ShowY-AxisLabels" : true,
+                    "ShowY-AxisMinMax" : true,
+                    "SingleDataSource" : true,
+                    "Top" : 30,
+                    "TruncateX-AxisLabels" : 0,
+                    "TruncateY-AxisLabels" : 0,
+                    "Type" : "barChart",
+                    "Visible" : true,
+                    "Width" : 230,
+                    "X-AxisField" : "statuscode",
+                    "X-AxisIntervals" : "per",
+                    "X-AxisLabel" : "Status Codes",
+                    "Y-AxisLabel" : "Number",
+                    "Y-AxisMaximum" : 100,
+                    "Y-AxisMinimum" : 0,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Bar Chart",
+                    "_boundDataSources" : "",
+                    "_dataShape" : ""
+                  },
+                  "Widgets" : [ ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

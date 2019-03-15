@@ -1,0 +1,1483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description="DEPRECATED. Should no longer be used and could be removed in a later release.  Create a new customer."
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-10-24T20:59:55.530Z"
+         name="PTC.Resource.CRM.CreateThingworxCustomerResource"
+         projectName=""
+         rows="0.0"
+         tags="PTC:CRM;TWUTL:PRMAdmin;TWUTL:DEPRECATED">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="STRING"
+                 description=""
+                 name="newCustomerID"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things>
+                <Thing>PTC.Resource.CRM.CustomerManagementUtils</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_PTC_Resource_CRM_CustomerManagementUtils" : {
+                  "DataName" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                  "EntityName" : "PTC.Resource.CRM.CustomerManagementUtils",
+                  "EntityType" : "Things",
+                  "Id" : "c90fcd92-4029-43a9-8a55-e7f86e5493a0",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "ffb5ba25-52ac-4d1d-83db-28c1e19a0400",
+                    "Name" : "AssignAssets",
+                    "Parameters" : { },
+                    "Properties" : {
+                      "CustomErrorMessage" : "[server-message]",
+                      "ShowErrorMessage" : true
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "AssignAssets"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "1204d3a9-e0bd-4840-be3b-82e6867eded5",
+                    "Name" : "GetUnassignedAssets",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetUnassignedAssets"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "fe2ed9ed-bf2c-453b-86fe-4bf0c60db32b",
+                    "Name" : "GetStateList",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetStateList"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "f9ebdc6d-4dc1-4eb6-818e-1e2a1109b06c",
+                    "Name" : "GetCountryList",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCountryList"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "5347c0c1-4da2-4a92-8efb-2b57b35fab4a",
+                    "Name" : "CreateThingworxCustomer",
+                    "Parameters" : { },
+                    "Properties" : {
+                      "CustomErrorMessage" : "[[TW.UTL.PRM.CouldNotCreateCustomer]]",
+                      "ShowErrorMessage" : true
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "CreateThingworxCustomer"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "ac27d08c-8a6a-4def-8e48-d1cd43949b93",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "DisplayName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textbox-2",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateThingworxCustomer",
+                "TargetSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils"
+              }, {
+                "Id" : "2e11ab33-4421-4976-8c86-194d39e04c3d",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "newName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textbox-2",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-28",
+                "TargetSection" : ""
+              }, {
+                "Id" : "44c17580-4b0e-4ab8-9ce1-8e3a75ebec9b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "Number",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textbox-5",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateThingworxCustomer",
+                "TargetSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils"
+              }, {
+                "Id" : "3683c180-5e11-4e09-8b0c-91d0e4aa3e91",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetUnassignedAssets",
+                "SourceSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "TargetArea" : "UI",
+                "TargetId" : "Grid-18",
+                "TargetSection" : ""
+              }, {
+                "Id" : "32968185-04bc-4eb0-9048-7dee83bfb78f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "Address1",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "TextArea-9",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateThingworxCustomer",
+                "TargetSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils"
+              }, {
+                "Id" : "3542ca3b-8040-4e5b-9a25-44ff77acd3ae",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "City",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textbox-8",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateThingworxCustomer",
+                "TargetSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils"
+              }, {
+                "Id" : "ca3e9bf2-ab52-4d30-90b5-367e0eafabb8",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "PostalCode",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textbox-13",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateThingworxCustomer",
+                "TargetSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils"
+              }, {
+                "Id" : "77ddd519-ff18-4d01-9ed9-00fb6679eae9",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Query",
+                  "SourcePropertyBaseType" : "QUERY",
+                  "TargetProperty" : "Query",
+                  "TargetPropertyBaseType" : "QUERY",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "DataFilter-25",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetUnassignedAssets",
+                "TargetSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils"
+              }, {
+                "Id" : "4fbf5a41-cce1-4064-9d8a-ea9c4abc5695",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetStateList",
+                "SourceSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "TargetArea" : "UI",
+                "TargetId" : "List-31",
+                "TargetSection" : ""
+              }, {
+                "Id" : "8e122097-5c78-4f6d-831d-3cf36b217aa9",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "value",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "Country",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "SelectedRows",
+                "SourceId" : "GetCountryList",
+                "SourceSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "TargetArea" : "Data",
+                "TargetId" : "GetStateList",
+                "TargetSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils"
+              }, {
+                "Id" : "d991adf4-4318-4861-8f45-d6858e01a1ad",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "value",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "Country",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "SelectedRows",
+                "SourceId" : "GetCountryList",
+                "SourceSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateThingworxCustomer",
+                "TargetSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils"
+              }, {
+                "Id" : "ac755da8-956c-486b-82c9-d6cb0a54e975",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "value",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "State",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "SelectedRows",
+                "SourceId" : "GetStateList",
+                "SourceSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateThingworxCustomer",
+                "TargetSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils"
+              }, {
+                "Id" : "58514531-723b-40b3-8d7f-2440f0733218",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "label",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "StateCode",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "SelectedRows",
+                "SourceId" : "GetStateList",
+                "SourceSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateThingworxCustomer",
+                "TargetSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils"
+              }, {
+                "Id" : "ec54f44a-2c98-4a18-b4a4-741fbe3aaf22",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "EditedTable",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "TargetProperty" : "Assets",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Grid-18",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "AssignAssets",
+                "TargetSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils"
+              }, {
+                "Id" : "d58be039-9493-4631-94f9-8f05759e4e09",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCountryList",
+                "SourceSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "TargetArea" : "UI",
+                "TargetId" : "List-32",
+                "TargetSection" : ""
+              }, {
+                "Id" : "d8750a13-737d-4aa1-b275-91b2a515b68a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "TargetProperty" : "Customer",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "CreateThingworxCustomer",
+                "SourceSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "TargetArea" : "Data",
+                "TargetId" : "AssignAssets",
+                "TargetSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils"
+              }, {
+                "Id" : "212f93af-826b-4494-9c68-a70637b7d20b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Id",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "newCustomerID",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "CreateThingworxCustomer",
+                "SourceSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "TargetArea" : "Mashup",
+                "TargetId" : "mashup-root",
+                "TargetSection" : ""
+              }, {
+                "Id" : "9c1598da-3b92-402f-bef8-d3a593cc4404",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "FullPath",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "Image",
+                  "TargetPropertyBaseType" : "IMAGELINK",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUpload-17",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateThingworxCustomer",
+                "TargetSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils"
+              }, {
+                "Id" : "cd8fe75c-be49-4272-8162-b58199cdaa6d",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "uploaded",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-34",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-36",
+                "TargetSection" : ""
+              }, {
+                "Id" : "58c47c4b-5bd8-43bc-8b83-cb0fcf5f0207",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "FullPath",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "uploadPath",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUpload-17",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-35",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "StatusMessage-27",
+                "EventHandlerService" : "ShowMessage",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "False",
+                "EventTriggerId" : "Validator-28",
+                "EventTriggerSection" : "",
+                "Id" : "7a58fc04-3a18-4f86-931c-fc5d3504df91"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Validator-28",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "Button-21",
+                "EventTriggerSection" : "",
+                "Id" : "b809708a-ef6e-4039-81dd-78c0c73ad7b1"
+              }, {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "Button-22",
+                "EventTriggerSection" : "",
+                "Id" : "3dfeebb5-c8e4-4bb3-8ab6-7bd691f2fa14"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "EventHandlerService" : "GetUnassignedAssets",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Changed",
+                "EventTriggerId" : "DataFilter-25",
+                "EventTriggerSection" : "",
+                "Id" : "3e540617-c372-4da2-820b-8ee172523321"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "EventHandlerService" : "GetStateList",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "007b9d1e-e935-4cd5-ac12-ab792f7bcfc9"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "EventHandlerService" : "GetCountryList",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "c043c65e-1577-453f-8909-f44241b42e95"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "EventHandlerService" : "GetStateList",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "SelectedRowsChanged",
+                "EventTriggerId" : "GetCountryList",
+                "EventTriggerSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "Id" : "0c35f1b0-7281-4029-916f-3cd958dd5cb9"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "EventHandlerService" : "GetUnassignedAssets",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "25304e32-9aa3-4c77-8e91-d191153796ef"
+              }, {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "AssignAssets",
+                "EventTriggerSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "Id" : "de2e935b-1a43-4265-8d97-3db766506b69"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "EventHandlerService" : "AssignAssets",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "CreateThingworxCustomer",
+                "EventTriggerSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "Id" : "4fe76183-0f16-46e0-8426-c3e24b5c2c71"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Expression-34",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "UploadComplete",
+                "EventTriggerId" : "FileUpload-17",
+                "EventTriggerSection" : "",
+                "Id" : "3f936d5e-0337-429c-bd0d-030a76c2bf28"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Validator-35",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "Validator-28",
+                "EventTriggerSection" : "",
+                "Id" : "e05de59c-9d02-4f4f-93c0-f4bb8c89326c"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Validator-36",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "Validator-35",
+                "EventTriggerSection" : "",
+                "Id" : "83d8f9ee-a29f-493f-bb58-b56242953559"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "StatusMessage-37",
+                "EventHandlerService" : "ShowMessage",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "False",
+                "EventTriggerId" : "Validator-36",
+                "EventTriggerSection" : "",
+                "Id" : "c79e9f24-cbf1-45be-86c0-b66efd17fb9c"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "EventHandlerService" : "CreateThingworxCustomer",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "Validator-36",
+                "EventTriggerSection" : "",
+                "Id" : "5c16e937-994b-4e51-b348-671fc54402c8"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "EventHandlerService" : "CreateThingworxCustomer",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "False",
+                "EventTriggerId" : "Validator-35",
+                "EventTriggerSection" : "",
+                "Id" : "e79bde1f-0a19-4c14-86d1-3dc566d4ccbe"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "Description" : "",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 580,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultMashupStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 875,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "newCustomerID"
+                  } ],
+                  "id_index" : 38,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "Fieldset-1",
+                    "FieldsetLabelStyle" : "PTC.Core.FieldsetLabelStyle",
+                    "FieldsetStyle" : "PTC.Core.FieldsetStyle",
+                    "Height" : 120,
+                    "Id" : "Fieldset-1",
+                    "Left" : 10,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Title" : "[[PTC.Core.Customer]]",
+                    "Top" : 45,
+                    "Type" : "fieldset",
+                    "Visible" : true,
+                    "Width" : 320,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Fieldset"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "CursorPosition" : 0,
+                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                      "DisplayName" : "Textbox-2",
+                      "Height" : 24,
+                      "Id" : "Textbox-2",
+                      "InnerShadow" : true,
+                      "Label" : "[[PTC.Core.Name]]",
+                      "LabelAlignment" : "left",
+                      "Left" : 10,
+                      "MaskInputCharacters" : false,
+                      "PlaceholderText" : "",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "Text" : "",
+                      "TextAlign" : "left",
+                      "TextboxLabelStyle" : "PTC.Core.WidgetLabelStyle",
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 15,
+                      "Type" : "textbox",
+                      "Visible" : true,
+                      "Width" : 300,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Textbox",
+                      "__supportsLabel" : true,
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "CursorPosition" : 0,
+                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                      "DisplayName" : "Textbox-5",
+                      "Height" : 24,
+                      "Id" : "Textbox-5",
+                      "InnerShadow" : true,
+                      "Label" : "[[PTC.Core.ID Number]]",
+                      "LabelAlignment" : "left",
+                      "Left" : 10,
+                      "MaskInputCharacters" : false,
+                      "PlaceholderText" : "",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "Text" : "",
+                      "TextAlign" : "left",
+                      "TextboxLabelStyle" : "PTC.Core.WidgetLabelStyle",
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 65,
+                      "Type" : "textbox",
+                      "Visible" : true,
+                      "Width" : 300,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Textbox",
+                      "__supportsLabel" : true,
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "Panel-3",
+                    "Height" : 35,
+                    "HideScrollbars" : false,
+                    "HorizontalAnchor" : "left",
+                    "Id" : "Panel-3",
+                    "Left" : 0,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "PTC.Core.HeaderStyle",
+                    "Top" : 0,
+                    "Type" : "panel",
+                    "VerticalAnchor" : "top",
+                    "Visible" : true,
+                    "Width" : 875,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Panel"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "BackgroundFill" : "content",
+                      "DisplayName" : "ValueDisplay-4",
+                      "Height" : 25,
+                      "Id" : "ValueDisplay-4",
+                      "ImageScaling" : "width",
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 5,
+                      "Overflow" : "hidden",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "TextIfNoValue" : "[[PTC.Core.NEW CUSTOMER]]",
+                      "TextIfNoValueOffset" : 10,
+                      "TextIfNoValueStyle" : "PTC.Core.PopupHeaderStyle",
+                      "TextWrap" : true,
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 5,
+                      "Type" : "valuedisplay",
+                      "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ValueDisplayStyle" : "DefaultValueDisplayStyle",
+                      "VerticalAlignment" : "middle",
+                      "Visible" : true,
+                      "Width" : 180,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Value Display",
+                      "__supportsLabel" : true,
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "Fieldset-6",
+                    "FieldsetLabelStyle" : "PTC.Core.FieldsetLabelStyle",
+                    "FieldsetStyle" : "PTC.Core.FieldsetStyle",
+                    "Height" : 270,
+                    "Id" : "Fieldset-6",
+                    "Left" : 10,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Title" : "[[PTC.Core.Shipping Address]]",
+                    "Top" : 180,
+                    "Type" : "fieldset",
+                    "Visible" : true,
+                    "Width" : 320,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Fieldset"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "DisplayName" : "TextArea-9",
+                      "Height" : 75,
+                      "Id" : "TextArea-9",
+                      "InnerShadow" : false,
+                      "Label" : "[[PTC.Core.Address]]",
+                      "LabelAlignment" : "left",
+                      "Left" : 10,
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextAreaStyle",
+                      "TabSequence" : 0,
+                      "Text" : "",
+                      "TextareaFocusStyle" : "DefaultFocusStyle",
+                      "TextareaLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 65,
+                      "Type" : "textarea",
+                      "Visible" : true,
+                      "Width" : 300,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "TextArea",
+                      "__supportsLabel" : true,
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "CursorPosition" : 0,
+                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                      "DisplayName" : "Textbox-8",
+                      "Height" : 24,
+                      "Id" : "Textbox-8",
+                      "InnerShadow" : true,
+                      "Label" : "[[PTC.Core.City]]",
+                      "LabelAlignment" : "left",
+                      "Left" : 10,
+                      "MaskInputCharacters" : false,
+                      "PlaceholderText" : "",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "Text" : "",
+                      "TextAlign" : "left",
+                      "TextboxLabelStyle" : "PTC.Core.WidgetLabelStyle",
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 165,
+                      "Type" : "textbox",
+                      "Visible" : true,
+                      "Width" : 300,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Textbox",
+                      "__supportsLabel" : true,
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "CursorPosition" : 0,
+                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                      "DisplayName" : "Textbox-13",
+                      "Height" : 24,
+                      "Id" : "Textbox-13",
+                      "InnerShadow" : true,
+                      "Label" : "[[PTC.Core.Postal Code]]",
+                      "LabelAlignment" : "left",
+                      "Left" : 200,
+                      "MaskInputCharacters" : false,
+                      "PlaceholderText" : "",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "Text" : "",
+                      "TextAlign" : "left",
+                      "TextboxLabelStyle" : "PTC.Core.WidgetLabelStyle",
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 215,
+                      "Type" : "textbox",
+                      "Visible" : true,
+                      "Width" : 110,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Textbox",
+                      "__supportsLabel" : true,
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "AutoSelectFirstRow" : true,
+                      "ClearIfNoSelection" : false,
+                      "ComboDropdownButtonStyle" : "DefaultComboDropdownButtonStyle",
+                      "ComboEnableCheckbox" : false,
+                      "ComboItemHighlightedStyle" : "DefaultComboItemHighlightedStyle",
+                      "ComboTextboxStyle" : "DefaultComboTextboxStyle",
+                      "DisableSelectedStyle" : false,
+                      "DisplayField" : "label",
+                      "DisplayName" : "List-state",
+                      "DropdownButtonStyle" : "PTC.Core.DropdownButtonStyle",
+                      "DropdownSelectedStyle" : "PTC.Core.DropdownSelectedStyle",
+                      "DropdownStyle" : "PTC.Core.DropdownStyle",
+                      "Height" : 25,
+                      "HeightOfDropdownView" : 200,
+                      "Id" : "List-31",
+                      "Label" : "[[PTC.Core.Province/State]]",
+                      "LabelAlignment" : "left",
+                      "Left" : 10,
+                      "ListBackgroundStyle" : "PTC.Core.ListBackgroundStyle",
+                      "ListItemAlternateStyle" : "PTC.Core.ListItemAlternateStyle",
+                      "ListItemHoverStyle" : "PTC.Core.ListItemHoverStyle",
+                      "ListItemSelectedStyle" : "PTC.Core.ListItemSelectedStyle",
+                      "ListItemStyle" : "PTC.Core.ListItemStyle",
+                      "ListLabelStyle" : "PTC.Core.WidgetLabelStyle",
+                      "MultiSelect" : false,
+                      "NumberOfItemsInDropdownView" : 6,
+                      "ResponsiveLayout" : false,
+                      "RowHeight" : 28,
+                      "ShowDataLoading" : true,
+                      "TabSequence" : 0,
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 215,
+                      "Type" : "dhxlist",
+                      "ValueField" : "value",
+                      "View" : "dropdown",
+                      "Visible" : true,
+                      "Width" : 180,
+                      "WidthOfDropdownView" : 110,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "List",
+                      "__supportsLabel" : true,
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "AutoSelectFirstRow" : true,
+                      "ClearIfNoSelection" : false,
+                      "ComboDropdownButtonStyle" : "DefaultComboDropdownButtonStyle",
+                      "ComboEnableCheckbox" : false,
+                      "ComboItemHighlightedStyle" : "DefaultComboItemHighlightedStyle",
+                      "ComboTextboxStyle" : "DefaultComboTextboxStyle",
+                      "DisableSelectedStyle" : false,
+                      "DisplayField" : "label",
+                      "DisplayName" : "List-32",
+                      "DropdownButtonStyle" : "PTC.Core.DropdownButtonStyle",
+                      "DropdownSelectedStyle" : "PTC.Core.DropdownSelectedStyle",
+                      "DropdownStyle" : "PTC.Core.DropdownStyle",
+                      "Height" : 25,
+                      "HeightOfDropdownView" : 200,
+                      "Id" : "List-32",
+                      "Label" : "[[PTC.Core.Country]]",
+                      "LabelAlignment" : "left",
+                      "Left" : 10,
+                      "ListBackgroundStyle" : "PTC.Core.ListBackgroundStyle",
+                      "ListItemAlternateStyle" : "PTC.Core.ListItemAlternateStyle",
+                      "ListItemHoverStyle" : "PTC.Core.ListItemHoverStyle",
+                      "ListItemSelectedStyle" : "PTC.Core.ListItemSelectedStyle",
+                      "ListItemStyle" : "PTC.Core.ListItemStyle",
+                      "ListLabelStyle" : "PTC.Core.WidgetLabelStyle",
+                      "MultiSelect" : false,
+                      "NumberOfItemsInDropdownView" : 6,
+                      "ResponsiveLayout" : false,
+                      "RowHeight" : 28,
+                      "ShowDataLoading" : true,
+                      "TabSequence" : 0,
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 15,
+                      "Type" : "dhxlist",
+                      "ValueField" : "value",
+                      "View" : "dropdown",
+                      "Visible" : true,
+                      "Width" : 300,
+                      "WidthOfDropdownView" : 110,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "List",
+                      "__supportsLabel" : true,
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "Fieldset-14",
+                    "FieldsetLabelStyle" : "PTC.Core.FieldsetLabelStyle",
+                    "FieldsetStyle" : "PTC.Core.FieldsetStyle",
+                    "Height" : 65,
+                    "Id" : "Fieldset-14",
+                    "Left" : 10,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Title" : "[[PTC.Core.Image]]",
+                    "Top" : 465,
+                    "Type" : "fieldset",
+                    "Visible" : true,
+                    "Width" : 320,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Fieldset"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "AllowedFileTypes" : "",
+                      "Area" : "UI",
+                      "DisplayName" : "FileUpload-17",
+                      "DisplayPathTextBox" : false,
+                      "DisplayRepositorySelector" : false,
+                      "FileName" : "",
+                      "FocusStyle" : "DefaultButtonFocusStyle",
+                      "FullPath" : "",
+                      "Height" : 40,
+                      "Id" : "FileUpload-17",
+                      "Left" : 9,
+                      "Path" : "/",
+                      "RepositoryName" : "SystemRepository",
+                      "RepositoryStyle" : "DefaultRepositoryStyle",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultFileUploadStyle",
+                      "TabSequence" : 0,
+                      "Top" : 15,
+                      "Type" : "fileupload",
+                      "Visible" : true,
+                      "Width" : 302,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "File Upload"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "DisplayName" : "StatusMessage-37",
+                      "Height" : 28,
+                      "Id" : "StatusMessage-37",
+                      "Left" : 0,
+                      "Message" : "[[TW.UTL.PRM.SelectedImageNotUploaded]]",
+                      "MessageType" : "warning",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Top" : 0,
+                      "Type" : "statusmessage",
+                      "Visible" : true,
+                      "Width" : 200,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Status Message"
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                }, {
+                  "Properties" : {
+                    "ActiveStyle" : "PTC.Core.Accent1ButtonActiveStyle",
+                    "Area" : "UI",
+                    "CancelConfirmationButton" : "button2",
+                    "ConfirmationButton1Label" : "[[PTC.Core.Yes]]",
+                    "ConfirmationButton2Label" : "[[PTC.Core.No]]",
+                    "ConfirmationPrompt" : "[[PTC.Core.Do Action?]]",
+                    "ConfirmationRequired" : false,
+                    "ConfirmationTitle" : "[[PTC.Core.Confirm Action]]",
+                    "ContextId" : "",
+                    "DefaultConfirmationButton" : "button1",
+                    "Disabled" : false,
+                    "DisabledStyle" : "PTC.Core.Accent1ButtonDisabledStyle",
+                    "DisplayName" : "Button-create",
+                    "FocusStyle" : "PTC.Core.Accent1ButtonFocusStyle",
+                    "Height" : 30,
+                    "HoverStyle" : "PTC.Core.Accent1ButtonHoverStyle",
+                    "IconAlignment" : "left",
+                    "Id" : "Button-21",
+                    "Label" : "[[PTC.Core.Create]]",
+                    "Left" : 705,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "PTC.Core.Accent1ButtonStyle",
+                    "TabSequence" : 0,
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 540,
+                    "Type" : "button",
+                    "Visible" : true,
+                    "Width" : 75,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Button",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "ActiveStyle" : "PTC.Core.ButtonActiveStyle",
+                    "Area" : "UI",
+                    "CancelConfirmationButton" : "button2",
+                    "ConfirmationButton1Label" : "[[PTC.Core.Yes]]",
+                    "ConfirmationButton2Label" : "[[PTC.Core.No]]",
+                    "ConfirmationPrompt" : "[[PTC.Core.Do Action?]]",
+                    "ConfirmationRequired" : false,
+                    "ConfirmationTitle" : "[[PTC.Core.Confirm Action]]",
+                    "ContextId" : "",
+                    "DefaultConfirmationButton" : "button1",
+                    "Disabled" : false,
+                    "DisabledStyle" : "PTC.Core.ButtonDisabledStyle",
+                    "DisplayName" : "Button-cancel",
+                    "FocusStyle" : "PTC.Core.ButtonFocusStyle",
+                    "Height" : 30,
+                    "HoverStyle" : "PTC.Core.ButtonHoverStyle",
+                    "IconAlignment" : "left",
+                    "Id" : "Button-22",
+                    "Label" : "[[PTC.Core.Cancel]]",
+                    "Left" : 790,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "PTC.Core.ButtonStyle",
+                    "TabSequence" : 0,
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 540,
+                    "Type" : "button",
+                    "Visible" : true,
+                    "Width" : 75,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Button",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "StatusMessage-27",
+                    "Height" : 28,
+                    "Id" : "StatusMessage-27",
+                    "Left" : 340,
+                    "Message" : "[[TW.UTL.PRM.NameMustBeSpecified]]",
+                    "MessageType" : "warning",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 540,
+                    "Type" : "statusmessage",
+                    "Visible" : true,
+                    "Width" : 200,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Status Message"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : false,
+                    "DisplayName" : "Validator-28",
+                    "Expression" : "newName != null && newName != ''",
+                    "Height" : 28,
+                    "Id" : "Validator-28",
+                    "Left" : 340,
+                    "Output" : false,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 540,
+                    "Type" : "validator",
+                    "Visible" : true,
+                    "Width" : 200,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Validator",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "newName"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : false,
+                    "DataChangeType" : "VALUE",
+                    "DisplayName" : "Expression-34",
+                    "Expression" : "true",
+                    "FireOnFirstValue" : false,
+                    "Height" : 28,
+                    "Id" : "Expression-34",
+                    "Left" : 10,
+                    "Output" : false,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 540,
+                    "Type" : "expression",
+                    "Visible" : true,
+                    "Width" : 200,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : false,
+                    "DisplayName" : "Validator-35",
+                    "Expression" : "uploadPath && uploadPath != '/Thingworx/MediaEntities/'",
+                    "Height" : 28,
+                    "Id" : "Validator-35",
+                    "Left" : 10,
+                    "Output" : false,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 540,
+                    "Type" : "validator",
+                    "Visible" : true,
+                    "Width" : 200,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Validator",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "uploadPath"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : false,
+                    "DisplayName" : "Validator-36",
+                    "Expression" : "uploaded",
+                    "Height" : 28,
+                    "Id" : "Validator-36",
+                    "Left" : 10,
+                    "Output" : false,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 540,
+                    "Type" : "validator",
+                    "Visible" : true,
+                    "Width" : 200,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Validator",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "BOOLEAN",
+                      "Description" : "",
+                      "ParameterName" : "uploaded"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "Fieldset-38",
+                    "FieldsetLabelStyle" : "PTC.Core.FieldsetLabelStyle",
+                    "FieldsetStyle" : "PTC.Core.FieldsetStyle",
+                    "Height" : 485,
+                    "Id" : "Fieldset-38",
+                    "Left" : 340,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Title" : "[[PTC.Core.Associated Assets]]",
+                    "Top" : 45,
+                    "Type" : "fieldset",
+                    "Visible" : true,
+                    "Width" : 525,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Fieldset"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "AddButtonStyle" : {
+                        "backgroundColor" : "",
+                        "displayString" : "",
+                        "fontEmphasisBold" : false,
+                        "fontEmphasisItalic" : false,
+                        "fontEmphasisUnderline" : false,
+                        "foregroundColor" : "#58595b",
+                        "image" : "",
+                        "lineColor" : "",
+                        "lineStyle" : "solid",
+                        "lineThickness" : 1,
+                        "secondaryBackgroundColor" : "",
+                        "textSize" : "small"
+                      },
+                      "Area" : "UI",
+                      "BarStyle" : {
+                        "backgroundColor" : "",
+                        "displayString" : "",
+                        "fontEmphasisBold" : false,
+                        "fontEmphasisItalic" : false,
+                        "fontEmphasisUnderline" : false,
+                        "foregroundColor" : "#58595b",
+                        "image" : "",
+                        "lineColor" : "",
+                        "lineStyle" : "solid",
+                        "lineThickness" : 1,
+                        "secondaryBackgroundColor" : "",
+                        "textSize" : "small"
+                      },
+                      "ColumnFormat" : "{\"Id\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"Id\",\"aspects\":{},\"ordinal\":2,\"Title\":\"\",\"__showThisField\":false},\"ModelNumber\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"ModelNumber\",\"aspects\":{},\"ordinal\":5,\"Title\":\"\",\"__showThisField\":false},\"Name\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"Name\",\"aspects\":{},\"ordinal\":1,\"Title\":\"[[PTC.Core.Name]]\",\"__showThisField\":true},\"Owner\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"Owner\",\"aspects\":{},\"ordinal\":3,\"Title\":\"\",\"__showThisField\":false},\"Selected\":{\"baseType\":\"BOOLEAN\",\"description\":\"\",\"name\":\"Selected\",\"aspects\":{},\"ordinal\":6,\"Title\":\"\",\"__showThisField\":false},\"SerialNumber\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"SerialNumber\",\"aspects\":{},\"ordinal\":4,\"Title\":\"[[PTC.Core.Serial Number]]\",\"__showThisField\":true}}",
+                      "DateFormat" : "",
+                      "DateFormatToken" : "",
+                      "DisplayName" : "DataFilter-25",
+                      "FocusStyle" : "PTC.NoFocusStyle",
+                      "Height" : 26,
+                      "Horizontal" : false,
+                      "Id" : "DataFilter-25",
+                      "Left" : 232,
+                      "LiveFiltering" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowAdvancedOptions" : false,
+                      "ShowDataLoading" : true,
+                      "TabSequence" : 0,
+                      "Top" : 40,
+                      "Type" : "datafilter",
+                      "Visible" : true,
+                      "Width" : 285,
+                      "Z-index" : 9000,
+                      "__TypeDisplayName" : "Data Filter"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "AlignHeader" : false,
+                      "Area" : "UI",
+                      "AutoSelectFirstRow" : false,
+                      "CellTextWrapping" : false,
+                      "ColumnFormat" : {
+                        "formatInfo" : [ {
+                          "Align" : "left",
+                          "AllowEdit" : true,
+                          "FieldName" : "Selected",
+                          "FormatOptions" : {
+                            "FormatString" : "checkbox",
+                            "formatInfo" : {
+                              "FieldName" : "",
+                              "StateDefinition" : "",
+                              "StateDefinitionType" : "fixed",
+                              "StateFormats" : [ {
+                                "state" : "",
+                                "stateName" : "fixed"
+                              } ]
+                            },
+                            "renderer" : "BOOLEAN"
+                          },
+                          "Title" : "&nbsp;",
+                          "ValidationExpression" : "",
+                          "ValidationMessage" : "",
+                          "Width" : "30"
+                        }, {
+                          "Align" : "left",
+                          "AllowEdit" : false,
+                          "FieldName" : "Name",
+                          "FormatOptions" : {
+                            "FormatString" : "full",
+                            "formatInfo" : {
+                              "FieldName" : "",
+                              "StateDefinition" : "",
+                              "StateDefinitionType" : "fixed",
+                              "StateFormats" : [ {
+                                "state" : "",
+                                "stateName" : "fixed"
+                              } ]
+                            },
+                            "renderer" : "STRING"
+                          },
+                          "Title" : "[[PTC.Core.Name]]",
+                          "ValidationExpression" : "",
+                          "ValidationMessage" : "",
+                          "Width" : "306"
+                        }, {
+                          "Align" : "left",
+                          "AllowEdit" : false,
+                          "FieldName" : "SerialNumber",
+                          "FormatOptions" : {
+                            "FormatString" : "full",
+                            "formatInfo" : {
+                              "FieldName" : "",
+                              "StateDefinition" : "",
+                              "StateDefinitionType" : "fixed",
+                              "StateFormats" : [ {
+                                "state" : "",
+                                "stateName" : "fixed"
+                              } ]
+                            },
+                            "renderer" : "STRING"
+                          },
+                          "Title" : "[[PTC.Core.Serial Number]]",
+                          "ValidationExpression" : "",
+                          "ValidationMessage" : "",
+                          "Width" : "151"
+                        } ]
+                      },
+                      "CurrentScrollTop" : 0,
+                      "DisplayName" : "Grid-18",
+                      "FocusStyle" : "DefaultFocusStyle",
+                      "GridBackgroundStyle" : "PTC.Core.GridBackgroundStyle",
+                      "GridEditableFieldStyle" : "PTC.Core.GridEditableFieldStyle",
+                      "GridHeaderStyle" : "PTC.Core.GridHeaderStyle",
+                      "GridHeaderTextCase" : "none",
+                      "GridInvalidFieldStyle" : "PTC.Core.GridInvalidFieldStyle",
+                      "Height" : 405,
+                      "Id" : "Grid-18",
+                      "IsEditable" : true,
+                      "IsPrintLayout" : false,
+                      "Left" : 10,
+                      "MultiSelect" : false,
+                      "ResponsiveLayout" : false,
+                      "RowAlternateBackgroundStyle" : "PTC.Core.RowAlternateBackgroundStyle",
+                      "RowBackgroundStyle" : "PTC.Core.RowBackgroundStyle",
+                      "RowFormat_StateParameters" : [ ],
+                      "RowHeight" : 30,
+                      "RowHoverStyle" : "PTC.Core.RowHoverStyle",
+                      "RowSelectedStyle" : "PTC.CRM.RowSelectedStyle",
+                      "ScrollTop" : 0,
+                      "ShowAllColumns" : false,
+                      "ShowDataLoading" : true,
+                      "TabSequence" : 0,
+                      "Top" : 70,
+                      "Type" : "dhxgrid",
+                      "Visible" : true,
+                      "Width" : 505,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Grid"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "DisplayName" : "Label-20",
+                      "Height" : 22,
+                      "Id" : "Label-20",
+                      "Left" : 10,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : {
+                        "backgroundColor" : "",
+                        "displayString" : "",
+                        "fontEmphasisBold" : false,
+                        "fontEmphasisItalic" : false,
+                        "fontEmphasisUnderline" : false,
+                        "foregroundColor" : "#808080",
+                        "image" : "",
+                        "lineColor" : "",
+                        "lineStyle" : "solid",
+                        "lineThickness" : 1,
+                        "secondaryBackgroundColor" : "",
+                        "textSize" : "normal"
+                      },
+                      "Text" : "[[PTC.Core.Select the assets from the list to associate to this customer.]]",
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 15,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 505,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label",
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <ThingShapes>
+        <ThingShape
+         aspect.isExtension="true"
+         className=""
+         description="Provides adapter services for Operator Things"
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-10-24T20:59:54.795Z"
+         name="PTC.Adapter.OperatorShape"
+         projectName=""
+         tags="PTC:CORE;TWUTL:ResourceProvider">
+            <PropertyDefinitions></PropertyDefinitions>
+            <ServiceDefinitions>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Add additional operatable resources to this Thing"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="AddOperatables">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description="Newly created relationships"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="Data shape to use for the result table; alternative to dataShapeName"
+                         name="dataShape"
+                         ordinal="3"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="DATASHAPENAME"
+                         description="Name of data shape to use for the result table"
+                         name="dataShapeName"
+                         ordinal="2"></FieldDefinition>
+                        <FieldDefinition
+                         aspect.isRequired="true"
+                         baseType="INFOTABLE"
+                         description="Operatable resources to add to this Thing"
+                         name="operatables"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Retrieve attributes of resources operated by this Thing"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetOperatables">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description="Requested attributes of operatable resources"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="Data shape to use for the result table; alternative to dataShapeName"
+                         name="dataShape"
+                         ordinal="2"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="DATASHAPENAME"
+                         description="Name of data shape to use for the result table"
+                         name="dataShapeName"
+                         ordinal="1"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="QUERY"
+                         description="Query to apply to result table"
+                         name="query"
+                         ordinal="3"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Remove operatable resources from this Thing"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="RemoveOperatables">
+                    <ResultType
+                     baseType="INTEGER"
+                     description="Number of existing operatables found"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         aspect.isRequired="true"
+                         baseType="INFOTABLE"
+                         description="Operatable resources to remove from this Thing"
+                         name="operatables"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Set operatable resources for this Thing"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="SetOperatables">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description="Newly created relationships"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="Data shape to use for the result table; alternative to dataShapeName"
+                         name="dataShape"
+                         ordinal="3"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="DATASHAPENAME"
+                         description="Name of data shape to use for the result table"
+                         name="dataShapeName"
+                         ordinal="2"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="Operatable resources to add to this Thing; existing operatables will be removed"
+                         name="operatables"
+                         ordinal="1"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+            </ServiceDefinitions>
+            <EventDefinitions></EventDefinitions>
+            <ServiceMappings></ServiceMappings>
+            <ServiceImplementations>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="AddOperatables">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         description="Script"
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    var result = Things["PTC.Adapter.Utilities"].CreateRelationships({
+                                      thingName: me.name /* THINGNAME */,
+                                      relationship: "Operatorship" /* STRING */,
+                                      thisSideRole: "Operator" /* STRING */,
+                                      otherSideRole: "Operatables" /* STRING */,
+                                      otherSideResources: operatables /* INFOTABLE */,
+                                      dataShapeName: dataShapeName /* DATASHAPENAME */,
+                                      dataShape: dataShape /* INFOTABLE */
+                                    });
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetOperatables">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         description="Script"
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    var result = Things["PTC.Adapter.Utilities"].GetRelatedResources({
+                                      thingName: me.name /* THINGNAME */,
+                                      relationshipRole: "Operatables" /* STRING */,
+                                      dataShapeName: dataShapeName /* DATASHAPENAME */,
+                                      dataShape: dataShape /* INFOTABLE */,
+                                      query: query /* QUERY */
+                                    });
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="RemoveOperatables">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         description="Script"
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    var result = Things["PTC.Adapter.Utilities"].DeleteRelationships({
+                                      thingName: me.name /* THINGNAME */,
+                                      relationship: "Operatorship" /* STRING */,
+                                      thisSideRole: "Operator" /* STRING */,
+                                      otherSideRole: "Operatables" /* STRING */,
+                                      otherSideResources: operatables /* INFOTABLE */
+                                    });
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="SetOperatables">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         description="Script"
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    var result = Things["PTC.Adapter.Utilities"].SetRelatedResources({
+                                      thingName: me.name /* THINGNAME */,
+                                      relationship: "Operatorship" /* STRING */,
+                                      thisSideRole: "Operator" /* STRING */,
+                                      otherSideRole: "Operatables" /* STRING */,
+                                      otherSideResources: operatables /* INFOTABLE */,
+                                      dataShapeName: dataShapeName /* DATASHAPENAME */,
+                                      dataShape: dataShape /* INFOTABLE */
+                                    });
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+            </ServiceImplementations>
+            <Subscriptions></Subscriptions>
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <InstanceRunTimePermissions></InstanceRunTimePermissions>
+        </ThingShape>
+    </ThingShapes>
+</Entities>

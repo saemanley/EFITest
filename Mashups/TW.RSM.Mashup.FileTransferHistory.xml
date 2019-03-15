@@ -1,0 +1,1467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="true"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-10-24T21:00:08.660Z"
+         name="TW.RSM.Mashup.FileTransferHistory"
+         projectName=""
+         rows="0.0"
+         tags="Applications:RSM;Applications:RAC;Applications:FileTransfer;TWUTL:RemoteServices">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="THINGNAME"
+                 description=""
+                 name="thingName"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things>
+                <Thing>TW.RSM.FileTransferHistoryStream</Thing>
+                <Thing>TW.RSM.FileTransferHelper</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_TW_RSM_FileTransferHelper" : {
+                  "DataName" : "Things_TW_RSM_FileTransferHelper",
+                  "EntityName" : "TW.RSM.FileTransferHelper",
+                  "EntityType" : "Things",
+                  "Id" : "071f01f8-607d-4222-8a16-c6210c9b773c",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "12bb4408-4983-4a25-82ea-3f58f9084cc4",
+                    "Name" : "GetPastDate",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetPastDate"
+                  } ]
+                },
+                "Things_TW_RSM_FileTransferHistoryStream" : {
+                  "DataName" : "Things_TW_RSM_FileTransferHistoryStream",
+                  "EntityName" : "TW.RSM.FileTransferHistoryStream",
+                  "EntityType" : "Things",
+                  "Id" : "29b3262c-b714-4e94-9292-0dbd21340958",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "ae7134b4-a3d8-47e4-aaef-42d1e4e8e205",
+                    "Name" : "QueryStreamEntriesWithData",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "QueryStreamEntriesWithData"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "c0980d5a-b82d-4313-baf2-14dc8067aa07",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "TargetProperty" : "endDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "DateTimePicker-199",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "QueryStreamEntriesWithData",
+                "TargetSection" : "Things_TW_RSM_FileTransferHistoryStream"
+              }, {
+                "Id" : "1e2134e0-b962-4d49-99d3-860e8dc4aa91",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "TargetProperty" : "startDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "DateTimePicker-200",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "QueryStreamEntriesWithData",
+                "TargetSection" : "Things_TW_RSM_FileTransferHistoryStream"
+              }, {
+                "Id" : "1fa57382-fea6-4a17-83b1-acfecfad0474",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "QueryStreamEntriesWithData",
+                "SourceSection" : "Things_TW_RSM_FileTransferHistoryStream",
+                "TargetArea" : "UI",
+                "TargetId" : "DataFilter-203",
+                "TargetSection" : ""
+              }, {
+                "Id" : "25047d5c-32f6-436a-8b84-9312be09b03a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Query",
+                  "SourcePropertyBaseType" : "QUERY",
+                  "TargetProperty" : "query",
+                  "TargetPropertyBaseType" : "QUERY",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "DataFilter-203",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "QueryStreamEntriesWithData",
+                "TargetSection" : "Things_TW_RSM_FileTransferHistoryStream"
+              }, {
+                "Id" : "113fcd8f-56d6-4675-8d2f-629dce18630b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "QueryStreamEntriesWithData",
+                "SourceSection" : "Things_TW_RSM_FileTransferHistoryStream",
+                "TargetArea" : "UI",
+                "TargetId" : "Grid-213",
+                "TargetSection" : ""
+              }, {
+                "Id" : "887340de-0415-44f1-814d-af3238661fe8",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "DateTime",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPastDate",
+                "SourceSection" : "Things_TW_RSM_FileTransferHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "DateTimePicker-200",
+                "TargetSection" : ""
+              }, {
+                "Id" : "51873925-0f9e-4eaf-84bf-47839962c772",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Value",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "TargetProperty" : "daysPast",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "NumericEntry-214",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetPastDate",
+                "TargetSection" : "Things_TW_RSM_FileTransferHelper"
+              }, {
+                "Id" : "cf80ea2e-2fc2-4a0e-bf34-f772703b0fc1",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "thingName",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "TargetProperty" : "source",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "QueryStreamEntriesWithData",
+                "TargetSection" : "Things_TW_RSM_FileTransferHistoryStream"
+              }, {
+                "Id" : "b7f853df-d24e-4b56-9935-66cf3672d1e8",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "QueryStreamEntriesWithData",
+                "SourceSection" : "Things_TW_RSM_FileTransferHistoryStream",
+                "TargetArea" : "UI",
+                "TargetId" : "dataexport-215",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_FileTransferHistoryStream",
+                "EventHandlerService" : "QueryStreamEntriesWithData",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Changed",
+                "EventTriggerId" : "DataFilter-203",
+                "EventTriggerSection" : "",
+                "Id" : "c2c3f15b-20f6-4cb2-a79c-0addecf01bc5"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_FileTransferHistoryStream",
+                "EventHandlerService" : "QueryStreamEntriesWithData",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "thingNameChanged",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "c9391ac6-932b-4bc0-8b77-5b441b8a7867"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_FileTransferHistoryStream",
+                "EventHandlerService" : "QueryStreamEntriesWithData",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Changed",
+                "EventTriggerId" : "DateTimePicker-199",
+                "EventTriggerSection" : "",
+                "Id" : "9898301f-96a8-4101-9fc4-8eb1a6d816f1"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_FileTransferHistoryStream",
+                "EventHandlerService" : "QueryStreamEntriesWithData",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Changed",
+                "EventTriggerId" : "DateTimePicker-200",
+                "EventTriggerSection" : "",
+                "Id" : "3e88a95e-5348-475e-9559-2caa8b313279"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_FileTransferHelper",
+                "EventHandlerService" : "GetPastDate",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "6d5831df-4352-489f-af82-70dedcc4c935"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 618,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : true,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultMashupStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 1024,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "THINGNAME",
+                    "Description" : "",
+                    "ParameterName" : "thingName"
+                  } ],
+                  "id_index" : 215,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "Columns" : 1,
+                    "DisplayName" : "Layout-1",
+                    "Footer" : false,
+                    "FooterHeight" : 0,
+                    "Header" : false,
+                    "HeaderHeight" : 0,
+                    "Id" : "Layout-1",
+                    "IncludeSpacingInFixedAreas" : false,
+                    "IsPrintLayout" : false,
+                    "Left" : 355,
+                    "LeftSidebar" : true,
+                    "LeftSidebarWidth" : 950,
+                    "Orientation" : "horizontal",
+                    "PctColumn1" : 100,
+                    "PctColumn2" : 0,
+                    "PctColumn3" : 1,
+                    "PctColumn4" : 1,
+                    "PctColumn5" : 1,
+                    "PctColumn6" : 1,
+                    "PctColumn7" : 1,
+                    "PctColumn8" : 1,
+                    "PctRow1" : 50,
+                    "PctRow2" : 50,
+                    "PctRow3" : 0,
+                    "PctRow4" : 0,
+                    "PctRow5" : 0,
+                    "PctRow6" : 0,
+                    "PctRow7" : 0,
+                    "PctRow8" : 0,
+                    "PrintMarginLeftRight" : 0.5,
+                    "PrintMarginTopBottom" : 0.5,
+                    "PrintWidth" : 650,
+                    "ResponsiveLayout" : true,
+                    "RightSidebar" : false,
+                    "RightSidebarWidth" : 0,
+                    "Rows" : 0,
+                    "ShowDataLoading" : true,
+                    "Spacing" : 0,
+                    "Top" : 350,
+                    "Type" : "layout",
+                    "Visible" : true,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Layout"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Left Sidebar",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-2",
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "DefaultContainerStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Container"
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "Area" : "UI",
+                        "Columns" : 0,
+                        "DisplayName" : "Layout-186",
+                        "Footer" : false,
+                        "FooterHeight" : 0,
+                        "Header" : true,
+                        "HeaderHeight" : 40,
+                        "Id" : "Layout-186",
+                        "IncludeSpacingInFixedAreas" : false,
+                        "IsPrintLayout" : false,
+                        "Left" : 210,
+                        "LeftSidebar" : false,
+                        "LeftSidebarWidth" : 0,
+                        "Orientation" : "vertical",
+                        "PctColumn1" : 50,
+                        "PctColumn2" : 50,
+                        "PctColumn3" : 1,
+                        "PctColumn4" : 1,
+                        "PctColumn5" : 1,
+                        "PctColumn6" : 1,
+                        "PctColumn7" : 1,
+                        "PctColumn8" : 1,
+                        "PctRow1" : 100,
+                        "PctRow2" : 0,
+                        "PctRow3" : 0,
+                        "PctRow4" : 0,
+                        "PctRow5" : 0,
+                        "PctRow6" : 0,
+                        "PctRow7" : 0,
+                        "PctRow8" : 0,
+                        "PrintMarginLeftRight" : 0.5,
+                        "PrintMarginTopBottom" : 0.5,
+                        "PrintWidth" : 650,
+                        "ResponsiveLayout" : true,
+                        "RightSidebar" : false,
+                        "RightSidebarWidth" : 0,
+                        "Rows" : 1,
+                        "ShowDataLoading" : true,
+                        "Spacing" : 0,
+                        "Top" : 225,
+                        "Type" : "layout",
+                        "Visible" : true,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Layout"
+                      },
+                      "Widgets" : [ {
+                        "Properties" : {
+                          "AnimateExpandCollapse" : true,
+                          "Area" : "UI",
+                          "BGImageRepeat" : "no-repeat",
+                          "BGImageSize" : "auto",
+                          "DisplayName" : "Header",
+                          "ExpandCollapseTabLocation" : "outside",
+                          "Expanded" : true,
+                          "Id" : "Container-187",
+                          "MinHeight" : 0,
+                          "MinWidth" : 0,
+                          "Overlay" : false,
+                          "OverlayIsTransparent" : false,
+                          "ResponsiveLayout" : true,
+                          "ShowDataLoading" : true,
+                          "ShowExpandCollapseTab" : false,
+                          "Style" : "DefaultContainerStyle",
+                          "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                          "TabExpandStyle" : "DefaultTabExpandStyle",
+                          "TabHeight" : 36,
+                          "TabLocation" : "center",
+                          "TabOffset" : 0,
+                          "TabWidth" : 36,
+                          "Type" : "container",
+                          "Visible" : true,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Container"
+                        },
+                        "Widgets" : [ {
+                          "Properties" : {
+                            "Area" : "UI",
+                            "DisplayName" : "Panel-188",
+                            "Height" : 200,
+                            "HideScrollbars" : false,
+                            "HorizontalAnchor" : "left",
+                            "Id" : "Panel-188",
+                            "Left" : 85,
+                            "ResponsiveLayout" : true,
+                            "ShowDataLoading" : true,
+                            "Style" : "TW.RSM.Style.Panel",
+                            "Top" : 30,
+                            "Type" : "panel",
+                            "VerticalAnchor" : "top",
+                            "Visible" : true,
+                            "Width" : 300,
+                            "Z-index" : 10,
+                            "__TypeDisplayName" : "Panel"
+                          },
+                          "Widgets" : [ {
+                            "Properties" : {
+                              "AlternateText" : "",
+                              "Area" : "UI",
+                              "BorderStyle" : "DefaultImageBorderStyle",
+                              "DisplayName" : "Image-189",
+                              "Height" : 35,
+                              "Id" : "Image-189",
+                              "Left" : 12,
+                              "PreventCaching" : false,
+                              "ResponsiveLayout" : false,
+                              "Scaling" : "none",
+                              "ShowDataLoading" : true,
+                              "SourceURL" : "TW.RSM.Icon.FileTransferTitle",
+                              "ToolTipField" : "",
+                              "Top" : 5,
+                              "Type" : "image",
+                              "Visible" : true,
+                              "Width" : 35,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Image"
+                            },
+                            "Widgets" : [ ]
+                          }, {
+                            "Properties" : {
+                              "Alignment" : "left",
+                              "Area" : "UI",
+                              "DisplayName" : "Label-190",
+                              "Height" : 22,
+                              "Id" : "Label-190",
+                              "Left" : 56,
+                              "ResponsiveLayout" : false,
+                              "ShowDataLoading" : true,
+                              "Style" : "PTC.Asset.Accent2PageTitleTextStyle",
+                              "Text" : "[[TW.RSM.File Transfer History]]",
+                              "ToolTipField" : "",
+                              "Top" : 12,
+                              "Type" : "label",
+                              "Visible" : true,
+                              "Width" : 500,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Label"
+                            },
+                            "Widgets" : [ ]
+                          } ]
+                        } ]
+                      }, {
+                        "Properties" : {
+                          "AnimateExpandCollapse" : true,
+                          "Area" : "UI",
+                          "BGImageRepeat" : "no-repeat",
+                          "BGImageSize" : "auto",
+                          "DisplayName" : "Row",
+                          "ExpandCollapseTabLocation" : "outside",
+                          "Expanded" : true,
+                          "Id" : "Container-191",
+                          "MinHeight" : 0,
+                          "MinWidth" : 0,
+                          "Overlay" : false,
+                          "OverlayIsTransparent" : false,
+                          "ResponsiveLayout" : true,
+                          "ShowDataLoading" : true,
+                          "ShowExpandCollapseTab" : false,
+                          "Style" : "TW.RSM.Style.Panel",
+                          "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                          "TabExpandStyle" : "DefaultTabExpandStyle",
+                          "TabHeight" : 36,
+                          "TabLocation" : "center",
+                          "TabOffset" : 0,
+                          "TabWidth" : 36,
+                          "Type" : "container",
+                          "Visible" : true,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Container"
+                        },
+                        "Widgets" : [ {
+                          "Properties" : {
+                            "Area" : "UI",
+                            "Columns" : 0,
+                            "DisplayName" : "Layout-192",
+                            "Footer" : true,
+                            "FooterHeight" : 5,
+                            "Header" : true,
+                            "HeaderHeight" : 10,
+                            "Id" : "Layout-192",
+                            "IncludeSpacingInFixedAreas" : false,
+                            "IsPrintLayout" : false,
+                            "Left" : 230,
+                            "LeftSidebar" : false,
+                            "LeftSidebarWidth" : 0,
+                            "Orientation" : "vertical",
+                            "PctColumn1" : 50,
+                            "PctColumn2" : 50,
+                            "PctColumn3" : 1,
+                            "PctColumn4" : 1,
+                            "PctColumn5" : 1,
+                            "PctColumn6" : 1,
+                            "PctColumn7" : 1,
+                            "PctColumn8" : 1,
+                            "PctRow1" : 100,
+                            "PctRow2" : 0,
+                            "PctRow3" : 0,
+                            "PctRow4" : 0,
+                            "PctRow5" : 0,
+                            "PctRow6" : 0,
+                            "PctRow7" : 0,
+                            "PctRow8" : 0,
+                            "PrintMarginLeftRight" : 0.5,
+                            "PrintMarginTopBottom" : 0.5,
+                            "PrintWidth" : 650,
+                            "ResponsiveLayout" : true,
+                            "RightSidebar" : false,
+                            "RightSidebarWidth" : 0,
+                            "Rows" : 1,
+                            "ShowDataLoading" : true,
+                            "Spacing" : 0,
+                            "Top" : 140,
+                            "Type" : "layout",
+                            "Visible" : true,
+                            "Z-index" : 10,
+                            "__TypeDisplayName" : "Layout"
+                          },
+                          "Widgets" : [ {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Container-193",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "Container-193",
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : true,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : "TW.RSM.Style.Panel",
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Container"
+                            },
+                            "Widgets" : [ ]
+                          }, {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Container-194",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "Container-194",
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : true,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : "DefaultContainerStyle",
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Container"
+                            },
+                            "Widgets" : [ {
+                              "Properties" : {
+                                "Area" : "UI",
+                                "Columns" : 0,
+                                "DisplayName" : "Layout-195",
+                                "Footer" : false,
+                                "FooterHeight" : 0,
+                                "Header" : true,
+                                "HeaderHeight" : 75,
+                                "Id" : "Layout-195",
+                                "IncludeSpacingInFixedAreas" : false,
+                                "IsPrintLayout" : false,
+                                "Left" : 280,
+                                "LeftSidebar" : false,
+                                "LeftSidebarWidth" : 0,
+                                "Orientation" : "vertical",
+                                "PctColumn1" : 50,
+                                "PctColumn2" : 50,
+                                "PctColumn3" : 1,
+                                "PctColumn4" : 1,
+                                "PctColumn5" : 1,
+                                "PctColumn6" : 1,
+                                "PctColumn7" : 1,
+                                "PctColumn8" : 1,
+                                "PctRow1" : 100,
+                                "PctRow2" : 0,
+                                "PctRow3" : 0,
+                                "PctRow4" : 0,
+                                "PctRow5" : 0,
+                                "PctRow6" : 0,
+                                "PctRow7" : 0,
+                                "PctRow8" : 0,
+                                "PrintMarginLeftRight" : 0.5,
+                                "PrintMarginTopBottom" : 0.5,
+                                "PrintWidth" : 650,
+                                "ResponsiveLayout" : true,
+                                "RightSidebar" : false,
+                                "RightSidebarWidth" : 0,
+                                "Rows" : 1,
+                                "ShowDataLoading" : true,
+                                "Spacing" : 0,
+                                "Top" : 205,
+                                "Type" : "layout",
+                                "Visible" : true,
+                                "Z-index" : 10,
+                                "__TypeDisplayName" : "Layout"
+                              },
+                              "Widgets" : [ {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "DisplayName" : "Container-196",
+                                  "ExpandCollapseTabLocation" : "inside",
+                                  "Expanded" : true,
+                                  "Id" : "Container-196",
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : true,
+                                  "Style" : "DefaultContainerStyle",
+                                  "TabCollapseStyle" : "TW.RSM.Style.CloseVertically",
+                                  "TabExpandStyle" : "TW.RSM.Style.OpenVertically",
+                                  "TabHeight" : 20,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 2,
+                                  "TabWidth" : 20,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container"
+                                },
+                                "Widgets" : [ {
+                                  "Properties" : {
+                                    "Area" : "UI",
+                                    "DisplayName" : "Panel-197",
+                                    "Height" : 200,
+                                    "HideScrollbars" : false,
+                                    "HorizontalAnchor" : "left",
+                                    "Id" : "Panel-197",
+                                    "Left" : 310,
+                                    "ResponsiveLayout" : true,
+                                    "ShowDataLoading" : true,
+                                    "Style" : "TW.RSM.Style.FieldSetPanel",
+                                    "Top" : 40,
+                                    "Type" : "panel",
+                                    "VerticalAnchor" : "top",
+                                    "Visible" : true,
+                                    "Width" : 300,
+                                    "Z-index" : 10,
+                                    "__TypeDisplayName" : "Panel"
+                                  },
+                                  "Widgets" : [ {
+                                    "Properties" : {
+                                      "Alignment" : "left",
+                                      "Area" : "UI",
+                                      "DisplayName" : "Label-198",
+                                      "Height" : 22,
+                                      "Id" : "Label-198",
+                                      "Left" : 30,
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Style" : "TW.RSM.Style.FieldSetLabel",
+                                      "Text" : "[[TW.RSM.Filter]]",
+                                      "ToolTipField" : "",
+                                      "Top" : 50,
+                                      "Type" : "label",
+                                      "Visible" : true,
+                                      "Width" : 200,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Label"
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "Area" : "UI",
+                                      "DateDelimiter" : "-",
+                                      "DateDisplay" : "numeric",
+                                      "DateFormat" : "yy-mm-dd",
+                                      "DateFormatToken" : "",
+                                      "DateOnly" : false,
+                                      "DateOrder" : "yy-mm-dd",
+                                      "DisplayName" : "DateTimePicker-199",
+                                      "DisplaySeconds" : true,
+                                      "Height" : 28,
+                                      "Id" : "DateTimePicker-199",
+                                      "InitializeWithCurrentDateTime" : true,
+                                      "Interval" : 0,
+                                      "IntervalType" : "h",
+                                      "Label" : "",
+                                      "Left" : 315,
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Style" : "PTC.Asset.Style.TimePicker",
+                                      "TabSequence" : 0,
+                                      "TimeFormat" : "hh:mm:ss",
+                                      "ToolTipField" : "",
+                                      "Top" : 10,
+                                      "Type" : "datetimepicker",
+                                      "Visible" : true,
+                                      "Width" : 150,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Date Time Picker",
+                                      "__supportsLabel" : true
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "Area" : "UI",
+                                      "DateDelimiter" : "-",
+                                      "DateDisplay" : "numeric",
+                                      "DateFormat" : "yy-mm-dd",
+                                      "DateFormatToken" : "",
+                                      "DateOnly" : false,
+                                      "DateOrder" : "yy-mm-dd",
+                                      "DisplayName" : "DateTimePicker-200",
+                                      "DisplaySeconds" : true,
+                                      "Height" : 28,
+                                      "Id" : "DateTimePicker-200",
+                                      "InitializeWithCurrentDateTime" : false,
+                                      "Interval" : 0,
+                                      "IntervalType" : "h",
+                                      "Label" : "",
+                                      "Left" : 100,
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Style" : "PTC.Asset.Style.TimePicker",
+                                      "TabSequence" : 0,
+                                      "TimeFormat" : "hh:mm:ss",
+                                      "ToolTipField" : "",
+                                      "Top" : 10,
+                                      "Type" : "datetimepicker",
+                                      "Visible" : true,
+                                      "Width" : 150,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Date Time Picker",
+                                      "__supportsLabel" : true
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "Alignment" : "left",
+                                      "Area" : "UI",
+                                      "DisplayName" : "Label-201",
+                                      "Height" : 22,
+                                      "Id" : "Label-201",
+                                      "Left" : 10,
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Style" : "TW.RSM.Style.Label",
+                                      "Text" : "[[TW.RSM.Date Range:]]",
+                                      "ToolTipField" : "",
+                                      "Top" : 10,
+                                      "Type" : "label",
+                                      "Visible" : true,
+                                      "Width" : 140,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Label"
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "Alignment" : "left",
+                                      "Area" : "UI",
+                                      "DisplayName" : "Label-202",
+                                      "Height" : 22,
+                                      "Id" : "Label-202",
+                                      "Left" : 255,
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Style" : "TW.RSM.Style.Label",
+                                      "Text" : "[[TW.RSM.and]]",
+                                      "ToolTipField" : "",
+                                      "Top" : 10,
+                                      "Type" : "label",
+                                      "Visible" : true,
+                                      "Width" : 55,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Label"
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "AddButtonStyle" : "PTC.Asset.Accent2ButtonStyle",
+                                      "Area" : "UI",
+                                      "BarStyle" : "TW.RSM.Style.FieldSet",
+                                      "ColumnFormat" : "{\"user\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"user\",\"aspects\":{},\"ordinal\":0,\"Title\":\"[[TW.RSM.user]]\",\"__showThisField\":true},\"timestamp\":{\"baseType\":\"DATETIME\",\"description\":\"\",\"name\":\"timestamp\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"message\":{\"baseType\":\"STRING\",\"description\":\"Message about this transfer's current state\",\"name\":\"message\",\"aspects\":{},\"ordinal\":0,\"Title\":\"[[TW.RSM.message]]\",\"__showThisField\":true},\"sourcePath\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"sourcePath\",\"aspects\":{},\"ordinal\":0,\"Title\":\"[[TW.RSM.source Path]]\",\"__showThisField\":true},\"targetRepository\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"targetRepository\",\"aspects\":{},\"ordinal\":0,\"Title\":\"[[TW.RSM.target Repository]]\",\"__showThisField\":true},\"targetPath\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"targetPath\",\"aspects\":{},\"ordinal\":0,\"Title\":\"[[TW.RSM.target Path]]\",\"__showThisField\":true},\"blockCount\":{\"baseType\":\"INTEGER\",\"description\":\"\",\"name\":\"blockCount\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"blockSize\":{\"baseType\":\"INTEGER\",\"description\":\"\",\"name\":\"blockSize\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"bytesTransferred\":{\"baseType\":\"NUMBER\",\"description\":\"\",\"name\":\"bytesTransferred\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"code\":{\"baseType\":\"INTEGER\",\"description\":\"\",\"name\":\"code\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"duration\":{\"baseType\":\"INTEGER\",\"description\":\"\",\"name\":\"duration\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"endTime\":{\"baseType\":\"DATETIME\",\"description\":\"\",\"name\":\"endTime\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"id\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"id\",\"aspects\":{\"isPrimaryKey\":true},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"isAsync\":{\"baseType\":\"BOOLEAN\",\"description\":\"\",\"name\":\"isAsync\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"isComplete\":{\"baseType\":\"BOOLEAN\",\"description\":\"\",\"name\":\"isComplete\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"isRestartEnabled\":{\"baseType\":\"BOOLEAN\",\"description\":\"\",\"name\":\"isRestartEnabled\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"location\":{\"baseType\":\"LOCATION\",\"description\":\"\",\"name\":\"location\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"maxSize\":{\"baseType\":\"NUMBER\",\"description\":\"\",\"name\":\"maxSize\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"size\":{\"baseType\":\"NUMBER\",\"description\":\"\",\"name\":\"size\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"source\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"source\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"sourceChecksum\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"sourceChecksum\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"sourceFile\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"sourceFile\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"sourceRepository\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"sourceRepository\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"sourceType\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"sourceType\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"startPosition\":{\"baseType\":\"NUMBER\",\"description\":\"\",\"name\":\"startPosition\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"startTime\":{\"baseType\":\"DATETIME\",\"description\":\"\",\"name\":\"startTime\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"state\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"state\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"tags\":{\"baseType\":\"TAGS\",\"description\":\"\",\"name\":\"tags\",\"aspects\":{\"tagType\":\"DataTags\"},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"targetChecksum\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"targetChecksum\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"targetFile\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"targetFile\",\"aspects\":{},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false},\"transferId\":{\"baseType\":\"STRING\",\"description\":\"\",\"name\":\"transferId\",\"aspects\":{\"isPrimaryKey\":true},\"ordinal\":0,\"Title\":\"\",\"__showThisField\":false}}",
+                                      "DateFormat" : "",
+                                      "DateFormatToken" : "",
+                                      "DisplayName" : "DataFilter-203",
+                                      "FocusStyle" : "PTC.NoFocusStyle",
+                                      "Height" : 26,
+                                      "Horizontal" : false,
+                                      "Id" : "DataFilter-203",
+                                      "Left" : 490,
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "TabSequence" : 0,
+                                      "Top" : 10,
+                                      "Type" : "datafilter",
+                                      "Visible" : true,
+                                      "Width" : 285,
+                                      "Z-index" : 9000,
+                                      "__TypeDisplayName" : "Data Filter"
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "AllowDecimals" : true,
+                                      "AllowNegatives" : true,
+                                      "Area" : "UI",
+                                      "ConstrainValue" : false,
+                                      "DisplayName" : "NumericEntry-214",
+                                      "FixedDigits" : 0,
+                                      "Height" : 24,
+                                      "Id" : "NumericEntry-214",
+                                      "InnerShadow" : true,
+                                      "Label" : "",
+                                      "LabelAlignment" : "left",
+                                      "Left" : 435,
+                                      "Maximum" : 100,
+                                      "Minimum" : 0,
+                                      "NumericEntryFocusStyle" : "DefaultFocusStyle",
+                                      "NumericEntryLabelStyle" : "DefaultWidgetLabelStyle",
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "Style" : "DefaultTextBoxStyle",
+                                      "TabSequence" : 0,
+                                      "ToolTipField" : "",
+                                      "Top" : 45,
+                                      "Type" : "numericentry",
+                                      "Value" : 7,
+                                      "ValueAlign" : "right",
+                                      "Visible" : false,
+                                      "Width" : 40,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Numeric Entry",
+                                      "__supportsLabel" : true
+                                    },
+                                    "Widgets" : [ ]
+                                  }, {
+                                    "Properties" : {
+                                      "ActiveStyle" : "PTC.Core.ButtonActiveStyle",
+                                      "Area" : "UI",
+                                      "ColumnFormat" : "{\"blockCount\":{\"name\":\"blockCount\",\"aspects\":{},\"description\":\"\",\"baseType\":\"INTEGER\",\"ordinal\":0},\"blockSize\":{\"name\":\"blockSize\",\"aspects\":{},\"description\":\"\",\"baseType\":\"INTEGER\",\"ordinal\":0},\"bytesTransferred\":{\"name\":\"bytesTransferred\",\"aspects\":{},\"description\":\"\",\"baseType\":\"NUMBER\",\"ordinal\":0},\"code\":{\"name\":\"code\",\"aspects\":{},\"description\":\"\",\"baseType\":\"INTEGER\",\"ordinal\":0},\"duration\":{\"name\":\"duration\",\"aspects\":{},\"description\":\"\",\"baseType\":\"INTEGER\",\"ordinal\":0},\"endTime\":{\"name\":\"endTime\",\"aspects\":{},\"description\":\"\",\"baseType\":\"DATETIME\",\"ordinal\":0},\"enqueueCount\":{\"name\":\"enqueueCount\",\"aspects\":{},\"description\":\"\",\"baseType\":\"NUMBER\",\"ordinal\":0},\"enqueueTime\":{\"name\":\"enqueueTime\",\"aspects\":{},\"description\":\"\",\"baseType\":\"DATETIME\",\"ordinal\":0},\"id\":{\"name\":\"id\",\"aspects\":{\"isPrimaryKey\":true},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":3},\"isAsync\":{\"name\":\"isAsync\",\"aspects\":{},\"description\":\"\",\"baseType\":\"BOOLEAN\",\"ordinal\":0},\"isComplete\":{\"name\":\"isComplete\",\"aspects\":{},\"description\":\"\",\"baseType\":\"BOOLEAN\",\"ordinal\":0},\"isQueueable\":{\"name\":\"isQueueable\",\"aspects\":{},\"description\":\"\",\"baseType\":\"BOOLEAN\",\"ordinal\":0},\"isRestartEnabled\":{\"name\":\"isRestartEnabled\",\"aspects\":{},\"description\":\"\",\"baseType\":\"BOOLEAN\",\"ordinal\":0},\"location\":{\"name\":\"location\",\"aspects\":{},\"description\":\"\",\"baseType\":\"LOCATION\",\"ordinal\":2},\"maxSize\":{\"name\":\"maxSize\",\"aspects\":{},\"description\":\"\",\"baseType\":\"NUMBER\",\"ordinal\":0},\"message\":{\"name\":\"message\",\"aspects\":{},\"description\":\"Message about this transfer's current state\",\"baseType\":\"STRING\",\"ordinal\":0},\"metadata\":{\"name\":\"metadata\",\"aspects\":{},\"description\":\"\",\"baseType\":\"JSON\",\"ordinal\":0},\"reservationId\":{\"name\":\"reservationId\",\"aspects\":{\"defaultValue\":\"platform\"},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":0},\"size\":{\"name\":\"size\",\"aspects\":{},\"description\":\"\",\"baseType\":\"NUMBER\",\"ordinal\":0},\"source\":{\"name\":\"source\",\"aspects\":{},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":4},\"sourceChecksum\":{\"name\":\"sourceChecksum\",\"aspects\":{},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":0},\"sourceFile\":{\"name\":\"sourceFile\",\"aspects\":{},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":0},\"sourcePath\":{\"name\":\"sourcePath\",\"aspects\":{},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":0},\"sourceRepository\":{\"name\":\"sourceRepository\",\"aspects\":{},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":0},\"sourceType\":{\"name\":\"sourceType\",\"aspects\":{},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":1},\"startPosition\":{\"name\":\"startPosition\",\"aspects\":{},\"description\":\"\",\"baseType\":\"NUMBER\",\"ordinal\":0},\"startTime\":{\"name\":\"startTime\",\"aspects\":{},\"description\":\"\",\"baseType\":\"DATETIME\",\"ordinal\":0},\"state\":{\"name\":\"state\",\"aspects\":{},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":0},\"tags\":{\"name\":\"tags\",\"aspects\":{\"tagType\":\"DataTags\"},\"description\":\"\",\"baseType\":\"TAGS\",\"ordinal\":6},\"targetChecksum\":{\"name\":\"targetChecksum\",\"aspects\":{},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":0},\"targetFile\":{\"name\":\"targetFile\",\"aspects\":{},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":0},\"targetPath\":{\"name\":\"targetPath\",\"aspects\":{},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":0},\"targetRepository\":{\"name\":\"targetRepository\",\"aspects\":{},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":0},\"timestamp\":{\"name\":\"timestamp\",\"aspects\":{},\"description\":\"\",\"baseType\":\"DATETIME\",\"ordinal\":5},\"transferId\":{\"name\":\"transferId\",\"aspects\":{\"isPrimaryKey\":true},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":0},\"user\":{\"name\":\"user\",\"aspects\":{},\"description\":\"\",\"baseType\":\"STRING\",\"ordinal\":0}}",
+                                      "DataBinding" : {
+                                        "Id" : "b7f853df-d24e-4b56-9935-66cf3672d1e8",
+                                        "PropertyMaps" : [ {
+                                          "SourceProperty" : "",
+                                          "SourcePropertyBaseType" : "INFOTABLE",
+                                          "SourcePropertyType" : "InfoTable",
+                                          "TargetProperty" : "Data",
+                                          "TargetPropertyBaseType" : "INFOTABLE",
+                                          "TargetPropertyType" : "property"
+                                        } ],
+                                        "SourceArea" : "Data",
+                                        "SourceDetails" : "AllData",
+                                        "SourceId" : "QueryStreamEntriesWithData",
+                                        "SourceSection" : "Things_TW_RSM_FileTransferHistoryStream",
+                                        "TargetArea" : "UI",
+                                        "TargetId" : "dataexport-215",
+                                        "TargetSection" : ""
+                                      },
+                                      "DisplayName" : "dataexport-215",
+                                      "FocusStyle" : "PTC.Core.ButtonFocusStyle",
+                                      "Height" : 30,
+                                      "HoverStyle" : "PTC.Asset.Accent2ButtonHoverStyle",
+                                      "IconAlignment" : "left",
+                                      "Id" : "dataexport-215",
+                                      "Label" : "[[PTC.Asset.Export]]",
+                                      "Left" : 830,
+                                      "ResponsiveLayout" : false,
+                                      "RoundedCorners" : false,
+                                      "ShowDataLoading" : true,
+                                      "Style" : "PTC.Asset.Accent2ButtonStyle",
+                                      "TabSequence" : 0,
+                                      "Top" : 10,
+                                      "Type" : "dataexport",
+                                      "Visible" : true,
+                                      "Width" : 100,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Data Export"
+                                    },
+                                    "Widgets" : [ ]
+                                  } ]
+                                } ]
+                              }, {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "DisplayName" : "Container-204",
+                                  "ExpandCollapseTabLocation" : "outside",
+                                  "Expanded" : true,
+                                  "Id" : "Container-204",
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : false,
+                                  "Style" : "DefaultContainerStyle",
+                                  "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                  "TabExpandStyle" : "DefaultTabExpandStyle",
+                                  "TabHeight" : 36,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 0,
+                                  "TabWidth" : 36,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container"
+                                },
+                                "Widgets" : [ {
+                                  "Properties" : {
+                                    "Area" : "UI",
+                                    "Columns" : 0,
+                                    "DisplayName" : "Layout-205",
+                                    "Footer" : false,
+                                    "FooterHeight" : 0,
+                                    "Header" : true,
+                                    "HeaderHeight" : 47,
+                                    "Id" : "Layout-205",
+                                    "IncludeSpacingInFixedAreas" : false,
+                                    "IsPrintLayout" : false,
+                                    "Left" : 270,
+                                    "LeftSidebar" : false,
+                                    "LeftSidebarWidth" : 0,
+                                    "Orientation" : "vertical",
+                                    "PctColumn1" : 50,
+                                    "PctColumn2" : 50,
+                                    "PctColumn3" : 1,
+                                    "PctColumn4" : 1,
+                                    "PctColumn5" : 1,
+                                    "PctColumn6" : 1,
+                                    "PctColumn7" : 1,
+                                    "PctColumn8" : 1,
+                                    "PctRow1" : 100,
+                                    "PctRow2" : 0,
+                                    "PctRow3" : 0,
+                                    "PctRow4" : 0,
+                                    "PctRow5" : 0,
+                                    "PctRow6" : 0,
+                                    "PctRow7" : 0,
+                                    "PctRow8" : 0,
+                                    "PrintMarginLeftRight" : 0.5,
+                                    "PrintMarginTopBottom" : 0.5,
+                                    "PrintWidth" : 650,
+                                    "ResponsiveLayout" : true,
+                                    "RightSidebar" : false,
+                                    "RightSidebarWidth" : 0,
+                                    "Rows" : 1,
+                                    "ShowDataLoading" : true,
+                                    "Spacing" : 0,
+                                    "Top" : 110,
+                                    "Type" : "layout",
+                                    "Visible" : true,
+                                    "Z-index" : 10,
+                                    "__TypeDisplayName" : "Layout"
+                                  },
+                                  "Widgets" : [ {
+                                    "Properties" : {
+                                      "AnimateExpandCollapse" : true,
+                                      "Area" : "UI",
+                                      "BGImageRepeat" : "no-repeat",
+                                      "BGImageSize" : "auto",
+                                      "DisplayName" : "Container-206",
+                                      "ExpandCollapseTabLocation" : "outside",
+                                      "Expanded" : true,
+                                      "Id" : "Container-206",
+                                      "MinHeight" : 0,
+                                      "MinWidth" : 0,
+                                      "Overlay" : false,
+                                      "OverlayIsTransparent" : false,
+                                      "ResponsiveLayout" : true,
+                                      "ShowDataLoading" : true,
+                                      "ShowExpandCollapseTab" : false,
+                                      "Style" : "DefaultContainerStyle",
+                                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                                      "TabHeight" : 36,
+                                      "TabLocation" : "center",
+                                      "TabOffset" : 0,
+                                      "TabWidth" : 36,
+                                      "Type" : "container",
+                                      "Visible" : true,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Container"
+                                    },
+                                    "Widgets" : [ {
+                                      "Properties" : {
+                                        "Area" : "UI",
+                                        "DisplayName" : "Panel-207",
+                                        "Height" : 200,
+                                        "HideScrollbars" : false,
+                                        "HorizontalAnchor" : "left",
+                                        "Id" : "Panel-207",
+                                        "Left" : 40,
+                                        "ResponsiveLayout" : true,
+                                        "ShowDataLoading" : true,
+                                        "Style" : "TW.RSM.Style.Panel",
+                                        "Top" : 5,
+                                        "Type" : "panel",
+                                        "VerticalAnchor" : "top",
+                                        "Visible" : true,
+                                        "Width" : 300,
+                                        "Z-index" : 10,
+                                        "__TypeDisplayName" : "Panel"
+                                      },
+                                      "Widgets" : [ {
+                                        "Properties" : {
+                                          "Alignment" : "left",
+                                          "Area" : "UI",
+                                          "Description" : "",
+                                          "DisplayName" : "Label-208",
+                                          "Height" : 22,
+                                          "Id" : "Label-208",
+                                          "Left" : 5,
+                                          "ResponsiveLayout" : false,
+                                          "ShowDataLoading" : true,
+                                          "Style" : "TW.RSM.Style.Label",
+                                          "Text" : "[[TW.RSM.File Transfers]]",
+                                          "ToolTipField" : "",
+                                          "Top" : 20,
+                                          "Type" : "label",
+                                          "Visible" : true,
+                                          "Width" : 160,
+                                          "Z-index" : 10,
+                                          "__TypeDisplayName" : "Label"
+                                        },
+                                        "Widgets" : [ ]
+                                      } ]
+                                    } ]
+                                  }, {
+                                    "Properties" : {
+                                      "AnimateExpandCollapse" : true,
+                                      "Area" : "UI",
+                                      "BGImageRepeat" : "no-repeat",
+                                      "BGImageSize" : "auto",
+                                      "DisplayName" : "Container-209",
+                                      "ExpandCollapseTabLocation" : "outside",
+                                      "Expanded" : true,
+                                      "Id" : "Container-209",
+                                      "MinHeight" : 0,
+                                      "MinWidth" : 0,
+                                      "Overlay" : false,
+                                      "OverlayIsTransparent" : false,
+                                      "ResponsiveLayout" : true,
+                                      "ShowDataLoading" : true,
+                                      "ShowExpandCollapseTab" : false,
+                                      "Style" : "DefaultContainerStyle",
+                                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                                      "TabHeight" : 36,
+                                      "TabLocation" : "center",
+                                      "TabOffset" : 0,
+                                      "TabWidth" : 36,
+                                      "Type" : "container",
+                                      "Visible" : true,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Container"
+                                    },
+                                    "Widgets" : [ {
+                                      "Properties" : {
+                                        "AlignHeader" : false,
+                                        "Area" : "UI",
+                                        "AutoSelectFirstRow" : false,
+                                        "CellTextWrapping" : false,
+                                        "ColumnFormat" : {
+                                          "formatInfo" : [ {
+                                            "Align" : "left",
+                                            "AllowEdit" : false,
+                                            "FieldName" : "user",
+                                            "FormatOptions" : {
+                                              "FormatString" : "full",
+                                              "formatInfo" : {
+                                                "FieldName" : "",
+                                                "StateDefinition" : "",
+                                                "StateDefinitionType" : "fixed",
+                                                "StateFormats" : [ {
+                                                  "state" : "",
+                                                  "stateName" : "fixed"
+                                                } ]
+                                              },
+                                              "renderer" : "STRING"
+                                            },
+                                            "Title" : "[[TW.RSM.user]]",
+                                            "ValidationExpression" : "",
+                                            "ValidationMessage" : "",
+                                            "Width" : "auto"
+                                          }, {
+                                            "Align" : "left",
+                                            "AllowEdit" : false,
+                                            "FieldName" : "timestamp",
+                                            "FormatOptions" : {
+                                              "FormatString" : "[[dateTimeFormat_Default]]",
+                                              "formatInfo" : {
+                                                "FieldName" : "",
+                                                "StateDefinition" : "",
+                                                "StateDefinitionType" : "fixed",
+                                                "StateFormats" : [ {
+                                                  "state" : "",
+                                                  "stateName" : "fixed"
+                                                } ]
+                                              },
+                                              "renderer" : "DATETIME"
+                                            },
+                                            "Title" : "[[TW.RSM.timestamp]]",
+                                            "ValidationExpression" : "",
+                                            "ValidationMessage" : "",
+                                            "Width" : "115"
+                                          }, {
+                                            "Align" : "left",
+                                            "AllowEdit" : false,
+                                            "FieldName" : "message",
+                                            "FormatOptions" : {
+                                              "FormatString" : "full",
+                                              "formatInfo" : {
+                                                "FieldName" : "",
+                                                "StateDefinition" : "",
+                                                "StateDefinitionType" : "fixed",
+                                                "StateFormats" : [ {
+                                                  "state" : "",
+                                                  "stateName" : "fixed"
+                                                } ]
+                                              },
+                                              "renderer" : "STRING"
+                                            },
+                                            "Title" : "[[TW.RSM.message]]",
+                                            "ValidationExpression" : "",
+                                            "ValidationMessage" : "",
+                                            "Width" : "auto"
+                                          }, {
+                                            "Align" : "left",
+                                            "AllowEdit" : false,
+                                            "FieldName" : "sourcePath",
+                                            "FormatOptions" : {
+                                              "FormatString" : "full",
+                                              "renderer" : "STRING"
+                                            },
+                                            "Title" : "[[TW.RSM.sourcePath]]",
+                                            "ValidationExpression" : "",
+                                            "ValidationMessage" : "",
+                                            "Width" : "auto"
+                                          }, {
+                                            "Align" : "left",
+                                            "AllowEdit" : false,
+                                            "FieldName" : "targetRepository",
+                                            "FormatOptions" : {
+                                              "FormatString" : "full",
+                                              "formatInfo" : {
+                                                "FieldName" : "",
+                                                "StateDefinition" : "",
+                                                "StateDefinitionType" : "fixed",
+                                                "StateFormats" : [ {
+                                                  "state" : "",
+                                                  "stateName" : "fixed"
+                                                } ]
+                                              },
+                                              "renderer" : "STRING"
+                                            },
+                                            "Title" : "[[TW.RSM.targetRepository]]",
+                                            "ValidationExpression" : "",
+                                            "ValidationMessage" : "",
+                                            "Width" : "auto"
+                                          }, {
+                                            "Align" : "left",
+                                            "AllowEdit" : false,
+                                            "FieldName" : "targetPath",
+                                            "FormatOptions" : {
+                                              "FormatString" : "full",
+                                              "formatInfo" : {
+                                                "FieldName" : "",
+                                                "StateDefinition" : "",
+                                                "StateDefinitionType" : "fixed",
+                                                "StateFormats" : [ {
+                                                  "state" : "",
+                                                  "stateName" : "fixed"
+                                                } ]
+                                              },
+                                              "renderer" : "STRING"
+                                            },
+                                            "Title" : "[[TW.RSM.targetPath]]",
+                                            "ValidationExpression" : "",
+                                            "ValidationMessage" : "",
+                                            "Width" : "auto"
+                                          } ]
+                                        },
+                                        "CurrentScrollTop" : 0,
+                                        "DisplayName" : "Grid-213",
+                                        "FocusStyle" : "DefaultFocusStyle",
+                                        "GridBackgroundStyle" : "TW.RSM.Style.GridBackground",
+                                        "GridEditableFieldStyle" : "TW.RSM.Style.GridEditableField",
+                                        "GridHeaderStyle" : "TW.RSM.Style.GridHeader",
+                                        "GridHeaderTextCase" : "none",
+                                        "GridInvalidFieldStyle" : "DefaultGridInvalidFieldStyle",
+                                        "Height" : 200,
+                                        "Id" : "Grid-213",
+                                        "IsEditable" : false,
+                                        "IsPrintLayout" : false,
+                                        "Left" : 335,
+                                        "MultiSelect" : false,
+                                        "ResponsiveLayout" : true,
+                                        "RowAlternateBackgroundStyle" : "TW.RSM.Style.RowAlternateBackground",
+                                        "RowBackgroundStyle" : "TW.RSM.Style.RowBackground",
+                                        "RowFormat_StateParameters" : [ ],
+                                        "RowHeight" : 30,
+                                        "RowHoverStyle" : "TW.RSM.Style.RowHover",
+                                        "RowSelectedStyle" : "PTC.Core.Accent2RowSelectedStyle",
+                                        "ScrollTop" : 0,
+                                        "ShowAllColumns" : false,
+                                        "ShowDataLoading" : true,
+                                        "TabSequence" : 0,
+                                        "Top" : 120,
+                                        "Type" : "dhxgrid",
+                                        "Visible" : true,
+                                        "Width" : 400,
+                                        "Z-index" : 10,
+                                        "__TypeDisplayName" : "Grid"
+                                      },
+                                      "Widgets" : [ ]
+                                    } ]
+                                  } ]
+                                } ]
+                              } ]
+                            } ]
+                          }, {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Container-211",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "Container-211",
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : true,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : "DefaultContainerStyle",
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Container"
+                            },
+                            "Widgets" : [ {
+                              "Properties" : {
+                                "Area" : "UI",
+                                "DisplayName" : "Panel-212",
+                                "Height" : 200,
+                                "HideScrollbars" : false,
+                                "HorizontalAnchor" : "left",
+                                "Id" : "Panel-212",
+                                "Left" : 350,
+                                "ResponsiveLayout" : true,
+                                "ShowDataLoading" : true,
+                                "Style" : "TW.RSM.Style.Panel",
+                                "Top" : 25,
+                                "Type" : "panel",
+                                "VerticalAnchor" : "top",
+                                "Visible" : true,
+                                "Width" : 300,
+                                "Z-index" : 10,
+                                "__TypeDisplayName" : "Panel"
+                              },
+                              "Widgets" : [ ]
+                            } ]
+                          } ]
+                        } ]
+                      } ]
+                    } ]
+                  }, {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Column 1",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-3",
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "DefaultContainerStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Container"
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

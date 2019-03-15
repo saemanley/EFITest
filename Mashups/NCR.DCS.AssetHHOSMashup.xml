@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isResponsive="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-11-06T02:37:24.111Z"
+         name="NCR.DCS.AssetHHOSMashup"
+         projectName="DCS. Project.Main"
+         rows="0.0"
+         tags="DCS:Mashup;Applications:DCS">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:ReleaseManagement"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:TCS"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="STRING"
+                 description=""
+                 name="assetName"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things>
+                <Thing>NCR.BaseDeviceHelper</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "CustomMashupCss" : "",
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_NCR.BaseDeviceHelper" : {
+                  "DataName" : "Things_NCR.BaseDeviceHelper",
+                  "EntityName" : "NCR.BaseDeviceHelper",
+                  "EntityType" : "Things",
+                  "Id" : "31715dc4-776c-456a-bf69-10fc006828ee",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "ea193298-4ce6-4c43-a257-7fa897d77e87",
+                    "Name" : "GetInfoTableForComponentProperty",
+                    "Parameters" : {
+                      "propertyName" : "OS_ALL"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetInfoTableForComponentProperty"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "2034d956-ca38-427c-b216-1450483311e3",
+                    "Name" : "GetInfoTableForComponentProperty1",
+                    "Parameters" : {
+                      "propertyName" : "REBOOTINFO"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetInfoTableForComponentProperty"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "6f20fbb4-9a6e-41c7-af98-e2b179cc2a61",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetInfoTableForComponentProperty",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "propertydisplay-83",
+                "TargetSection" : ""
+              }, {
+                "Id" : "1fdfec35-c220-4496-9ad7-cab9403c9243",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "DataForDatashapeIfNoRows",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetInfoTableForComponentProperty",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "propertydisplay-83",
+                "TargetSection" : ""
+              }, {
+                "Id" : "811ab582-ec6b-4adb-b284-bb41d4c8ba01",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "assetName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "assetName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetInfoTableForComponentProperty",
+                "TargetSection" : "Things_NCR.BaseDeviceHelper"
+              }, {
+                "Id" : "ee17170b-9bc6-4178-a97f-b9731f029c56",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "assetName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "assetName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetInfoTableForComponentProperty1",
+                "TargetSection" : "Things_NCR.BaseDeviceHelper"
+              }, {
+                "Id" : "bd520fd3-e01d-4361-8151-8c242af72548",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetInfoTableForComponentProperty1",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "propertydisplay-84",
+                "TargetSection" : ""
+              }, {
+                "Id" : "aff94f76-90c5-49aa-9ce0-54405770143e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "DataForDatashapeIfNoRows",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetInfoTableForComponentProperty1",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "propertydisplay-84",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.BaseDeviceHelper",
+                "EventHandlerService" : "GetInfoTableForComponentProperty",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "14e787ef-f14a-4864-a9cb-2434add3e91f"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.BaseDeviceHelper",
+                "EventHandlerService" : "GetInfoTableForComponentProperty1",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "fb142959-833f-44be-9cf7-28cbaac3a4f4"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "CustomClass" : "",
+                  "Description" : "",
+                  "DisplayName" : "mashup-logout",
+                  "EnableParameterEditing" : false,
+                  "Height" : 600,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : {
+                    "backgroundColor" : "#ffffff",
+                    "displayString" : "",
+                    "fontEmphasisBold" : false,
+                    "fontEmphasisItalic" : false,
+                    "fontEmphasisUnderline" : false,
+                    "foregroundColor" : "",
+                    "image" : "",
+                    "lineColor" : "",
+                    "lineStyle" : "solid",
+                    "lineThickness" : 1,
+                    "secondaryBackgroundColor" : "",
+                    "textSize" : "normal"
+                  },
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 600,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "assetName"
+                  } ],
+                  "id_index" : 86,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "divider-4",
+                    "Height" : 1,
+                    "Id" : "divider-4",
+                    "Left" : 5,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : {
+                      "backgroundColor" : "#f0f0f0",
+                      "displayString" : "",
+                      "fontEmphasisBold" : false,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "normal"
+                    },
+                    "Top" : 40,
+                    "Type" : "divider",
+                    "Visible" : true,
+                    "Width" : 590,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Divider"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-6",
+                    "Height" : 22,
+                    "Id" : "label-6",
+                    "Left" : 15,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : true,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "#000000",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "2xl"
+                    },
+                    "Text" : "Operating System",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 10,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 390,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "AllowEditing" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "propertydisplay-83",
+                    "Height" : 325,
+                    "Id" : "propertydisplay-83",
+                    "InfotableInfo" : "{}",
+                    "Left" : 10,
+                    "ResponsiveLayout" : false,
+                    "ShowAllColumns" : true,
+                    "ShowDataLoading" : true,
+                    "ShowEditorsIfNoRowData" : false,
+                    "Style" : {
+                      "backgroundColor" : "#ffffff",
+                      "displayString" : "",
+                      "fontEmphasisBold" : false,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "#435362",
+                      "image" : "",
+                      "lineColor" : "#e9ecef",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "small"
+                    },
+                    "Top" : 90,
+                    "Type" : "propertydisplay",
+                    "Visible" : true,
+                    "Width" : 565,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Property Display"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "AllowEditing" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "propertydisplay-84",
+                    "Height" : 120,
+                    "Id" : "propertydisplay-84",
+                    "InfotableInfo" : "{}",
+                    "Left" : 10,
+                    "ResponsiveLayout" : false,
+                    "ShowAllColumns" : true,
+                    "ShowDataLoading" : true,
+                    "ShowEditorsIfNoRowData" : false,
+                    "Style" : {
+                      "backgroundColor" : "#ffffff",
+                      "displayString" : "",
+                      "fontEmphasisBold" : false,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "#435362",
+                      "image" : "",
+                      "lineColor" : "#e9ecef",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "small"
+                    },
+                    "Top" : 470,
+                    "Type" : "propertydisplay",
+                    "Visible" : true,
+                    "Width" : 565,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Property Display"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-85",
+                    "Height" : 22,
+                    "Id" : "label-85",
+                    "Left" : 10,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : true,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "#000000",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "xlarge"
+                    },
+                    "Text" : "Operating System",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                    "Top" : 55,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 250,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-86",
+                    "Height" : 22,
+                    "Id" : "label-86",
+                    "Left" : 10,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : true,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "#000000",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "xlarge"
+                    },
+                    "Text" : "Reboot Information",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                    "Top" : 435,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 250,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

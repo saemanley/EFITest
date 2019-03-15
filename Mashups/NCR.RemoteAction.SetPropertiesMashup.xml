@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isResponsive="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-11-06T02:37:24.055Z"
+         name="NCR.RemoteAction.SetPropertiesMashup"
+         projectName="DCS. Project.Main"
+         rows="0.0"
+         tags="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="STRING"
+                 description=""
+                 name="assetName"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things></Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates>
+                <ThingTemplate>NCR.BaseDevice</ThingTemplate>
+            </ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "CustomMashupCss" : "",
+              "Data" : {
+                "DynamicThingTemplates_NCR.BaseDevice" : {
+                  "DataName" : "DynamicThingTemplates_NCR.BaseDevice",
+                  "EntityName" : "NCR.BaseDevice",
+                  "EntityType" : "DynamicThingTemplates",
+                  "Id" : "527d8c3b-6697-41c8-9373-e2bf3918585d",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "f7f32944-91ab-40f3-bfd0-5524c8d42bc7",
+                    "Name" : "GetStringPropertyValue",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetStringPropertyValue"
+                  }, {
+                    "APIMethod" : "get",
+                    "Characteristic" : "Services",
+                    "Id" : "933472dd-435c-4a63-ad42-d05df2d52513",
+                    "Name" : "SetProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "SetProperties"
+                  } ]
+                },
+                "DynamicThingTemplates_NCR.BaseDevice1" : {
+                  "DataName" : "DynamicThingTemplates_NCR.BaseDevice1",
+                  "EntityName" : "NCR.BaseDevice",
+                  "EntityType" : "DynamicThingTemplates",
+                  "Id" : "6efffd57-84b3-4036-ae15-79aed2f85b3c",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "fe16d31d-767b-4db4-8ba2-be5c0693d90b",
+                    "Name" : "GetPropertyDefinitions",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetPropertyDefinitions"
+                  } ]
+                },
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "8e85d0c5-c77a-4936-9dd7-edbfd42273a9",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "assetName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "ANYSCALAR",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-14",
+                "TargetSection" : ""
+              }, {
+                "Id" : "28e67cfc-9252-409f-bf1f-f8acd791f7e0",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "assetName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "value",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Entity"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "EntityName",
+                "TargetSection" : "DynamicThingTemplates_NCR.BaseDevice"
+              }, {
+                "Id" : "9b31d6af-7869-4401-9040-03c2b275c053",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetStringPropertyValue",
+                "SourceSection" : "DynamicThingTemplates_NCR.BaseDevice",
+                "TargetArea" : "UI",
+                "TargetId" : "textarea-12",
+                "TargetSection" : ""
+              }, {
+                "Id" : "20ecd1a7-a3dc-4043-857d-6b764d778775",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "Owner",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textbox-22",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "SetProperties",
+                "TargetSection" : "DynamicThingTemplates_NCR.BaseDevice"
+              }, {
+                "Id" : "88dbe5f0-c510-4dec-a3a4-d1bb29976554",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "OwnerContact",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textbox-23",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "SetProperties",
+                "TargetSection" : "DynamicThingTemplates_NCR.BaseDevice"
+              }, {
+                "Id" : "dc41a64e-16a4-46f6-8df2-64e46470bc3a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetPropertyDefinitions",
+                "SourceSection" : "DynamicThingTemplates_NCR.BaseDevice1",
+                "TargetArea" : "UI",
+                "TargetId" : "dhxlist-26",
+                "TargetSection" : ""
+              }, {
+                "Id" : "8d743882-1c13-4d6f-b8a9-72ce3ad58a7c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "assetName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "value",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Entity"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "EntityName",
+                "TargetSection" : "DynamicThingTemplates_NCR.BaseDevice1"
+              }, {
+                "Id" : "cce23617-1097-4a9d-8ccc-ed65dd626e24",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "name",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "propertyName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "SelectedRows",
+                "SourceId" : "GetPropertyDefinitions",
+                "SourceSection" : "DynamicThingTemplates_NCR.BaseDevice1",
+                "TargetArea" : "Data",
+                "TargetId" : "GetStringPropertyValue",
+                "TargetSection" : "DynamicThingTemplates_NCR.BaseDevice"
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "DynamicThingTemplates_NCR.BaseDevice",
+                "EventHandlerService" : "SetProperties",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "button-11",
+                "EventTriggerSection" : "",
+                "Id" : "c605c594-9062-4b26-a1c7-78d9a52d15dc"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "DynamicThingTemplates_NCR.BaseDevice",
+                "EventHandlerService" : "GetStringPropertyValue",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "SetProperties",
+                "EventTriggerSection" : "DynamicThingTemplates_NCR.BaseDevice",
+                "Id" : "35d249ba-aba9-48bf-83a1-fdf961a510a2"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "DynamicThingTemplates_NCR.BaseDevice1",
+                "EventHandlerService" : "GetPropertyDefinitions",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "531ac6dc-a7e8-40e3-a44d-dcd92c304612"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 500,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultMashupStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 600,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "assetName"
+                  } ],
+                  "id_index" : 26,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "ActiveStyle" : "NCR.DCS.DefaultButtonActiveStyle",
+                    "Area" : "UI",
+                    "CancelConfirmationButton" : "button2",
+                    "ConfirmationButton1Label" : "Yes",
+                    "ConfirmationButton2Label" : "No",
+                    "ConfirmationPrompt" : "Do Action?",
+                    "ConfirmationRequired" : false,
+                    "ConfirmationTitle" : "Confirm Action",
+                    "ContextId" : "",
+                    "DefaultConfirmationButton" : "button1",
+                    "Disabled" : false,
+                    "DisabledStyle" : "NCR.DCS.DefaultButtonDisabledStyle",
+                    "DisplayName" : "button-11",
+                    "FocusStyle" : "NCR.DCS.DefaultButtonFocusStyle",
+                    "Height" : 30,
+                    "HoverStyle" : "NCR.DCS.DefaultButtonHoverStyle",
+                    "IconAlignment" : "left",
+                    "Id" : "button-11",
+                    "Label" : "Execute",
+                    "Left" : 10,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : true,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.DefaultButtonStyle",
+                    "TabSequence" : 0,
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 275,
+                    "Type" : "button",
+                    "Visible" : true,
+                    "Width" : 75,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Button",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "textarea-12",
+                    "Height" : 155,
+                    "Id" : "textarea-12",
+                    "InnerShadow" : true,
+                    "Label" : "Result",
+                    "LabelAlignment" : "left",
+                    "Left" : 10,
+                    "ReadOnly" : true,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "DefaultTextAreaStyle",
+                    "TabSequence" : 0,
+                    "Text" : "",
+                    "TextareaFocusStyle" : "DefaultFocusStyle",
+                    "TextareaLabelStyle" : "DefaultWidgetLabelStyle",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 315,
+                    "Type" : "textarea",
+                    "Visible" : true,
+                    "Width" : 570,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "TextArea",
+                    "__supportsLabel" : true,
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "BackgroundFill" : "content",
+                    "DisplayName" : "valuedisplay-14",
+                    "Height" : 32,
+                    "Id" : "valuedisplay-14",
+                    "ImageScaling" : "Width",
+                    "Label" : "",
+                    "LabelAlignment" : "left",
+                    "Left" : 215,
+                    "Overflow" : "hidden",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "TextIfNoValue" : "",
+                    "TextIfNoValueOffset" : 0,
+                    "TextIfNoValueStyle" : "DefaultValueDisplayNoTextStyle",
+                    "TextWrap" : false,
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 15,
+                    "Type" : "valuedisplay",
+                    "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                    "ValueDisplayStyle" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : false,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "#161f28",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "xxl"
+                    },
+                    "ValueFormat" : {
+                      "renderer" : "DEFAULT"
+                    },
+                    "ValueFormat_StateParameters" : [ ],
+                    "VerticalAlignment" : "top",
+                    "Visible" : true,
+                    "Width" : 165,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Value Display",
+                    "__supportsLabel" : true,
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-17",
+                    "Height" : 22,
+                    "Id" : "label-17",
+                    "Left" : 10,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : false,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "2xl"
+                    },
+                    "Text" : "Get and Set for Asset:",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 15,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 200,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "fieldset-18",
+                    "FieldsetLabelStyle" : "NCR.DCS.DefaultFieldsetLabelStyle",
+                    "FieldsetStyle" : "DefaultFieldsetStyle",
+                    "Height" : 129,
+                    "Id" : "fieldset-18",
+                    "Left" : 10,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Title" : "Set Properties",
+                    "Top" : 60,
+                    "Type" : "fieldset",
+                    "Visible" : true,
+                    "Width" : 559,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Fieldset"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "AllowEllipsis" : false,
+                      "Area" : "UI",
+                      "DisplayName" : "label-19",
+                      "Height" : 22,
+                      "Id" : "label-19",
+                      "Left" : 20,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultLabelStyle",
+                      "Text" : "",
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 20,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 75,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label",
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "AllowEllipsis" : false,
+                      "Area" : "UI",
+                      "DisplayName" : "label-20",
+                      "Height" : 22,
+                      "Id" : "label-20",
+                      "Left" : 5,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultLabelStyle",
+                      "Text" : "Owner:",
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 25,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 75,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label",
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "AllowEllipsis" : false,
+                      "Area" : "UI",
+                      "DisplayName" : "label-21",
+                      "Height" : 22,
+                      "Id" : "label-21",
+                      "Left" : 5,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultLabelStyle",
+                      "Text" : "Owner Contact:",
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 72.33333333333333,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 95,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label",
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "CursorPosition" : 0,
+                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                      "DisplayName" : "textbox-22",
+                      "Height" : 24,
+                      "Id" : "textbox-22",
+                      "InnerShadow" : true,
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 5,
+                      "MaskInputCharacters" : false,
+                      "PlaceholderText" : "",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "Text" : "",
+                      "TextAlign" : "left",
+                      "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 47.666666666666664,
+                      "Type" : "textbox",
+                      "Visible" : true,
+                      "Width" : 200,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "TextBox",
+                      "__supportsLabel" : true,
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "CursorPosition" : 0,
+                      "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                      "DisplayName" : "textbox-23",
+                      "Height" : 24,
+                      "Id" : "textbox-23",
+                      "InnerShadow" : true,
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 5,
+                      "MaskInputCharacters" : false,
+                      "PlaceholderText" : "",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultTextBoxStyle",
+                      "TabSequence" : 0,
+                      "Text" : "",
+                      "TextAlign" : "left",
+                      "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 95,
+                      "Type" : "textbox",
+                      "Visible" : true,
+                      "Width" : 200,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "TextBox",
+                      "__supportsLabel" : true,
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "fieldset-24",
+                    "FieldsetLabelStyle" : "NCR.DCS.DefaultFieldsetLabelStyle",
+                    "FieldsetStyle" : "DefaultFieldsetStyle",
+                    "Height" : 69,
+                    "Id" : "fieldset-24",
+                    "Left" : 10,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Title" : "Get Properties",
+                    "Top" : 197.5,
+                    "Type" : "fieldset",
+                    "Visible" : true,
+                    "Width" : 554,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Fieldset"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "AllowEllipsis" : false,
+                      "Area" : "UI",
+                      "DisplayName" : "label-25",
+                      "Height" : 22,
+                      "Id" : "label-25",
+                      "Left" : 5,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultLabelStyle",
+                      "Text" : "Property:",
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 25,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 75,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label",
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "AutoSelectFirstRow" : false,
+                      "ClearIfNoSelection" : false,
+                      "ComboDropdownButtonStyle" : "DefaultComboDropdownButtonStyle",
+                      "ComboEnableCheckbox" : false,
+                      "ComboItemHighlightedStyle" : "DefaultComboItemHighlightedStyle",
+                      "ComboTextboxStyle" : "DefaultComboTextboxStyle",
+                      "DisableSelectedStyle" : false,
+                      "DisplayField" : "name",
+                      "DisplayName" : "dhxlist-26",
+                      "DropdownButtonStyle" : "DefaultDropdownButtonStyle",
+                      "DropdownSelectedStyle" : "DefaultDropdownSelectedStyle",
+                      "DropdownStyle" : "DefaultDropdownStyle",
+                      "EnableKeyboardSelections" : true,
+                      "Height" : 28,
+                      "HeightOfDropdownView" : 170,
+                      "Id" : "dhxlist-26",
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 70,
+                      "ListBackgroundStyle" : "DefaultListBackgroundStyle",
+                      "ListFocusStyle" : "DefaultFocusStyle",
+                      "ListItemAlternateStyle" : "DefaultListItemAlternateStyle",
+                      "ListItemHoverStyle" : "DefaultListItemHoverStyle",
+                      "ListItemSelectedStyle" : "DefaultListItemSelectedStyle",
+                      "ListItemStyle" : "DefaultListItemStyle",
+                      "ListLabelStyle" : "DefaultWidgetLabelStyle",
+                      "MultiSelect" : false,
+                      "NumberOfItemsInDropdownView" : 100,
+                      "ResponsiveLayout" : false,
+                      "RowHeight" : 28,
+                      "ShowDataLoading" : true,
+                      "TabSequence" : -1,
+                      "TextIfNoSelectionType" : "editable",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 30,
+                      "Type" : "dhxlist",
+                      "ValueField" : "name",
+                      "View" : "combo",
+                      "Visible" : true,
+                      "Width" : 110,
+                      "WidthOfDropdownView" : 110,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "List",
+                      "__supportsLabel" : true,
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

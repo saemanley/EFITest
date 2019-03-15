@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Subsystems>
+        <Subsystem
+         aspect.isCreatable="false"
+         aspect.isEditableSystemObject="true"
+         autoStart="true"
+         className="com.thingworx.system.subsystems.platform.PlatformSubsystem"
+         dependsOn=""
+         description="Overall platform monitoring and configuration"
+         documentationContent=""
+         enabled="true"
+         friendlyName="Platform Subsystem"
+         homeMashup="PlatformSubsystemHomeMashup"
+         lastModifiedDate="2018-10-24T18:59:48.111Z"
+         name="PlatformSubsystem"
+         projectName=""
+         tags="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 description="ThingWorx Metrics Reporting Services Configuration"
+                 isHidden="true"
+                 isMultiRow="false"
+                 name="MetricsReporting"
+                 ordinal="1">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.friendlyName="Application key used to authorize this instance"
+                             aspect.isReadOnly="true"
+                             baseType="STRING"
+                             description="Application key used to authorize this instance"
+                             name="applicationKey"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Customer name"
+                             aspect.isReadOnly="true"
+                             baseType="STRING"
+                             description="Customer name"
+                             name="customerName"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Unique Instance ID"
+                             aspect.isHidden="true"
+                             baseType="GUID"
+                             description="Unique Instance Identifier"
+                             name="instanceId"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="15.0"
+                             aspect.friendlyName="Metrics Enrollment Delay"
+                             aspect.isHidden="true"
+                             baseType="NUMBER"
+                             description="Delay period (minutes) between metrics enrollment attempts."
+                             name="metricsEnrollmentDelayMinutes"
+                             ordinal="9"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="24.0"
+                             aspect.friendlyName="Metrics Reporting Period"
+                             aspect.isHidden="true"
+                             baseType="NUMBER"
+                             description="Period (hours) between metrics reporting."
+                             name="metricsReportingPeriodHours"
+                             ordinal="8"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="false"
+                             aspect.friendlyName="Opt in to metrics reporting"
+                             baseType="BOOLEAN"
+                             description="Opt in to metrics reporting"
+                             name="optIn"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Remote Instance Binding Identifier"
+                             aspect.isHidden="true"
+                             baseType="STRING"
+                             description="Remote Instance Binding Identifer"
+                             name="remoteBindId"
+                             ordinal="6"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Metrics Reporting Server"
+                             aspect.isHidden="true"
+                             baseType="HYPERLINK"
+                             description="Metrics server URL"
+                             name="remoteUrl"
+                             ordinal="7"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Customer Number"
+                             aspect.isReadyOnly="true"
+                             baseType="INTEGER"
+                             description="Customer number"
+                             name="scn"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Customer Number"
+                             aspect.isReadyOnly="true"
+                             baseType="STRING"
+                             description="Trial edition customer number"
+                             name="trialScn"
+                             ordinal="2"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <applicationKey>
+                            <![CDATA[
+                            671c9f0a-c499-4c88-8d3a-a48b94c3f5c6
+                            ]]>
+                            </applicationKey>
+                            <customerName>
+                            <![CDATA[
+                            PTC
+                            ]]>
+                            </customerName>
+                            <instanceId>
+                            <![CDATA[
+                            00082bcd-ac85-42ed-bc13-7f4ac1758443
+                            ]]>
+                            </instanceId>
+                            <metricsEnrollmentDelayMinutes>15.0</metricsEnrollmentDelayMinutes>
+                            <metricsReportingPeriodHours>24.0</metricsReportingPeriodHours>
+                            <optIn>true</optIn>
+                            <remoteBindId>
+                            <![CDATA[
+                            SPARX_341_THINGWORX_RemoteThing_00082bcd-ac85-42ed-bc13-7f4ac1758443
+                            ]]>
+                            </remoteBindId>
+                            <remoteUrl>
+                            <![CDATA[
+                            wss://parec.ptc.com:8443/Thingworx/WS
+                            ]]>
+                            </remoteUrl>
+                            <scn>341</scn>
+                            <trialScn></trialScn>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="Platform Subsystem Settings"
+                 isMultiRow="false"
+                 name="PlatformInformation"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="false"
+                             aspect.friendlyName="Allow Applicaiton key as URL Parameter"
+                             baseType="BOOLEAN"
+                             description="Allow Application Key as URL Parameter (false is not allowed)"
+                             name="allowAppKeyAsURLParam"
+                             ordinal="11"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="false"
+                             aspect.friendlyName="Allow method switching"
+                             baseType="BOOLEAN"
+                             description="Allow method switching with request parameters (true is insecure)."
+                             name="allowMethodSwitch"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Data Connect application Id"
+                             baseType="STRING"
+                             description="Data Connect application Id."
+                             name="dataConnectApplicationId"
+                             ordinal="8"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Data Connect application key"
+                             baseType="PASSWORD"
+                             description="Data Connect application key."
+                             name="dataConnectApplicationKey"
+                             ordinal="9"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Data Connect URL path"
+                             baseType="STRING"
+                             description="Data Connect URL path."
+                             name="dataConnectUrl"
+                             ordinal="7"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="ThingworxPersistenceProvider"
+                             aspect.friendlyName="Data Persistence Provider"
+                             baseType="PERSISTENCEPROVIDERNAME"
+                             description="The Persistence Provider that contains the active data provider."
+                             name="dataPersistenceProvider"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="true"
+                             aspect.friendlyName="Enable Documentation Help Center"
+                             baseType="BOOLEAN"
+                             description="Enable support for the Documentation Help Center"
+                             name="documentationEnabled"
+                             ordinal="10"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="true"
+                             aspect.friendlyName="Filter content type"
+                             baseType="BOOLEAN"
+                             description="Filter content type on requests (false is insecure)"
+                             name="filterContentType"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Required string to connect with Google for Google widgets"
+                             baseType="STRING"
+                             description="Required string to connect with Google for Google widgets"
+                             name="googleMapsConnectionString"
+                             ordinal="12"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="true"
+                             aspect.friendlyName="Enable Learning Connector"
+                             baseType="BOOLEAN"
+                             description="Enable support for the Learning Connector"
+                             name="learningConnectorEnabled"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="https://precisionlms.ptc.com/ulc/ulc.html"
+                             aspect.friendlyName="Learning Connector location"
+                             baseType="HYPERLINK"
+                             description="The location of the Universal Learning Connector"
+                             name="learningConnectorSystem"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="ThingworxPersistenceProvider"
+                             aspect.friendlyName="Property Persistence Provider"
+                             baseType="PERSISTENCEPROVIDERNAME"
+                             description="The Persistence Provider that contains the active property provider."
+                             name="propertyPersistenceProvider"
+                             ordinal="6"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <allowAppKeyAsURLParam>false</allowAppKeyAsURLParam>
+                            <allowMethodSwitch>false</allowMethodSwitch>
+                            <dataConnectApplicationId></dataConnectApplicationId>
+                            <dataConnectApplicationKey></dataConnectApplicationKey>
+                            <dataConnectUrl></dataConnectUrl>
+                            <dataPersistenceProvider>
+                            <![CDATA[
+                            ThingworxPersistenceProvider
+                            ]]>
+                            </dataPersistenceProvider>
+                            <documentationEnabled>true</documentationEnabled>
+                            <filterContentType>true</filterContentType>
+                            <googleMapsConnectionString></googleMapsConnectionString>
+                            <learningConnectorEnabled>true</learningConnectorEnabled>
+                            <learningConnectorSystem>
+                            <![CDATA[
+                            https://precisionlms.ptc.com/ulc/ulc.html
+                            ]]>
+                            </learningConnectorSystem>
+                            <propertyPersistenceProvider>
+                            <![CDATA[
+                            ThingworxPersistenceProvider
+                            ]]>
+                            </propertyPersistenceProvider>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+        </Subsystem>
+    </Subsystems>
+</Entities>

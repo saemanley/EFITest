@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description="TW.RSM.SFW.Mashup.UploadContentFile"
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-10-24T21:00:18.638Z"
+         name="TW.RSM.SFW.Mashup.UploadContentFile"
+         projectName=""
+         rows="0.0"
+         tags="Applications:RSM;Applications:SCM;TWUTL:RemoteServices">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="1"
+                 baseType="STRING"
+                 description="Initial path on repository"
+                 name="initialFilePath"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="STRING"
+                 description="DEPRECATED. Name of the selected package zip file"
+                 name="packageFileName"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things>
+                <Thing>TW.RSM.Thing.FileRepository</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_TW_RSM_Thing_FileRepository" : {
+                  "DataName" : "Things_TW_RSM_Thing_FileRepository",
+                  "EntityName" : "TW.RSM.Thing.FileRepository",
+                  "EntityType" : "Things",
+                  "Id" : "2ba926df-d5bb-490a-ba43-f4698f5ff336",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "dadc7ae6-b56c-4151-bf2f-8e056e0b5e03",
+                    "Name" : "AppendTimeStamp",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "AppendTimeStamp"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "5b8a945e-2729-4fc4-8792-ed8a5da77175",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "packageFileName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "AppendTimeStamp",
+                "SourceSection" : "Things_TW_RSM_Thing_FileRepository",
+                "TargetArea" : "Mashup",
+                "TargetId" : "mashup-root",
+                "TargetSection" : ""
+              }, {
+                "Id" : "daa03baa-b50c-4fac-a2ee-5a0d6e429933",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "FullPath",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "FullPath",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUpload-17",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-31",
+                "TargetSection" : ""
+              }, {
+                "Id" : "0b8b6ee7-bb54-4268-b950-0d7bd14a45ca",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "FileName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "FileName",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "FileUpload-17",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-31",
+                "TargetSection" : ""
+              }, {
+                "Id" : "665746a2-9e5d-4325-88c2-0184755dffbf",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "fileToAppend",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-31",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "AppendTimeStamp",
+                "TargetSection" : "Things_TW_RSM_Thing_FileRepository"
+              }, {
+                "Id" : "2f1317f5-0373-452f-9a50-5537d345b0be",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "initialFilePath",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "InitialPath",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-32",
+                "TargetSection" : ""
+              }, {
+                "Id" : "4c51382a-99eb-4a68-9f46-a9e93c5e58ee",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Path",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-32",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "FileUpload-17",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "ResetInputsToDefaultValue",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "UploadFailed",
+                "EventTriggerId" : "FileUpload-17",
+                "EventTriggerSection" : "",
+                "Id" : "68a3e0d5-5df5-49a6-b195-8a6aa718886f"
+              }, {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "AppendTimeStamp",
+                "EventTriggerSection" : "Things_TW_RSM_Thing_FileRepository",
+                "Id" : "58360bd9-5d7d-47ad-98ac-7175bc92f32c"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "expression-31",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "UploadComplete",
+                "EventTriggerId" : "FileUpload-17",
+                "EventTriggerSection" : "",
+                "Id" : "f0422c24-7197-4c38-ba4a-de836cf6ee27"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_Thing_FileRepository",
+                "EventHandlerService" : "AppendTimeStamp",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Changed",
+                "EventTriggerId" : "expression-31",
+                "EventTriggerSection" : "",
+                "Id" : "c1660f70-f7fd-4e66-9bf4-600f887affa4"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "expression-32",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "0c6ce0bb-9b62-4b58-90f9-40bc371854f6"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "Description" : "",
+                  "DisplayName" : "AddPackageFileMashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 180,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultMashupStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 330,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "STRING",
+                    "DefaultValue" : "noFileNameSet",
+                    "Description" : "DEPRECATED. Name of the selected package zip file",
+                    "ParameterName" : "packageFileName"
+                  }, {
+                    "BaseType" : "STRING",
+                    "Description" : "Initial path on repository",
+                    "ParameterName" : "initialFilePath"
+                  } ],
+                  "id_index" : 32,
+                  "packageFileName" : "noFileNameSet",
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "DisplayName" : "Label-16",
+                    "Height" : 22,
+                    "Id" : "Label-16",
+                    "Left" : 15,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.Style.Label",
+                    "Text" : "[[TW.RSM.SFW.Select file:]]",
+                    "ToolTipField" : "",
+                    "Top" : 10,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 290,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "FileUpload-17",
+                    "DisplayPathTextBox" : true,
+                    "DisplayRepositorySelector" : false,
+                    "FileName" : "",
+                    "FocusStyle" : "DefaultButtonFocusStyle",
+                    "FullPath" : "",
+                    "Height" : 95,
+                    "Id" : "FileUpload-17",
+                    "Left" : 11,
+                    "Path" : "/",
+                    "RepositoryName" : "TW.RSM.Thing.FileRepository",
+                    "RepositoryStyle" : "TW.RSM.SFW.Style.RepositoryStyle",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.SFW.Style.FileUploadStyle",
+                    "TabSequence" : 0,
+                    "Top" : 45,
+                    "Type" : "fileupload",
+                    "Visible" : true,
+                    "Width" : 302,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "File Upload"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : false,
+                    "DataChangeType" : "VALUE",
+                    "DisplayName" : "AppendExp",
+                    "Expression" : "FullPath || FileName",
+                    "FireOnFirstValue" : true,
+                    "Height" : 23,
+                    "Id" : "expression-31",
+                    "Left" : 165,
+                    "OutputBaseType" : "STRING",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : false,
+                    "Top" : 145,
+                    "Type" : "expression",
+                    "Visible" : true,
+                    "Width" : 160,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "FullPath"
+                    }, {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "FileName"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : false,
+                    "DataChangeType" : "VALUE",
+                    "DisplayName" : "InitPathExp",
+                    "Expression" : "InitialPath || \"/\"",
+                    "FireOnFirstValue" : true,
+                    "Height" : 18,
+                    "Id" : "expression-32",
+                    "Left" : 10,
+                    "OutputBaseType" : "STRING",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : false,
+                    "Top" : 145,
+                    "Type" : "expression",
+                    "Visible" : true,
+                    "Width" : 145,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "InitialPath"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

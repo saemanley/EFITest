@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <ThingTemplates>
+        <ThingTemplate
+         aspect.isExtension="true"
+         baseThingTemplate="TW.RSM.Template.AssetWithTunnelsAndFileTransfer"
+         description=""
+         documentationContent="&lt;p&gt;&lt;br&gt;&lt;/p&gt; "
+         effectiveThingPackage="TW.UTL.RemoteThingWithTunnelsAndFileTransferPackage"
+         homeMashup=""
+         lastModifiedDate="2018-10-24T21:00:08.473Z"
+         name="TW.RSM.Template.RemoteAsset"
+         projectName=""
+         tags="Applications:RSM;Applications:RAC;Applications:FileTransfer"
+         thingPackage=""
+         valueStream="TW.RSM.RemoteServiceStream">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="TW.RSM.RemoteAssets:TW.RSM.RemoteAssets"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 description="Tunneling Destinations"
+                 isMultiRow="true"
+                 name="Tunnels"
+                 ordinal="1">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue=""
+                             aspect.friendlyName="Application Path"
+                             baseType="STRING"
+                             description="Location of the client app that will use this tunnel"
+                             name="appUri"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue=""
+                             aspect.friendlyName="Description"
+                             baseType="STRING"
+                             description="A description of the tunnel"
+                             name="description"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="127.0.0.1"
+                             aspect.friendlyName="Host"
+                             baseType="STRING"
+                             description="Host or IP that this tunnel will connect to at the edge"
+                             name="host"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="vnc"
+                             aspect.friendlyName="Name"
+                             baseType="STRING"
+                             description="Name of the tunnel"
+                             name="name"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="1.0"
+                             aspect.friendlyName="Number of Connects"
+                             baseType="NUMBER"
+                             description="The number of connections required to establish this tunnel"
+                             name="numConnects"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="5900.0"
+                             aspect.friendlyName="Port"
+                             baseType="NUMBER"
+                             description="Port that this tunnel will connect to at the edge"
+                             name="port"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="tcp"
+                             aspect.friendlyName="Protocol"
+                             baseType="STRING"
+                             description="The protocol used over this tunnel"
+                             name="proto"
+                             ordinal="6"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="General Settings"
+                 isMultiRow="false"
+                 name="TunnelSettings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.friendlyName="Enable Tunneling"
+                             aspect.isNullable="true"
+                             baseType="BOOLEAN"
+                             description="Enable tunneling"
+                             name="enableTunneling"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row></Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="Transfers a file from the asset to the platform file repository."
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="TransferFromClient">
+                        <ResultType
+                         aspect.dataShape="FileTransferJob"
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="FileSystemFile"
+                             aspect.isRequired="true"
+                             baseType="INFOTABLE"
+                             description="List of files to transfer"
+                             name="sourceFiles"
+                             ordinal="6"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="/"
+                             baseType="STRING"
+                             description="The path in the selected platform repository where the file to be transferred is located."
+                             name="sourcePath"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="sourceRepo"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="/"
+                             aspect.isRequired="false"
+                             baseType="STRING"
+                             description="Target directory on the asset."
+                             name="targetPath"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="SystemRepository"
+                             baseType="STRING"
+                             description="The name of the repository on the platform where the file to be transferred is located."
+                             name="targetRepo"
+                             ordinal="3"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="Transfers a file from the platform file repository to the asset."
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="TransferToClient">
+                        <ResultType
+                         aspect.dataShape="FileTransferJob"
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="Name of the file to be uploaded to the asset."
+                             name="sourceFile"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.dataShape="FileSystemFile"
+                             aspect.isRequired="true"
+                             baseType="INFOTABLE"
+                             description="Table of files for transfer."
+                             name="sourceFiles"
+                             ordinal="6"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="/"
+                             baseType="STRING"
+                             description="Path in the selected repository on the platform where the file to be uploaded is located."
+                             name="sourcePath"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="/"
+                             baseType="STRING"
+                             description="Name of the repository on the platform where the file to be uploaded is located."
+                             name="sourceRepo"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="/"
+                             baseType="STRING"
+                             description="Path on asset where the file will be uploaded."
+                             name="targetPath"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="/"
+                             baseType="STRING"
+                             description=""
+                             name="targetRepo"
+                             ordinal="5"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                </ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="TransferFromClient">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var tableLength = sourceFiles.rows.length;
+                                        var result = "Transfer Initiated";
+                                        
+                                        for (var x = 0; x < tableLength; x++) {
+                                            var row = sourceFiles.rows[x];
+                                        
+                                            var params = {
+                                                targetPath: targetPath,
+                                                sourceFile: row.name,
+                                                targetRepo: targetRepo,
+                                                sourcePath: sourcePath,
+                                                sourceRepo: sourceRepo,
+                                                async: true
+                                            };
+                                        
+                                            var copyResponse = Subsystems["FileTransferSubsystem"].Copy(params);
+                                            if(copyResponse.message.indexOf("error") > -1) {
+                                                result = "An error occurred during transfer";
+                                            }
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="TransferToClient">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var tableLength = sourceFiles.rows.length;
+                                        var result = "Transfer Initiated";
+                                        
+                                        for (var x = 0; x < tableLength; x++) {
+                                            var row = sourceFiles.rows[x];
+                                        
+                                            var params = {
+                                                targetPath: targetPath,
+                                                sourceFile: row.name,
+                                                targetRepo: targetRepo,
+                                                sourcePath: sourcePath,
+                                                sourceRepo: sourceRepo,
+                                                async: true
+                                            };
+                                        
+                                            var copyResponse = Subsystems["FileTransferSubsystem"].Copy(params);
+                                            if(copyResponse.message.indexOf("error") > -1) {
+                                                result = "An error occurred during transfer";
+                                            }
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <ImplementedShapes></ImplementedShapes>
+            <SharedConfigurationTables>
+                <ConfigurationTable
+                 description="Shared Tunneling Destinations"
+                 isMultiRow="true"
+                 name="SharedTunnels"
+                 ordinal="1">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.friendlyName="Application Path"
+                             baseType="STRING"
+                             description="Location of the client app that will use this tunnel"
+                             name="appUri"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Description"
+                             baseType="STRING"
+                             description="A description of the tunnel"
+                             name="description"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Host"
+                             baseType="STRING"
+                             description="Host or IP that this tunnel will connect to at the edge"
+                             name="host"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Name"
+                             baseType="STRING"
+                             description="Name of the tunnel"
+                             name="name"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Number of Connects"
+                             baseType="NUMBER"
+                             description="The number of connections required to establish this tunnel"
+                             name="numConnects"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Port"
+                             baseType="NUMBER"
+                             description="Port that this tunnel will connect to at the edge"
+                             name="port"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Protocol"
+                             baseType="STRING"
+                             description="The protocol used over this tunnel"
+                             name="proto"
+                             ordinal="6"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="Shared Remote Tunneling Settings"
+                 isMultiRow="false"
+                 name="SharedTunnelSettings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="false"
+                             aspect.friendlyName="Enable Tunneling"
+                             baseType="BOOLEAN"
+                             description="Enable tunneling"
+                             name="enableTunneling"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <enableTunneling>true</enableTunneling>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </SharedConfigurationTables>
+            <InstanceDesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </InstanceDesignTimePermissions>
+            <InstanceRunTimePermissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="true"
+                         name="TW.RSM.RemoteAssets"
+                         type="Group"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="TW.RSM.RemoteAssets"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+            </InstanceRunTimePermissions>
+            <InstanceVisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="TW.RSM.RemoteAssets:TW.RSM.RemoteAssets"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </InstanceVisibilityPermissions>
+        </ThingTemplate>
+    </ThingTemplates>
+</Entities>

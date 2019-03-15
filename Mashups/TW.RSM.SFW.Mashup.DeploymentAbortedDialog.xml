@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-10-24T21:00:18.506Z"
+         name="TW.RSM.SFW.Mashup.DeploymentAbortedDialog"
+         projectName=""
+         rows="0.0"
+         tags="Applications:RSM;Applications:SCM;TWUTL:RemoteServices">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="NUMBER"
+                 description=""
+                 name="targetsAborted"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="1"
+                 baseType="NUMBER"
+                 description=""
+                 name="targetsDownloading"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="3"
+                 baseType="NUMBER"
+                 description=""
+                 name="targetsFailed"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="2"
+                 baseType="NUMBER"
+                 description=""
+                 name="targetsInstalling"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things></Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "03e41743-6cab-43af-9678-02593453173b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "targetsAborted",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-18",
+                "TargetSection" : ""
+              }, {
+                "Id" : "b5d4dd3b-5f43-4750-8aea-b525f7d79fad",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "targetsDownloading",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-20",
+                "TargetSection" : ""
+              }, {
+                "Id" : "9fdfa0d1-ee69-4286-95f2-ce462b3620c7",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "targetsFailed",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-24",
+                "TargetSection" : ""
+              }, {
+                "Id" : "3e057bc7-173d-489e-866b-7a52c809b8a4",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "targetsFailed",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "failedTargets",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-26",
+                "TargetSection" : ""
+              }, {
+                "Id" : "646dd396-9af6-4628-820d-a46fea5adee2",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "targetsInstalling",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "installingTargets",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-26",
+                "TargetSection" : ""
+              }, {
+                "Id" : "2cabff9b-cce2-447e-9236-bd6c1c041a4c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-26",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-23",
+                "TargetSection" : ""
+              }, {
+                "Id" : "cf1fad01-8cf5-41b7-af74-1ffd63c740cf",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-26",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-24",
+                "TargetSection" : ""
+              }, {
+                "Id" : "e5820afe-cc24-4ac4-855b-bc9061e3e989",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-27",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-21",
+                "TargetSection" : ""
+              }, {
+                "Id" : "c931fbdc-70b8-4513-a29e-2375a53f2e23",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-27",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-20",
+                "TargetSection" : ""
+              }, {
+                "Id" : "9316a1dc-b0b0-4701-b492-6c13a67e4774",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "targetsDownloading",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "downloadingTargets",
+                  "TargetPropertyBaseType" : "NUMBER",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-27",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "Button-17",
+                "EventTriggerSection" : "",
+                "Id" : "99a7a6a4-b548-4bfb-b16d-0122c1fd7241"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Expression-26",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "172c0126-2ef1-4c66-92b5-6bebcce5270e"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Expression-27",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "979c636b-b5ba-4ecf-9fc0-a03598274948"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "Height" : 225,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultMashupStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 450,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "NUMBER",
+                    "Description" : "",
+                    "ParameterName" : "targetsAborted"
+                  }, {
+                    "BaseType" : "NUMBER",
+                    "Description" : "",
+                    "ParameterName" : "targetsDownloading"
+                  }, {
+                    "BaseType" : "NUMBER",
+                    "Description" : "",
+                    "ParameterName" : "targetsInstalling"
+                  }, {
+                    "BaseType" : "NUMBER",
+                    "Description" : "",
+                    "ParameterName" : "targetsFailed"
+                  } ],
+                  "id_index" : 27,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "Panel-6",
+                    "Height" : 40,
+                    "HorizontalAnchor" : "left",
+                    "Id" : "Panel-6",
+                    "Left" : 0,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "PTC.Core.Accent2DialogHeaderStyle",
+                    "Top" : 0,
+                    "Type" : "panel",
+                    "VerticalAnchor" : "top",
+                    "Visible" : true,
+                    "Width" : 450,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Panel"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "PopupTitle",
+                      "Height" : 22,
+                      "Id" : "Label-7",
+                      "Left" : 20,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : {
+                        "backgroundColor" : "",
+                        "displayString" : "",
+                        "fontEmphasisBold" : false,
+                        "fontEmphasisItalic" : false,
+                        "fontEmphasisUnderline" : false,
+                        "foregroundColor" : "#ffffff",
+                        "image" : "",
+                        "lineColor" : "",
+                        "lineStyle" : "solid",
+                        "lineThickness" : 1,
+                        "secondaryBackgroundColor" : "",
+                        "textSize" : "20px"
+                      },
+                      "Text" : "[[TW.RSM.SFW.Abort Deployment Results]]",
+                      "ToolTipField" : "",
+                      "Top" : 9,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 415,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                }, {
+                  "Properties" : {
+                    "ActiveStyle" : "PTC.Core.ButtonActiveStyle",
+                    "Area" : "UI",
+                    "CancelConfirmationButton" : "button2",
+                    "ConfirmationButton1Label" : "[[TW.RSM.SFW.Yes]]",
+                    "ConfirmationButton2Label" : "[[TW.RSM.SFW.No]]",
+                    "ConfirmationPrompt" : "[[TW.RSM.SFW.Do Action?]]",
+                    "ConfirmationRequired" : false,
+                    "ConfirmationTitle" : "[[TW.RSM.SFW.Confirm Action]]",
+                    "ContextId" : "",
+                    "DefaultConfirmationButton" : "button1",
+                    "Description" : "",
+                    "Disabled" : false,
+                    "DisabledStyle" : "TW.RSM.Style.ButtonDisabled",
+                    "DisplayName" : "Button-17",
+                    "FocusStyle" : "PTC.Core.ButtonFocusStyle",
+                    "Height" : 30,
+                    "HoverStyle" : "PTC.Core.Accent2ButtonHoverStyle",
+                    "IconAlignment" : "left",
+                    "Id" : "Button-17",
+                    "Label" : "[[TW.RSM.SFW.OK]]",
+                    "Left" : 180,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "PTC.Core.Accent2ButtonStyle",
+                    "TabSequence" : 0,
+                    "ToolTipField" : "",
+                    "Top" : 175,
+                    "Type" : "button",
+                    "Visible" : true,
+                    "Width" : 90,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Button"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "right",
+                    "Area" : "UI",
+                    "DisplayName" : "Label-18",
+                    "Height" : 22,
+                    "Id" : "Label-18",
+                    "Left" : 20,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.GenericAlert-green",
+                    "ToolTipField" : "",
+                    "Top" : 60,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 65,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "DisplayName" : "Label-19",
+                    "Height" : 22,
+                    "Id" : "Label-19",
+                    "Left" : 90,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.Style.Label",
+                    "Text" : "[[TW.RSM.SFW.Targets Aborted]]",
+                    "ToolTipField" : "",
+                    "Top" : 60,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 345,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "right",
+                    "Area" : "UI",
+                    "DisplayName" : "Label-20",
+                    "Height" : 22,
+                    "Id" : "Label-20",
+                    "Left" : 20,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.GenericAlert-yellow",
+                    "ToolTipField" : "",
+                    "Top" : 95,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 65,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "DisplayName" : "Label-21",
+                    "Height" : 22,
+                    "Id" : "Label-21",
+                    "Left" : 90,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.Style.Label",
+                    "Text" : "[[TW.RSM.SFW.Targets waiting to be aborted are still downloading]]",
+                    "ToolTipField" : "",
+                    "Top" : 95,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 340,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "DisplayName" : "Label-23",
+                    "Height" : 22,
+                    "Id" : "Label-23",
+                    "Left" : 90,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.Style.Label",
+                    "Text" : "[[TW.RSM.SFW.Targets not aborted due to failure or active install]]",
+                    "ToolTipField" : "",
+                    "Top" : 135,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 345,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "right",
+                    "Area" : "UI",
+                    "DisplayName" : "Label-24",
+                    "Height" : 22,
+                    "Id" : "Label-24",
+                    "Left" : 20,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.GenericAlert-red",
+                    "ToolTipField" : "",
+                    "Top" : 135,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 65,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : true,
+                    "DataChangeType" : "VALUE",
+                    "DisplayName" : "Expression-26",
+                    "Expression" : "(failedTargets + installingTargets > 0)",
+                    "FireOnFirstValue" : false,
+                    "Height" : 18,
+                    "Id" : "Expression-26",
+                    "Left" : 115,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 40,
+                    "Type" : "expression",
+                    "Visible" : false,
+                    "Width" : 170,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "NUMBER",
+                      "Description" : "",
+                      "ParameterName" : "failedTargets"
+                    }, {
+                      "BaseType" : "NUMBER",
+                      "Description" : "",
+                      "ParameterName" : "installingTargets"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : false,
+                    "DataChangeType" : "VALUE",
+                    "DisplayName" : "Expression-27",
+                    "Expression" : "downloadingTargets > 0",
+                    "FireOnFirstValue" : false,
+                    "Height" : 18,
+                    "Id" : "Expression-27",
+                    "Left" : 120,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 55,
+                    "Type" : "expression",
+                    "Visible" : true,
+                    "Width" : 170,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "NUMBER",
+                      "Description" : "",
+                      "ParameterName" : "downloadingTargets"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

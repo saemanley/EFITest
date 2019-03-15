@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Things>
+        <Thing
+         description=""
+         documentationContent=""
+         effectiveThingPackage="FileRepositoryThing"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         lastModifiedDate="2018-11-06T02:37:24.657Z"
+         name="NCR.DCS.FileRepo"
+         projectName="DCS. Project.Main"
+         published="false"
+         tags="Applications:DCS"
+         thingTemplate="FileRepository"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.ICPSpecialistL2Group"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.ReleaseManagementGroup"
+                         type="Group"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.ICPSpecialistL2Group"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.ReleaseManagementGroup"
+                         type="Group"></Principal>
+                    </PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.ICPSpecialistL2Group"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.ReleaseManagementGroup"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.ICPSpecialistL2Group"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.ReleaseManagementGroup"
+                         type="Group"></Principal>
+                    </EventInvoke>
+                    <EventSubscribe>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.ICPSpecialistL2Group"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.ReleaseManagementGroup"
+                         type="Group"></Principal>
+                    </EventSubscribe>
+                </Permissions>
+            </RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:ReleaseManagement"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:TCS"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetFileListingWithLinksForAsset">
+                        <ResultType
+                         aspect.dataShape="NCR.DCS.FileRepoGetFileListDS"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="path"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                </ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetFileListingWithLinksForAsset">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var enablescriptdebug = false;
+                                        
+                                        if (enablescriptdebug) {
+                                        	logger.debug("NCRDCSMASHUP::NCR.DCS.FileRepo:GetFileListingWithLinksForAsset:"
+                                        		+ "path:" + path);
+                                        }
+                                        
+                                        var params = {
+                                        	path: path /* STRING */,
+                                        	nameMask: undefined /* STRING */
+                                        };
+                                        
+                                        var values = undefined;
+                                        
+                                        try {
+                                        	// result: INFOTABLE dataShape: "FileSystemFileWithLinks"
+                                        	values = me.GetFileListingWithLinks(params);
+                                        } catch(e) {
+                                        	if (enablescriptdebug) {
+                                        		logger.debug("NCRDCSMASHUP::NCR.DCS.FileRepo:GetFileListingWithLinksForAsset:ERROR:"
+                                        			+ e.toString());
+                                        	}
+                                        }
+                                        
+                                        var paramsIT = {
+                                        	infoTableName : "InfoTable",
+                                        	dataShapeName : "NCR.DCS.FileRepoGetFileListDS"
+                                        };
+                                        
+                                        // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(NCR.DCS.FileRepoGetFileListDS)
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(paramsIT);
+                                        
+                                        if (values != undefined) {
+                                            result = values;
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ImplementedShapes></ImplementedShapes>
+            <ThingProperties></ThingProperties>
+        </Thing>
+    </Things>
+</Entities>

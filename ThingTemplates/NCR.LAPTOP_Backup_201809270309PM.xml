@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <ThingTemplates>
+        <ThingTemplate
+         baseThingTemplate="NCR.BaseDevice"
+         description="Template for Laptop devices"
+         documentationContent=""
+         effectiveThingPackage="TW.UTL.RemoteThingWithTunnelsAndFileTransferPackage"
+         homeMashup=""
+         lastModifiedDate="2018-11-06T02:37:23.483Z"
+         name="NCR.LAPTOP_Backup_201809270309PM"
+         projectName="DCS. Project.Main"
+         tags="Applications:NCR;Applications:DCS;DCS:Mashup"
+         thingPackage=""
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                    </PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                    </EventInvoke>
+                    <EventSubscribe>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                    </EventSubscribe>
+                </Permissions>
+            </RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:EMS"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 description="Tunneling Destinations"
+                 isMultiRow="true"
+                 name="Tunnels"
+                 ordinal="1">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue=""
+                             aspect.friendlyName="Application Path"
+                             baseType="STRING"
+                             description="Location of the client app that will use this tunnel"
+                             name="appUri"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue=""
+                             aspect.friendlyName="Description"
+                             baseType="STRING"
+                             description="A description of the tunnel"
+                             name="description"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="127.0.0.1"
+                             aspect.friendlyName="Host"
+                             baseType="STRING"
+                             description="Host or IP that this tunnel will connect to at the edge"
+                             name="host"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="vnc"
+                             aspect.friendlyName="Name"
+                             baseType="STRING"
+                             description="Name of the tunnel"
+                             name="name"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="1.0"
+                             aspect.friendlyName="Number of Connects"
+                             baseType="NUMBER"
+                             description="The number of connections required to establish this tunnel"
+                             name="numConnects"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="5900.0"
+                             aspect.friendlyName="Port"
+                             baseType="NUMBER"
+                             description="Port that this tunnel will connect to at the edge"
+                             name="port"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="tcp"
+                             aspect.friendlyName="Protocol"
+                             baseType="STRING"
+                             description="The protocol used over this tunnel"
+                             name="proto"
+                             ordinal="6"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="General Settings"
+                 isMultiRow="false"
+                 name="TunnelSettings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.friendlyName="Enable Tunneling"
+                             aspect.isNullable="true"
+                             baseType="BOOLEAN"
+                             description="Enable tunneling"
+                             name="enableTunneling"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row></Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions></ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations></ServiceImplementations>
+                <Subscriptions>
+                    <Subscription
+                     enabled="false"
+                     eventName="DataChange"
+                     source=""
+                     sourceProperty="CS_ALL"
+                     sourceType="Thing">
+                        <ServiceImplementation
+                         description=""
+                         handlerName="Script"
+                         name="Event.DataChange:Property.CS_ALL">
+                            <ConfigurationTables>
+                                <ConfigurationTable
+                                 description=""
+                                 isMultiRow="false"
+                                 name="Script"
+                                 ordinal="0">
+                                    <DataShape>
+                                        <FieldDefinitions>
+                                            <FieldDefinition
+                                             baseType="STRING"
+                                             description="code"
+                                             name="code"
+                                             ordinal="0"></FieldDefinition>
+                                        </FieldDefinitions>
+                                    </DataShape>
+                                    <Rows>
+                                        <Row>
+                                            <code>
+                                            <![CDATA[
+                                            var enablescriptdebug = false;
+                                            
+                                            //DEBUG 
+                                            if (enablescriptdebug) {
+                                                logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:CS_ALL:newValue:time:" + eventData.newValue.time + ":oldValue:time:" + eventData.oldValue.time);
+                                            }
+                                            
+                                            var oJnewValue = eventData.newValue.value;
+                                            var oJoldValue = eventData.oldValue.value;
+                                            
+                                            var sourceOfDataChange = source;
+                                            var timeStampDataChange = eventData.newValue.time;
+                                            var eventNameDataChange = eventName;
+                                            var eventTimeDataChange = eventTime;
+                                            var sourcePropOfDataChange = sourceProperty;
+                                            
+                                            //DEBUG 
+                                            if (enablescriptdebug) {
+                                                logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:CS_ALL:oJnewValue:" + oJnewValue);
+                                                logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:CS_ALL:oJoldValue:" + oJoldValue);
+                                                // logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:CS_ALL:eventData.newValue.quality:" + eventData.newValue.quality);
+                                                //logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:CS_ALL:sourceOfDataChange:" + sourceOfDataChange);
+                                                //logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:CS_ALL:timeStampDataChange:" + timeStampDataChange);
+                                                //logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:CS_ALL:eventNameDataChange:" + eventNameDataChange);
+                                                //logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:CS_ALL:eventTimeDataChange:" + eventTimeDataChange);
+                                                //logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:CS_ALL:sourcePropOfDataChange:" + sourcePropOfDataChange);
+                                            }
+                                            
+                                            if (oJnewValue != "") {
+                                                try {
+                                            
+                                                    if (oJoldValue == "") {
+                                                        oJoldValue = '[{"DNSHostName": ""}]';
+                                                    }
+                                                    if (enablescriptdebug) {
+                                                        logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:CS_ALL:oJoldValue:" + oJoldValue);
+                                                    }
+                                            
+                                                    // Create JSON object from String
+                                                    var objJSONnewValue = JSON.parse(oJnewValue);
+                                                    var objJSONoldValue = JSON.parse(oJoldValue);
+                                            
+                                                    // SerialNumber
+                                                    var DNSHostNameNV = objJSONnewValue[0].DNSHostName;
+                                                    var DNSHostNameOV = objJSONoldValue[0].DNSHostName;
+                                            
+                                                } catch (e) {
+                                                    logger.warn("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:CS_ALL:Create JSON Objects:ERROR:" + e.toString());
+                                                }
+                                            
+                                                if ((DNSHostNameNV != DNSHostNameOV) || me.Asset_Name == "") {
+                                                    try {
+                                                        // Set Asset_Name
+                                                        me.Asset_Name = DNSHostNameNV;
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:CS_ALL:me.Asset_Name = DNSHostNameNV;");
+                                                        }
+                                                    } catch (e) {
+                                                        logger.warn("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:CS_ALL:Set Asset_Name failed:ERROR:" + e.toString());
+                                                    }
+                                                }
+                                            
+                                            } else {
+                                                if (enablescriptdebug) {
+                                                    logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:CS_ALL:Property value Undefined or Empty");
+                                                }
+                                            }
+                                            ]]>
+                                            </code>
+                                        </Row>
+                                    </Rows>
+                                </ConfigurationTable>
+                            </ConfigurationTables>
+                        </ServiceImplementation>
+                    </Subscription>
+                    <Subscription
+                     enabled="false"
+                     eventName="DataChange"
+                     source=""
+                     sourceProperty="OS_ALL"
+                     sourceType="Thing">
+                        <ServiceImplementation
+                         description=""
+                         handlerName="Script"
+                         name="Event.DataChange:Property.OS_ALL">
+                            <ConfigurationTables>
+                                <ConfigurationTable
+                                 description=""
+                                 isMultiRow="false"
+                                 name="Script"
+                                 ordinal="0">
+                                    <DataShape>
+                                        <FieldDefinitions>
+                                            <FieldDefinition
+                                             baseType="STRING"
+                                             description="code"
+                                             name="code"
+                                             ordinal="0"></FieldDefinition>
+                                        </FieldDefinitions>
+                                    </DataShape>
+                                    <Rows>
+                                        <Row>
+                                            <code>
+                                            <![CDATA[
+                                            var enablescriptdebug = false;
+                                            
+                                            //DEBUG 
+                                            if (enablescriptdebug) {
+                                                logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:OS_ALL:newValue:time:" + eventData.newValue.time + ":oldValue:time:" + eventData.oldValue.time);
+                                            }
+                                            
+                                            var oJnewValue = eventData.newValue.value;
+                                            var oJoldValue = eventData.oldValue.value;
+                                            
+                                            var sourceOfDataChange = source;
+                                            var timeStampDataChange = eventData.newValue.time;
+                                            var eventNameDataChange = eventName;
+                                            var eventTimeDataChange = eventTime;
+                                            var sourcePropOfDataChange = sourceProperty;
+                                            
+                                            //DEBUG 
+                                            if (enablescriptdebug) {
+                                                logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:OS_ALL:oJnewValue:" + oJnewValue);
+                                                logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:OS_ALL:oJoldValue:" + oJoldValue);
+                                                // logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:OS_ALL:eventData.newValue.quality:" + eventData.newValue.quality);
+                                                //logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:OS_ALL:sourceOfDataChange:" + sourceOfDataChange);
+                                                //logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:OS_ALL:timeStampDataChange:" + timeStampDataChange);
+                                                //logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:OS_ALL:eventNameDataChange:" + eventNameDataChange);
+                                                //logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:OS_ALL:eventTimeDataChange:" + eventTimeDataChange);
+                                                //logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:OS_ALL:sourcePropOfDataChange:" + sourcePropOfDataChange);
+                                            }
+                                            
+                                            if (oJnewValue != "") {
+                                                try {
+                                            
+                                                    if (oJoldValue == "") {
+                                                        oJoldValue = '[{"SerialNumber": ""}]';
+                                                    }
+                                                    if (enablescriptdebug) {
+                                                        logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:OS_ALL:oJoldValue:" + oJoldValue);
+                                                    }
+                                            
+                                                    // Create JSON object from String
+                                                    var objJSONnewValue = JSON.parse(oJnewValue);
+                                                    var objJSONoldValue = JSON.parse(oJoldValue);
+                                            
+                                                    // SerialNumber
+                                                    var SerialNumberNV = objJSONnewValue[0].SerialNumber;
+                                                    var SerialNumberOV = objJSONoldValue[0].SerialNumber;
+                                                   
+                                                } catch (e) {
+                                                    logger.warn("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:OS_ALL:Create JSON Objects:ERROR:" + e.toString());
+                                                }   
+                                            
+                                                if ((SerialNumberNV != SerialNumberOV) || me.Asset_Serial_Number == "") {
+                                                    try {
+                                                        // Set Asset_Serial_Number
+                                                        me.Asset_Serial_Number = SerialNumberNV;
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:OS_ALL:me.Asset_Serial_Number = SerialNumberNV");
+                                                        }
+                                                    } catch (e) {
+                                                        logger.warn("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:OS_ALL:Set Asset_Serial_Number failed:ERROR:" + e.toString());
+                                                    }
+                                                }
+                                            
+                                            } else {
+                                                if (enablescriptdebug) {
+                                                    logger.debug("NCRDCSEVENTMANAGEMENT::NCR.LAPTOP::Subscriptions:DataChange:OS_ALL:Property value Undefined or Empty");
+                                                }
+                                            }
+                                            ]]>
+                                            </code>
+                                        </Row>
+                                    </Rows>
+                                </ConfigurationTable>
+                            </ConfigurationTables>
+                        </ServiceImplementation>
+                    </Subscription>
+                </Subscriptions>
+            </ThingShape>
+            <ImplementedShapes>
+                <ImplementedShape
+                 name="NCR.PATCHESts"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="NCR.OSts"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="NCR.COMPUTERSYSTEMts"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="NCR.BASEBOARDts"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="NCR.BIOSts"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="NCR.PRINTERts"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="NCR.CPUts"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="NCR.MEMORYts"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="NCR.INTERFACEts"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="NCR.SWDts"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="NCR.SOFTWAREts"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="NCR.DISKts"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="NCR.DRIVEts"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="NCR.SCREENts"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="NCR.SERVICESts"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="NCR.GEOLOCATIONts"
+                 type="ThingShape"></ImplementedShape>
+            </ImplementedShapes>
+            <SharedConfigurationTables>
+                <ConfigurationTable
+                 description="Shared Tunneling Destinations"
+                 isMultiRow="true"
+                 name="SharedTunnels"
+                 ordinal="1">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.friendlyName="Application Path"
+                             baseType="STRING"
+                             description="Location of the client app that will use this tunnel"
+                             name="appUri"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Description"
+                             baseType="STRING"
+                             description="A description of the tunnel"
+                             name="description"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Host"
+                             baseType="STRING"
+                             description="Host or IP that this tunnel will connect to at the edge"
+                             name="host"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Name"
+                             baseType="STRING"
+                             description="Name of the tunnel"
+                             name="name"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Number of Connects"
+                             baseType="NUMBER"
+                             description="The number of connections required to establish this tunnel"
+                             name="numConnects"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Port"
+                             baseType="NUMBER"
+                             description="Port that this tunnel will connect to at the edge"
+                             name="port"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Protocol"
+                             baseType="STRING"
+                             description="The protocol used over this tunnel"
+                             name="proto"
+                             ordinal="6"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="Shared Remote Tunneling Settings"
+                 isMultiRow="false"
+                 name="SharedTunnelSettings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="false"
+                             aspect.friendlyName="Enable Tunneling"
+                             baseType="BOOLEAN"
+                             description="Enable tunneling"
+                             name="enableTunneling"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <enableTunneling>true</enableTunneling>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </SharedConfigurationTables>
+            <InstanceDesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </InstanceDesignTimePermissions>
+            <InstanceRunTimePermissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                    </PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                    </EventInvoke>
+                    <EventSubscribe>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                    </EventSubscribe>
+                </Permissions>
+            </InstanceRunTimePermissions>
+            <InstanceVisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:EMS"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:SCM"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:TCS"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </InstanceVisibilityPermissions>
+        </ThingTemplate>
+    </ThingTemplates>
+</Entities>

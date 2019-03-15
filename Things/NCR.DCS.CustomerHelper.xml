@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Things>
+        <Thing
+         description=""
+         documentationContent=""
+         effectiveThingPackage="ConfiguredThing"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         lastModifiedDate="2018-11-06T02:37:24.671Z"
+         name="NCR.DCS.CustomerHelper"
+         projectName="DCS. Project.Main"
+         published="false"
+         tags="Applications:DCS"
+         thingTemplate="GenericThing"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.DATAADMIN"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.ICPSpecialistL2Group"
+                         type="Group"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.DATAADMIN"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.ICPSpecialistL2Group"
+                         type="Group"></Principal>
+                    </PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.DATAADMIN"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.ICPSpecialistL2Group"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.DATAADMIN"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.ICPSpecialistL2Group"
+                         type="Group"></Principal>
+                    </EventInvoke>
+                    <EventSubscribe>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.DATAADMIN"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.ICPSpecialistL2Group"
+                         type="Group"></Principal>
+                    </EventSubscribe>
+                </Permissions>
+            </RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:DataAdmin"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:ReleaseManagement"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:TCS"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="CreateCustomerThing">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="name"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.dataShape="NCR.DCS.CustomerDS"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="valuesForCustomer"
+                             ordinal="2"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="DeleteCustomerThing">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="name"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ProcessCustomerCSVImport">
+                        <ResultType
+                         aspect.dataShape="NCR.DCS.CustomerCSVImportDS"
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="fileName"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="path"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="THINGNAME"
+                             description=""
+                             name="repositoryName"
+                             ordinal="2"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="UpdatePropertyValuesCustomerThing">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="name"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.dataShape="NCR.DCS.CustomerDS"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="valuesForCustomer"
+                             ordinal="2"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                </ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="CreateCustomerThing">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var desc = "";
+                                        var vfcD = valuesForCustomer.description;
+                                        if (vfcD != null && vfcD != "") { 
+                                            desc = vfcD;
+                                        }
+                                        var cn = "";
+                                        var mcn = "";
+                                        var ecn = "";
+                                        var iso = "";
+                                        var ak = "";
+                                        var status = 0;
+                                        var rr = false;
+                                        var sd = false;
+                                        var em = false;
+                                        var tgs;
+                                        
+                                        if (valuesForCustomer.CustomerName) {
+                                            cn = valuesForCustomer.CustomerName;
+                                        }
+                                        if (valuesForCustomer.MasterCustomerNumber) {
+                                            mcn = valuesForCustomer.MasterCustomerNumber;
+                                        }
+                                        if (valuesForCustomer.EnterpriseCustomerNumber) {
+                                            ecn = valuesForCustomer.EnterpriseCustomerNumber;
+                                        }
+                                        if (valuesForCustomer.ISOCountryCode) {
+                                            iso = valuesForCustomer.ISOCountryCode;
+                                        }
+                                        if (valuesForCustomer.AppKey) {
+                                            ak = valuesForCustomer.AppKey;
+                                        }
+                                        if (valuesForCustomer.Status) {
+                                            status = valuesForCustomer.Status;
+                                        } 
+                                        if (valuesForCustomer.RemoteResolution) {
+                                            rr = valuesForCustomer.RemoteResolution;
+                                        }
+                                        if (valuesForCustomer.SoftwareDelivery) {
+                                            sd = valuesForCustomer.SoftwareDelivery;
+                                        }
+                                        if (valuesForCustomer.EventManagement) {
+                                            em = valuesForCustomer.EventManagement;
+                                        }
+                                        if (valuesForCustomer.tags) {
+                                            tgs = valuesForCustomer.tags;
+                                        }
+                                        
+                                        var result = "Create Successful";
+                                        
+                                        try {
+                                            var params = {
+                                                name: name,
+                                                description: desc,
+                                                thingTemplateName: "NCR.Customer"
+                                            };
+                                        
+                                            Resources["EntityServices"].CreateThing(params);
+                                            // Always enable and restart a new thing to make it active on the Platform
+                                            // no return
+                                            Things[name].EnableThing();
+                                            // no return
+                                            Things[name].RestartThing();
+                                        
+                                            // Set Properties
+                                            Things[name].CustomerName = cn;
+                                            Things[name].MasterCustomerNumber = mcn;
+                                            Things[name].EnterpriseCustomerNumber = ecn;
+                                            Things[name].ISOCountryCode = iso;
+                                            Things[name].AppKey = ak;
+                                            Things[name].Status = status;
+                                            Things[name].SoftwareDelivery = sd;
+                                            Things[name].RemoteResolution = rr;
+                                            Things[name].EventManagement = em;
+                                        
+                                            var params = {
+                                        	    tags: tgs /* TAGS */
+                                            };
+                                        
+                                            // no return
+                                            Things[name].SetTags(params);    
+                                          
+                                        } catch (err) {
+                                        
+                                            // If an exception is caught, we need to attempt to delete everything
+                                            // that was created to roll back the entire transaction.
+                                            // If we do not do this a "ghost" entity will remain in memory
+                                            // We must do this in reverse order of creation so there are no dependency conflicts
+                                            // We also do not know where it failed so we must attempt to remove all of them,
+                                            // but also handle exceptions in case they were not created
+                                            result = "Create Failed:" + err.toString();
+                                            logger.debug("NCRDCSMASHUP::NCR.DCS.CustomerHelper::CreateCustomerThing::CreateThing::Error: " + err.toString())
+                                        
+                                            /*
+                                            try {
+                                        
+                                                var paramsDT = { name: name };
+                                                Resources["EntityServices"].DeleteThing(paramsDT);
+                                        
+                                            } catch (ex2) {
+                                                //Thing was not created
+                                                logger.debug("NCRDCSMASHUP::NCR.DCS.CustomerHelper::CreateCustomerThing::DeleteThing::Error: " + ex2.toString())
+                                            }
+                                            */
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="DeleteCustomerThing">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                        	name: name /* THINGNAME */
+                                        };
+                                        
+                                        // no return
+                                        Resources["EntityServices"].DeleteThing(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ProcessCustomerCSVImport">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // logger.debug("path:" + path + ":repositoryName:" + repositoryName + ":fileName:" + fileName);
+                                        // Output: path:/:repositoryName:DemoRepo:fileName:Customer.csv
+                                        
+                                        var params = {
+                                            path: path + "" + fileName /* STRING */,
+                                            columnMappings: "name;description;tags;CustomerName;MasterCustomerNumber;EnterpriseCustomerNumber;ISOCountryCode;AppKey;Status;SoftwareDelivery;RemoteResolution;EventManagement" /* STRING */,
+                                            hasHeader: true /* BOOLEAN */,
+                                            longitudeField: undefined /* NUMBER */,
+                                            dateFormat: undefined /* STRING */,
+                                            fileRepository: repositoryName /* THINGNAME */,
+                                            latitudeField: undefined /* NUMBER */,
+                                            fieldDelimiter: "," /* STRING */,
+                                            stringDelimiter: undefined /* STRING */,
+                                            dataShape: "NCR.DCS.CustomerCSVImportDS" /* DATASHAPENAME */
+                                        };
+                                        
+                                        // result: INFOTABLE
+                                        var csvData;
+                                        var result = "File Processed Successfully";
+                                        
+                                        /*
+                                        // DEBUG
+                                        csvData = Resources["Parsley"].ParseCSV(params);
+                                        result = csvData;
+                                        */
+                                        
+                                        try {
+                                            // InfoTable
+                                            csvData = Resources["Parsley"].ParseCSV(params);
+                                        
+                                            // Iterate through InfoTable
+                                            var length = csvData.rows.length;
+                                        
+                                            for (var item = 0; item < length; item++) {
+                                                var csvDataRow = csvData.rows[item];
+                                        
+                                                var desc = " ";
+                                                if (csvDataRow.getValue('description') == null || csvDataRow.getValue('description') == '') {
+                                                    desc = csvDataRow.getValue('description');
+                                                }       
+                                        
+                                                var name = csvDataRow.getValue('name');
+                                        
+                                                var paramsCC = {
+                                                    name: name,
+                                                    description: desc,
+                                                    thingTemplateName: "NCR.Customer"
+                                                };
+                                        
+                                                Resources["EntityServices"].CreateThing(paramsCC);
+                                                // Always enable and restart a new thing to make it active on the Platform
+                                                // no return
+                                                Things[name].EnableThing();
+                                                // no return
+                                                Things[name].RestartThing();
+                                        
+                                                // Set Properties
+                                                Things[name].CustomerName = csvDataRow.getValue('CustomerName');
+                                                Things[name].MasterCustomerNumber = csvDataRow.getValue('MasterCustomerNumber');
+                                                Things[name].EnterpriseCustomerNumber = csvDataRow.getValue('EnterpriseCustomerNumber');
+                                                Things[name].ISOCountryCode = csvDataRow.getValue('ISOCountryCode');
+                                                Things[name].AppKey = csvDataRow.getValue('AppKey');
+                                        
+                                                var sc = 0;
+                                        
+                                                if (csvDataRow.getValue('Status') != null && csvDataRow.getValue('Status') != '') {
+                                                    sc = parseInt(csvDataRow.getValue('Status'));
+                                                }
+                                        
+                                                Things[name].Status = sc;
+                                        
+                                                var sd = false;
+                                                var rr = false;
+                                                var em = false;
+                                        
+                                                if (csvDataRow.getValue('SoftwareDelivery') != null && csvDataRow.getValue('SoftwareDelivery') != '') {
+                                                    if (csvDataRow.getValue('SoftwareDelivery').toUpperCase() == 'Y') {
+                                                        sd = true;
+                                                    }
+                                                }
+                                                if (csvDataRow.getValue('RemoteResolution') != null && csvDataRow.getValue('RemoteResolution') != '') {
+                                                    if (csvDataRow.getValue('RemoteResolution').toUpperCase() == 'Y') {
+                                                        rr = true;
+                                                    }
+                                                }
+                                                if (csvDataRow.getValue('EventManagement') != null && csvDataRow.getValue('EventManagement') != '') {
+                                                    if (csvDataRow.getValue('EventManagement').toUpperCase() == 'Y') {
+                                                        em = true;
+                                                    }
+                                                }
+                                        
+                                                Things[name].SoftwareDelivery = sd;
+                                                Things[name].RemoteResolution = rr;
+                                                Things[name].EventManagement = em;
+                                        
+                                                var paramsTGS = {
+                                                    tags: csvDataRow.getValue('tags') /* TAGS */
+                                                };
+                                        
+                                                // no return
+                                                Things[name].SetTags(paramsTGS);
+                                        
+                                            }
+                                        
+                                            // Delete CSV File from Repository
+                                            var paramsDF = {
+                                                path: path + "" + fileName /* STRING */
+                                            };
+                                        
+                                            // no return
+                                            Things[repositoryName].DeleteFile(paramsDF);
+                                        
+                                        } catch (e) {
+                                            logger.error("NCRDCSMASHUP::NCR.DCS.CustomerHelper::ProcessCustomerCSVImport::Error:" + e.toString());
+                                        
+                                            // Delete CSV File from Repository
+                                            var paramsDF = {
+                                                path: path + "" + fileName // STRING 
+                                            };
+                                        
+                                            // no return
+                                            Things[repositoryName].DeleteFile(paramsDF);
+                                            result = "Import Failed: " + e.toString();;
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="UpdatePropertyValuesCustomerThing">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var desc = "";
+                                        var vfcD = valuesForCustomer.description;
+                                        if (vfcD != null && vfcD != "") {
+                                            desc = vfcD;
+                                        }
+                                        
+                                        var cn = "";
+                                        var mcn = "";
+                                        var ecn = "";
+                                        var iso = "";
+                                        var ak = "";
+                                        var status = 0;
+                                        var rr = false;
+                                        var sd = false;
+                                        var em = false;
+                                        var tgs;
+                                        
+                                        if (valuesForCustomer.CustomerName) {
+                                            cn = valuesForCustomer.CustomerName;
+                                        }
+                                        if (valuesForCustomer.MasterCustomerNumber) {
+                                            mcn = valuesForCustomer.MasterCustomerNumber;
+                                        }
+                                        if (valuesForCustomer.EnterpriseCustomerNumber) {
+                                            ecn = valuesForCustomer.EnterpriseCustomerNumber;
+                                        }
+                                        if (valuesForCustomer.ISOCountryCode) {
+                                            iso = valuesForCustomer.ISOCountryCode;
+                                        }
+                                        if (valuesForCustomer.AppKey) {
+                                            ak = valuesForCustomer.AppKey;
+                                        }
+                                        if (valuesForCustomer.Status) {
+                                            status = valuesForCustomer.Status;
+                                        }
+                                        if (valuesForCustomer.RemoteResolution) {
+                                            rr = valuesForCustomer.RemoteResolution;
+                                        }
+                                        if (valuesForCustomer.SoftwareDelivery) {
+                                            sd = valuesForCustomer.SoftwareDelivery;
+                                        }
+                                        if (valuesForCustomer.EventManagement) {
+                                            em = valuesForCustomer.EventManagement;
+                                        }
+                                        if (valuesForCustomer.tags) {
+                                            tgs = valuesForCustomer.tags;
+                                        }
+                                        
+                                        
+                                        try {
+                                            
+                                            // Set Properties
+                                            
+                                            Things[name].CustomerName = cn;
+                                            Things[name].MasterCustomerNumber = mcn;
+                                            Things[name].EnterpriseCustomerNumber = ecn;
+                                            Things[name].ISOCountryCode = iso;
+                                            Things[name].AppKey = ak;
+                                            Things[name].Status = status;
+                                            Things[name].SoftwareDelivery = sd;
+                                            Things[name].RemoteResolution = rr;
+                                            Things[name].EventManagement = em;    
+                                        
+                                            // logger.debug("valuesForCustomer.description:" + valuesForCustomer.description);
+                                            // NCRDCSMASHUP::NCR.DCS.CustomerHelper::UpdatePropertyValuesCustomerThing::Error: JavaException: com.thingworx.common.exceptions.InvalidRequestException: Property [description] in [Digital Connected Services] is read only
+                                            // Things[name].description = vfcD;
+                                        
+                                            
+                                            var params = {
+                                                description: vfcD  /* STRING */
+                                            };
+                                        
+                                            // no return
+                                            Things[name].SetDescription(params);
+                                            
+                                            
+                                            // Tags are Read Only 
+                                            var params = {
+                                        	    tags: tgs /* TAGS */
+                                            };
+                                        
+                                            // No Return
+                                            Things[name].SetTags(params);    
+                                        
+                                            /* Fails because of description
+                                            var params = {
+                                        	    values: valuesForCustomer // INFOTABLE 
+                                            };
+                                        
+                                            // no return
+                                            Things[name].UpdatePropertyValues(params);
+                                            */
+                                        
+                                        } catch (err) {
+                                        
+                                            // If an exception is caught, we need to attempt to delete everything
+                                            // that was created to roll back the entire transaction.
+                                            // If we do not do this a "ghost" entity will remain in memory
+                                            // We must do this in reverse order of creation so there are no dependency conflicts
+                                            // We also do not know where it failed so we must attempt to remove all of them,
+                                            // but also handle exceptions in case they were not created
+                                        
+                                            logger.debug("NCRDCSMASHUP::NCR.DCS.CustomerHelper::UpdatePropertyValuesCustomerThing::Error: " + err.toString())
+                                            
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ImplementedShapes></ImplementedShapes>
+            <ThingProperties></ThingProperties>
+        </Thing>
+    </Things>
+</Entities>

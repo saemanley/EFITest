@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isResponsive="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-11-06T02:37:24.228Z"
+         name="NCR.RemoteAction.AgentConfigMashup"
+         projectName="DCS. Project.Main"
+         rows="0.0"
+         tags="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:ReleaseManagement"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:SCM"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:TCS"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="STRING"
+                 description=""
+                 name="assetName"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="1"
+                 baseType="STRING"
+                 description=""
+                 name="assetType"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things>
+                <Thing>NCR.BaseDeviceHelper</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "CustomMashupCss" : "",
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_NCR.BaseDeviceHelper" : {
+                  "DataName" : "Things_NCR.BaseDeviceHelper",
+                  "EntityName" : "NCR.BaseDeviceHelper",
+                  "EntityType" : "Things",
+                  "Id" : "8ad82a03-ba45-4de2-ba97-c334214b99a9",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "f55bcf9d-46e5-4561-87dd-fba07e37370c",
+                    "Name" : "ProcessAgentConfig",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "ProcessAgentConfig"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "6d20b385-4da6-4233-a199-202949745e70",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ProcessAgentConfig",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "textarea-37",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "button-51",
+                "EventTriggerSection" : "",
+                "Id" : "9f02efdd-3581-412a-841a-9b9bbeffa3a4"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.BaseDeviceHelper",
+                "EventHandlerService" : "ProcessAgentConfig",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "button-52",
+                "EventTriggerSection" : "",
+                "Id" : "a1dcb33f-7272-4c5f-beb3-a866df7f114b"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 400,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultMashupStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 800,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "assetName"
+                  }, {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "assetType"
+                  } ],
+                  "id_index" : 52,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "panel-32",
+                    "Height" : 50,
+                    "HideScrollbars" : true,
+                    "HorizontalAnchor" : "left",
+                    "Id" : "panel-32",
+                    "Left" : 0,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.PanelStyleLabelRemoteAction",
+                    "Top" : 0,
+                    "Type" : "panel",
+                    "VerticalAnchor" : "top",
+                    "Visible" : true,
+                    "Width" : 800,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Panel"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "AllowEllipsis" : false,
+                      "Area" : "UI",
+                      "DisplayName" : "label-39",
+                      "Height" : 22,
+                      "Id" : "label-39",
+                      "Left" : 10,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : {
+                        "backgroundColor" : "",
+                        "displayString" : "",
+                        "fontEmphasisBold" : true,
+                        "fontEmphasisItalic" : false,
+                        "fontEmphasisUnderline" : false,
+                        "foregroundColor" : "#ffffff",
+                        "image" : "",
+                        "lineColor" : "",
+                        "lineStyle" : "solid",
+                        "lineThickness" : 1,
+                        "secondaryBackgroundColor" : "",
+                        "textSize" : "xlarge"
+                      },
+                      "Text" : "Agent Configuration",
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 15,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 200,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label",
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "textarea-37",
+                    "Height" : 85,
+                    "Id" : "textarea-37",
+                    "InnerShadow" : false,
+                    "Label" : "Result",
+                    "LabelAlignment" : "left",
+                    "Left" : 10,
+                    "ReadOnly" : true,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.DefaultTextAreaStyle",
+                    "TabSequence" : 0,
+                    "Text" : "",
+                    "TextareaFocusStyle" : "NCR.DCS.DefaultFocusStyle",
+                    "TextareaLabelStyle" : "NCR.DCS.DefaultWidgetLabelStyle",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                    "Top" : 220,
+                    "Type" : "textarea",
+                    "Visible" : true,
+                    "Width" : 665,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "TextArea",
+                    "__supportsLabel" : true,
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "textarea-35",
+                    "Height" : 70,
+                    "Id" : "textarea-35",
+                    "InnerShadow" : false,
+                    "Label" : "",
+                    "LabelAlignment" : "left",
+                    "Left" : 10,
+                    "ReadOnly" : false,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "DefaultTextAreaStyle",
+                    "TabSequence" : 0,
+                    "Text" : "Link CI with thing during provisioning to allow relevant agent configuration deployment.  Platform capability of detecting config issues and autoresolve the following files: Thingworx config file, NCR.APTRA.UAConfig.WS.accfg, edeployconfig.xml, PassportATMLocalParameters.xml, sitelist.xml",
+                    "TextareaFocusStyle" : "DefaultFocusStyle",
+                    "TextareaLabelStyle" : "DefaultWidgetLabelStyle",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 65,
+                    "Type" : "textarea",
+                    "Visible" : true,
+                    "Width" : 660,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "TextArea",
+                    "__supportsLabel" : true,
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "panel-44",
+                    "Height" : 60,
+                    "HideScrollbars" : false,
+                    "HorizontalAnchor" : "left",
+                    "Id" : "panel-44",
+                    "Left" : 0,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.PanelStyleFooterRemoteAction",
+                    "Top" : 350,
+                    "Type" : "panel",
+                    "VerticalAnchor" : "top",
+                    "Visible" : true,
+                    "Width" : 800,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Panel"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "ActiveStyle" : "NCR.DCS.SecondaryButtonActiveStyle",
+                      "Area" : "UI",
+                      "CancelConfirmationButton" : "button2",
+                      "ConfirmationButton1Label" : "Yes",
+                      "ConfirmationButton2Label" : "No",
+                      "ConfirmationPrompt" : "Do Action?",
+                      "ConfirmationRequired" : false,
+                      "ConfirmationTitle" : "Confirm Action",
+                      "ContextId" : "",
+                      "DefaultConfirmationButton" : "button1",
+                      "Disabled" : false,
+                      "DisabledStyle" : "NCR.DCS.SecondaryButtonDisabledStyle",
+                      "DisplayName" : "button-51",
+                      "FocusStyle" : "NCR.DCS.SecondaryButtonFocusStyle",
+                      "Height" : 30,
+                      "HoverStyle" : "NCR.DCS.SecondaryButtonHoverStyle",
+                      "IconAlignment" : "left",
+                      "Id" : "button-51",
+                      "Label" : "CANCEL",
+                      "Left" : 575,
+                      "ResponsiveLayout" : false,
+                      "RoundedCorners" : true,
+                      "ShowDataLoading" : true,
+                      "Style" : "NCR.DCS.SecondaryButtonStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 15,
+                      "Type" : "button",
+                      "Visible" : true,
+                      "Width" : 90,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Button",
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "ActiveStyle" : "NCR.DCS.PrimaryButtonActiveStyle",
+                      "Area" : "UI",
+                      "CancelConfirmationButton" : "button2",
+                      "ConfirmationButton1Label" : "Yes",
+                      "ConfirmationButton2Label" : "No",
+                      "ConfirmationPrompt" : "Do Action?",
+                      "ConfirmationRequired" : false,
+                      "ConfirmationTitle" : "Confirm Action",
+                      "ContextId" : "",
+                      "DefaultConfirmationButton" : "button1",
+                      "Disabled" : false,
+                      "DisabledStyle" : "NCR.DCS.PrimaryButtonDisabledStyle",
+                      "DisplayName" : "button-52",
+                      "FocusStyle" : "NCR.DCS.PrimaryButtonFocusStyle",
+                      "Height" : 30,
+                      "HoverStyle" : "NCR.DCS.PrimaryButtonHoverStyle",
+                      "IconAlignment" : "left",
+                      "Id" : "button-52",
+                      "Label" : "EXECUTE",
+                      "Left" : 675,
+                      "ResponsiveLayout" : false,
+                      "RoundedCorners" : true,
+                      "ShowDataLoading" : true,
+                      "Style" : "NCR.DCS.PrimaryButtonStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 15,
+                      "Type" : "button",
+                      "Visible" : true,
+                      "Width" : 90,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Button",
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "AutoSelectFirstRow" : false,
+                    "ClearIfNoSelection" : false,
+                    "ComboDropdownButtonStyle" : "DefaultComboDropdownButtonStyle",
+                    "ComboEnableCheckbox" : false,
+                    "ComboItemHighlightedStyle" : "DefaultComboItemHighlightedStyle",
+                    "ComboTextboxStyle" : "DefaultComboTextboxStyle",
+                    "DisableSelectedStyle" : false,
+                    "DisplayName" : "dhxlist-46",
+                    "DropdownButtonStyle" : "NCR.DCS.DefaultDropdownButtonStyle",
+                    "DropdownSelectedStyle" : "NCR.DCS.DefaultDropdownSelectedStyle",
+                    "DropdownStyle" : "NCR.DCS.DefaultDropdownStyle",
+                    "EnableKeyboardSelections" : true,
+                    "Height" : 28,
+                    "HeightOfDropdownView" : 170,
+                    "Id" : "dhxlist-46",
+                    "Label" : "",
+                    "LabelAlignment" : "left",
+                    "Left" : 120,
+                    "ListBackgroundStyle" : "NCR.DCS.DefaultListBackgroundStyle",
+                    "ListFocusStyle" : "DefaultFocusStyle",
+                    "ListItemAlternateStyle" : "NCR.DCS.DefaultListItemAlternateStyle",
+                    "ListItemHoverStyle" : "NCR.DCS.DefaultListItemHoverStyle",
+                    "ListItemSelectedStyle" : "NCR.DCS.DefaultListItemSelectedStyle",
+                    "ListItemStyle" : "NCR.DCS.DefaultListItemStyle",
+                    "ListLabelStyle" : "DefaultWidgetLabelStyle",
+                    "MultiSelect" : false,
+                    "NumberOfItemsInDropdownView" : 6,
+                    "ResponsiveLayout" : false,
+                    "RowHeight" : 28,
+                    "ShowDataLoading" : true,
+                    "TabSequence" : -1,
+                    "TextIfNoSelectionType" : "editable",
+                    "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                    "Top" : 150,
+                    "Type" : "dhxlist",
+                    "View" : "dropdown",
+                    "Visible" : true,
+                    "Width" : 550,
+                    "WidthOfDropdownView" : 110,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "List",
+                    "__supportsLabel" : true,
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-47",
+                    "Height" : 22,
+                    "Id" : "label-47",
+                    "Left" : 10,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.RemoteActionsModalLabelStyle",
+                    "Text" : "Select Action",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 150,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 110,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

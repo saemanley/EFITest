@@ -1,0 +1,1087 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description="Mashup for PTC ThingWorx Utilities Console tile"
+         documentationContent="&lt;p&gt;Use a static mashup of 240x240 to avoid any unexpected scroll bars.&lt;/p&gt;"
+         homeMashup=""
+         lastModifiedDate="2018-10-24T20:59:51.343Z"
+         name="PTC.ConvergeConsole.Tile"
+         projectName=""
+         rows="0.0"
+         tags="PTC:ConvergeConsole;TWUTL:Core">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="5"
+                 baseType="BOOLEAN"
+                 description=""
+                 name="IsMashup"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="7"
+                 baseType="STRING"
+                 description=""
+                 name="LabelColor"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="2"
+                 baseType="TEXT"
+                 description=""
+                 name="LocalizedLabel"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="3"
+                 baseType="TEXT"
+                 description=""
+                 name="LocalizedTooltip"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="6"
+                 baseType="BOOLEAN"
+                 description=""
+                 name="OpenInNewWindow"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="1"
+                 baseType="IMAGELINK"
+                 description=""
+                 name="TileBackground"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="IMAGELINK"
+                 description=""
+                 name="TileIcon"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="4"
+                 baseType="STRING"
+                 description=""
+                 name="TileMashupOrURL"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things></Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "5828bad3-6e53-4c60-9829-2241bbc88622",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "LocalizedTooltip",
+                  "SourcePropertyBaseType" : "TEXT",
+                  "TargetProperty" : "ToolTipField",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "LinkTooltip-7",
+                "TargetSection" : ""
+              }, {
+                "Id" : "83672d77-2b27-4ee1-8071-7cdb7f4d384c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "LocalizedTooltip",
+                  "SourcePropertyBaseType" : "TEXT",
+                  "TargetProperty" : "ToolTipField",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "NavigationTooltip-14",
+                "TargetSection" : ""
+              }, {
+                "Id" : "521cee58-7f4a-4726-87e6-1c4fee822666",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : ""
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Validator-15",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "NavigationTooltip-14",
+                "TargetSection" : ""
+              }, {
+                "Id" : "3995d133-dc6d-49d6-9f97-1b7e446c184d",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "TileIcon",
+                  "SourcePropertyBaseType" : "IMAGELINK",
+                  "TargetProperty" : "SourceURL",
+                  "TargetPropertyBaseType" : "IMAGELINK"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Image-4",
+                "TargetSection" : ""
+              }, {
+                "Id" : "04f32836-3e52-4451-8bba-b9cee46812a3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "TileBackground",
+                  "SourcePropertyBaseType" : "IMAGELINK",
+                  "TargetProperty" : "SourceURL",
+                  "TargetPropertyBaseType" : "IMAGELINK"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Image-5",
+                "TargetSection" : ""
+              }, {
+                "Id" : "cc7bf0b5-41a2-483c-9199-6501ea610fdd",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "TileMashupOrURL",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "SourceURL",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "LinkTooltip-7",
+                "TargetSection" : ""
+              }, {
+                "Id" : "59acf8e0-2a5b-44f1-9076-bd961d07c8e3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "TileMashupOrURL",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "MashupName",
+                  "TargetPropertyBaseType" : "MASHUPNAME"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "NavigationTooltip-14",
+                "TargetSection" : ""
+              }, {
+                "Id" : "32dc4d3e-dd50-4845-968c-2f01d33ecc33",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "IsMashup",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "IsMashup",
+                  "TargetPropertyBaseType" : "BOOLEAN"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-15",
+                "TargetSection" : ""
+              }, {
+                "Id" : "6eecce66-e4c7-4313-8bd9-6a6aeb48faab",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "IsMashup",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "IsMashup",
+                  "TargetPropertyBaseType" : "BOOLEAN"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-16",
+                "TargetSection" : ""
+              }, {
+                "Id" : "b808f203-68f4-4f4e-ae4a-b010433fd3d3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : ""
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Validator-16",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "NavigationTooltip-17",
+                "TargetSection" : ""
+              }, {
+                "Id" : "8e43f884-1fd8-45bc-8cdc-775072da6db9",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "LocalizedTooltip",
+                  "SourcePropertyBaseType" : "TEXT",
+                  "TargetProperty" : "ToolTipField",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "NavigationTooltip-17",
+                "TargetSection" : ""
+              }, {
+                "Id" : "da198880-bac6-4f32-821a-385e87dd62a6",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "OpenInNewWindow",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "OpenInNewWin",
+                  "TargetPropertyBaseType" : "BOOLEAN"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-16",
+                "TargetSection" : ""
+              }, {
+                "Id" : "a55fa567-12fe-4f21-8c8b-d3d1524abba4",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "OpenInNewWindow",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "OpenInNewWin",
+                  "TargetPropertyBaseType" : "BOOLEAN"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-15",
+                "TargetSection" : ""
+              }, {
+                "Id" : "ec14d23d-8bcb-49d5-86b1-299b3267d7bb",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "OpenInNewWindow",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "OpenInNewWin",
+                  "TargetPropertyBaseType" : "BOOLEAN"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-19",
+                "TargetSection" : ""
+              }, {
+                "Id" : "1c83782f-0d67-4cc5-80f7-d0a0b5a2cd26",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : ""
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Validator-19",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "LinkTooltip-7",
+                "TargetSection" : ""
+              }, {
+                "Id" : "4c3b5eed-13c7-4b61-805c-e9bfc1e29524",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "TileMashupOrURL",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "SourceURL",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "LinkTooltip-20",
+                "TargetSection" : ""
+              }, {
+                "Id" : "31db1a7a-81cf-43e6-91ba-4193fd135d6c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "LocalizedTooltip",
+                  "SourcePropertyBaseType" : "TEXT",
+                  "TargetProperty" : "ToolTipField",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "LinkTooltip-20",
+                "TargetSection" : ""
+              }, {
+                "Id" : "66647999-8d98-49a3-8bb7-578e53195e95",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : ""
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Validator-21",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "LinkTooltip-20",
+                "TargetSection" : ""
+              }, {
+                "Id" : "3e5ed3b8-c045-4bda-8be8-a6eefd03765a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "IsMashup",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "IsMashup",
+                  "TargetPropertyBaseType" : "BOOLEAN"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-21",
+                "TargetSection" : ""
+              }, {
+                "Id" : "c60c7635-07ed-4ef6-8b2b-990e6b7424d3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "OpenInNewWindow",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "OpenInNewWin",
+                  "TargetPropertyBaseType" : "BOOLEAN"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-21",
+                "TargetSection" : ""
+              }, {
+                "Id" : "1cba738e-62e8-4551-8dbc-7e132935211f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "TileMashupOrURL",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "MashupName",
+                  "TargetPropertyBaseType" : "MASHUPNAME"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "NavigationTooltip-17",
+                "TargetSection" : ""
+              }, {
+                "Id" : "5cea5684-f427-4927-babe-7ba3b60691cb",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "IsMashup",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "IsMashup",
+                  "TargetPropertyBaseType" : "BOOLEAN"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-19",
+                "TargetSection" : ""
+              }, {
+                "Id" : "f80b9a88-21cc-4342-86a3-42b3b6a854e0",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "LocalizedLabel",
+                  "SourcePropertyBaseType" : "TEXT",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "ANYSCALAR"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "ValueDisplay-22",
+                "TargetSection" : ""
+              }, {
+                "Id" : "0b961b1a-7071-4b97-83fe-d09a2afce8e3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-24",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "ValueDisplay-22",
+                "TargetSection" : ""
+              }, {
+                "Id" : "353896fc-06b4-43ef-9a67-0fe421f5386b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "LocalizedLabel",
+                  "SourcePropertyBaseType" : "TEXT",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "ANYSCALAR"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-23",
+                "TargetSection" : ""
+              }, {
+                "Id" : "961380bb-2666-4741-a34d-833e70e58337",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "LabelColor",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "labelColor",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-24",
+                "TargetSection" : ""
+              }, {
+                "Id" : "f814be07-030d-4ba4-b133-9d5fead39505",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "LabelColor",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "labelColor",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-26",
+                "TargetSection" : ""
+              }, {
+                "Id" : "0a106690-bd55-4b06-9993-44bab3c31512",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-26",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "valuedisplay-23",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 240,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "PTC.NoStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 240,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "IMAGELINK",
+                    "Description" : "",
+                    "ParameterName" : "TileIcon"
+                  }, {
+                    "BaseType" : "IMAGELINK",
+                    "Description" : "",
+                    "ParameterName" : "TileBackground"
+                  }, {
+                    "BaseType" : "TEXT",
+                    "Description" : "",
+                    "ParameterName" : "LocalizedLabel"
+                  }, {
+                    "BaseType" : "TEXT",
+                    "Description" : "",
+                    "ParameterName" : "LocalizedTooltip"
+                  }, {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "TileMashupOrURL"
+                  }, {
+                    "BaseType" : "BOOLEAN",
+                    "Description" : "",
+                    "ParameterName" : "IsMashup"
+                  }, {
+                    "BaseType" : "BOOLEAN",
+                    "Description" : "",
+                    "ParameterName" : "OpenInNewWindow"
+                  }, {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "LabelColor"
+                  } ],
+                  "id_index" : 26,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "Panel-2",
+                    "Height" : 240,
+                    "HideScrollbars" : true,
+                    "HorizontalAnchor" : "left",
+                    "Id" : "Panel-2",
+                    "Left" : 0,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "PTC.NoStyle",
+                    "Top" : 0,
+                    "Type" : "panel",
+                    "VerticalAnchor" : "top",
+                    "Visible" : true,
+                    "Width" : 240,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Panel"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "AlternateText" : "",
+                      "Area" : "UI",
+                      "BorderStyle" : "PTC.NoStyle",
+                      "Description" : "",
+                      "DisplayName" : "Image-Icon",
+                      "Height" : 100,
+                      "Id" : "Image-4",
+                      "Left" : 70,
+                      "PreventCaching" : false,
+                      "ResponsiveLayout" : false,
+                      "Scaling" : "none",
+                      "ShowDataLoading" : true,
+                      "SourceURL" : "",
+                      "ToolTipField" : "",
+                      "Top" : 70,
+                      "Type" : "image",
+                      "Visible" : true,
+                      "Width" : 100,
+                      "Z-index" : 20,
+                      "__TypeDisplayName" : "Image"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "AlternateText" : "",
+                      "Area" : "UI",
+                      "BorderStyle" : "PTC.NoStyle",
+                      "Description" : "",
+                      "DisplayName" : "Image-Background",
+                      "Height" : 240,
+                      "Id" : "Image-5",
+                      "Left" : 0,
+                      "PreventCaching" : false,
+                      "ResponsiveLayout" : false,
+                      "Scaling" : "none",
+                      "ShowDataLoading" : true,
+                      "SourceURL" : "",
+                      "ToolTipField" : "",
+                      "Top" : 0,
+                      "Type" : "image",
+                      "Visible" : true,
+                      "Width" : 240,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Image"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "center",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "LinkTooltip-URL",
+                      "Height" : 204,
+                      "Id" : "LinkTooltip-7",
+                      "Left" : 16,
+                      "LinkDisplay" : "noText",
+                      "LinkHoverStyle" : "PTC.NoStyle",
+                      "LinkStyle" : "PTC.NoStyle",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "SourceURL" : "",
+                      "TabSequence" : 0,
+                      "TargetWindow" : "replace",
+                      "Text" : "",
+                      "ToolTipDuration" : 3,
+                      "ToolTipField" : "",
+                      "ToolTipPosition" : "top left,bottom right",
+                      "ToolTipStyles" : "qtip-bootstrap",
+                      "Top" : 16,
+                      "Type" : "link",
+                      "Visible" : true,
+                      "Width" : 204,
+                      "Z-index" : 50,
+                      "__TypeDisplayName" : "Link"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "ClickOutsideToClose" : false,
+                      "Description" : "",
+                      "DisplayName" : "NavigationTooltip-Mashup",
+                      "FixedPopupHeight" : 0,
+                      "FixedPopupWidth" : 0,
+                      "Height" : 204,
+                      "IconAlignment" : "left",
+                      "Id" : "NavigationTooltip-14",
+                      "Left" : 16,
+                      "MashupName" : "",
+                      "MashupParameters" : [ ],
+                      "MessageToShow" : "Mashup must be selected",
+                      "ModalPopupOpacity" : 0.5,
+                      "NavigationActiveStyle" : "PTC.NoStyle",
+                      "NavigationFocusStyle" : "PTC.NoStyle",
+                      "NavigationHoverStyle" : "PTC.NoStyle",
+                      "PopupScrolling" : "auto",
+                      "PopupTitle" : "",
+                      "PopupTitleStyle" : "PTC.NoStyle",
+                      "ReloadOnReplace" : false,
+                      "ResponsiveLayout" : false,
+                      "RoundedCorners" : true,
+                      "ShowCloseButton" : true,
+                      "ShowDataLoading" : true,
+                      "ShowMessageIfNoMashup" : false,
+                      "Style" : "PTC.NoStyle",
+                      "TabSequence" : 0,
+                      "TargetWindow" : "replace",
+                      "Text" : "",
+                      "ToolTipDuration" : 2,
+                      "ToolTipField" : "",
+                      "ToolTipPosition" : "Upper Left",
+                      "ToolTipStyles" : "qtip-bootstrap",
+                      "Top" : 16,
+                      "Transparent" : true,
+                      "Type" : "navigation",
+                      "Visible" : true,
+                      "Width" : 204,
+                      "Z-index" : 100,
+                      "__TypeDisplayName" : "Navigation"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "AutoEvaluate" : true,
+                      "Description" : "",
+                      "DisplayName" : "Validator-IsMashup",
+                      "Expression" : "IsMashup && !OpenInNewWin",
+                      "Height" : 0,
+                      "Id" : "Validator-15",
+                      "Left" : 0,
+                      "Output" : true,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Top" : 0,
+                      "Type" : "validator",
+                      "Visible" : false,
+                      "Width" : 0,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Validator",
+                      "_currentParameterDefs" : [ {
+                        "BaseType" : "BOOLEAN",
+                        "Description" : "",
+                        "ParameterName" : "IsMashup"
+                      }, {
+                        "BaseType" : "BOOLEAN",
+                        "Description" : "",
+                        "ParameterName" : "OpenInNewWin"
+                      } ]
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "AutoEvaluate" : true,
+                      "Description" : "",
+                      "DisplayName" : "Validator-IsMashupOpenInNewWindow",
+                      "Expression" : "IsMashup && OpenInNewWin",
+                      "Height" : 0,
+                      "Id" : "Validator-16",
+                      "Left" : 0,
+                      "Output" : true,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Top" : 0,
+                      "Type" : "validator",
+                      "Visible" : true,
+                      "Width" : 0,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Validator",
+                      "_currentParameterDefs" : [ {
+                        "BaseType" : "BOOLEAN",
+                        "Description" : "",
+                        "ParameterName" : "IsMashup"
+                      }, {
+                        "BaseType" : "BOOLEAN",
+                        "Description" : "",
+                        "ParameterName" : "OpenInNewWin"
+                      } ]
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "ClickOutsideToClose" : false,
+                      "Description" : "",
+                      "DisplayName" : "NavigationTooltip-MashupNewWindow",
+                      "FixedPopupHeight" : 0,
+                      "FixedPopupWidth" : 0,
+                      "Height" : 204,
+                      "IconAlignment" : "left",
+                      "Id" : "NavigationTooltip-17",
+                      "Left" : 16,
+                      "MashupName" : "",
+                      "MashupParameters" : [ ],
+                      "MessageToShow" : "Mashup must be selected",
+                      "ModalPopupOpacity" : 0.5,
+                      "NavigationActiveStyle" : "PTC.NoStyle",
+                      "NavigationFocusStyle" : "PTC.NoStyle",
+                      "NavigationHoverStyle" : "PTC.NoStyle",
+                      "PopupScrolling" : "auto",
+                      "PopupTitle" : "",
+                      "PopupTitleStyle" : "PTC.NoStyle",
+                      "ReloadOnReplace" : false,
+                      "ResponsiveLayout" : false,
+                      "RoundedCorners" : true,
+                      "ShowCloseButton" : true,
+                      "ShowDataLoading" : true,
+                      "ShowMessageIfNoMashup" : false,
+                      "Style" : "PTC.NoStyle",
+                      "TabSequence" : 0,
+                      "TargetWindow" : "new",
+                      "Text" : "",
+                      "ToolTipDuration" : 2,
+                      "ToolTipField" : "",
+                      "ToolTipPosition" : "Upper Left",
+                      "ToolTipStyles" : "qtip-bootstrap",
+                      "Top" : 16,
+                      "Transparent" : true,
+                      "Type" : "navigation",
+                      "Visible" : true,
+                      "Width" : 204,
+                      "Z-index" : 100,
+                      "__TypeDisplayName" : "Navigation"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "AutoEvaluate" : true,
+                      "Description" : "",
+                      "DisplayName" : "Validator-URL",
+                      "Expression" : "!IsMashup && !OpenInNewWin",
+                      "Height" : 0,
+                      "Id" : "Validator-19",
+                      "Left" : 10,
+                      "Output" : true,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Top" : 10,
+                      "Type" : "validator",
+                      "Visible" : false,
+                      "Width" : 0,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Validator",
+                      "_currentParameterDefs" : [ {
+                        "BaseType" : "BOOLEAN",
+                        "Description" : "",
+                        "ParameterName" : "IsMashup"
+                      }, {
+                        "BaseType" : "BOOLEAN",
+                        "Description" : "",
+                        "ParameterName" : "OpenInNewWin"
+                      } ]
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "center",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "LinkTooltip-URLOpenInNewWindow",
+                      "Height" : 204,
+                      "Id" : "LinkTooltip-20",
+                      "Left" : 16,
+                      "LinkDisplay" : "noText",
+                      "LinkHoverStyle" : "PTC.NoStyle",
+                      "LinkStyle" : "PTC.NoStyle",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "SourceURL" : "",
+                      "TabSequence" : 0,
+                      "TargetWindow" : "new",
+                      "Text" : "",
+                      "ToolTipDuration" : 3,
+                      "ToolTipField" : "",
+                      "ToolTipPosition" : "top left,bottom right",
+                      "ToolTipStyles" : "qtip-bootstrap",
+                      "Top" : 16,
+                      "Type" : "link",
+                      "Visible" : true,
+                      "Width" : 204,
+                      "Z-index" : 50,
+                      "__TypeDisplayName" : "Link"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "AutoEvaluate" : true,
+                      "Description" : "",
+                      "DisplayName" : "Validator-URLOpenInNewWindow",
+                      "Expression" : "!IsMashup && OpenInNewWin",
+                      "Height" : 0,
+                      "Id" : "Validator-21",
+                      "Left" : 10,
+                      "Output" : true,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Top" : 10,
+                      "Type" : "validator",
+                      "Visible" : false,
+                      "Width" : 0,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Validator",
+                      "_currentParameterDefs" : [ {
+                        "BaseType" : "BOOLEAN",
+                        "Description" : "",
+                        "ParameterName" : "IsMashup"
+                      }, {
+                        "BaseType" : "BOOLEAN",
+                        "Description" : "",
+                        "ParameterName" : "OpenInNewWin"
+                      } ]
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "center",
+                      "Area" : "UI",
+                      "BackgroundFill" : "content",
+                      "Description" : "",
+                      "DisplayName" : "ValueDisplay-Label-White",
+                      "Height" : 36,
+                      "Id" : "ValueDisplay-22",
+                      "ImageScaling" : "width",
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 16,
+                      "Overflow" : "visible",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "TextIfNoValue" : "",
+                      "TextIfNoValueOffset" : 0,
+                      "TextIfNoValueStyle" : "PTC.NoStyle",
+                      "TextWrap" : true,
+                      "ToolTipField" : "",
+                      "Top" : 188,
+                      "Type" : "valuedisplay",
+                      "ValueDisplayLabelStyle" : "PTC.NoStyle",
+                      "ValueDisplayStyle" : "TW.UTL.Tile.WhiteText",
+                      "ValueFormat" : {
+                        "renderer" : "DEFAULT"
+                      },
+                      "ValueFormat_StateParameters" : [ ],
+                      "VerticalAlignment" : "top",
+                      "Visible" : false,
+                      "Width" : 204,
+                      "Z-index" : 12,
+                      "__TypeDisplayName" : "Value Display",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "center",
+                      "Area" : "UI",
+                      "BackgroundFill" : "content",
+                      "Description" : "",
+                      "DisplayName" : "ValueDisplay-Label-Black",
+                      "Height" : 36,
+                      "Id" : "valuedisplay-23",
+                      "ImageScaling" : "width",
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 16,
+                      "Overflow" : "visible",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "TextIfNoValue" : "",
+                      "TextIfNoValueOffset" : 0,
+                      "TextIfNoValueStyle" : "PTC.NoStyle",
+                      "TextWrap" : true,
+                      "ToolTipField" : "",
+                      "Top" : 188,
+                      "Type" : "valuedisplay",
+                      "ValueDisplayLabelStyle" : "PTC.NoStyle",
+                      "ValueDisplayStyle" : "TW.UTL.Tile.BlackText",
+                      "ValueFormat" : {
+                        "renderer" : "DEFAULT"
+                      },
+                      "ValueFormat_StateParameters" : [ ],
+                      "VerticalAlignment" : "top",
+                      "Visible" : false,
+                      "Width" : 204,
+                      "Z-index" : 12,
+                      "__TypeDisplayName" : "Value Display",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "AutoEvaluate" : true,
+                      "DataChangeType" : "VALUE",
+                      "DisplayName" : "UseWhiteTextExp",
+                      "Expression" : "labelColor != \"black\"",
+                      "FireOnFirstValue" : true,
+                      "Height" : 18,
+                      "Id" : "expression-24",
+                      "Left" : 50,
+                      "OutputBaseType" : "BOOLEAN",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Top" : 215.00001525878906,
+                      "Type" : "expression",
+                      "Visible" : false,
+                      "Width" : 175,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Expression",
+                      "_currentParameterDefs" : [ {
+                        "BaseType" : "STRING",
+                        "Description" : "",
+                        "ParameterName" : "labelColor"
+                      } ]
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "DisplayName" : "Border Panel",
+                      "Height" : 240,
+                      "HideScrollbars" : false,
+                      "HorizontalAnchor" : "left",
+                      "Id" : "panel-25",
+                      "Left" : 0,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.UTL.Tile.Border",
+                      "Top" : 0,
+                      "Type" : "panel",
+                      "VerticalAnchor" : "top",
+                      "Visible" : true,
+                      "Width" : 240,
+                      "Z-index" : 11,
+                      "__TypeDisplayName" : "Panel"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "AutoEvaluate" : true,
+                      "DataChangeType" : "VALUE",
+                      "DisplayName" : "UseBlackTextExp",
+                      "Expression" : "labelColor == \"black\"",
+                      "FireOnFirstValue" : true,
+                      "Height" : 18,
+                      "Id" : "expression-26",
+                      "Left" : 50,
+                      "OutputBaseType" : "BOOLEAN",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Top" : 215,
+                      "Type" : "expression",
+                      "Visible" : false,
+                      "Width" : 175,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Expression",
+                      "_currentParameterDefs" : [ {
+                        "BaseType" : "STRING",
+                        "Description" : "",
+                        "ParameterName" : "labelColor"
+                      } ]
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

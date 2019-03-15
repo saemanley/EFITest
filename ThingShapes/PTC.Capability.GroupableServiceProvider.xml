@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <ThingShapes>
+        <ThingShape
+         aspect.isExtension="true"
+         className=""
+         description="[DEPRECATED] Provides the capabilities posessed by groupable resources"
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-10-24T20:59:54.799Z"
+         name="PTC.Capability.GroupableServiceProvider"
+         projectName=""
+         tags="PTC:CORE;TWUTL:ResourceProvider">
+            <PropertyDefinitions></PropertyDefinitions>
+            <ServiceDefinitions>
+                <ServiceDefinition
+                 aspect.isAsync="false"
+                 category=""
+                 description="Gets the grouping resource related to the groupable resource specified in the &quot;objects&quot; parameter"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetGroup">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description="InfoTable of the grouping resource (singleton)"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="This is the DataShape to apply to the resulting InfoTable. If both dataShapeName and dataShape are specified, dataShape takes precedence over dataShapeName"
+                         name="dataShape"
+                         ordinal="4"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="DATASHAPENAME"
+                         description="This is the name of the DataShape to apply to the resulting InfoTable. This is an alternative to dataShape."
+                         name="dataShapeName"
+                         ordinal="3"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="JSON"
+                         description="Extra parameters that are passed to ResourceProvider service calls"
+                         name="extraParams"
+                         ordinal="6"></FieldDefinition>
+                        <FieldDefinition
+                         aspect.isRequired="true"
+                         baseType="INFOTABLE"
+                         description="InfoTable that contains the groupable resource used to retrieve the grouping resource"
+                         name="objects"
+                         ordinal="1"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="JSON"
+                         description="A query for the grouping resource"
+                         name="query"
+                         ordinal="5"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="THINGTEMPLATENAME"
+                         description="ThingTemplate of resource providers for the grouping resource"
+                         name="resourceType"
+                         ordinal="2"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+            </ServiceDefinitions>
+            <EventDefinitions></EventDefinitions>
+            <ServiceMappings></ServiceMappings>
+            <ServiceImplementations>
+                <ServiceImplementation
+                 description=""
+                 handlerName="Script"
+                 name="GetGroup">
+                    <ConfigurationTables>
+                        <ConfigurationTable
+                         description="Script"
+                         isMultiRow="false"
+                         name="Script"
+                         ordinal="0">
+                            <DataShape>
+                                <FieldDefinitions>
+                                    <FieldDefinition
+                                     baseType="STRING"
+                                     description="code"
+                                     name="code"
+                                     ordinal="0"></FieldDefinition>
+                                </FieldDefinitions>
+                            </DataShape>
+                            <Rows>
+                                <Row>
+                                    <code>
+                                    <![CDATA[
+                                    var params = {
+                                      resourceProvider: me.name /* THINGNAME */,
+                                      table: objects /* INFOTABLE */
+                                    };
+                                    
+                                    // Update the Id of resources to URN format for ResourceManager
+                                    var table = Things["PTC.Resource.ResourceManager"].AddUrn(params);
+                                    
+                                    params = {
+                                        relationship: "PTC.Capability.GroupingServiceProvider" /* THINGSHAPENAME */,
+                                        dataShapeName: dataShapeName /* DATASHAPENAME */,
+                                        dataShape: dataShape /* INFOTABLE */,
+                                        objects: table /* INFOTABLE */,
+                                        query: query /* JSON */,
+                                        extraParams: extraParams /* JSON */,
+                                        foreignKey: "Group" /* STRING */,
+                                        resourceType: resourceType /* THINGTEMPLATENAME */
+                                    };
+                                    
+                                    // Navigate the relationship
+                                    var result = Things["PTC.Resource.ResourceManager"].NavigateForeignKeyRelationship(params);
+                                    ]]>
+                                    </code>
+                                </Row>
+                            </Rows>
+                        </ConfigurationTable>
+                    </ConfigurationTables>
+                </ServiceImplementation>
+            </ServiceImplementations>
+            <Subscriptions></Subscriptions>
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <InstanceRunTimePermissions></InstanceRunTimePermissions>
+        </ThingShape>
+    </ThingShapes>
+</Entities>

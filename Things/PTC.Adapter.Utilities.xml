@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Things>
+        <Thing
+         aspect.isExtension="true"
+         description="Utility services for use by adapter shapes"
+         documentationContent=""
+         effectiveThingPackage="ConfiguredThing"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         lastModifiedDate="2018-10-24T20:59:55.914Z"
+         name="PTC.Adapter.Utilities"
+         projectName=""
+         published="false"
+         tags="PTC:CORE;TWUTL:ResourceProvider"
+         thingTemplate="GenericThing"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="Removes any existing relationships of a given type from a Thing"
+                     isAllowOverride="true"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ClearRelationships">
+                        <ResultType
+                         baseType="INTEGER"
+                         description="Number of existing relationships found"
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="Name of relationship"
+                             name="relationship"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="THINGNAME"
+                             description="Name of Thing resource"
+                             name="thingName"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="Role Thing plays in the relationship"
+                             name="thisSideRole"
+                             ordinal="3"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="Creates relationships between a Thing and one or more resources"
+                     isAllowOverride="true"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="CreateRelationships">
+                        <ResultType
+                         baseType="INFOTABLE"
+                         description="Newly created relationships"
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="INFOTABLE"
+                             description="Data shape to use for the result table; alternative to dataShapeName"
+                             name="dataShape"
+                             ordinal="7"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="DATASHAPENAME"
+                             description="Name of data shape to use for the result table"
+                             name="dataShapeName"
+                             ordinal="6"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="INFOTABLE"
+                             description="Resources to create relationships with"
+                             name="otherSideResources"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="Role other resources play in the relationship"
+                             name="otherSideRole"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="Name of relationship"
+                             name="relationship"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="THINGNAME"
+                             description="Name of Thing resource"
+                             name="thingName"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="Role Thing plays in the relationship"
+                             name="thisSideRole"
+                             ordinal="3"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="Delete relationships between a Thing and specified resources"
+                     isAllowOverride="true"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="DeleteRelationships">
+                        <ResultType
+                         baseType="INTEGER"
+                         description="Number of existing relationships found"
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="INFOTABLE"
+                             description="Resources to disassociate with the specified Thing"
+                             name="otherSideResources"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="Role other resources play in relationship"
+                             name="otherSideRole"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="Name of relationship"
+                             name="relationship"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="THINGNAME"
+                             description="Name of Thing"
+                             name="thingName"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="Role Thing plays in the relationship"
+                             name="thisSideRole"
+                             ordinal="3"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="Get full, URN-format id for a Thing resource"
+                     isAllowOverride="true"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetId">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="THINGNAME"
+                             description="Name of Thing resource"
+                             name="thingName"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="Get resources related to a specified Thing"
+                     isAllowOverride="true"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetRelatedResources">
+                        <ResultType
+                         baseType="INFOTABLE"
+                         description="Requested attributes of related resources"
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="INFOTABLE"
+                             description="Data shape to use for the result table; alternative to dataShapeName"
+                             name="dataShape"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="DATASHAPENAME"
+                             description="Name of data shape to use for the result table"
+                             name="dataShapeName"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="QUERY"
+                             description="Query to apply to result table"
+                             name="query"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="Relationship role from which to obtain related resources"
+                             name="relationshipRole"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="THINGNAME"
+                             description="Name of Thing resource"
+                             name="thingName"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="For the specified Thing, removes any existing resources of the given type and add a relationship to the specified resource"
+                     isAllowOverride="true"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="SetRelatedResource">
+                        <ResultType
+                         baseType="INFOTABLE"
+                         description="Newly created relationship"
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="INFOTABLE"
+                             description="Data shape to use for the result table; alternative to dataShapeName"
+                             name="dataShape"
+                             ordinal="7"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="DATASHAPENAME"
+                             description="Name of data shape to use for the result table"
+                             name="dataShapeName"
+                             ordinal="6"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Id of resource to create a relationship to"
+                             name="otherSideResourceId"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="false"
+                             baseType="STRING"
+                             description="Role other resources play in the relationship"
+                             name="otherSideRole"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="Name of relationship"
+                             name="relationship"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="THINGNAME"
+                             description="Name of Thing resource"
+                             name="thingName"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="Role Thing plays in the relationship"
+                             name="thisSideRole"
+                             ordinal="3"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="For the specified Thing, removes any existing resources of the given type and add relationships to the specified resources"
+                     isAllowOverride="true"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="SetRelatedResources">
+                        <ResultType
+                         baseType="INFOTABLE"
+                         description="Newly created relationships"
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="INFOTABLE"
+                             description="Data shape to use for the result table; alternative to dataShapeName"
+                             name="dataShape"
+                             ordinal="7"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="DATASHAPENAME"
+                             description="Name of data shape to use for the result table"
+                             name="dataShapeName"
+                             ordinal="6"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="INFOTABLE"
+                             description="Resources to create relationships with"
+                             name="otherSideResources"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="false"
+                             baseType="STRING"
+                             description="Role other resources play in the relationship"
+                             name="otherSideRole"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="Name of relationship"
+                             name="relationship"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="THINGNAME"
+                             description="Name of Thing resource"
+                             name="thingName"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="Role Thing plays in the relationship"
+                             name="thisSideRole"
+                             ordinal="3"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                </ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ClearRelationships">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // get id for Thing
+                                        var thingId = me.GetId({
+                                          thingName: thingName /* THINGNAME */
+                                        });
+                                        // find existing relationship resources
+                                        var idOnlyDataShape = {dataShape: {fieldDefinitions: {Id: {name: "Id", baseType: "STRING"}}}};
+                                        var thisSideIdFieldName = Resources["PTC.Resource.RelationshipUtilities"].GetNamespacedFieldName({
+                                          roleName: thisSideRole /* STRING */,
+                                          localFieldName: "Id" /* STRING */
+                                        });
+                                        var resourceManager = Things["PTC.Resource.ResourceManager"];
+                                        var existingRelationships = resourceManager.Get({
+                                          modelTags: [{vocabulary: "Relationship", vocabularyTerm: relationship}] /* TAGS */,
+                                          dataShape: idOnlyDataShape /* INFOTABLE */,
+                                          query: {filters: {type: "eq", fieldName: thisSideIdFieldName, value: thingId}} /* QUERY */
+                                        });
+                                        // if any existing relationship resources were found, then delete them
+                                        var nExistingRelationships = existingRelationships.getRowCount();
+                                        var result;
+                                        if (nExistingRelationships > 0) {
+                                          resourceManager.Delete({
+                                            objects: existingRelationships /* INFOTABLE */
+                                          });
+                                          result = nExistingRelationships;
+                                        } else {
+                                          result = 0;
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="CreateRelationships">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // get id for Thing
+                                        var thingId = me.GetId({
+                                          thingName: thingName /* THINGNAME */
+                                        });
+                                        // determine names of this side role id field in relationship resource
+                                        var relationshipUtilities = Resources["PTC.Resource.RelationshipUtilities"];
+                                        var thisSideIdFieldName = relationshipUtilities.GetNamespacedFieldName({
+                                          roleName: thisSideRole /* STRING */,
+                                          localFieldName: "Id" /* STRING */
+                                        });
+                                        // construct InfoTable detailing relationships to create
+                                        var newRelationshipFields = {};
+                                        newRelationshipFields[thisSideIdFieldName] = {name: thisSideIdFieldName, baseType: "STRING"};
+                                        var otherSideFields = otherSideResources.dataShape.fields;
+                                        for (var fieldName in otherSideFields) {
+                                          var nsFieldName = relationshipUtilities.GetNamespacedFieldName({
+                                            roleName: otherSideRole /* STRING */,
+                                            localFieldName: fieldName /* STRING */
+                                          });
+                                          // note must convert BaseType to string here
+                                          newRelationshipFields[nsFieldName] = {name: nsFieldName, baseType: otherSideFields[fieldName].baseType.toString()};
+                                        }
+                                        // determine rows for new relationship resources
+                                        var newRelationshipRows = [];
+                                        var otherSideRows = otherSideResources.rows;
+                                        var nOtherSideRows = otherSideRows.length;
+                                        for (var ii = 0; ii < nOtherSideRows; ++ii) {
+                                          var otherSideRow = otherSideRows[ii];
+                                          var newRelationshipRow = {};
+                                          newRelationshipRow[thisSideIdFieldName] = thingId;
+                                          for (var fieldName in otherSideRow) {
+                                            var nsFieldName = relationshipUtilities.GetNamespacedFieldName({
+                                              roleName: otherSideRole /* STRING */,
+                                              localFieldName: fieldName /* STRING */
+                                            });
+                                            newRelationshipRow[nsFieldName] = otherSideRow[fieldName];
+                                          }
+                                          newRelationshipRows.push(newRelationshipRow);
+                                        }
+                                        var newRelationships = {dataShape: {fieldDefinitions: newRelationshipFields}, rows: newRelationshipRows};
+                                        // create new relationship resources
+                                        var result = Things["PTC.Resource.ResourceManager"].Create({
+                                          modelTags: [{vocabulary: "Relationship", vocabularyTerm: relationship}] /* TAGS */,
+                                          dataShapeName: dataShapeName /* INFOTABLE */,
+                                          dataShape: dataShape /* INFOTABLE */,
+                                          objects: newRelationships /* INFOTABLE */
+                                        });
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="DeleteRelationships">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // get id for Thing
+                                        var thingId = me.GetId({
+                                          thingName: thingName /* THINGNAME */
+                                        });
+                                        // find relationship resources to delete; criteria: thisSideRoleId=thingId and otherSideRoleId in (otherSideRoleIds)
+                                        var thisSideIdFieldName = Resources["PTC.Resource.RelationshipUtilities"].GetNamespacedFieldName({
+                                          roleName: thisSideRole /* STRING */,
+                                          localFieldName: "Id" /* STRING */
+                                        });
+                                        var thisSideRoleFilter = {type: "eq", fieldName: thisSideIdFieldName, value: thingId};
+                                        var otherSideIdFieldName = Resources["PTC.Resource.RelationshipUtilities"].GetNamespacedFieldName({
+                                          roleName: otherSideRole /* STRING */,
+                                          localFieldName: "Id" /* STRING */
+                                        });
+                                        var otherSideIds = [];
+                                        var otherSideResourceRows = otherSideResources.rows;
+                                        var nOtherSideResources = otherSideResourceRows.length;
+                                        for (var ii = 0; ii < nOtherSideResources; ++ii) {
+                                          var otherSideResourceRow = otherSideResourceRows[ii];
+                                          otherSideIds.push(otherSideResourceRow["Id"]);
+                                        }
+                                        var otherSideRoleFilter = {type: "in", fieldName: otherSideIdFieldName, values: otherSideIds};
+                                        var overallFilter = {type: "and", filters: [thisSideRoleFilter, otherSideRoleFilter]};
+                                        var resourceManager = Things["PTC.Resource.ResourceManager"];
+                                        var existingRelationships = resourceManager.Get({
+                                          modelTags: [{vocabulary: "Relationship", vocabularyTerm: relationship}] /* TAGS */,
+                                          dataShape: {dataShape: {fieldDefinitions: {Id: {name: "Id", baseType: "STRING"}}}} /* INFOTABLE */,
+                                          query: {filters: overallFilter} /* QUERY */
+                                        });
+                                        // if any existing relationship resources were found, then delete them
+                                        var nExistingRelationships = existingRelationships.getRowCount();
+                                        var result;
+                                        if (nExistingRelationships > 0) {
+                                          resourceManager.Delete({
+                                            objects: existingRelationships /* INFOTABLE */
+                                          });
+                                          result = nExistingRelationships;
+                                        } else {
+                                          result = 0;
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetId">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // get resource manager
+                                        var resourceManager = Things["PTC.Resource.ResourceManager"];
+                                        // get resource provider associated with this Thing
+                                        var resourceProvider = resourceManager.GetProviderForThingBasedResource({
+                                          thingResource: thingName /* THINGNAME */
+                                        });
+                                        // compute full, URN-format id for Thing
+                                        var result = resourceManager.GetUrn({
+                                          resourceProvider: resourceProvider, /* THINGNAME */
+                                          localId: thingName /* STRING */
+                                        });
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetRelatedResources">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // get id for Thing
+                                        var thingId = me.GetId({
+                                          thingName: thingName /* THINGNAME */
+                                        });
+                                        // determine which data shape to use
+                                        var dataShapeObj;
+                                        if (dataShape != null) {
+                                          dataShapeObj = dataShape.ToJSON().dataShape;  // need JSON representation
+                                        } else {
+                                          dataShapeObj = dataShapeName;
+                                        }
+                                        // expand relationship for thingId with specified data shape
+                                        var expandOptions = {};
+                                        expandOptions[relationshipRole] = {
+                                            dataShape: dataShapeObj,
+                                            query: query
+                                        };
+                                        var expandResult = Things["PTC.Resource.ResourceManager"].GetById({
+                                          id: thingId /* STRING */,
+                                          // limit result fields to bare minimum; expand data field is added automatically
+                                          dataShape: {dataShape: {fieldDefinitions: {}}} /* INFOTABLE */,
+                                          extraParams: {$expand: expandOptions} /* JSON */
+                                        });
+                                        // pull expand table out of expandResult and return it
+                                        var result;
+                                        if (expandResult.getRowCount() > 0) {
+                                          var row = expandResult.getRow(0);
+                                          result = row.getValue(relationshipRole);
+                                        }
+                                        if (!result) {
+                                          result = {dataShape: {fieldDefinitions: {}}, rows: []};  // empty InfoTable
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="SetRelatedResource">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // compute otherSideResources from otherSideResourceId
+                                        var otherSideResources;
+                                        if (otherSideResourceId != null) {
+                                          otherSideResources = {dataShape: {fieldDefinitions: {Id: {name: "Id", baseType: "STRING"}}}, rows: [{Id: otherSideResourceId}]};
+                                        } else {
+                                          otherSideResources = null;
+                                        }
+                                        // call SetRelatedResources service passing otherSideResources
+                                        var result = me.SetRelatedResources({
+                                          thingName: thingName /* THINGNAME */,
+                                          relationship: relationship /* STRING */,
+                                          thisSideRole: thisSideRole /* STRING */,
+                                          otherSideRole: otherSideRole /* STRING */,
+                                          otherSideResources: otherSideResources /* INFOTABLE */,
+                                          dataShapeName: dataShapeName /* DATASHAPENAME */,
+                                          dataShape: dataShape /* INFOTABLE */
+                                        });
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="SetRelatedResources">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // clear existing relationships
+                                        me.ClearRelationships({
+                                          thingName: thingName /* THINGNAME */,
+                                          relationship: relationship /* STRING */,
+                                          thisSideRole: thisSideRole /* STRING */
+                                        });
+                                        // if otherSideResources is non-null, then create relationship between Thing and those resources, else return empty InfoTable
+                                        var result;
+                                        if (otherSideResources != null) {
+                                          result = me.CreateRelationships({
+                                            thingName: thingName /* THINGNAME */,
+                                            relationship: relationship /* STRING */,
+                                            thisSideRole: thisSideRole /* STRING */,
+                                            otherSideRole: otherSideRole /* STRING */,
+                                            otherSideResources: otherSideResources /* INFOTABLE */,
+                                            dataShapeName: dataShapeName /* DATASHAPENAME */,
+                                            dataShape: dataShape /* INFOTABLE */
+                                          });
+                                        } else {
+                                          result = {dataShape: {fieldDefinitions: {}}, rows: []};  // empty InfoTable
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ImplementedShapes></ImplementedShapes>
+            <ThingProperties></ThingProperties>
+        </Thing>
+    </Things>
+</Entities>

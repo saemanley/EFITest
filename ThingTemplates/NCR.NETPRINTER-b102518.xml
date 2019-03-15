@@ -1,0 +1,1787 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <ThingTemplates>
+        <ThingTemplate
+         baseThingTemplate="NCR.BaseDevice"
+         description="Template for Network Printers"
+         documentationContent=""
+         effectiveThingPackage="TW.UTL.RemoteThingWithTunnelsAndFileTransferPackage"
+         homeMashup=""
+         lastModifiedDate="2018-11-06T02:37:23.485Z"
+         name="NCR.NETPRINTER-b102518"
+         projectName="DCS. Project.Main"
+         tags="Applications:NCR;Applications:DCS;DCS:Mashup"
+         thingPackage=""
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="System"
+                         type="User"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="System"
+                         type="User"></Principal>
+                    </PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="System"
+                         type="User"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="System"
+                         type="User"></Principal>
+                    </EventInvoke>
+                    <EventSubscribe>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="System"
+                         type="User"></Principal>
+                    </EventSubscribe>
+                </Permissions>
+            </RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:EMS"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 description="Tunneling Destinations"
+                 isMultiRow="true"
+                 name="Tunnels"
+                 ordinal="1">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue=""
+                             aspect.friendlyName="Application Path"
+                             baseType="STRING"
+                             description="Location of the client app that will use this tunnel"
+                             name="appUri"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue=""
+                             aspect.friendlyName="Description"
+                             baseType="STRING"
+                             description="A description of the tunnel"
+                             name="description"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="127.0.0.1"
+                             aspect.friendlyName="Host"
+                             baseType="STRING"
+                             description="Host or IP that this tunnel will connect to at the edge"
+                             name="host"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="vnc"
+                             aspect.friendlyName="Name"
+                             baseType="STRING"
+                             description="Name of the tunnel"
+                             name="name"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="1.0"
+                             aspect.friendlyName="Number of Connects"
+                             baseType="NUMBER"
+                             description="The number of connections required to establish this tunnel"
+                             name="numConnects"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="5900.0"
+                             aspect.friendlyName="Port"
+                             baseType="NUMBER"
+                             description="Port that this tunnel will connect to at the edge"
+                             name="port"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="tcp"
+                             aspect.friendlyName="Protocol"
+                             baseType="STRING"
+                             description="The protocol used over this tunnel"
+                             name="proto"
+                             ordinal="6"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="General Settings"
+                 isMultiRow="false"
+                 name="TunnelSettings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.friendlyName="Enable Tunneling"
+                             aspect.isNullable="true"
+                             baseType="BOOLEAN"
+                             description="Enable tunneling"
+                             name="enableTunneling"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row></Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions></ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations></ServiceImplementations>
+                <Subscriptions>
+                    <Subscription
+                     enabled="false"
+                     eventName="DataChange"
+                     source=""
+                     sourceProperty="Asset_Model"
+                     sourceType="Thing">
+                        <ServiceImplementation
+                         description=""
+                         handlerName="Script"
+                         name="Event.DataChange:Property.Asset_Model">
+                            <ConfigurationTables>
+                                <ConfigurationTable
+                                 description=""
+                                 isMultiRow="false"
+                                 name="Script"
+                                 ordinal="0">
+                                    <DataShape>
+                                        <FieldDefinitions>
+                                            <FieldDefinition
+                                             baseType="STRING"
+                                             description="code"
+                                             name="code"
+                                             ordinal="0"></FieldDefinition>
+                                        </FieldDefinitions>
+                                    </DataShape>
+                                    <Rows>
+                                        <Row>
+                                            <code>
+                                            <![CDATA[
+                                            var enablescriptdebug = false;
+                                            
+                                            // Introduce a wait only once so initial event can be processed and incident created so can set next event (if has same
+                                            // severity) with the Incident of the previous event; found that if don't have this initial wait all Events created for this
+                                            // Property change will have a different incident number
+                                            var bTriggerWait = 0;
+                                            
+                                            function waitforInitEvent(milliseconds) {
+                                                var startTime = new Date().getTime();
+                                                while (new Date().getTime() < startTime + milliseconds);
+                                                
+                                            }
+                                            
+                                            function checkifWait() {
+                                                
+                                                // wait if not already triggered
+                                                if (bTriggerWait == 1) {
+                                                    waitforInitEvent(5000);
+                                                    if (enablescriptdebug) {
+                                                        logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:Wait Initiated:bTriggerWait:" + bTriggerWait);
+                                                    } 
+                                                } 
+                                                // Only trigger once per Property Change  
+                                                bTriggerWait = bTriggerWait + 1;  
+                                                
+                                            }
+                                            
+                                            //DEBUG 
+                                            if (enablescriptdebug) {
+                                                logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:newValue:time:" + eventData.newValue.time + ":oldValue:time:" + eventData.oldValue.time);
+                                            }
+                                            
+                                            var oJnewValue = "[" + eventData.newValue.value + "]";
+                                            var oJoldValue = "[" + eventData.oldValue.value + "]";
+                                            var sourceOfDataChange = source;
+                                            var timeStampDataChange = eventData.newValue.time;
+                                            var eventNameDataChange = eventName;
+                                            var eventTimeDataChange = eventTime;
+                                            var sourcePropOfDataChange = sourceProperty;
+                                            
+                                            var eventStatusCode = "";
+                                            var eventSeverity = "";
+                                            
+                                            //DEBUG 
+                                            if (enablescriptdebug) {
+                                                logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:oJnewValue:" + oJnewValue);
+                                                logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:oJoldValue:" + oJoldValue);
+                                                //logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:sourceOfDataChange:" + sourceOfDataChange);
+                                                //logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:timeStampDataChange:" + timeStampDataChange);
+                                                //logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:eventNameDataChange:" + eventNameDataChange);
+                                                //logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:eventTimeDataChange:" + eventTimeDataChange);
+                                                //logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:sourcePropOfDataChange:" + sourcePropOfDataChange);
+                                            }
+                                            
+                                            if (oJnewValue != "[]" && oJoldValue != "[]") {
+                                                try {
+                                                    
+                                                    // Create JSON object from String
+                                                    var objJSONnewValue = JSON.parse(oJnewValue);
+                                                    var objJSONoldValue = JSON.parse(oJoldValue);
+                                            
+                                                    // CurrentInterventionRequiredCode
+                                                    var CurrentInterventionRequiredCodeNV = objJSONnewValue[0].CurrentInterventionRequiredCode;
+                                                    var CurrentInterventionRequiredCodeOV = objJSONoldValue[0].CurrentInterventionRequiredCode;
+                                            
+                                                    // PrinterCurrentOutHopperStatus
+                                                    var PrinterCurrentOutHopperStatusNV = objJSONnewValue[0].PrinterCurrentOutHopperStatus;
+                                                    var PrinterCurrentOutHopperStatusOV = objJSONoldValue[0].PrinterCurrentOutHopperStatus;
+                                            
+                                                    // InputPaperTrayStatus
+                                                    var InputPaperTrayStatusNV = objJSONnewValue[0].InputPaperTrayStatus;
+                                                    var InputPaperTrayStatusOV = objJSONoldValue[0].InputPaperTrayStatus;
+                                            
+                                                    // PrinterPaperPathStatus
+                                                    var PrinterPaperPathStatusNV = objJSONnewValue[0].PrinterPaperPathStatus;
+                                                    var PrinterPaperPathStatusOV = objJSONoldValue[0].PrinterPaperPathStatus;
+                                            
+                                                    // TonerSupplyStatus
+                                                    var TonerSupplyStatusNV = objJSONnewValue[0].TonerSupplyStatus;
+                                                    var TonerSupplyStatusOV = objJSONoldValue[0].TonerSupplyStatus;
+                                            
+                                                    // CurrentServiceRequiredStatus
+                                                    var CurrentServiceRequiredStatusNV = objJSONnewValue[0].CurrentServiceRequiredStatus;
+                                                    var CurrentServiceRequiredStatusOV = objJSONoldValue[0].CurrentServiceRequiredStatus;
+                                            
+                                                    // CurrentDiskSubsystemStatus
+                                                    var CurrentDiskSubsystemStatusNV = objJSONnewValue[0].CurrentDiskSubsystemStatus;
+                                                    var CurrentDiskSubsystemStatusOV = objJSONoldValue[0].CurrentDiskSubsystemStatus;
+                                            
+                                                    // CurrentCoverStatus
+                                                    var CurrentCoverStatusNV = objJSONnewValue[0].CurrentCoverStatus;
+                                                    var CurrentCoverStatusOV = objJSONoldValue[0].CurrentCoverStatus;
+                                            
+                                                } catch (e) {
+                                                    logger.warn("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:Create JSON Objects:ERROR:" + e.toString());
+                                                }
+                                            
+                                                // Get Event Rule
+                                                var erValues = Things["NCR.DCS.EventRulesDT"].CreateValues();
+                                                erValues.CustomerName = me.Customer;
+                                                var erParams;
+                                            
+                                                // Set Common Event Parameters
+                                                var eventParams = {
+                                                    severity: undefined /* STRING - Set in Prop Logic*/,
+                                                    eventid: undefined /* STRING  - Set in Prop Logic*/,
+                                                    data: undefined /* STRING */,
+                                                    count: undefined /* INTEGER */,
+                                                    description: undefined /* STRING  - Set in Prop Logic*/,
+                                                    duration: undefined /* INTEGER */,
+                                                    statuscode: undefined /* STRING  - Set in Prop Logic*/,
+                                                    storeidentifier: me.Asset_StoreIdentifier /* STRING */,
+                                                    assetName: me.name /* STRING */,
+                                                    category: undefined /* STRING  - Set in Prop Logic*/,
+                                                    incident: undefined /* STRING */,
+                                                    device: undefined /* STRING  - Set in Prop Logic*/,
+                                                    timestamp: eventData.newValue.time /* DATETIME */,
+                                                    customer: me.Customer /* STRING */
+                                                };   
+                                            
+                                                var erIT; /* INFOTABLE */
+                                            
+                                                // CurrentInterventionRequiredCode Logic
+                                                if (CurrentInterventionRequiredCodeNV != CurrentInterventionRequiredCodeOV) {
+                                                    if (CurrentInterventionRequiredCodeNV == "1" && CurrentInterventionRequiredCodeOV == "0") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:CurrentInterventionRequiredCode changed from 0 to 1");
+                                                        }
+                                                        // If the value changes to 1, create an event into the Event Table with the following status code: PRTIRC01 with Severity 01
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTIRC01";
+                                                        erValues.Severity = "01";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "01";
+                                                        eventParams['eventid'] = "PRTIRC01";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;       
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:CurrentInterventionRequiredCode:01:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        // wait on when Serverity is 01
+                                                        checkifWait();
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                                        
+                                            
+                                                    } else if (CurrentInterventionRequiredCodeNV == "0" && CurrentInterventionRequiredCodeOV == "1") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:CurrentInterventionRequiredCode changed from 1 to 0");
+                                                        }
+                                                        // If the value changes to 0, create an event into the Event Table with the following status code: PRTIRC00 with Severity 00
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTIRC01";
+                                                        erValues.Severity = "00";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "00";
+                                                        eventParams['eventid'] = "PRTIRC01";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:CurrentInterventionRequiredCode:00:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                                        
+                                                    }
+                                                }       
+                                                    
+                                                // PrinterCurrentOutHopperStatus Logic
+                                                if (PrinterCurrentOutHopperStatusNV != PrinterCurrentOutHopperStatusOV) {
+                                                    if (PrinterCurrentOutHopperStatusNV == "2" && PrinterCurrentOutHopperStatusOV == "1") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:PrinterCurrentOutHopperStatus changed from 1 to 2");
+                                                        }
+                                                        
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTOUH02";
+                                                        erValues.Severity = "01";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "01";
+                                                        eventParams['eventid'] = "PRTOUH02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:PrinterCurrentOutHopperStatus:01:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        // wait on when Serverity is 01
+                                                        checkifWait();
+                                                        
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                            
+                                                    } else if (PrinterCurrentOutHopperStatusNV == "1" && PrinterCurrentOutHopperStatusOV == "2") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:PrinterCurrentOutHopperStatus changed from 2 to 1");
+                                                        }
+                                                        
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTOUH02";
+                                                        erValues.Severity = "00";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "00";
+                                                        eventParams['eventid'] = "PRTOUH02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:PrinterCurrentOutHopperStatus:00:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                                    }
+                                                } 
+                                            
+                                                // InputPaperTrayStatus Logic
+                                                if (InputPaperTrayStatusNV != InputPaperTrayStatusOV) {
+                                                    if (InputPaperTrayStatusNV == "2" && InputPaperTrayStatusOV == "1") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:InputPaperTrayStatus changed from 1 to 2");
+                                                        }
+                                                        
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTINH02";
+                                                        erValues.Severity = "01";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "01";
+                                                        eventParams['eventid'] = "PRTINH02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:InputPaperTrayStatus:01:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        // wait on when Serverity is 01
+                                                        checkifWait();
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                            
+                                                    } else if (InputPaperTrayStatusNV == "1" && InputPaperTrayStatusOV == "2") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:InputPaperTrayStatus changed from 2 to 1");
+                                                        }
+                                                        
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTINH02";
+                                                        erValues.Severity = "00";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "00";
+                                                        eventParams['eventid'] = "PRTINH02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:InputPaperTrayStatus:00:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                                    }
+                                                }  
+                                              
+                                                // PrinterPaperPathStatus Logic
+                                                if (PrinterPaperPathStatusNV != PrinterPaperPathStatusOV) {
+                                                    if (PrinterPaperPathStatusNV == "2" && PrinterPaperPathStatusOV == "1") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:PrinterPaperPathStatus changed from 1 to 2");
+                                                        }
+                                                        
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTJAM02";
+                                                        erValues.Severity = "01";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "01";
+                                                        eventParams['eventid'] = "PRTJAM02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:PrinterPaperPathStatus:01:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                                       
+                                                        // wait on when Serverity is 01
+                                                        checkifWait();
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                            
+                                                    } else if (PrinterPaperPathStatusNV == "1" && PrinterPaperPathStatusOV == "2") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:PrinterPaperPathStatus changed from 2 to 1");
+                                                        }
+                                                        
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTJAM02";
+                                                        erValues.Severity = "00";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "00";
+                                                        eventParams['eventid'] = "PRTJAM02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:PrinterPaperPathStatus:00:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                                        
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                                    }
+                                                }  
+                                            
+                                                // TonerSupplyStatus Logic
+                                                if (TonerSupplyStatusNV != TonerSupplyStatusOV) {
+                                                    if (TonerSupplyStatusNV == "2" && TonerSupplyStatusOV == "1") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:TonerSupplyStatus changed from 1 to 2");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTTON02";
+                                                        erValues.Severity = "01";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "01";
+                                                        eventParams['eventid'] = "PRTTON02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:TonerSupplyStatus:01:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                                       
+                                                        // wait on when Serverity is 01
+                                                        checkifWait();
+                                                        
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                            
+                                                    } else if (TonerSupplyStatusNV == "1" && TonerSupplyStatusOV == "2") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:TonerSupplyStatus changed from 2 to 1");
+                                                        }
+                                                        
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTTON02";
+                                                        erValues.Severity = "00";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "00";
+                                                        eventParams['eventid'] = "PRTTON02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:TonerSupplyStatus:00:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                                      
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                                    }
+                                                } 
+                                            
+                                                // CurrentServiceRequiredStatus Logic
+                                                if (CurrentServiceRequiredStatusNV != CurrentServiceRequiredStatusOV) {
+                                                    if (CurrentServiceRequiredStatusNV == "2" && CurrentServiceRequiredStatusOV == "1") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:CurrentServiceRequiredStatus changed from 1 to 2");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTSRR02";
+                                                        erValues.Severity = "01";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "01";
+                                                        eventParams['eventid'] = "PRTSRR02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:CurrentServiceRequiredStatus:01:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                                       
+                                                        // wait on when Serverity is 01
+                                                        checkifWait();
+                                                        
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                            
+                                                    } else if (CurrentServiceRequiredStatusNV == "1" && CurrentServiceRequiredStatusOV == "2") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:CurrentServiceRequiredStatus changed from 2 to 1");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTSRR02";
+                                                        erValues.Severity = "00";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "00";
+                                                        eventParams['eventid'] = "PRTSRR02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:CurrentServiceRequiredStatus:00:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                                        
+                                                        
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                                    }
+                                                } 
+                                            
+                                                // CurrentDiskSubsystemStatus Logic
+                                                if (CurrentDiskSubsystemStatusNV != CurrentDiskSubsystemStatusOV) {
+                                                    if (CurrentDiskSubsystemStatusNV == "2" && CurrentDiskSubsystemStatusOV == "1") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:CurrentDiskSubsystemStatus changed from 1 to 2");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTDSK02";
+                                                        erValues.Severity = "01";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "01";
+                                                        eventParams['eventid'] = "PRTDSK02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:CurrentDiskSubsystemStatus:01:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        // wait on when Serverity is 01
+                                                        checkifWait();
+                                                        
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                            
+                                                    } else if (CurrentDiskSubsystemStatusNV == "1" && CurrentDiskSubsystemStatusOV == "2") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:CurrentDiskSubsystemStatus changed from 2 to 1");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTDSK02";
+                                                        erValues.Severity = "00";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "00";
+                                                        eventParams['eventid'] = "PRTDSK02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:CurrentDiskSubsystemStatus:00:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                                       
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                                    }
+                                                } 
+                                            
+                                                // CurrentCoverStatus Logic
+                                                if (CurrentCoverStatusNV != CurrentCoverStatusOV) {
+                                                    if (CurrentCoverStatusNV == "2" && CurrentCoverStatusOV == "1") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:CurrentCoverStatus changed from 1 to 2");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTCVR02";
+                                                        erValues.Severity = "01";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "01";
+                                                        eventParams['eventid'] = "PRTCVR02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:CurrentCoverStatus:01:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        // wait on when Serverity is 01
+                                                        checkifWait();
+                                                        
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                            
+                                                    } else if (CurrentCoverStatusNV == "1" && CurrentCoverStatusOV == "2") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:CurrentCoverStatus changed from 2 to 1");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTCVR02";
+                                                        erValues.Severity = "00";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "00";
+                                                        eventParams['eventid'] = "PRTCVR02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:CurrentCoverStatus:00:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                                       
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                                    }
+                                                } 
+                                            
+                                            } else {
+                                                if (enablescriptdebug) {
+                                                    logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:Asset_Model:Property value Undefined or Empty");
+                                                }
+                                            }
+                                            ]]>
+                                            </code>
+                                        </Row>
+                                    </Rows>
+                                </ConfigurationTable>
+                            </ConfigurationTables>
+                        </ServiceImplementation>
+                    </Subscription>
+                    <Subscription
+                     enabled="true"
+                     eventName="DataChange"
+                     source=""
+                     sourceProperty="PRT_ALL"
+                     sourceType="Thing">
+                        <ServiceImplementation
+                         description=""
+                         handlerName="Script"
+                         name="Event.DataChange:Property.PRT_ALL">
+                            <ConfigurationTables>
+                                <ConfigurationTable
+                                 description=""
+                                 isMultiRow="false"
+                                 name="Script"
+                                 ordinal="0">
+                                    <DataShape>
+                                        <FieldDefinitions>
+                                            <FieldDefinition
+                                             baseType="STRING"
+                                             description="code"
+                                             name="code"
+                                             ordinal="0"></FieldDefinition>
+                                        </FieldDefinitions>
+                                    </DataShape>
+                                    <Rows>
+                                        <Row>
+                                            <code>
+                                            <![CDATA[
+                                            var enablescriptdebug = false;
+                                            
+                                            // Introduce a wait only once so initial event can be processed and incident created so can set next event (if has same
+                                            // severity) with the Incident of the previous event; found that if don't have this initial wait all Events created for this
+                                            // Property change will have a different incident number
+                                            var bTriggerWait = 0;
+                                            
+                                            function waitforInitEvent(milliseconds) {
+                                                var startTime = new Date().getTime();
+                                                while (new Date().getTime() < startTime + milliseconds);
+                                            }
+                                            
+                                            function checkifWait() {
+                                                // wait if not already triggered
+                                                if (bTriggerWait == 1) {
+                                                    waitforInitEvent(5000);
+                                                    if (enablescriptdebug) {
+                                                        logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:Wait Initiated:bTriggerWait:" + bTriggerWait);
+                                                    }
+                                                }
+                                                // Only trigger once per Property Change  
+                                                bTriggerWait = bTriggerWait + 1;
+                                            }
+                                            
+                                            //DEBUG 
+                                            if (enablescriptdebug) {
+                                                logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:newValue:time:" + eventData.newValue.time + ":oldValue:time:" + eventData.oldValue.time);
+                                            }
+                                            
+                                            var oJnewValue = "[" + eventData.newValue.value + "]";
+                                            var oJoldValue = "[" + eventData.oldValue.value + "]";
+                                            var sourceOfDataChange = source;
+                                            var timeStampDataChange = eventData.newValue.time;
+                                            var eventNameDataChange = eventName;
+                                            var eventTimeDataChange = eventTime;
+                                            var sourcePropOfDataChange = sourceProperty;
+                                            
+                                            var eventStatusCode = "";
+                                            var eventSeverity = "";
+                                            
+                                            //DEBUG 
+                                            if (enablescriptdebug) {
+                                                logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:oJnewValue:" + oJnewValue);
+                                                logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:oJoldValue:" + oJoldValue);
+                                                logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:sourceOfDataChange:" + sourceOfDataChange);
+                                                logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:timeStampDataChange:" + timeStampDataChange);
+                                                logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:eventNameDataChange:" + eventNameDataChange);
+                                                logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:eventTimeDataChange:" + eventTimeDataChange);
+                                                logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:sourcePropOfDataChange:" + sourcePropOfDataChange);
+                                            }
+                                            
+                                            if (oJnewValue != "[]" && oJoldValue != "[]") {
+                                                try {
+                                            
+                                                    // Create JSON object from String
+                                                    var objJSONnewValue = JSON.parse(oJnewValue);
+                                                    var objJSONoldValue = JSON.parse(oJoldValue);
+                                            
+                                                    // CurrentInterventionRequiredCode
+                                                    var CurrentInterventionRequiredCodeNV = objJSONnewValue[0].CurrentInterventionRequiredCode;
+                                                    var CurrentInterventionRequiredCodeOV = objJSONoldValue[0].CurrentInterventionRequiredCode;
+                                            
+                                                    // PrinterCurrentOutHopperStatus
+                                                    var PrinterCurrentOutHopperStatusNV = objJSONnewValue[0].PrinterCurrentOutHopperStatus;
+                                                    var PrinterCurrentOutHopperStatusOV = objJSONoldValue[0].PrinterCurrentOutHopperStatus;
+                                            
+                                                    // InputPaperTrayStatus
+                                                    var InputPaperTrayStatusNV = objJSONnewValue[0].InputPaperTrayStatus;
+                                                    var InputPaperTrayStatusOV = objJSONoldValue[0].InputPaperTrayStatus;
+                                            
+                                                    // PrinterPaperPathStatus
+                                                    var PrinterPaperPathStatusNV = objJSONnewValue[0].PrinterPaperPathStatus;
+                                                    var PrinterPaperPathStatusOV = objJSONoldValue[0].PrinterPaperPathStatus;
+                                            
+                                                    // TonerSupplyStatus
+                                                    var TonerSupplyStatusNV = objJSONnewValue[0].TonerSupplyStatus;
+                                                    var TonerSupplyStatusOV = objJSONoldValue[0].TonerSupplyStatus;
+                                            
+                                                    // CurrentServiceRequiredStatus
+                                                    var CurrentServiceRequiredStatusNV = objJSONnewValue[0].CurrentServiceRequiredStatus;
+                                                    var CurrentServiceRequiredStatusOV = objJSONoldValue[0].CurrentServiceRequiredStatus;
+                                            
+                                                    // CurrentDiskSubsystemStatus
+                                                    var CurrentDiskSubsystemStatusNV = objJSONnewValue[0].CurrentDiskSubsystemStatus;
+                                                    var CurrentDiskSubsystemStatusOV = objJSONoldValue[0].CurrentDiskSubsystemStatus;
+                                            
+                                                    // CurrentCoverStatus
+                                                    var CurrentCoverStatusNV = objJSONnewValue[0].CurrentCoverStatus;
+                                                    var CurrentCoverStatusOV = objJSONoldValue[0].CurrentCoverStatus;
+                                            
+                                                } catch (e) {
+                                                    logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:Create JSON Objects:ERROR:" + e.toString());
+                                                }
+                                            
+                                                // Get Event Rule
+                                                var erValues = Things["NCR.DCS.EventRulesDT"].CreateValues();
+                                                erValues.CustomerName = me.Customer;
+                                                var erParams;
+                                            
+                                                // Set Common Event Parameters
+                                                var eventParams = {
+                                                    severity: undefined /* STRING - Set in Prop Logic*/,
+                                                    eventid: undefined /* STRING  - Set in Prop Logic*/,
+                                                    data: undefined /* STRING */,
+                                                    count: undefined /* INTEGER */,
+                                                    description: undefined /* STRING  - Set in Prop Logic*/,
+                                                    duration: undefined /* INTEGER */,
+                                                    statuscode: undefined /* STRING  - Set in Prop Logic*/,
+                                                    storeidentifier: me.Asset_StoreIdentifier /* STRING */,
+                                                    assetName: me.name /* STRING */,
+                                                    category: undefined /* STRING  - Set in Prop Logic*/,
+                                                    incident: undefined /* STRING */,
+                                                    device: undefined /* STRING  - Set in Prop Logic*/,
+                                                    timestamp: eventData.newValue.time /* DATETIME */,
+                                                    customer: me.Customer /* STRING */
+                                                };
+                                            
+                                                var erIT; /* INFOTABLE */
+                                            
+                                                // CurrentInterventionRequiredCode Logic
+                                                if (CurrentInterventionRequiredCodeNV != CurrentInterventionRequiredCodeOV) {
+                                                    if (CurrentInterventionRequiredCodeNV == "1" && CurrentInterventionRequiredCodeOV == "0") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:CurrentInterventionRequiredCode changed from 0 to 1");
+                                                        }
+                                                        // If the value changes to 1, create an event into the Event Table with the following status code: PRTIRC01 with Severity 01
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTIRC01";
+                                                        erValues.Severity = "01";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "01";
+                                                        eventParams['eventid'] = "PRTIRC01";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:CurrentInterventionRequiredCode:01:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        // wait on when Serverity is 01
+                                                        checkifWait();
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                            
+                                            
+                                                    } else if (CurrentInterventionRequiredCodeNV == "0" && CurrentInterventionRequiredCodeOV == "1") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:CurrentInterventionRequiredCode changed from 1 to 0");
+                                                        }
+                                                        // If the value changes to 0, create an event into the Event Table with the following status code: PRTIRC00 with Severity 00
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTIRC01";
+                                                        erValues.Severity = "00";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "00";
+                                                        eventParams['eventid'] = "PRTIRC01";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:CurrentInterventionRequiredCode:00:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                            
+                                                    }
+                                                }
+                                            
+                                                // PrinterCurrentOutHopperStatus Logic
+                                                if (PrinterCurrentOutHopperStatusNV != PrinterCurrentOutHopperStatusOV) {
+                                                    if (PrinterCurrentOutHopperStatusNV == "2" && PrinterCurrentOutHopperStatusOV == "1") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:PrinterCurrentOutHopperStatus changed from 1 to 2");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTOUH02";
+                                                        erValues.Severity = "01";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "01";
+                                                        eventParams['eventid'] = "PRTOUH02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:PrinterCurrentOutHopperStatus:01:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        // wait on when Serverity is 01
+                                                        checkifWait();
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                            
+                                                    } else if (PrinterCurrentOutHopperStatusNV == "1" && PrinterCurrentOutHopperStatusOV == "2") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:PrinterCurrentOutHopperStatus changed from 2 to 1");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTOUH02";
+                                                        erValues.Severity = "00";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "00";
+                                                        eventParams['eventid'] = "PRTOUH02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:PrinterCurrentOutHopperStatus:00:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                                    }
+                                                }
+                                            
+                                                // InputPaperTrayStatus Logic
+                                                if (InputPaperTrayStatusNV != InputPaperTrayStatusOV) {
+                                                    if (InputPaperTrayStatusNV == "2" && InputPaperTrayStatusOV == "1") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:InputPaperTrayStatus changed from 1 to 2");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTINH02";
+                                                        erValues.Severity = "01";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "01";
+                                                        eventParams['eventid'] = "PRTINH02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:InputPaperTrayStatus:01:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        // wait on when Serverity is 01
+                                                        checkifWait();
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                            
+                                                    } else if (InputPaperTrayStatusNV == "1" && InputPaperTrayStatusOV == "2") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:InputPaperTrayStatus changed from 2 to 1");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTINH02";
+                                                        erValues.Severity = "00";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "00";
+                                                        eventParams['eventid'] = "PRTINH02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:InputPaperTrayStatus:00:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                                    }
+                                                }
+                                            
+                                                // PrinterPaperPathStatus Logic
+                                                if (PrinterPaperPathStatusNV != PrinterPaperPathStatusOV) {
+                                                    if (PrinterPaperPathStatusNV == "2" && PrinterPaperPathStatusOV == "1") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:PrinterPaperPathStatus changed from 1 to 2");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTJAM02";
+                                                        erValues.Severity = "01";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "01";
+                                                        eventParams['eventid'] = "PRTJAM02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:PrinterPaperPathStatus:01:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        // wait on when Serverity is 01
+                                                        checkifWait();
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                            
+                                                    } else if (PrinterPaperPathStatusNV == "1" && PrinterPaperPathStatusOV == "2") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:PrinterPaperPathStatus changed from 2 to 1");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTJAM02";
+                                                        erValues.Severity = "00";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "00";
+                                                        eventParams['eventid'] = "PRTJAM02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:PrinterPaperPathStatus:00:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                                    }
+                                                }
+                                            
+                                                // TonerSupplyStatus Logic
+                                                if (TonerSupplyStatusNV != TonerSupplyStatusOV) {
+                                                    if (TonerSupplyStatusNV == "2" && TonerSupplyStatusOV == "1") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:TonerSupplyStatus changed from 1 to 2");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTTON02";
+                                                        erValues.Severity = "01";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "01";
+                                                        eventParams['eventid'] = "PRTTON02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:TonerSupplyStatus:01:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        // wait on when Serverity is 01
+                                                        checkifWait();
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                            
+                                                    } else if (TonerSupplyStatusNV == "1" && TonerSupplyStatusOV == "2") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:TonerSupplyStatus changed from 2 to 1");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTTON02";
+                                                        erValues.Severity = "00";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "00";
+                                                        eventParams['eventid'] = "PRTTON02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:TonerSupplyStatus:00:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                                    }
+                                                }
+                                            
+                                                // CurrentServiceRequiredStatus Logic
+                                                if (CurrentServiceRequiredStatusNV != CurrentServiceRequiredStatusOV) {
+                                                    if (CurrentServiceRequiredStatusNV == "2" && CurrentServiceRequiredStatusOV == "1") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:CurrentServiceRequiredStatus changed from 1 to 2");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTSRR02";
+                                                        erValues.Severity = "01";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "01";
+                                                        eventParams['eventid'] = "PRTSRR02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:CurrentServiceRequiredStatus:01:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        // wait on when Serverity is 01
+                                                        checkifWait();
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                            
+                                                    } else if (CurrentServiceRequiredStatusNV == "1" && CurrentServiceRequiredStatusOV == "2") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:CurrentServiceRequiredStatus changed from 2 to 1");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTSRR02";
+                                                        erValues.Severity = "00";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "00";
+                                                        eventParams['eventid'] = "PRTSRR02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:CurrentServiceRequiredStatus:00:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                                    }
+                                                }
+                                            
+                                                // CurrentDiskSubsystemStatus Logic
+                                                if (CurrentDiskSubsystemStatusNV != CurrentDiskSubsystemStatusOV) {
+                                                    if (CurrentDiskSubsystemStatusNV == "2" && CurrentDiskSubsystemStatusOV == "1") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:CurrentDiskSubsystemStatus changed from 1 to 2");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTDSK02";
+                                                        erValues.Severity = "01";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "01";
+                                                        eventParams['eventid'] = "PRTDSK02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:CurrentDiskSubsystemStatus:01:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        // wait on when Serverity is 01
+                                                        checkifWait();
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                            
+                                                    } else if (CurrentDiskSubsystemStatusNV == "1" && CurrentDiskSubsystemStatusOV == "2") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:CurrentDiskSubsystemStatus changed from 2 to 1");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTDSK02";
+                                                        erValues.Severity = "00";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "00";
+                                                        eventParams['eventid'] = "PRTDSK02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:CurrentDiskSubsystemStatus:00:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                                    }
+                                                }
+                                            
+                                                // CurrentCoverStatus Logic
+                                                if (CurrentCoverStatusNV != CurrentCoverStatusOV) {
+                                                    if (CurrentCoverStatusNV == "2" && CurrentCoverStatusOV == "1") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:CurrentCoverStatus changed from 1 to 2");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTCVR02";
+                                                        erValues.Severity = "01";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "01";
+                                                        eventParams['eventid'] = "PRTCVR02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:CurrentCoverStatus:01:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        // wait on when Serverity is 01
+                                                        checkifWait();
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                            
+                                                    } else if (CurrentCoverStatusNV == "1" && CurrentCoverStatusOV == "2") {
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:CurrentCoverStatus changed from 2 to 1");
+                                                        }
+                                            
+                                                        // Get Event Rule
+                                                        erValues.EventID = "PRTCVR02";
+                                                        erValues.Severity = "00";
+                                            
+                                                        erParams = {
+                                                            values: erValues /* INFOTABLE*/
+                                                        };
+                                            
+                                                        // result: INFOTABLE
+                                                        erIT = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(erParams);
+                                            
+                                                        // Generate Event NCR_DCS_EdgeEvent of NCR.BaseDevice for Event Processing
+                                                        eventParams['severity'] = "00";
+                                                        eventParams['eventid'] = "PRTCVR02";
+                                                        eventParams['description'] = erIT.EventDescription;
+                                                        eventParams['statuscode'] = erIT.Status;
+                                                        eventParams['category'] = erIT.Category;
+                                                        eventParams['device'] = erIT.Device;
+                                            
+                                                        if (enablescriptdebug) {
+                                                            logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:CurrentCoverStatus:00:eventParams:description:" + erIT.EventDescription);
+                                                        }
+                                            
+                                                        me.NCR_DCS_EdgeEvent(eventParams);
+                                                    }
+                                                }
+                                            
+                                            } else {
+                                                if (enablescriptdebug) {
+                                                    logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:Property value Undefined or Empty");
+                                                }
+                                            }
+                                            
+                                            // Set Asset_Serial_Number
+                                            try { 
+                                                var objJSON = JSON.parse(me.PRT_ALL);
+                                                me.Asset_Serial_Number = objJSON.SerialNumber;
+                                            
+                                                if (enablescriptdebug) {
+                                                    logger.debug("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:Set Asset_Serial_Number:" + objJSON.SerialNumber);
+                                                }
+                                            } catch (e) {
+                                                logger.warn("NCRDCSEVENTMANAGEMENT::NCR.NETPRINTER::Subscriptions:DataChange:PRT_ALL:Set Asset_Serial_Number:ERROR:" + e.toString());
+                                            }
+                                            ]]>
+                                            </code>
+                                        </Row>
+                                    </Rows>
+                                </ConfigurationTable>
+                            </ConfigurationTables>
+                        </ServiceImplementation>
+                    </Subscription>
+                </Subscriptions>
+            </ThingShape>
+            <ImplementedShapes>
+                <ImplementedShape
+                 name="NCR.PRINTERLBts"
+                 type="ThingShape"></ImplementedShape>
+            </ImplementedShapes>
+            <SharedConfigurationTables>
+                <ConfigurationTable
+                 description="Shared Tunneling Destinations"
+                 isMultiRow="true"
+                 name="SharedTunnels"
+                 ordinal="1">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.friendlyName="Application Path"
+                             baseType="STRING"
+                             description="Location of the client app that will use this tunnel"
+                             name="appUri"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Description"
+                             baseType="STRING"
+                             description="A description of the tunnel"
+                             name="description"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Host"
+                             baseType="STRING"
+                             description="Host or IP that this tunnel will connect to at the edge"
+                             name="host"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Name"
+                             baseType="STRING"
+                             description="Name of the tunnel"
+                             name="name"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Number of Connects"
+                             baseType="NUMBER"
+                             description="The number of connections required to establish this tunnel"
+                             name="numConnects"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Port"
+                             baseType="NUMBER"
+                             description="Port that this tunnel will connect to at the edge"
+                             name="port"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Protocol"
+                             baseType="STRING"
+                             description="The protocol used over this tunnel"
+                             name="proto"
+                             ordinal="6"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="Shared Remote Tunneling Settings"
+                 isMultiRow="false"
+                 name="SharedTunnelSettings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="false"
+                             aspect.friendlyName="Enable Tunneling"
+                             baseType="BOOLEAN"
+                             description="Enable tunneling"
+                             name="enableTunneling"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <enableTunneling>true</enableTunneling>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </SharedConfigurationTables>
+            <InstanceDesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </InstanceDesignTimePermissions>
+            <InstanceRunTimePermissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="System"
+                         type="User"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="System"
+                         type="User"></Principal>
+                    </PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="System"
+                         type="User"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="System"
+                         type="User"></Principal>
+                    </EventInvoke>
+                    <EventSubscribe>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="System"
+                         type="User"></Principal>
+                    </EventSubscribe>
+                </Permissions>
+            </InstanceRunTimePermissions>
+            <InstanceVisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:EMS"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:SCM"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:TCS"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </InstanceVisibilityPermissions>
+        </ThingTemplate>
+    </ThingTemplates>
+</Entities>

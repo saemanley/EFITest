@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Things>
+        <Thing
+         aspect.isExtension="true"
+         description=""
+         documentationContent=""
+         effectiveThingPackage="ConfiguredThing"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         lastModifiedDate="2018-10-24T21:00:10.489Z"
+         name="TW.UTL.Thing.AuditExportManager"
+         projectName=""
+         published="false"
+         tags="PTC:AuditSubsystem"
+         thingTemplate="GenericThing"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.isLogged="false"
+                     aspect.isPersistent="false"
+                     aspect.isReadOnly="false"
+                     baseType="BOOLEAN"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="CreateTileonStart"
+                     ordinal="1"></PropertyDefinition>
+                </PropertyDefinitions>
+                <ServiceDefinitions>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="CreateAuditTile">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="path"
+                             ordinal="3"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="CreateDownloadLink">
+                        <ResultType
+                         aspect.dataShape="FileSystemFileWithLinks"
+                         baseType="HYPERLINK"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="fileName"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="path"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="DateValidation">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="DATETIME"
+                             description=""
+                             name="endDate"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="false"
+                             baseType="DATETIME"
+                             description=""
+                             name="startDate"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="DeleteExports">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="DownloadFile">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ExportAndDownload">
+                        <ResultType
+                         aspect.dataShape="TW.UTL.Audit.DataShape.ExportOutput"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="DATETIME"
+                             description=""
+                             name="endDate"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="DATETIME"
+                             description=""
+                             name="startDate"
+                             ordinal="5"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ValidationResult">
+                        <ResultType
+                         baseType="BOOLEAN"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="validationResult"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                </ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="CreateAuditTile">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var auditMashup = "TW.UTL.Audit.Mashup.AuditArchive";
+                                        var query = {"filters":{"fieldName":"TileMashupOrURL","type":"EQ","value":TW.UTL.Audit.Mashup.AuditArchive}};
+                                        var params = {
+                                            query: query /* INFOTABLE*/
+                                        };
+                                        var tiles = Things["PTC.ConvergeConsole.DataTable"].QueryDataTableEntries(params);
+                                        if (tiles.getRowCount() < 1) {
+                                        
+                                            var values = Things["PTC.ConvergeConsole.DataTable"].CreateValues();
+                                        
+                                            values.TileLabel = "[[TW.UTL.Audit.Export.ButtonLabel]]"; //TEXT
+                                            values.TileBackground = ""; //STRING
+                                            values.InAppSwitcher = true; //BOOLEAN
+                                            values.TileIcon = "TW.UTL.Audit.TileIcon"; //STRING
+                                            values.OpenInNewWindow = false; //BOOLEAN
+                                            values.InConvergeConsole = true; //BOOLEAN
+                                            values.TileMashupOrURL = "TW.UTL.Audit.Mashup.AuditArchive"; //STRING
+                                            values.TileTooltip = "Export Archived Audit Data"; //TEXT
+                                            values.TileOrder = "10"; //INTEGER
+                                            values.IsMashup = true; //BOOLEAN
+                                            values.LabelColor = "black";
+                                        
+                                            var params = {
+                                                values: values /* INFOTABLE*/
+                                            };
+                                        
+                                            // no return
+                                            Things["PTC.ConvergeConsole.DataTable"].AddDataTableEntries(params);
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="CreateDownloadLink">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var exportFile = fileName + ".zip";
+                                        var params = {
+                                            path: path /* STRING */,
+                                            nameMask: exportFile /* STRING */
+                                        };
+                                        
+                                        // result: INFOTABLE dataShape: FileSystemFileWithLinks
+                                        var files = Things["AuditArchiveFileRepository"].GetFileListingWithLinks(params);
+                                        
+                                        result = files.rows[0].downloadLink;
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="DateValidation">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var currentTime = new Date();
+                                        if(startDate > currentTime) {
+                                            
+                                        var params = {
+                                            token: "TW.UTL.Audit.Export.InvalidStartDate" /* STRING */
+                                        };
+                                        // result: STRING
+                                            result = Resources["RuntimeLocalizationFunctions"].GetEffectiveToken(params);
+                                        } 
+                                        else if(endDate < startDate) {
+                                            
+                                        var params = {
+                                            token: "TW.UTL.Audit.Export.EndDateSmaller" /* STRING */
+                                        };
+                                        
+                                        // result: STRING
+                                            result = Resources["RuntimeLocalizationFunctions"].GetEffectiveToken(params);
+                                        } 
+                                        else if(endDate > currentTime) {
+                                            
+                                        var params = {
+                                            token: "TW.UTL.Audit.Export.InvalidEndDate" /* STRING */
+                                        };
+                                        
+                                        // result: STRING
+                                            result = Resources["RuntimeLocalizationFunctions"].GetEffectiveToken(params);
+                                        }
+                                        else {
+                                        
+                                        // result: STRING
+                                            result = "Success";
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="DeleteExports">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var olderThan = new Date();
+                                        //only delete files that are older than 1 day.
+                                        olderThan.setDate(olderThan.getDate() - 1);
+                                        
+                                        //verify export directory exists
+                                        var params = {
+                                            path: "ExportAuditTempDir" 
+                                        };
+                                        var list = Things["AuditArchiveFileRepository"].BrowseDirectory(params);
+                                        if (list.rows.length > 0) {
+                                        	var params = {
+                                            	path: "ExportAuditTempDir",
+                                            	nameMask: undefined
+                                        	};
+                                        	// result: INFOTABLE dataShape: FileSystemFile
+                                        	var list = Things["AuditArchiveFileRepository"].GetFileListing(params);
+                                        	var tableLength = list.rows.length;
+                                        	for (var x = 0; x < tableLength; x++) {
+                                            	var row = list.rows[x];
+                                            	var fileDateStr = row.name.substring(0,row.name.indexOf(".zip"));
+                                            	var fileDate = new Date(Number(fileDateStr));
+                                            	//only delete files older than 1 day
+                                        		if(fileDate < olderThan) {
+                                        			var params = {
+                                            			path: "ExportAuditTempDir/" + row.name
+                                        			};
+                                        			// no return
+                                        			Things["AuditArchiveFileRepository"].DeleteFile(params);
+                                        		}
+                                        	}
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="DownloadFile">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                            path: me.path /* STRING */
+                                        };
+                                        
+                                        // result: INFOTABLE dataShape: "FileSystemFileWithLinks"
+                                        var files = me.CreateDownloadLink(params);
+                                         
+                                        result = files.rows[0].downloadLink;
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ExportAndDownload">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var timeStamp = Date.now().toLocaleString();
+                                        var folderName = "ExportAuditTempDir";
+                                        var targetRepository = "AuditArchiveFileRepository";
+                                        
+                                        var resultParams = {
+                                            infoTableName : "InfoTable",
+                                            dataShapeName : "TW.UTL.Audit.DataShape.ExportOutput"
+                                        };
+                                        
+                                        // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(FileSystemFileWithLinks)
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(resultParams);
+                                        
+                                        var params = {
+                                            endDate: endDate /* DATETIME */,
+                                            targetFileName: timeStamp /* STRING */,
+                                            targetPath: folderName /* STRING */,
+                                            targetRepositoryName: targetRepository /* THINGNAME */,
+                                            startDate: startDate, /* DATETIME */
+                                            locale: Resources["CurrentSessionInfo"].GetCurrentUserLanguage()
+                                        };
+                                        
+                                        // no return
+                                        Subsystems["AuditSubsystem"].ExportAuditData(params);
+                                        
+                                        var linkParams = {
+                                            path: folderName, /* STRING */
+                                            fileName: timeStamp
+                                        };
+                                        
+                                        // exportdownload entry object
+                                        var newEntry = new Object();
+                                        newEntry.link = me.CreateDownloadLink(linkParams); // HYPERLINK
+                                        
+                                        result.AddRow(newEntry);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ValidationResult">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        result = validationResult != "Success"
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions>
+                    <Subscription
+                     enabled="true"
+                     eventName="ThingStart"
+                     source=""
+                     sourceProperty=""
+                     sourceType="Thing">
+                        <ServiceImplementation
+                         description=""
+                         handlerName="Script"
+                         name="Event.ThingStart">
+                            <ConfigurationTables>
+                                <ConfigurationTable
+                                 description=""
+                                 isMultiRow="false"
+                                 name="Script"
+                                 ordinal="0">
+                                    <DataShape>
+                                        <FieldDefinitions>
+                                            <FieldDefinition
+                                             baseType="STRING"
+                                             description="code"
+                                             name="code"
+                                             ordinal="0"></FieldDefinition>
+                                        </FieldDefinitions>
+                                    </DataShape>
+                                    <Rows>
+                                        <Row>
+                                            <code>
+                                            <![CDATA[
+                                            if(me.CreateTileonStart) {
+                                            
+                                            me.CreateAuditTile();
+                                            
+                                            }
+                                            ]]>
+                                            </code>
+                                        </Row>
+                                    </Rows>
+                                </ConfigurationTable>
+                            </ConfigurationTables>
+                        </ServiceImplementation>
+                    </Subscription>
+                </Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations>
+                <AlertDefinitions
+                 name="CreateTileonStart"></AlertDefinitions>
+            </AlertConfigurations>
+            <ImplementedShapes></ImplementedShapes>
+            <ThingProperties></ThingProperties>
+        </Thing>
+    </Things>
+</Entities>

@@ -1,0 +1,1866 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="true"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description="Alert Details Mashup"
+         documentationContent="&lt;p&gt;&lt;br&gt;&lt;/p&gt;"
+         homeMashup=""
+         lastModifiedDate="2018-10-24T20:59:55.633Z"
+         name="PTC.Alert.Mashup.AlertDetails"
+         projectName=""
+         rows="0.0"
+         tags="PTC:AlertManagement;TWUTL:Core">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="STRING"
+                 description=""
+                 name="source"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="1"
+                 baseType="STRING"
+                 description=""
+                 name="sourceProperty"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="2"
+                 baseType="STRING"
+                 description=""
+                 name="timestamp"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things></Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Resources_PTC_Alert_AlertMonitorUtilities" : {
+                  "DataName" : "Resources_PTC_Alert_AlertMonitorUtilities",
+                  "EntityName" : "PTC.Alert.AlertMonitorUtilities",
+                  "EntityType" : "Resources",
+                  "Id" : "e45024f0-a508-4bd4-8584-9bbf80404c3e",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "a657ea2e-38c3-4575-8896-f9f00d8c5aaf",
+                    "Name" : "QueryAlertSummaryByKey",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "QueryAlertSummaryByKey"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "04740955-8ede-4c94-8361-3021cccf6f06",
+                    "Name" : "QueryAlertHistoryByKey",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "QueryAlertHistoryByKey"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "7614527e-b13b-4068-806f-f2176bf22c00",
+                    "Name" : "IsAlertSourceAnAsset",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "IsAlertSourceAnAsset"
+                  } ]
+                },
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "ef433492-6483-4d8f-81de-30a6a44fc9fc",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "source",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "source",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "QueryAlertSummaryByKey",
+                "TargetSection" : "Resources_PTC_Alert_AlertMonitorUtilities"
+              }, {
+                "Id" : "06680e9c-2e72-4015-9383-79f5449c5a43",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "sourceProperty",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "sourceProperty",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "QueryAlertSummaryByKey",
+                "TargetSection" : "Resources_PTC_Alert_AlertMonitorUtilities"
+              }, {
+                "Id" : "59077da6-830c-4930-85fc-69fd0ddfc75b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "timestamp",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "timestamp",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "QueryAlertSummaryByKey",
+                "TargetSection" : "Resources_PTC_Alert_AlertMonitorUtilities"
+              }, {
+                "Id" : "e5c5530e-1397-454e-ad49-407504e16cf6",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "QueryAlertSummaryByKey",
+                "SourceSection" : "Resources_PTC_Alert_AlertMonitorUtilities",
+                "TargetArea" : "UI",
+                "TargetId" : "PropertyDisplay-18",
+                "TargetSection" : ""
+              }, {
+                "Id" : "a9e9866f-6c3c-42db-9e78-d98b95b40d9f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "source",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "source",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "QueryAlertHistoryByKey",
+                "TargetSection" : "Resources_PTC_Alert_AlertMonitorUtilities"
+              }, {
+                "Id" : "4e7f7a44-b9a4-4891-aa56-e0db7728fe04",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "sourceProperty",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "sourceProperty",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "QueryAlertHistoryByKey",
+                "TargetSection" : "Resources_PTC_Alert_AlertMonitorUtilities"
+              }, {
+                "Id" : "7c399726-0ed9-4b49-af2e-b5acdfa65e04",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "QueryAlertHistoryByKey",
+                "SourceSection" : "Resources_PTC_Alert_AlertMonitorUtilities",
+                "TargetArea" : "UI",
+                "TargetId" : "Grid-32",
+                "TargetSection" : ""
+              }, {
+                "Id" : "1ec9e570-a765-425c-8eaf-6d170b4c1492",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "StartDateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "TargetProperty" : "startDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "TimeSelector-36",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "QueryAlertHistoryByKey",
+                "TargetSection" : "Resources_PTC_Alert_AlertMonitorUtilities"
+              }, {
+                "Id" : "d0d3582a-7b86-4948-829b-0cc8fe603042",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "EndDateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "TargetProperty" : "endDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "TimeSelector-36",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "QueryAlertHistoryByKey",
+                "TargetSection" : "Resources_PTC_Alert_AlertMonitorUtilities"
+              }, {
+                "Id" : "5348ccfd-5df9-44b6-a921-accb86b9347c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "source",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "source",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-44",
+                "TargetSection" : ""
+              }, {
+                "Id" : "6b97f737-101f-4827-84b1-7790f509f8b3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "sourceProperty",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "sourceProperty",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-44",
+                "TargetSection" : ""
+              }, {
+                "Id" : "3d92140a-2043-4699-8437-3f7669c08d40",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "timestamp",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "timestamp",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-44",
+                "TargetSection" : ""
+              }, {
+                "Id" : "2b686b5c-96e4-4fce-85ec-119836e2fda7",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "source",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "ANYSCALAR"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "ValueDisplay-45",
+                "TargetSection" : ""
+              }, {
+                "Id" : "94480335-b7f1-4d76-8c6d-76b8865b4cfa",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "source",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "source",
+                  "TargetPropertyBaseType" : "THINGNAME"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "IsAlertSourceAnAsset",
+                "TargetSection" : "Resources_PTC_Alert_AlertMonitorUtilities"
+              }, {
+                "Id" : "361698ac-9ae4-4828-80b2-fc12b9d55be7",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "source",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Navigation-67",
+                "TargetSection" : ""
+              }, {
+                "Id" : "57035e3e-69e0-4eee-bb0c-fb55b9e24a0b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "source",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "thingName",
+                  "TargetPropertyBaseType" : "THINGNAME"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Navigation-67",
+                "TargetSection" : ""
+              }, {
+                "Id" : "217b1217-3814-4baa-8abc-76ac20f1e5ff",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "isSourceAnAsset",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "IsAlertSourceAnAsset",
+                "SourceSection" : "Resources_PTC_Alert_AlertMonitorUtilities",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-68",
+                "TargetSection" : ""
+              }, {
+                "Id" : "a8a3de0b-d23e-48bf-887c-468505a03377",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "IsAlertSourceAnAsset",
+                "SourceSection" : "Resources_PTC_Alert_AlertMonitorUtilities",
+                "TargetArea" : "UI",
+                "TargetId" : "Navigation-67",
+                "TargetSection" : ""
+              }, {
+                "Id" : "1f6f6d88-dd5a-4d21-9f97-c6295a4316a7",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-68",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "ValueDisplay-45",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Resources_PTC_Alert_AlertMonitorUtilities",
+                "EventHandlerService" : "QueryAlertHistoryByKey",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Updated",
+                "EventTriggerId" : "TimeSelector-36",
+                "EventTriggerSection" : "",
+                "Id" : "196110bc-1763-4d74-98e9-bcf23829d504"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Resources_PTC_Alert_AlertMonitorUtilities",
+                "EventHandlerService" : "QueryAlertHistoryByKey",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "Validator-44",
+                "EventTriggerSection" : "",
+                "Id" : "28b37425-85c2-4232-8080-b427831b9e29"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Resources_PTC_Alert_AlertMonitorUtilities",
+                "EventHandlerService" : "QueryAlertSummaryByKey",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "Validator-44",
+                "EventTriggerSection" : "",
+                "Id" : "6d1a060d-c55b-4337-8dc4-2497b3f937f9"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Resources_PTC_Alert_AlertMonitorUtilities",
+                "EventHandlerService" : "IsAlertSourceAnAsset",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "Validator-44",
+                "EventTriggerSection" : "",
+                "Id" : "c86d0fbc-6435-4f13-840c-8a1e254a2b85"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 618,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : true,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultMashupStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 1024,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "source"
+                  }, {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "sourceProperty"
+                  }, {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "timestamp"
+                  } ],
+                  "id_index" : 73,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "Columns" : 0,
+                    "Description" : "",
+                    "DisplayName" : "Layout-19",
+                    "Footer" : false,
+                    "FooterHeight" : 0,
+                    "Header" : true,
+                    "HeaderHeight" : 48,
+                    "Id" : "Layout-19",
+                    "IncludeSpacingInFixedAreas" : false,
+                    "IsPrintLayout" : false,
+                    "Left" : 330,
+                    "LeftSidebar" : false,
+                    "LeftSidebarWidth" : 0,
+                    "Orientation" : "vertical",
+                    "PctColumn1" : 50,
+                    "PctColumn2" : 50,
+                    "PctColumn3" : 1,
+                    "PctColumn4" : 1,
+                    "PctColumn5" : 1,
+                    "PctColumn6" : 1,
+                    "PctColumn7" : 1,
+                    "PctColumn8" : 1,
+                    "PctRow1" : 100,
+                    "PctRow2" : 0,
+                    "PctRow3" : 0,
+                    "PctRow4" : 0,
+                    "PctRow5" : 0,
+                    "PctRow6" : 0,
+                    "PctRow7" : 0,
+                    "PctRow8" : 0,
+                    "PrintMarginLeftRight" : 0.5,
+                    "PrintMarginTopBottom" : 0.5,
+                    "PrintWidth" : 650,
+                    "ResponsiveLayout" : true,
+                    "RightSidebar" : false,
+                    "RightSidebarWidth" : 0,
+                    "Rows" : 1,
+                    "ShowDataLoading" : true,
+                    "Spacing" : 0,
+                    "Top" : 130,
+                    "Type" : "layout",
+                    "Visible" : true,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Layout"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Header",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-20",
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "PTC.Core.OverviewBG",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Container"
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "Area" : "UI",
+                        "Columns" : 1,
+                        "DisplayName" : "Layout-26",
+                        "Footer" : false,
+                        "FooterHeight" : 0,
+                        "Header" : false,
+                        "HeaderHeight" : 0,
+                        "Id" : "Layout-26",
+                        "IncludeSpacingInFixedAreas" : false,
+                        "IsPrintLayout" : false,
+                        "Left" : 155,
+                        "LeftSidebar" : false,
+                        "LeftSidebarWidth" : 0,
+                        "Orientation" : "horizontal",
+                        "PctColumn1" : 100,
+                        "PctColumn2" : 0,
+                        "PctColumn3" : 1,
+                        "PctColumn4" : 1,
+                        "PctColumn5" : 1,
+                        "PctColumn6" : 1,
+                        "PctColumn7" : 1,
+                        "PctColumn8" : 1,
+                        "PctRow1" : 50,
+                        "PctRow2" : 50,
+                        "PctRow3" : 0,
+                        "PctRow4" : 0,
+                        "PctRow5" : 0,
+                        "PctRow6" : 0,
+                        "PctRow7" : 0,
+                        "PctRow8" : 0,
+                        "PrintMarginLeftRight" : 0.5,
+                        "PrintMarginTopBottom" : 0.5,
+                        "PrintWidth" : 650,
+                        "ResponsiveLayout" : true,
+                        "RightSidebar" : true,
+                        "RightSidebarWidth" : 46,
+                        "Rows" : 0,
+                        "ShowDataLoading" : true,
+                        "Spacing" : 2,
+                        "Top" : 15,
+                        "Type" : "layout",
+                        "Visible" : true,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Layout"
+                      },
+                      "Widgets" : [ {
+                        "Properties" : {
+                          "AnimateExpandCollapse" : true,
+                          "Area" : "UI",
+                          "BGImageRepeat" : "no-repeat",
+                          "BGImageSize" : "auto",
+                          "DisplayName" : "Column 1",
+                          "ExpandCollapseTabLocation" : "outside",
+                          "Expanded" : true,
+                          "Id" : "container-28",
+                          "MinHeight" : 0,
+                          "MinWidth" : 0,
+                          "Overlay" : false,
+                          "OverlayIsTransparent" : false,
+                          "ResponsiveLayout" : true,
+                          "ShowDataLoading" : true,
+                          "ShowExpandCollapseTab" : false,
+                          "Style" : "DefaultContainerStyle",
+                          "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                          "TabExpandStyle" : "DefaultTabExpandStyle",
+                          "TabHeight" : 36,
+                          "TabLocation" : "center",
+                          "TabOffset" : 0,
+                          "TabWidth" : 36,
+                          "Type" : "container",
+                          "Visible" : true,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Container"
+                        },
+                        "Widgets" : [ {
+                          "Properties" : {
+                            "Area" : "UI",
+                            "DisplayName" : "Panel-30",
+                            "Height" : 200,
+                            "HideScrollbars" : false,
+                            "HorizontalAnchor" : "left",
+                            "Id" : "Panel-30",
+                            "Left" : 75,
+                            "ResponsiveLayout" : true,
+                            "ShowDataLoading" : true,
+                            "Style" : "PTC.NoStyle",
+                            "Top" : 5,
+                            "Type" : "panel",
+                            "VerticalAnchor" : "top",
+                            "Visible" : true,
+                            "Width" : 300,
+                            "Z-index" : 10,
+                            "__TypeDisplayName" : "Panel"
+                          },
+                          "Widgets" : [ {
+                            "Properties" : {
+                              "Area" : "UI",
+                              "AutoEvaluate" : true,
+                              "DisplayName" : "Validator-44",
+                              "Expression" : "typeof source != \"undefined\" && typeof sourceProperty != \"undefined\" && typeof timestamp != \"undefined\"",
+                              "Height" : 10,
+                              "Id" : "Validator-44",
+                              "Left" : 0,
+                              "ResponsiveLayout" : false,
+                              "ShowDataLoading" : true,
+                              "Top" : 0,
+                              "Type" : "validator",
+                              "Visible" : true,
+                              "Width" : 200,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Validator",
+                              "_currentParameterDefs" : [ {
+                                "BaseType" : "STRING",
+                                "Description" : "Alert source",
+                                "ParameterName" : "source"
+                              }, {
+                                "BaseType" : "STRING",
+                                "Description" : "Alert source property",
+                                "ParameterName" : "sourceProperty"
+                              }, {
+                                "BaseType" : "STRING",
+                                "Description" : "Alert timestamp",
+                                "ParameterName" : "timestamp"
+                              } ]
+                            },
+                            "Widgets" : [ ]
+                          }, {
+                            "Properties" : {
+                              "Alignment" : "left",
+                              "Area" : "UI",
+                              "BackgroundFill" : "content",
+                              "DisplayName" : "ValueDisplay-45",
+                              "Height" : 48,
+                              "Id" : "ValueDisplay-45",
+                              "ImageScaling" : "width",
+                              "Label" : "",
+                              "LabelAlignment" : "left",
+                              "Left" : 10,
+                              "Overflow" : "hidden",
+                              "ResponsiveLayout" : false,
+                              "ShowDataLoading" : true,
+                              "TextIfNoValue" : "",
+                              "TextIfNoValueOffset" : 0,
+                              "TextIfNoValueStyle" : "PTC.16px.TitleSmall.DarkGray",
+                              "TextWrap" : true,
+                              "ToolTipField" : "",
+                              "Top" : 0,
+                              "Type" : "valuedisplay",
+                              "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                              "ValueDisplayStyle" : "PTC.16px.TitleSmall.DarkGray",
+                              "ValueFormat" : {
+                                "renderer" : "DEFAULT"
+                              },
+                              "ValueFormat_StateParameters" : [ ],
+                              "VerticalAlignment" : "middle",
+                              "Visible" : true,
+                              "Width" : 400,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Value Display",
+                              "__supportsLabel" : true
+                            },
+                            "Widgets" : [ ]
+                          }, {
+                            "Properties" : {
+                              "Alignment" : "left",
+                              "Area" : "UI",
+                              "ClickOutsideToClose" : false,
+                              "DisplayName" : "Navigation-67",
+                              "FixedPopupHeight" : 0,
+                              "FixedPopupWidth" : 0,
+                              "Height" : 48,
+                              "IconAlignment" : "left",
+                              "Id" : "Navigation-67",
+                              "Left" : 10,
+                              "MashupName" : "PTC.Asset.Mashup.AssetDetails",
+                              "MashupParameters" : [ {
+                                "BaseType" : "THINGNAME",
+                                "Description" : "",
+                                "ParameterName" : "thingName",
+                                "ParmDef" : {
+                                  "aspects" : {
+                                    "ordinal" : "1"
+                                  },
+                                  "baseType" : "THINGNAME",
+                                  "description" : "",
+                                  "name" : "thingName",
+                                  "ordinal" : 0
+                                }
+                              }, {
+                                "BaseType" : "MASHUPNAME",
+                                "Description" : "",
+                                "ParameterName" : "section",
+                                "ParmDef" : {
+                                  "aspects" : {
+                                    "ordinal" : "0"
+                                  },
+                                  "baseType" : "MASHUPNAME",
+                                  "description" : "",
+                                  "name" : "section",
+                                  "ordinal" : 0
+                                }
+                              } ],
+                              "MessageToShow" : "Mashup must be selected",
+                              "ModalPopupOpacity" : 0.5,
+                              "NavigationActiveStyle" : "PTC.16px.TitleSmall.DarkGray",
+                              "NavigationFocusStyle" : "DefaultNavigationFocusStyle",
+                              "NavigationHoverStyle" : "PTC.Alert.Style.AssetNameLink",
+                              "PopupScrolling" : "auto",
+                              "PopupTitle" : "",
+                              "PopupTitleStyle" : "PTC.NoStyle",
+                              "ResponsiveLayout" : false,
+                              "RoundedCorners" : true,
+                              "ShowCloseButton" : true,
+                              "ShowDataLoading" : true,
+                              "ShowMessageIfNoMashup" : false,
+                              "Style" : "PTC.Alert.Style.AssetNameLink",
+                              "TabSequence" : 0,
+                              "TargetWindow" : "new",
+                              "Text" : "Mashup Link",
+                              "ToolTipField" : "",
+                              "Top" : 0,
+                              "Transparent" : false,
+                              "Type" : "navigation",
+                              "Visible" : true,
+                              "Width" : 400,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Navigation"
+                            },
+                            "Widgets" : [ ]
+                          }, {
+                            "Properties" : {
+                              "Area" : "UI",
+                              "AutoEvaluate" : true,
+                              "DataChangeType" : "VALUE",
+                              "DisplayName" : "Expression-68",
+                              "Expression" : "!isSourceAnAsset",
+                              "FireOnFirstValue" : false,
+                              "Height" : 10,
+                              "Id" : "Expression-68",
+                              "Left" : 150,
+                              "OutputBaseType" : "BOOLEAN",
+                              "ResponsiveLayout" : false,
+                              "ShowDataLoading" : true,
+                              "Top" : 0,
+                              "Type" : "expression",
+                              "Visible" : true,
+                              "Width" : 200,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Expression",
+                              "_currentParameterDefs" : [ {
+                                "BaseType" : "BOOLEAN",
+                                "Description" : "Is asset source an asset?",
+                                "ParameterName" : "isSourceAnAsset"
+                              } ]
+                            },
+                            "Widgets" : [ ]
+                          } ]
+                        } ]
+                      }, {
+                        "Properties" : {
+                          "AnimateExpandCollapse" : true,
+                          "Area" : "UI",
+                          "BGImageRepeat" : "no-repeat",
+                          "BGImageSize" : "auto",
+                          "DisplayName" : "Right Sidebar",
+                          "ExpandCollapseTabLocation" : "outside",
+                          "Expanded" : true,
+                          "Id" : "container-29",
+                          "MinHeight" : 0,
+                          "MinWidth" : 0,
+                          "Overlay" : false,
+                          "OverlayIsTransparent" : false,
+                          "ResponsiveLayout" : true,
+                          "ShowDataLoading" : true,
+                          "ShowExpandCollapseTab" : false,
+                          "Style" : "DefaultContainerStyle",
+                          "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                          "TabExpandStyle" : "DefaultTabExpandStyle",
+                          "TabHeight" : 36,
+                          "TabLocation" : "center",
+                          "TabOffset" : 0,
+                          "TabWidth" : 36,
+                          "Type" : "container",
+                          "Visible" : true,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Container"
+                        },
+                        "Widgets" : [ {
+                          "Properties" : {
+                            "Area" : "UI",
+                            "DisplayName" : "Panel-34",
+                            "Height" : 200,
+                            "HideScrollbars" : false,
+                            "HorizontalAnchor" : "left",
+                            "Id" : "Panel-34",
+                            "Left" : 75,
+                            "ResponsiveLayout" : true,
+                            "ShowDataLoading" : true,
+                            "Style" : "PTC.NoStyle",
+                            "Top" : 5,
+                            "Type" : "panel",
+                            "VerticalAnchor" : "top",
+                            "Visible" : true,
+                            "Width" : 300,
+                            "Z-index" : 10,
+                            "__TypeDisplayName" : "Panel"
+                          },
+                          "Widgets" : [ ]
+                        } ]
+                      } ]
+                    } ]
+                  }, {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Row 1",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-21",
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "DefaultContainerStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Container"
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "Area" : "UI",
+                        "Columns" : 0,
+                        "DisplayName" : "Layout-49",
+                        "Footer" : false,
+                        "FooterHeight" : 0,
+                        "Header" : true,
+                        "HeaderHeight" : 40,
+                        "Id" : "Layout-49",
+                        "IncludeSpacingInFixedAreas" : false,
+                        "IsPrintLayout" : false,
+                        "Left" : 135,
+                        "LeftSidebar" : false,
+                        "LeftSidebarWidth" : 0,
+                        "Orientation" : "vertical",
+                        "PctColumn1" : 50,
+                        "PctColumn2" : 50,
+                        "PctColumn3" : 1,
+                        "PctColumn4" : 1,
+                        "PctColumn5" : 1,
+                        "PctColumn6" : 1,
+                        "PctColumn7" : 1,
+                        "PctColumn8" : 1,
+                        "PctRow1" : 100,
+                        "PctRow2" : 0,
+                        "PctRow3" : 0,
+                        "PctRow4" : 0,
+                        "PctRow5" : 0,
+                        "PctRow6" : 0,
+                        "PctRow7" : 0,
+                        "PctRow8" : 0,
+                        "PrintMarginLeftRight" : 0.5,
+                        "PrintMarginTopBottom" : 0.5,
+                        "PrintWidth" : 650,
+                        "ResponsiveLayout" : true,
+                        "RightSidebar" : false,
+                        "RightSidebarWidth" : 0,
+                        "Rows" : 1,
+                        "ShowDataLoading" : true,
+                        "Spacing" : 0,
+                        "Top" : 130,
+                        "Type" : "layout",
+                        "Visible" : true,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Layout"
+                      },
+                      "Widgets" : [ {
+                        "Properties" : {
+                          "AnimateExpandCollapse" : true,
+                          "Area" : "UI",
+                          "BGImageRepeat" : "no-repeat",
+                          "BGImageSize" : "auto",
+                          "DisplayName" : "Header",
+                          "ExpandCollapseTabLocation" : "outside",
+                          "Expanded" : true,
+                          "Id" : "container-50",
+                          "MinHeight" : 0,
+                          "MinWidth" : 0,
+                          "Overlay" : false,
+                          "OverlayIsTransparent" : false,
+                          "ResponsiveLayout" : true,
+                          "ShowDataLoading" : true,
+                          "ShowExpandCollapseTab" : false,
+                          "Style" : "DefaultContainerStyle",
+                          "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                          "TabExpandStyle" : "DefaultTabExpandStyle",
+                          "TabHeight" : 36,
+                          "TabLocation" : "center",
+                          "TabOffset" : 0,
+                          "TabWidth" : 36,
+                          "Type" : "container",
+                          "Visible" : true,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Container"
+                        },
+                        "Widgets" : [ {
+                          "Properties" : {
+                            "Area" : "UI",
+                            "Columns" : 2,
+                            "DisplayName" : "Layout-54",
+                            "Footer" : false,
+                            "FooterHeight" : 0,
+                            "Header" : false,
+                            "HeaderHeight" : 0,
+                            "Id" : "Layout-54",
+                            "IncludeSpacingInFixedAreas" : false,
+                            "IsPrintLayout" : false,
+                            "Left" : 140,
+                            "LeftSidebar" : false,
+                            "LeftSidebarWidth" : 0,
+                            "Orientation" : "horizontal",
+                            "PctColumn1" : 20,
+                            "PctColumn2" : 80,
+                            "PctColumn3" : 80,
+                            "PctColumn4" : 1,
+                            "PctColumn5" : 1,
+                            "PctColumn6" : 1,
+                            "PctColumn7" : 1,
+                            "PctColumn8" : 1,
+                            "PctRow1" : 50,
+                            "PctRow2" : 50,
+                            "PctRow3" : 0,
+                            "PctRow4" : 0,
+                            "PctRow5" : 0,
+                            "PctRow6" : 0,
+                            "PctRow7" : 0,
+                            "PctRow8" : 0,
+                            "PrintMarginLeftRight" : 0.5,
+                            "PrintMarginTopBottom" : 0.5,
+                            "PrintWidth" : 650,
+                            "ResponsiveLayout" : true,
+                            "RightSidebar" : false,
+                            "RightSidebarWidth" : 0,
+                            "Rows" : 0,
+                            "ShowDataLoading" : true,
+                            "Spacing" : 2,
+                            "Top" : 35,
+                            "Type" : "layout",
+                            "Visible" : true,
+                            "Z-index" : 10,
+                            "__TypeDisplayName" : "Layout"
+                          },
+                          "Widgets" : [ {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Column 1",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "container-55",
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : true,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : "DefaultContainerStyle",
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Container"
+                            },
+                            "Widgets" : [ {
+                              "Properties" : {
+                                "Area" : "UI",
+                                "Columns" : 1,
+                                "DisplayName" : "Layout-71",
+                                "Footer" : false,
+                                "FooterHeight" : 0,
+                                "Header" : false,
+                                "HeaderHeight" : 0,
+                                "Id" : "Layout-71",
+                                "IncludeSpacingInFixedAreas" : false,
+                                "IsPrintLayout" : false,
+                                "Left" : 145,
+                                "LeftSidebar" : true,
+                                "LeftSidebarWidth" : 175,
+                                "Orientation" : "horizontal",
+                                "PctColumn1" : 100,
+                                "PctColumn2" : 0,
+                                "PctColumn3" : 1,
+                                "PctColumn4" : 1,
+                                "PctColumn5" : 1,
+                                "PctColumn6" : 1,
+                                "PctColumn7" : 1,
+                                "PctColumn8" : 1,
+                                "PctRow1" : 50,
+                                "PctRow2" : 50,
+                                "PctRow3" : 0,
+                                "PctRow4" : 0,
+                                "PctRow5" : 0,
+                                "PctRow6" : 0,
+                                "PctRow7" : 0,
+                                "PctRow8" : 0,
+                                "PrintMarginLeftRight" : 0.5,
+                                "PrintMarginTopBottom" : 0.5,
+                                "PrintWidth" : 650,
+                                "ResponsiveLayout" : true,
+                                "RightSidebar" : false,
+                                "RightSidebarWidth" : 0,
+                                "Rows" : 0,
+                                "ShowDataLoading" : true,
+                                "Spacing" : 0,
+                                "Top" : 20,
+                                "Type" : "layout",
+                                "Visible" : true,
+                                "Z-index" : 10,
+                                "__TypeDisplayName" : "Layout"
+                              },
+                              "Widgets" : [ {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "DisplayName" : "Left Sidebar",
+                                  "ExpandCollapseTabLocation" : "outside",
+                                  "Expanded" : true,
+                                  "Id" : "container-72",
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : false,
+                                  "Style" : "DefaultContainerStyle",
+                                  "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                  "TabExpandStyle" : "DefaultTabExpandStyle",
+                                  "TabHeight" : 36,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 0,
+                                  "TabWidth" : 36,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container"
+                                },
+                                "Widgets" : [ {
+                                  "Properties" : {
+                                    "Area" : "UI",
+                                    "DisplayName" : "Panel-57",
+                                    "Height" : 200,
+                                    "HideScrollbars" : false,
+                                    "HorizontalAnchor" : "left",
+                                    "Id" : "Panel-57",
+                                    "Left" : 55,
+                                    "ResponsiveLayout" : true,
+                                    "ShowDataLoading" : true,
+                                    "Style" : "PTC.NoStyle",
+                                    "Top" : 20,
+                                    "Type" : "panel",
+                                    "VerticalAnchor" : "top",
+                                    "Visible" : true,
+                                    "Width" : 300,
+                                    "Z-index" : 10,
+                                    "__TypeDisplayName" : "Panel"
+                                  },
+                                  "Widgets" : [ {
+                                    "Properties" : {
+                                      "Alignment" : "left",
+                                      "Area" : "UI",
+                                      "BackgroundFill" : "content",
+                                      "DisplayName" : "ValueDisplay-59",
+                                      "Height" : 40,
+                                      "Id" : "ValueDisplay-59",
+                                      "ImageScaling" : "width",
+                                      "Label" : "",
+                                      "LabelAlignment" : "left",
+                                      "Left" : 10,
+                                      "Overflow" : "hidden",
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "TextIfNoValue" : "[[PTC.Alert.Alert Details]]",
+                                      "TextIfNoValueOffset" : 0,
+                                      "TextIfNoValueStyle" : "PTC.16px.TitleSmall.DarkGray",
+                                      "TextWrap" : true,
+                                      "ToolTipField" : "",
+                                      "Top" : 0,
+                                      "Type" : "valuedisplay",
+                                      "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                                      "ValueDisplayStyle" : "PTC.16px.TitleSmall.DarkGray",
+                                      "VerticalAlignment" : "middle",
+                                      "Visible" : true,
+                                      "Width" : 160,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Value Display",
+                                      "__supportsLabel" : true
+                                    },
+                                    "Widgets" : [ ]
+                                  } ]
+                                } ]
+                              }, {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "DisplayName" : "Column 1",
+                                  "ExpandCollapseTabLocation" : "outside",
+                                  "Expanded" : true,
+                                  "Id" : "container-73",
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : false,
+                                  "Style" : "DefaultContainerStyle",
+                                  "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                  "TabExpandStyle" : "DefaultTabExpandStyle",
+                                  "TabHeight" : 36,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 0,
+                                  "TabWidth" : 36,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container"
+                                },
+                                "Widgets" : [ ]
+                              } ]
+                            } ]
+                          }, {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Column 2",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "container-56",
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : true,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : "DefaultContainerStyle",
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Container"
+                            },
+                            "Widgets" : [ {
+                              "Properties" : {
+                                "Area" : "UI",
+                                "Columns" : 1,
+                                "DisplayName" : "Layout-61",
+                                "Footer" : false,
+                                "FooterHeight" : 0,
+                                "Header" : false,
+                                "HeaderHeight" : 0,
+                                "Id" : "Layout-61",
+                                "IncludeSpacingInFixedAreas" : false,
+                                "IsPrintLayout" : false,
+                                "Left" : 35,
+                                "LeftSidebar" : true,
+                                "LeftSidebarWidth" : 175,
+                                "Orientation" : "horizontal",
+                                "PctColumn1" : 100,
+                                "PctColumn2" : 0,
+                                "PctColumn3" : 1,
+                                "PctColumn4" : 1,
+                                "PctColumn5" : 1,
+                                "PctColumn6" : 1,
+                                "PctColumn7" : 1,
+                                "PctColumn8" : 1,
+                                "PctRow1" : 50,
+                                "PctRow2" : 50,
+                                "PctRow3" : 0,
+                                "PctRow4" : 0,
+                                "PctRow5" : 0,
+                                "PctRow6" : 0,
+                                "PctRow7" : 0,
+                                "PctRow8" : 0,
+                                "PrintMarginLeftRight" : 0.5,
+                                "PrintMarginTopBottom" : 0.5,
+                                "PrintWidth" : 650,
+                                "ResponsiveLayout" : true,
+                                "RightSidebar" : true,
+                                "RightSidebarWidth" : 680,
+                                "Rows" : 0,
+                                "ShowDataLoading" : true,
+                                "Spacing" : 0,
+                                "Top" : 25,
+                                "Type" : "layout",
+                                "Visible" : true,
+                                "Z-index" : 10,
+                                "__TypeDisplayName" : "Layout"
+                              },
+                              "Widgets" : [ {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "DisplayName" : "Left Sidebar",
+                                  "ExpandCollapseTabLocation" : "outside",
+                                  "Expanded" : true,
+                                  "Id" : "container-70",
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : false,
+                                  "Style" : "DefaultContainerStyle",
+                                  "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                  "TabExpandStyle" : "DefaultTabExpandStyle",
+                                  "TabHeight" : 36,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 0,
+                                  "TabWidth" : 36,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container"
+                                },
+                                "Widgets" : [ {
+                                  "Properties" : {
+                                    "Area" : "UI",
+                                    "DisplayName" : "Panel-58",
+                                    "Height" : 200,
+                                    "HideScrollbars" : false,
+                                    "HorizontalAnchor" : "left",
+                                    "Id" : "Panel-58",
+                                    "Left" : 55,
+                                    "ResponsiveLayout" : true,
+                                    "ShowDataLoading" : true,
+                                    "Style" : "PTC.NoStyle",
+                                    "Top" : 10,
+                                    "Type" : "panel",
+                                    "VerticalAnchor" : "top",
+                                    "Visible" : true,
+                                    "Width" : 300,
+                                    "Z-index" : 10,
+                                    "__TypeDisplayName" : "Panel"
+                                  },
+                                  "Widgets" : [ {
+                                    "Properties" : {
+                                      "Alignment" : "left",
+                                      "Area" : "UI",
+                                      "BackgroundFill" : "content",
+                                      "DisplayName" : "ValueDisplay-60",
+                                      "Height" : 40,
+                                      "Id" : "ValueDisplay-60",
+                                      "ImageScaling" : "width",
+                                      "Label" : "",
+                                      "LabelAlignment" : "left",
+                                      "Left" : 10,
+                                      "Overflow" : "hidden",
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "TextIfNoValue" : "[[PTC.Alert.History]]",
+                                      "TextIfNoValueOffset" : 0,
+                                      "TextIfNoValueStyle" : "PTC.16px.TitleSmall.DarkGray",
+                                      "TextWrap" : true,
+                                      "ToolTipField" : "",
+                                      "Top" : 0,
+                                      "Type" : "valuedisplay",
+                                      "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                                      "ValueDisplayStyle" : "PTC.16px.TitleSmall.DarkGray",
+                                      "VerticalAlignment" : "middle",
+                                      "Visible" : true,
+                                      "Width" : 160,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Value Display",
+                                      "__supportsLabel" : true
+                                    },
+                                    "Widgets" : [ ]
+                                  } ]
+                                } ]
+                              }, {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "DisplayName" : "Column 1",
+                                  "ExpandCollapseTabLocation" : "outside",
+                                  "Expanded" : true,
+                                  "Id" : "container-62",
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : false,
+                                  "Style" : "DefaultContainerStyle",
+                                  "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                  "TabExpandStyle" : "DefaultTabExpandStyle",
+                                  "TabHeight" : 36,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 0,
+                                  "TabWidth" : 36,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container"
+                                },
+                                "Widgets" : [ ]
+                              }, {
+                                "Properties" : {
+                                  "AnimateExpandCollapse" : true,
+                                  "Area" : "UI",
+                                  "BGImageRepeat" : "no-repeat",
+                                  "BGImageSize" : "auto",
+                                  "DisplayName" : "Right Sidebar",
+                                  "ExpandCollapseTabLocation" : "outside",
+                                  "Expanded" : true,
+                                  "Id" : "container-63",
+                                  "MinHeight" : 0,
+                                  "MinWidth" : 0,
+                                  "Overlay" : false,
+                                  "OverlayIsTransparent" : false,
+                                  "ResponsiveLayout" : true,
+                                  "ShowDataLoading" : true,
+                                  "ShowExpandCollapseTab" : false,
+                                  "Style" : "DefaultContainerStyle",
+                                  "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                                  "TabExpandStyle" : "DefaultTabExpandStyle",
+                                  "TabHeight" : 36,
+                                  "TabLocation" : "center",
+                                  "TabOffset" : 0,
+                                  "TabWidth" : 36,
+                                  "Type" : "container",
+                                  "Visible" : true,
+                                  "Z-index" : 10,
+                                  "__TypeDisplayName" : "Container"
+                                },
+                                "Widgets" : [ {
+                                  "Properties" : {
+                                    "Area" : "UI",
+                                    "DisplayName" : "Panel-64",
+                                    "Height" : 200,
+                                    "HideScrollbars" : false,
+                                    "HorizontalAnchor" : "left",
+                                    "Id" : "Panel-64",
+                                    "Left" : 60,
+                                    "ResponsiveLayout" : true,
+                                    "ShowDataLoading" : true,
+                                    "Style" : "PTC.NoStyle",
+                                    "Top" : 5,
+                                    "Type" : "panel",
+                                    "VerticalAnchor" : "top",
+                                    "Visible" : true,
+                                    "Width" : 300,
+                                    "Z-index" : 10,
+                                    "__TypeDisplayName" : "Panel"
+                                  },
+                                  "Widgets" : [ {
+                                    "Properties" : {
+                                      "Area" : "UI",
+                                      "AutoRefresh" : false,
+                                      "DateDisplay" : "numeric",
+                                      "DateFormat" : "yy-mm-dd",
+                                      "DateOrder" : "yy-mm-dd",
+                                      "DisplayName" : "TimeSelector-36",
+                                      "DisplaySeconds" : true,
+                                      "FocusStyle" : "DefaultButtonFocusStyle",
+                                      "Height" : 30,
+                                      "Id" : "TimeSelector-36",
+                                      "Interval" : 1,
+                                      "IntervalType" : "d",
+                                      "Left" : 0,
+                                      "RefreshInterval" : 30,
+                                      "ResponsiveLayout" : false,
+                                      "ShowDataLoading" : true,
+                                      "ShowLockControls" : false,
+                                      "TabSequence" : 0,
+                                      "TimeAutoRefreshBtnStyle" : "DefaultTimeAutoRefreshBtnStyle",
+                                      "TimeBGStyle" : "PTC.Core.DataFilterAddButtonStyle",
+                                      "TimeDatePickerStyle" : "PTC.Alert.Style.ButtonStyle",
+                                      "TimeFormat" : "hh:mm:ss",
+                                      "TimeRefreshBtnStyle" : "DefaultTimeRefreshBtnStyle",
+                                      "Top" : 5,
+                                      "Type" : "timeselector",
+                                      "UseIntervalAsMax" : false,
+                                      "Visible" : true,
+                                      "Widescreen" : true,
+                                      "Width" : 660,
+                                      "Z-index" : 10,
+                                      "__TypeDisplayName" : "Time Selector"
+                                    },
+                                    "Widgets" : [ ]
+                                  } ]
+                                } ]
+                              } ]
+                            } ]
+                          } ]
+                        } ]
+                      }, {
+                        "Properties" : {
+                          "AnimateExpandCollapse" : true,
+                          "Area" : "UI",
+                          "BGImageRepeat" : "no-repeat",
+                          "BGImageSize" : "auto",
+                          "DisplayName" : "Row 1",
+                          "ExpandCollapseTabLocation" : "outside",
+                          "Expanded" : true,
+                          "Id" : "container-51",
+                          "MinHeight" : 0,
+                          "MinWidth" : 0,
+                          "Overlay" : false,
+                          "OverlayIsTransparent" : false,
+                          "ResponsiveLayout" : true,
+                          "ShowDataLoading" : true,
+                          "ShowExpandCollapseTab" : false,
+                          "Style" : "DefaultContainerStyle",
+                          "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                          "TabExpandStyle" : "DefaultTabExpandStyle",
+                          "TabHeight" : 36,
+                          "TabLocation" : "center",
+                          "TabOffset" : 0,
+                          "TabWidth" : 36,
+                          "Type" : "container",
+                          "Visible" : true,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Container"
+                        },
+                        "Widgets" : [ {
+                          "Properties" : {
+                            "Area" : "UI",
+                            "Columns" : 2,
+                            "DisplayName" : "Layout-23",
+                            "Footer" : false,
+                            "FooterHeight" : 0,
+                            "Header" : false,
+                            "HeaderHeight" : 0,
+                            "Id" : "Layout-23",
+                            "IncludeSpacingInFixedAreas" : false,
+                            "IsPrintLayout" : false,
+                            "Left" : 475,
+                            "LeftSidebar" : false,
+                            "LeftSidebarWidth" : 0,
+                            "Orientation" : "horizontal",
+                            "PctColumn1" : 20,
+                            "PctColumn2" : 80,
+                            "PctColumn3" : 80,
+                            "PctColumn4" : 1,
+                            "PctColumn5" : 1,
+                            "PctColumn6" : 1,
+                            "PctColumn7" : 1,
+                            "PctColumn8" : 1,
+                            "PctRow1" : 50,
+                            "PctRow2" : 50,
+                            "PctRow3" : 0,
+                            "PctRow4" : 0,
+                            "PctRow5" : 0,
+                            "PctRow6" : 0,
+                            "PctRow7" : 0,
+                            "PctRow8" : 0,
+                            "PrintMarginLeftRight" : 0.5,
+                            "PrintMarginTopBottom" : 0.5,
+                            "PrintWidth" : 650,
+                            "ResponsiveLayout" : true,
+                            "RightSidebar" : false,
+                            "RightSidebarWidth" : 0,
+                            "Rows" : 0,
+                            "ShowDataLoading" : true,
+                            "Spacing" : 2,
+                            "Top" : 50,
+                            "Type" : "layout",
+                            "Visible" : true,
+                            "Z-index" : 10,
+                            "__TypeDisplayName" : "Layout"
+                          },
+                          "Widgets" : [ {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Column",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "container-24",
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : true,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : {
+                                "backgroundColor" : "",
+                                "displayString" : "",
+                                "fontEmphasisBold" : false,
+                                "fontEmphasisItalic" : false,
+                                "fontEmphasisUnderline" : false,
+                                "foregroundColor" : "",
+                                "image" : "",
+                                "lineColor" : "",
+                                "lineStyle" : "solid",
+                                "lineThickness" : 1,
+                                "secondaryBackgroundColor" : "",
+                                "textSize" : "xlarge"
+                              },
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Container"
+                            },
+                            "Widgets" : [ {
+                              "Properties" : {
+                                "AllowEditing" : false,
+                                "Area" : "UI",
+                                "DisplayName" : "PropertyDisplay-18",
+                                "Height" : 200,
+                                "Id" : "PropertyDisplay-18",
+                                "InfotableInfo" : "{\"name\":{\"name\":\"name\",\"aspects\":{},\"description\":\"Alert name\",\"baseType\":\"STRING\",\"ordinal\":9,\"Title\":\"[[PTC.Alert.Name]]\",\"__showThisField\":true},\"description\":{\"name\":\"description\",\"aspects\":{},\"description\":\"Alert description\",\"baseType\":\"STRING\",\"ordinal\":6,\"Title\":\"[[PTC.Alert.Description]]\",\"__showThisField\":true},\"alertType\":{\"name\":\"alertType\",\"aspects\":{},\"description\":\"Alert type\",\"baseType\":\"STRING\",\"ordinal\":5,\"Title\":\"[[PTC.Alert.AlertType]]\",\"__showThisField\":true},\"message\":{\"name\":\"message\",\"aspects\":{},\"description\":\"Alert message\",\"baseType\":\"STRING\",\"ordinal\":2,\"Title\":\"[[PTC.Alert.Message]]\",\"__showThisField\":true},\"timestamp\":{\"name\":\"timestamp\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"Alert timestamp\",\"baseType\":\"STRING\",\"ordinal\":13,\"Title\":\"[[PTC.Alert.Timestamp]]\",\"__showThisField\":true},\"duration\":{\"name\":\"duration\",\"aspects\":{},\"description\":\"Alert duration\",\"baseType\":\"NUMBER\",\"ordinal\":7,\"Title\":\"[[PTC.Alert.Duration]]\",\"__showThisField\":true},\"source\":{\"name\":\"source\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"Alert source thing\",\"baseType\":\"STRING\",\"ordinal\":11,\"Title\":\"[[PTC.Alert.Source]]\",\"__showThisField\":true},\"sourceProperty\":{\"name\":\"sourceProperty\",\"aspects\":{\"isPrimaryKey\":false},\"description\":\"Alert source property\",\"baseType\":\"STRING\",\"ordinal\":12,\"Title\":\"[[PTC.Alert.SourceProperty]]\",\"__showThisField\":true},\"priority\":{\"name\":\"priority\",\"aspects\":{},\"description\":\"Alert priority\",\"baseType\":\"INTEGER\",\"ordinal\":10,\"Title\":\"[[PTC.Alert.Priority]]\",\"__showThisField\":true},\"ack\":{\"name\":\"ack\",\"aspects\":{},\"description\":\"Alert acknowledge state\",\"baseType\":\"BOOLEAN\",\"ordinal\":3,\"Title\":\"[[PTC.Alert.Ack]]\",\"__showThisField\":true},\"ackBy\":{\"name\":\"ackBy\",\"aspects\":{},\"description\":\"Alert acknowledged by\",\"baseType\":\"STRING\",\"ordinal\":8,\"Title\":\"[[PTC.Alert.AckBy]]\",\"__showThisField\":true},\"ackTimestamp\":{\"name\":\"ackTimestamp\",\"aspects\":{},\"description\":\"Alert acknowledge timestamp\",\"baseType\":\"DATETIME\",\"ordinal\":4,\"Title\":\"[[PTC.Alert.AckTimestamp]]\",\"__showThisField\":true},\"id\":{\"name\":\"id\",\"aspects\":{\"isPrimaryKey\":true},\"description\":\"\",\"baseType\":\"NUMBER\",\"ordinal\":1,\"Title\":\"[[PTC.Alert.ID]]\",\"__showThisField\":false}}",
+                                "Left" : 0,
+                                "ResponsiveLayout" : true,
+                                "ShowAllColumns" : false,
+                                "ShowDataLoading" : true,
+                                "ShowEditorsIfNoRowData" : false,
+                                "Style" : {
+                                  "backgroundColor" : "#ffffff",
+                                  "displayString" : "",
+                                  "fontEmphasisBold" : false,
+                                  "fontEmphasisItalic" : false,
+                                  "fontEmphasisUnderline" : false,
+                                  "foregroundColor" : "#000000",
+                                  "image" : "",
+                                  "lineColor" : "#c0c0c0",
+                                  "lineStyle" : "solid",
+                                  "lineThickness" : 1,
+                                  "secondaryBackgroundColor" : "",
+                                  "textSize" : "xlarge"
+                                },
+                                "Top" : 0,
+                                "Type" : "propertydisplay",
+                                "Visible" : true,
+                                "Width" : 250,
+                                "Z-index" : 10,
+                                "__TypeDisplayName" : "Property Display"
+                              },
+                              "Widgets" : [ ]
+                            } ]
+                          }, {
+                            "Properties" : {
+                              "AnimateExpandCollapse" : true,
+                              "Area" : "UI",
+                              "BGImageRepeat" : "no-repeat",
+                              "BGImageSize" : "auto",
+                              "DisplayName" : "Column",
+                              "ExpandCollapseTabLocation" : "outside",
+                              "Expanded" : true,
+                              "Id" : "container-25",
+                              "MinHeight" : 0,
+                              "MinWidth" : 0,
+                              "Overlay" : false,
+                              "OverlayIsTransparent" : false,
+                              "ResponsiveLayout" : true,
+                              "ShowDataLoading" : true,
+                              "ShowExpandCollapseTab" : false,
+                              "Style" : "DefaultContainerStyle",
+                              "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                              "TabExpandStyle" : "DefaultTabExpandStyle",
+                              "TabHeight" : 36,
+                              "TabLocation" : "center",
+                              "TabOffset" : 0,
+                              "TabWidth" : 36,
+                              "Type" : "container",
+                              "Visible" : true,
+                              "Z-index" : 10,
+                              "__TypeDisplayName" : "Container"
+                            },
+                            "Widgets" : [ {
+                              "Properties" : {
+                                "Area" : "UI",
+                                "AutoSelectFirstRow" : false,
+                                "CellTextWrapping" : false,
+                                "ColumnFormat" : {
+                                  "formatInfo" : [ {
+                                    "Align" : "left",
+                                    "AllowEdit" : false,
+                                    "FieldName" : "eventName",
+                                    "FormatOptions" : {
+                                      "FormatString" : "full",
+                                      "formatInfo" : {
+                                        "FieldName" : "",
+                                        "StateDefinition" : "",
+                                        "StateDefinitionType" : "fixed",
+                                        "StateFormats" : [ {
+                                          "state" : "",
+                                          "stateName" : "fixed"
+                                        } ]
+                                      },
+                                      "renderer" : "STRING"
+                                    },
+                                    "Title" : "[[PTC.Alert.EventName]]",
+                                    "ValidationExpression" : "",
+                                    "ValidationMessage" : "",
+                                    "Width" : "auto"
+                                  }, {
+                                    "Align" : "left",
+                                    "AllowEdit" : false,
+                                    "FieldName" : "message",
+                                    "FormatOptions" : {
+                                      "FormatString" : "full",
+                                      "formatInfo" : {
+                                        "FieldName" : "",
+                                        "StateDefinition" : "",
+                                        "StateDefinitionType" : "fixed",
+                                        "StateFormats" : [ {
+                                          "state" : "",
+                                          "stateName" : "fixed"
+                                        } ]
+                                      },
+                                      "renderer" : "STRING"
+                                    },
+                                    "Title" : "[[PTC.Alert.Message]]",
+                                    "ValidationExpression" : "",
+                                    "ValidationMessage" : "",
+                                    "Width" : "auto"
+                                  }, {
+                                    "Align" : "left",
+                                    "AllowEdit" : false,
+                                    "FieldName" : "timestamp",
+                                    "FormatOptions" : {
+                                      "FormatString" : "[[dateTimeFormat_Default]]",
+                                      "formatInfo" : {
+                                        "FieldName" : "",
+                                        "StateDefinition" : "",
+                                        "StateDefinitionType" : "fixed",
+                                        "StateFormats" : [ {
+                                          "state" : "",
+                                          "stateName" : "fixed"
+                                        } ]
+                                      },
+                                      "renderer" : "DATETIME"
+                                    },
+                                    "Title" : "[[PTC.Alert.Timestamp]]",
+                                    "ValidationExpression" : "",
+                                    "ValidationMessage" : "",
+                                    "Width" : "auto"
+                                  }, {
+                                    "Align" : "left",
+                                    "AllowEdit" : false,
+                                    "FieldName" : "location",
+                                    "FormatOptions" : {
+                                      "FormatString" : "0.0000",
+                                      "formatInfo" : {
+                                        "FieldName" : "",
+                                        "StateDefinition" : "",
+                                        "StateDefinitionType" : "fixed",
+                                        "StateFormats" : [ {
+                                          "state" : "",
+                                          "stateName" : "fixed"
+                                        } ]
+                                      },
+                                      "renderer" : "LOCATION"
+                                    },
+                                    "Title" : "[[PTC.Alert.Location]]",
+                                    "ValidationExpression" : "",
+                                    "ValidationMessage" : "",
+                                    "Width" : "auto"
+                                  }, {
+                                    "Align" : "left",
+                                    "AllowEdit" : false,
+                                    "FieldName" : "tags",
+                                    "FormatOptions" : {
+                                      "FormatString" : "plain",
+                                      "renderer" : "TAGS"
+                                    },
+                                    "Title" : "[[PTC.Alert.Tags]]",
+                                    "ValidationExpression" : "",
+                                    "ValidationMessage" : "",
+                                    "Width" : "auto"
+                                  } ]
+                                },
+                                "CurrentScrollTop" : 0,
+                                "DisplayName" : "Grid-32",
+                                "FocusStyle" : "PTC.NoStyle",
+                                "GridBackgroundStyle" : "DefaultGridBackgroundStyle",
+                                "GridEditableFieldStyle" : "DefaultGridEditableFieldStyle",
+                                "GridHeaderStyle" : "PTC.Core.GridHeaderStyle",
+                                "GridHeaderTextCase" : "none",
+                                "GridInvalidFieldStyle" : "DefaultGridInvalidFieldStyle",
+                                "Height" : 200,
+                                "Id" : "Grid-32",
+                                "IsEditable" : false,
+                                "IsPrintLayout" : false,
+                                "Left" : 165,
+                                "MultiSelect" : false,
+                                "ResponsiveLayout" : true,
+                                "RowAlternateBackgroundStyle" : "PTC.Core.RowAlternateBackgroundStyle",
+                                "RowBackgroundStyle" : "PTC.Core.RowBackgroundStyle",
+                                "RowFormat" : {
+                                  "FieldName" : "",
+                                  "StateDefinition" : "",
+                                  "StateDefinitionType" : "fixed",
+                                  "StateFormats" : [ {
+                                    "state" : {
+                                      "backgroundColor" : "",
+                                      "displayString" : "",
+                                      "fontEmphasisBold" : false,
+                                      "fontEmphasisItalic" : false,
+                                      "fontEmphasisUnderline" : false,
+                                      "foregroundColor" : "",
+                                      "image" : "",
+                                      "lineColor" : "",
+                                      "lineStyle" : "solid",
+                                      "lineThickness" : 1,
+                                      "secondaryBackgroundColor" : "",
+                                      "textSize" : "xlarge"
+                                    },
+                                    "stateName" : "fixed"
+                                  } ]
+                                },
+                                "RowFormat_StateParameters" : [ ],
+                                "RowHeight" : 30,
+                                "RowHoverStyle" : "PTC.Core.RowHoverStyle",
+                                "RowSelectedStyle" : "PTC.Alert.Style.RowSelectedStyle",
+                                "ScrollTop" : 0,
+                                "ShowAllColumns" : false,
+                                "ShowDataLoading" : true,
+                                "TabSequence" : 0,
+                                "Top" : 70,
+                                "Type" : "dhxgrid",
+                                "Visible" : true,
+                                "Width" : 400,
+                                "Z-index" : 10,
+                                "__TypeDisplayName" : "Grid"
+                              },
+                              "Widgets" : [ ]
+                            } ]
+                          } ]
+                        } ]
+                      } ]
+                    } ]
+                  } ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

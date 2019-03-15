@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Things>
+        <Thing
+         aspect.isExtension="true"
+         description=""
+         documentationContent=""
+         effectiveThingPackage="ConfiguredThing"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         lastModifiedDate="2018-10-24T21:00:19.004Z"
+         name="TW.RSM.SFW.SoftwareMenuExpansion"
+         projectName=""
+         published="false"
+         tags="Applications:SCM;Applications:RSM;TWUTL:RemoteServices"
+         thingTemplate="GenericThing"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="true"
+                         name="TW.RSM.Admin"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="TW.RSM.RemoteServices"
+                         type="Group"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="TW.RSM.Admin"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="TW.RSM.RemoteServices"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+            </RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetConcatenatedPackage">
+                        <ResultType
+                         aspect.dataShape="TW.RSM.SFW.ConcatenatedVersionPackage"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.thingShape="TW.RSM.SFW.ThingShape.Updateable"
+                             baseType="THINGNAME"
+                             description=""
+                             name="name"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                </ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetAssetDashboardMenuItems">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // For SCM-enabled devices only, add an Installed Packages menu item.
+                                        
+                                        // Only return the SCM mashup if the Thing is Updateable
+                                        var result = null;
+                                        var params = {
+                                            thingShapeName: "TW.RSM.SFW.ThingShape.Updateable"
+                                        };
+                                        if (Things[thingName].ImplementsShape(params)) {
+                                            // Create the MenuEntry datashape
+                                            var params = {
+                                                infoTableName : "InfoTable",
+                                                dataShapeName : "PTC.Asset.MenuEntry"
+                                            };
+                                            result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        
+                                            // Add a new row for the custom menu item to the datashape
+                                            var newRow = new Object();
+                                            newRow.group = "[[TW.RSM.SFW.Dashboard.SCM Menu Heading]]";
+                                            newRow.title = "[[TW.RSM.SFW.Dashboard.SCM Menu Installed Packages Title]]";
+                                            newRow.linkDestination = "TW.RSM.SFW.Mashup.Dashboard.InstalledPackages";
+                                            newRow.imageURL = "TW.UTL.TileIcon.SoftwareContentMgt";
+                                            result.AddRow(newRow);
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetConcatenatedPackage">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                        	infoTableName : "InfoTable",
+                                        	dataShapeName : "TW.RSM.SFW.ConcatenatedVersionPackage"
+                                        };
+                                        
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        
+                                        var tableLength = Things[name].InstalledPackages.rows.length;
+                                        
+                                        for (var x = 0; x < tableLength; x++) {
+                                        	var sourceRow = Things[name].InstalledPackages.rows[x];
+                                            var resultRow = new Object();
+                                            resultRow.Name = sourceRow.Name;
+                                            resultRow.Version = sourceRow.Version1 + (sourceRow.Version2 ? "." + sourceRow.Version2 : "" ) +
+                                                (sourceRow.Version3 ? "." + sourceRow.Version3 : "" ) +
+                                                (sourceRow.Version4 ? "." + sourceRow.Version4 : "" );
+                                        	result.AddRow(resultRow);
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ImplementedShapes>
+                <ImplementedShape
+                 name="PTC.Asset.MenuExpansions"
+                 type="ThingShape"></ImplementedShape>
+            </ImplementedShapes>
+            <ThingProperties></ThingProperties>
+        </Thing>
+    </Things>
+</Entities>

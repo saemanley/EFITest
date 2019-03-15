@@ -1,0 +1,2279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <ThingTemplates>
+        <ThingTemplate
+         baseThingTemplate="TW.RSM.Template.AssetWithTunnelsAndFileTransfer"
+         description="NCR Base Template used for all devices. The TW.RSM.Template.AssetWithTunnelsAndFileTransfer only supports a limited number of devices. We still want to be able to have everything we manage to go into the ThingWorx Utilities."
+         documentationContent="&lt;hr&gt;"
+         effectiveThingPackage="TW.UTL.RemoteThingWithTunnelsAndFileTransferPackage"
+         homeMashup=""
+         lastModifiedDate="2018-11-14T18:52:07.421Z"
+         name="NCR.BaseDevice"
+         projectName="DCS. Project.Main"
+         tags="Applications:NCR"
+         thingPackage=""
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                    </PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                    </EventInvoke>
+                    <EventSubscribe>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                    </EventSubscribe>
+                </Permissions>
+            </RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:EMS"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:SCM"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:TCS"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 description="Tunneling Destinations"
+                 isMultiRow="true"
+                 name="Tunnels"
+                 ordinal="1">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue=""
+                             aspect.friendlyName="Application Path"
+                             baseType="STRING"
+                             description="Location of the client app that will use this tunnel"
+                             name="appUri"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue=""
+                             aspect.friendlyName="Description"
+                             baseType="STRING"
+                             description="A description of the tunnel"
+                             name="description"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="127.0.0.1"
+                             aspect.friendlyName="Host"
+                             baseType="STRING"
+                             description="Host or IP that this tunnel will connect to at the edge"
+                             name="host"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="vnc"
+                             aspect.friendlyName="Name"
+                             baseType="STRING"
+                             description="Name of the tunnel"
+                             name="name"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="1.0"
+                             aspect.friendlyName="Number of Connects"
+                             baseType="NUMBER"
+                             description="The number of connections required to establish this tunnel"
+                             name="numConnects"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="5900.0"
+                             aspect.friendlyName="Port"
+                             baseType="NUMBER"
+                             description="Port that this tunnel will connect to at the edge"
+                             name="port"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="tcp"
+                             aspect.friendlyName="Protocol"
+                             baseType="STRING"
+                             description="The protocol used over this tunnel"
+                             name="proto"
+                             ordinal="6"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="General Settings"
+                 isMultiRow="false"
+                 name="TunnelSettings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.friendlyName="Enable Tunneling"
+                             aspect.isNullable="true"
+                             baseType="BOOLEAN"
+                             description="Enable tunneling"
+                             name="enableTunneling"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row></Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings>
+                <RemoteServiceBinding
+                 enableQueue="false"
+                 name="ExecuteCommand"
+                 sourceName=""
+                 timeout="0"></RemoteServiceBinding>
+                <RemoteServiceBinding
+                 enableQueue="false"
+                 name="GetAgentDataDir"
+                 sourceName="GetAgentDataDir"
+                 timeout="0"></RemoteServiceBinding>
+                <RemoteServiceBinding
+                 enableQueue="false"
+                 name="GetAgentProgramDir"
+                 sourceName="GetAgentProgramDir"
+                 timeout="0"></RemoteServiceBinding>
+                <RemoteServiceBinding
+                 enableQueue="false"
+                 name="GetCustomerName"
+                 sourceName=""
+                 timeout="0"></RemoteServiceBinding>
+            </RemoteServiceBindings>
+            <RemoteEventBindings>
+                <RemoteEventBinding
+                 name="NCR_DCS_EdgeEvent"
+                 sourceName=""></RemoteEventBinding>
+            </RemoteEventBindings>
+            <AlertConfigurations>
+                <AlertDefinitions
+                 name="AddPropManually2"></AlertDefinitions>
+                <AlertDefinitions
+                 name="Asset_DataDir"></AlertDefinitions>
+                <AlertDefinitions
+                 name="Asset_ID"></AlertDefinitions>
+                <AlertDefinitions
+                 name="Asset_Manufacturer"></AlertDefinitions>
+                <AlertDefinitions
+                 name="Asset_Model"></AlertDefinitions>
+                <AlertDefinitions
+                 name="Asset_Name"></AlertDefinitions>
+                <AlertDefinitions
+                 name="Asset_ProgramDir"></AlertDefinitions>
+                <AlertDefinitions
+                 name="Asset_Serial_Number"></AlertDefinitions>
+                <AlertDefinitions
+                 name="Asset_Status"></AlertDefinitions>
+                <AlertDefinitions
+                 name="Asset_StoreIdentifier"></AlertDefinitions>
+                <AlertDefinitions
+                 name="Asset_Tag"></AlertDefinitions>
+                <AlertDefinitions
+                 name="Asset_Type"></AlertDefinitions>
+                <AlertDefinitions
+                 name="Customer"></AlertDefinitions>
+                <AlertDefinitions
+                 name="NCRAssetImage"></AlertDefinitions>
+            </AlertConfigurations>
+            <ThingShape>
+                <PropertyDefinitions>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.isLogged="false"
+                     aspect.isPersistent="true"
+                     aspect.isReadOnly="false"
+                     baseType="STRING"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="Asset_DataDir"
+                     ordinal="12"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.isLogged="false"
+                     aspect.isPersistent="true"
+                     aspect.isReadOnly="false"
+                     baseType="STRING"
+                     category=""
+                     description="Property used to keep information about the Store it is in."
+                     isLocalOnly="false"
+                     name="Asset_StoreIdentifier"
+                     ordinal="13"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.isLogged="false"
+                     aspect.isPersistent="false"
+                     aspect.isReadOnly="false"
+                     baseType="STRING"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="AddPropManually2"
+                     ordinal="15"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.isLogged="false"
+                     aspect.isPersistent="true"
+                     aspect.isReadOnly="false"
+                     aspect.thingTemplate="NCR.Customer"
+                     baseType="THINGNAME"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="Customer"
+                     ordinal="1"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.isLogged="false"
+                     aspect.isPersistent="true"
+                     aspect.isReadOnly="false"
+                     baseType="STRING"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="Asset_Serial_Number"
+                     ordinal="5"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.isLogged="false"
+                     aspect.isPersistent="true"
+                     aspect.isReadOnly="false"
+                     baseType="STRING"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="Asset_Name"
+                     ordinal="4"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.isLogged="false"
+                     aspect.isPersistent="true"
+                     aspect.isReadOnly="false"
+                     baseType="STRING"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="Asset_ID"
+                     ordinal="3"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.isLogged="false"
+                     aspect.isPersistent="true"
+                     aspect.isReadOnly="false"
+                     baseType="STRING"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="Asset_ProgramDir"
+                     ordinal="12"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.isLogged="false"
+                     aspect.isPersistent="true"
+                     aspect.isReadOnly="false"
+                     baseType="STRING"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="Asset_Tag"
+                     ordinal="6"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.isLogged="false"
+                     aspect.isPersistent="true"
+                     aspect.isReadOnly="false"
+                     baseType="STRING"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="Asset_Manufacturer"
+                     ordinal="7"></PropertyDefinition>
+                    <PropertyDefinition
+                     baseType="STRING"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="AddPropDef_30K"
+                     ordinal="0"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.isLogged="false"
+                     aspect.isPersistent="true"
+                     aspect.isReadOnly="false"
+                     baseType="STRING"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="Asset_Type"
+                     ordinal="2"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.isLogged="false"
+                     aspect.isPersistent="true"
+                     aspect.isReadOnly="false"
+                     baseType="IMAGELINK"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="NCRAssetImage"
+                     ordinal="10"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.isLogged="false"
+                     aspect.isPersistent="true"
+                     aspect.isReadOnly="false"
+                     baseType="STRING"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="Asset_Model"
+                     ordinal="8"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeThreshold="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.defaultValue="0"
+                     aspect.isLogged="false"
+                     aspect.isPersistent="true"
+                     aspect.isReadOnly="false"
+                     baseType="INTEGER"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="Asset_Status"
+                     ordinal="9"></PropertyDefinition>
+                </PropertyDefinitions>
+                <ServiceDefinitions>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="Copy a file between TW Repository and Edge"
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="DCSCopyFile">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="false"
+                             baseType="BOOLEAN"
+                             description=""
+                             name="async"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="JSON"
+                             description=""
+                             name="metadata"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="false"
+                             baseType="BOOLEAN"
+                             description=""
+                             name="queueable"
+                             ordinal="7"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="sourceFile"
+                             ordinal="8"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="sourcePath"
+                             ordinal="9"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="sourceRepo"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="targetFile"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="targetPath"
+                             ordinal="6"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="targetRepo"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="360000"
+                             aspect.minimumValue="10000"
+                             baseType="INTEGER"
+                             description=""
+                             name="timeout"
+                             ordinal="10"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="Execute a command on Remote Thing and return output of executing that command"
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ExecuteCommand">
+                        <ResultType
+                         baseType="STRING"
+                         description="Output from executing the command string"
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="Command string to execute"
+                             name="command"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetAgentDataDir">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetAgentProgramDir">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetAssetsForCustomer">
+                        <ResultType
+                         aspect.dataShape="NCR.AssetsForCustomerDS"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             aspect.thingTemplate="NCR.Customer"
+                             baseType="THINGNAME"
+                             description=""
+                             name="customer"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetCustomerName">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="Provide minimum required fields here:&#xA;Wait for update from Raajeev or James on the details.&#xA;&#xA;Determine if this can be executed Async."
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="NCR_CreateIncident">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="CREATE"
+                             baseType="STRING"
+                             description="The type of request.&#xA;&#xA;CREATE"
+                             name="action"
+                             ordinal="39"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Used for routing in NEOS. 2018 concept is DCS will not have to input on routing.&#xA;"
+                             name="assignedgroup"
+                             ordinal="9"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="purpose unknown"
+                             name="assignedgroupshiftname"
+                             ordinal="10"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="purpose unknown"
+                             name="assignedsupportcompany"
+                             ordinal="11"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="purpose unknown"
+                             name="assignedsupportorganization"
+                             ordinal="12"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="purpose unknown"
+                             name="assignee"
+                             ordinal="13"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown. GDPR impact?"
+                             name="calleremail"
+                             ordinal="70"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="callername"
+                             ordinal="68"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown. GDPR impact?"
+                             name="callerphone"
+                             ordinal="69"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="purpose unknown"
+                             name="categorizationtier1"
+                             ordinal="14"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="purpose unknown"
+                             name="categorizationtier2"
+                             ordinal="15"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="purpose unknown"
+                             name="categorizationtier3"
+                             ordinal="16"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Name of the CI. Not use in a Create request"
+                             name="ciname"
+                             ordinal="17"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="cipartnumber"
+                             ordinal="66"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="ciserial"
+                             ordinal="65"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="citag"
+                             ordinal="67"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="purpose unknown"
+                             name="closuremanufacturer"
+                             ordinal="18"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="purpose unknown"
+                             name="closureproductcategorytier1"
+                             ordinal="19"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="purpose unknown"
+                             name="closureproductcategorytier2"
+                             ordinal="20"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="purpose unknown"
+                             name="closureproductcategorytier3"
+                             ordinal="21"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="purpose unknown"
+                             name="closureproductmodelversion"
+                             ordinal="22"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="purpose unknown"
+                             name="closureproductname"
+                             ordinal="23"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="field used by NEOS to determine the lane instance on which the event occured. For this we need to share the hostname of the device."
+                             name="configurationitem"
+                             ordinal="71"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="corporateid"
+                             ordinal="64"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="createrequest"
+                             ordinal="40"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="customercompany"
+                             ordinal="63"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="customerticketnumber"
+                             ordinal="71"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="purpose unknown"
+                             name="department"
+                             ordinal="24"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="directcontactfirstname"
+                             ordinal="51"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="directcontactlastname"
+                             ordinal="53"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="directcontactmiddleinitial"
+                             ordinal="52"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Provided by the NEOS CI Lookup result. Behavior will change when this lookup becomes obsolete."
+                             name="firstname"
+                             ordinal="25"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="hpdci"
+                             ordinal="57"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="hpdciformname"
+                             ordinal="58"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="Possible values:&#xA;&#xA;1 - Extensive / Widespread&#xA;2 - Significant / Large&#xA;3 - Moderate / Large&#xA;4 - Minor / Localized&#xA;"
+                             name="impact"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Currently provided by the NEOS CI lookup call. Behavior will change when this call becomes obsolete."
+                             name="lastname"
+                             ordinal="26"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="loginid"
+                             ordinal="62"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="lookupkeyword"
+                             ordinal="27"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="manufacturer"
+                             ordinal="28"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="middleinitial"
+                             ordinal="49"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="notes"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="productcategorizationtier1"
+                             ordinal="29"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="productcategorizationtier2"
+                             ordinal="30"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="productcategorizationtier3"
+                             ordinal="31"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="productmodelversion"
+                             ordinal="32"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="productname"
+                             ordinal="33"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="Systems Management"
+                             baseType="STRING"
+                             description="Systems Management&#xA;Email&#xA;External Escalation&#xA;Fax&#xA;Self Service&#xA;Phone&#xA;Voice Mail&#xA;Walk In&#xA;Web&#xA;Other&#xA;Chat&#xA;"
+                             name="reportedsource"
+                             ordinal="34"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="resolution"
+                             ordinal="35"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="resolutioncategorytier1"
+                             ordinal="36"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="resolutioncategorytier2"
+                             ordinal="37"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="resolutioncategorytier3"
+                             ordinal="38"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="serviceci"
+                             ordinal="55"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="servicecireconid"
+                             ordinal="56"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Possible Values:&#xA;&#xA;User Service Restoration&#xA;User Service Request&#xA;Infrastructure Restoration&#xA;Infrastructure Event&#xA;"
+                             name="servicetype"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="IOT"
+                             baseType="STRING"
+                             description="Used to indicate the origin type to SOAP?"
+                             name="sourcesystem"
+                             ordinal="8"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="Possible values (numeric part only):&#xA;&#xA;0-New&#xA;1-Assigned&#xA;2-In-Progress&#xA;3-Pending&#xA;4-Resolved&#xA;5-Closed&#xA;6-cancelled&#xA;"
+                             name="status"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="statusreason"
+                             ordinal="50"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown."
+                             name="summary"
+                             ordinal="41"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="templateid"
+                             ordinal="54"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description="Possible values:&#xA;&#xA;1-Critical&#xA;2-High&#xA;3-Medium&#xA;4-Low&#xA;"
+                             name="urgency"
+                             ordinal="6"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="IOTNEOS"
+                             baseType="STRING"
+                             description="Used to connect to soap?"
+                             name="userid"
+                             ordinal="7"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="workinfoattachment1data"
+                             ordinal="60"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="workinfoattachment1name"
+                             ordinal="59"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="workinfoattachment1origsize"
+                             ordinal="61"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="workinfodate"
+                             ordinal="45"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="No"
+                             baseType="STRING"
+                             description="Purpose unknown&#xA;&#xA;No"
+                             name="workinfolocked"
+                             ordinal="47"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="workinfonotes"
+                             ordinal="43"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="workinfosource"
+                             ordinal="46"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="workinfosummary"
+                             ordinal="42"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Purpose unknown"
+                             name="workinfotype"
+                             ordinal="44"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="Internal"
+                             baseType="STRING"
+                             description="Purpose unknown&#xA;&#xA;Internal"
+                             name="workinfoviewaccess"
+                             ordinal="48"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="NCR_UpdateIncident">
+                        <ResultType
+                         baseType="STRING"
+                         description="todo: determine what can be done with this web service call. There doesn't appear to be any detail in the response."
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="MODIFY"
+                             baseType="STRING"
+                             description=""
+                             name="action"
+                             ordinal="32"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="categorizationtier1"
+                             ordinal="10"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="categorizationtier2"
+                             ordinal="11"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="categorizationtier3"
+                             ordinal="12"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="closuremanufacturer"
+                             ordinal="13"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="closureproductcategorytier1"
+                             ordinal="14"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="closureproductcategorytier2"
+                             ordinal="15"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="closureproductcategorytier3"
+                             ordinal="16"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="closureproductmodelversion"
+                             ordinal="17"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="closureproductname"
+                             ordinal="18"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="company"
+                             ordinal="19"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="hpdci"
+                             ordinal="42"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="hpdciformname"
+                             ordinal="43"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="impact"
+                             ordinal="20"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="incidentnumber"
+                             ordinal="6"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="manufacturer"
+                             ordinal="21"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="notes"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="productcategorizationtier1"
+                             ordinal="22"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="productcategorizationtier2"
+                             ordinal="23"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="productcategorizationtier3"
+                             ordinal="24"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="productname"
+                             ordinal="25"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="reportedsource"
+                             ordinal="26"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="resolution"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Is this a bug in the SOUP web service. There is no Resolution_Category_Tier1 while there is a Resolution_Gategory in the same &quot;bucket&quot; as Tier2 and Tier3&#xA;"
+                             name="resolutioncategorytier1"
+                             ordinal="27"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="resolutioncategorytier2"
+                             ordinal="28"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="resolutioncategorytier3"
+                             ordinal="29"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="resolutionmethod"
+                             ordinal="30"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="serviceci"
+                             ordinal="40"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="servicecireconid"
+                             ordinal="41"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="servicetype"
+                             ordinal="31"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="IOT"
+                             baseType="STRING"
+                             description=""
+                             name="sourcesystem"
+                             ordinal="9"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="status"
+                             ordinal="7"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="statusreason"
+                             ordinal="46"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="summary"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="urgency"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="IOTNEOS"
+                             baseType="STRING"
+                             description=""
+                             name="userid"
+                             ordinal="8"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="woinfosummary"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="workinfoattachment1name"
+                             ordinal="44"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="workinfoattachment1origsize"
+                             ordinal="45"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="workinfodate"
+                             ordinal="36"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="No"
+                             baseType="STRING"
+                             description=""
+                             name="workinfolocked"
+                             ordinal="38"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="workinfonotes"
+                             ordinal="34"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="workinfosource"
+                             ordinal="37"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="workinfosummary"
+                             ordinal="33"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="workinfotype"
+                             ordinal="35"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="workinfoviewaccess"
+                             ordinal="39"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="to be determined what this is"
+                             name="z1dciformname"
+                             ordinal="47"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                </ServiceDefinitions>
+                <EventDefinitions>
+                    <EventDefinition
+                     category="Event Management"
+                     dataShape="NCR.DCS.AssetEventsDS"
+                     description="Used for Event Management. Based on calls from the Edge and Property Changes on the Platform"
+                     name="NCR_DCS_EdgeEvent"></EventDefinition>
+                    <EventDefinition
+                     category="Event Management"
+                     dataShape="NCR.DCS.EventClosed"
+                     description="Event Closed received. Find the table entry and send a close request to NEOS via the Workflow Engine."
+                     name="NCR_DCS_EventClosed"></EventDefinition>
+                    <EventDefinition
+                     category="Event Management"
+                     dataShape="NCR.DCS.EventCreatedDS"
+                     description="Triggered when a new Event has been added to the Event Table.&#xA;"
+                     name="NCR_DCS_EventCreated"></EventDefinition>
+                    <EventDefinition
+                     category="Event Management"
+                     dataShape="NCR.DCS.EventUpdatedDS"
+                     description="Triggered when an Event has been updated in the Event Table. This Event should be used by the Workflow Engine"
+                     name="NCR_DCS_EventUpdated"></EventDefinition>
+                </EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="DCSCopyFile">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                        	async: async /* BOOLEAN */,
+                                        	sourceRepo: sourceRepo /* STRING */,
+                                        	metadata: metadata /* JSON */,
+                                        	targetRepo: targetRepo /* STRING */,
+                                        	targetFile: targetFile /* STRING */,
+                                        	targetPath: targetPath /* STRING */,
+                                        	queueable: queueable /* BOOLEAN */,
+                                        	sourceFile: sourceFile /* STRING */,
+                                        	sourcePath: sourcePath /* STRING */,
+                                        	timeout: timeout /* INTEGER */
+                                        };
+                                        
+                                        // result: INFOTABLE dataShape: FileTransferJob
+                                        var result = Subsystems["FileTransferSubsystem"].Copy(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetAssetsForCustomer">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        //var params = {
+                                        //	infoTableName : "InfoTable",
+                                        //	dataShapeName : "NCR.AssetsForCustomerDS"
+                                        //};
+                                        
+                                        // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(NCR.AssetsForCustomerDS)
+                                        //var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        
+                                        // result: INFOTABLE dataShape: RootEntityList
+                                        var assets = ThingTemplates["NCR.BaseDevice"].GetImplementingThingsWithData()
+                                        
+                                        var params = {
+                                        	inclusive: true /* BOOLEAN */,
+                                        	fieldName: "Customer" /* STRING */,
+                                        	t: assets /* INFOTABLE */,
+                                        	matchValues: customer /* STRING */
+                                        };
+                                        
+                                        // result: INFOTABLE
+                                        var result = Resources["InfoTableFunctions"].SetFilter(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="NCR_CreateIncident">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var enablescriptdebug = true;
+                                        
+                                        
+                                        // 2018-05-18: ms500001, removed the use of Assigned_Group. All routing will be done in NEOS. Value hardcoded to ""
+                                        // 2018-07-05: ms500001, added Configuration_Item to the exposed SOUP/NEOS interface for Wallmart. Initial setup
+                                        // will be to expose for all
+                                        
+                                        // Setup the query to NEOS via soup to get the details of the CI which are needed for the create
+                                        // We take the CIID from the thing.
+                                        
+                                        // Use a unique session id for troubleshooting purposes.
+                                        // Determine where to store this info. logger function?
+                                        var transactionid = generateGUID();
+                                        var headers = new Object();
+                                        
+                                        headers.SOAPAction = "";
+                                        headers.Authorization = 'Basic REEyMzAyMDE6NE56bTVzZlhZTXNLRE0yWDRmQGQ5Nld6bmJFem43';
+                                        
+                                        var soupurlci = "https://osbinternal.ncr.com/ext/Services/IOT/IOTNEOSIntegrationWS";
+                                        var soupurlcreate = "https://osbinternal.ncr.com/ext/Services/IOT/IOTNEOSIntegrationWS";
+                                        
+                                        
+                                        var contentcreateincident = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:CSDIIOTCreateUpdateIncident"><soap:Header/><soap:Body><urn:IOTNEOSInputReuestService><urn:Header><urn:TransactionID>' + transactionid + '</urn:TransactionID><urn:USERID>' + userid + '</urn:USERID><urn:SourceSystem>' + sourcesystem + '</urn:SourceSystem></urn:Header><urn:IOTNEOSInputReuestServiceFields><urn:Assigned_Group>' + assignedgroup + '</urn:Assigned_Group><urn:Assigned_Group_Shift_Name>' + assignedgroupshiftname + '</urn:Assigned_Group_Shift_Name><urn:Assigned_Support_Company>' + assignedsupportcompany + '</urn:Assigned_Support_Company><urn:Assigned_Support_Organization>' + assignedsupportorganization + '</urn:Assigned_Support_Organization><urn:Assignee>' + assignee + '</urn:Assignee><urn:Categorization_Tier_1>' + categorizationtier1 + '</urn:Categorization_Tier_1><urn:Categorization_Tier_2>' + categorizationtier2 + '</urn:Categorization_Tier_2><urn:Categorization_Tier_3>' + categorizationtier3 + '</urn:Categorization_Tier_3><urn:CI_Name>' + ciname + '</urn:CI_Name><urn:Closure_Manufacturer>' + closuremanufacturer + '</urn:Closure_Manufacturer><urn:Closure_Product_Category_Tier1>' + closureproductcategorytier1 + '</urn:Closure_Product_Category_Tier1><urn:Closure_Product_Category_Tier2>' + closureproductcategorytier2 + '</urn:Closure_Product_Category_Tier2><urn:Closure_Product_Category_Tier3>' + closureproductcategorytier3 + '</urn:Closure_Product_Category_Tier3><urn:Closure_Product_Model_Version>' + closureproductmodelversion + '</urn:Closure_Product_Model_Version><urn:Closure_Product_Name>' + closureproductname + '</urn:Closure_Product_Name><urn:Department>' + department + '</urn:Department><urn:First_Name>' + firstname + '</urn:First_Name><urn:Impact>' + impact + '</urn:Impact><urn:Last_Name>' + lastname + '</urn:Last_Name><urn:Lookup_Keyword>' + lookupkeyword + '</urn:Lookup_Keyword><urn:Manufacturer>' + manufacturer + '</urn:Manufacturer><urn:Product_Categorization_Tier_1>' + productcategorizationtier1 + '</urn:Product_Categorization_Tier_1><urn:Product_Categorization_Tier_2>' + productcategorizationtier2 + '</urn:Product_Categorization_Tier_2><urn:Product_Categorization_Tier_3>' + productcategorizationtier3 + '</urn:Product_Categorization_Tier_3><urn:Product_Model_Version>' + productmodelversion + '</urn:Product_Model_Version><urn:Product_Name>' + productname + '</urn:Product_Name><urn:Reported_Source>' + reportedsource + '</urn:Reported_Source><urn:Resolution>' + resolution + '</urn:Resolution><urn:Resolution_Category_Tier_1>' + resolutioncategorytier1 + '</urn:Resolution_Category_Tier_1><urn:Resolution_Category_Tier_2>' + resolutioncategorytier2 + '</urn:Resolution_Category_Tier_2><urn:Resolution_Category_Tier_3>' + resolutioncategorytier3 + '</urn:Resolution_Category_Tier_3><urn:Service_Type>' + servicetype + '</urn:Service_Type><urn:Status>' + status + '</urn:Status><urn:Action>' + action + '</urn:Action><urn:Create_Request>' + createrequest + '</urn:Create_Request><urn:Summary>' + summary + '</urn:Summary><urn:Notes>' + notes + '</urn:Notes><urn:Urgency>' + urgency + '</urn:Urgency><urn:Work_Info_Summary>' + workinfosummary + '</urn:Work_Info_Summary><urn:Work_Info_Notes>' + workinfonotes + '</urn:Work_Info_Notes><urn:Work_Info_Type>' + workinfotype + '</urn:Work_Info_Type><urn:Work_Info_Date>' + workinfodate + '</urn:Work_Info_Date><urn:Work_Info_Source>' + workinfosource + '</urn:Work_Info_Source><urn:Work_Info_Locked>' + workinfolocked + '</urn:Work_Info_Locked><urn:Work_Info_View_Access>' + workinfoviewaccess + '</urn:Work_Info_View_Access><urn:Middle_Initial>' + middleinitial + '</urn:Middle_Initial><urn:Status_Reason>' + statusreason + '</urn:Status_Reason><urn:Direct_Contact_First_Name>' + directcontactfirstname + '</urn:Direct_Contact_First_Name><urn:Direct_Contact_Middle_Initial>' + directcontactmiddleinitial + '</urn:Direct_Contact_Middle_Initial><urn:Direct_Contact_Last_Name>' + directcontactlastname + '</urn:Direct_Contact_Last_Name><urn:TemplateID>' + templateid + '</urn:TemplateID><urn:ServiceCI>' + serviceci + '</urn:ServiceCI><urn:ServiceCI_ReconID>' + servicecireconid + '</urn:ServiceCI_ReconID><urn:HPD_CI>' + hpdci + '</urn:HPD_CI><urn:HPD_CI_ReconID>' + me.Asset_ID + '</urn:HPD_CI_ReconID><urn:HPD_CI_FormName>' + hpdciformname + '</urn:HPD_CI_FormName><urn:WorkInfoAttachment1Name>' + workinfoattachment1name + '</urn:WorkInfoAttachment1Name><urn:WorkInfoAttachment1Data>' + workinfoattachment1data + '</urn:WorkInfoAttachment1Data><urn:WorkInfoAttachment1OrigSize>' + workinfoattachment1origsize + '</urn:WorkInfoAttachment1OrigSize><urn:Login_ID>' + loginid + '</urn:Login_ID><urn:Customer_Company>' + customercompany + '</urn:Customer_Company><urn:Corporate_ID>' + corporateid + '</urn:Corporate_ID><urn:CI_Serial>' + ciserial + '</urn:CI_Serial><urn:CI_Part_Number>' + cipartnumber + '</urn:CI_Part_Number><urn:CI_Tag>' + citag + '</urn:CI_Tag><urn:Caller_Name>' + callername + '</urn:Caller_Name><urn:Caller_Phone>' + callerphone + '</urn:Caller_Phone><urn:Caller_Email>' + calleremail + '</urn:Caller_Email><urn:Configuration_Item>' + configurationitem + '</urn:Configuration_Item><urn:Customer_Ticket_Number>' + customerticketnumber + '</urn:Customer_Ticket_Number></urn:IOTNEOSInputReuestServiceFields></urn:IOTNEOSInputReuestService></soap:Body></soap:Envelope>';
+                                        
+                                        	// Replace all undefined strings which get populated by empty input parameters.
+                                        	contentcreateincident = contentcreateincident.replace(/undefined/g, "");
+                                        
+                                        	if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_CreateIncident::CreateIncidentSOUPRequest: " + me.name + " : " + contentcreateincident); }
+                                        	var headers1 = new Object();
+                                        
+                                        	headers1.SOAPAction = "";
+                                        	headers1.Authorization = 'Basic REEyMzAyMDE6NE56bTVzZlhZTXNLRE0yWDRmQGQ5Nld6bmJFem43';
+                                        
+                                        	var params = {
+                                        		proxyScheme: undefined /* STRING */,
+                                        		headers: headers1 /* JSON */,
+                                        		ignoreSSLErrors: undefined /* BOOLEAN */,
+                                        		useNTLM: undefined /* BOOLEAN */,
+                                        		workstation: undefined /* STRING */,
+                                        		useProxy: undefined /* BOOLEAN */,
+                                        		withCookies: undefined /* BOOLEAN */,
+                                        		proxyHost: undefined /* STRING */,
+                                        		url: soupurlcreate /* STRING */,
+                                        		content: contentcreateincident /* XML */,
+                                        		timeout: undefined /* NUMBER */,
+                                        		proxyPort: undefined /* INTEGER */,
+                                        		password: undefined /* STRING */,
+                                        		domain: undefined /* STRING */,
+                                        		username: undefined /* STRING */
+                                        	};
+                                        
+                                        	var resultXML1 = Resources["ContentLoaderFunctions"].PostXML(params);
+                                        
+                                        	var result= resultXML1.*::Body.*::IOTNEOSOutputResponseService.*::Incident_Number;
+                                        //	var result = resultXML1;
+                                        	if (result.toString() != "")
+                                        	{
+                                        		if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_CreateIncident::CreateIncidentSOUPRequestResult: " + me.name + " : " + result); }
+                                        	}
+                                        	else
+                                        	{
+                                        		logger.warn("Templates::NCR.BaseDevice::NCR_CreateIncident::CreateIncidentSOUPRequestResultFailed: " + me.name + " " + me.Asset_ID + " Error: " + resultXML1 + " TransactionID: " + transactionid);
+                                        	}
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="NCR_UpdateIncident">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var enablescriptdebug = true;
+                                        
+                                        // We don't like gaps. 
+                                        var nonassignednote = "Device Reported Healthy Condition. Incident can be set to Resolved";
+                                        
+                                        // Use a unique session id for troubleshooting purposes.
+                                        // Determine where to store this info. logger function?
+                                        var transactionid = generateGUID();
+                                        
+                                        var soupurlci = "https://osbinternal.ncr.com/ext/Services/IOT/IOTNEOSIntegrationWS";
+                                        var soupurlupdate = "https://osbinternal.ncr.com/ext/Services/IOT/IOTNEOSIntegrationWS";
+                                        
+                                        
+                                        
+                                        var contentupdateincident = '<soap:Envelope xmlns:soap = "http://www.w3.org/2003/05/soap-envelope" xmlns:urn = "urn:CSDIIOTCreateUpdateIncident" > <soap:Header /><soap:Body><urn:IOTNEOSUpdateInputRequestService><urn:Header><urn:TransactionID>' + transactionid + '</urn:TransactionID><urn:USERID>' + userid + '</urn:USERID><urn:SourceSystem>' + sourcesystem + '</urn:SourceSystem></urn:Header><urn:IOTNEOSUpdateInputRequestServiceFields><urn:Categorization_Tier_1>' + categorizationtier1 + '</urn:Categorization_Tier_1><urn:Categorization_Tier_2>' + categorizationtier2 + '</urn:Categorization_Tier_2><urn:Categorization_Tier_3>' + categorizationtier3 + '</urn:Categorization_Tier_3><urn:Closure_Manufacturer>' + closuremanufacturer + '</urn:Closure_Manufacturer><urn:Closure_Product_Category_Tier1>' + closureproductcategorytier1 + '</urn:Closure_Product_Category_Tier1><urn:Closure_Product_Category_Tier2>' + closureproductcategorytier2 + '</urn:Closure_Product_Category_Tier2><urn:Closure_Product_Category_Tier3>' + closureproductcategorytier3 + '</urn:Closure_Product_Category_Tier3><urn:Closure_Product_Model_Version>' + closureproductmodelversion + '</urn:Closure_Product_Model_Version><urn:Closure_Product_Name>' + closureproductname + '</urn:Closure_Product_Name><urn:Company>' + company + '</urn:Company><urn:Summary>' + summary + '</urn:Summary><urn:Notes>' + notes + '</urn:Notes><urn:Impact>' + impact + '</urn:Impact><urn:Manufacturer>' + manufacturer + '</urn:Manufacturer><urn:Product_Categorization_Tier_1>' + productcategorizationtier1 + '</urn:Product_Categorization_Tier_1><urn:Product_Categorization_Tier_2>' + productcategorizationtier2 + '</urn:Product_Categorization_Tier_2><urn:Product_Categorization_Tier_3>' + productcategorizationtier3 + '</urn:Product_Categorization_Tier_3><urn:Product_Model_Version>' + closureproductmodelversion + '</urn:Product_Model_Version><urn:Product_Name>' + productname + '</urn:Product_Name><urn:Reported_Source>' + reportedsource + '</urn:Reported_Source><urn:Resolution>' + resolution + '</urn:Resolution><urn:Resolution_Category>' + resolutioncategorytier1 + '</urn:Resolution_Category><urn:Resolution_Category_Tier_2>' + resolutioncategorytier2 + '</urn:Resolution_Category_Tier_2><urn:Resolution_Category_Tier_3>' + resolutioncategorytier3 + '</urn:Resolution_Category_Tier_3><urn:Resolution_Method>' + resolutionmethod + '</urn:Resolution_Method><urn:Service_Type>' + servicetype + '</urn:Service_Type><urn:Status>' + status + '</urn:Status><urn:Urgency>' + urgency + '</urn:Urgency><urn:Action>' + action + '</urn:Action><urn:Work_Info_Summary>' + workinfosummary + '</urn:Work_Info_Summary><urn:Work_Info_Notes>' + workinfonotes + '</urn:Work_Info_Notes><urn:Work_Info_Type>' + workinfotype + '</urn:Work_Info_Type><urn:Work_Info_Date>' + workinfodate + '</urn:Work_Info_Date><urn:Work_Info_Source>' + workinfosource + '</urn:Work_Info_Source><urn:Work_Info_Locked>' + workinfolocked + '</urn:Work_Info_Locked><urn:Work_Info_View_Access>' + workinfoviewaccess + '</urn:Work_Info_View_Access><urn:Incident_Number>' + incidentnumber + '</urn:Incident_Number><urn:ServiceCI>' + serviceci + '</urn:ServiceCI><urn:ServiceCI_ReconID>' + servicecireconid + '</urn:ServiceCI_ReconID><urn:HPD_CI>' + hpdci + '</urn:HPD_CI><urn:HPD_CI_ReconID>' + '</urn:HPD_CI_ReconID><urn:HPD_CI_FormName>' + hpdciformname + '</urn:HPD_CI_FormName><urn:z1D_CI_FormName>' + z1dciformname + '</urn:z1D_CI_FormName><urn:WorkInfoAttachment1Name>' + workinfoattachment1name + '</urn:WorkInfoAttachment1Name><urn:WorkInfoAttachment1OrigSize>' + workinfoattachment1origsize + '</urn:WorkInfoAttachment1OrigSize><urn:Status_Reason>' + statusreason + '</urn:Status_Reason></urn:IOTNEOSUpdateInputRequestServiceFields></urn:IOTNEOSUpdateInputRequestService></soap:Body></soap:Envelope>';
+                                        
+                                        
+                                        
+                                        // Replace all undefined strings which get populated by empty input parameters.
+                                        contentupdateincident = contentupdateincident.replace(/undefined/g, "");
+                                        if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_UpdateIncident::UpdateIncidentSOUPRequest: " + me.name + " : " + contentupdateincident); }
+                                        
+                                        var headers = new Object();
+                                        
+                                        headers.SOAPAction = "";
+                                        headers.Authorization = 'Basic REEyMzAyMDE6NE56bTVzZlhZTXNLRE0yWDRmQGQ5Nld6bmJFem43';
+                                        
+                                        var params2 = {
+                                            proxyScheme: undefined /* STRING */,
+                                            headers: headers /* JSON */,
+                                            ignoreSSLErrors: undefined /* BOOLEAN */,
+                                            useNTLM: undefined /* BOOLEAN */,
+                                            workstation: undefined /* STRING */,
+                                            useProxy: undefined /* BOOLEAN */,
+                                            withCookies: undefined /* BOOLEAN */,
+                                            proxyHost: undefined /* STRING */,
+                                            url: soupurlupdate /* STRING */,
+                                            content: contentupdateincident /* XML */,
+                                            timeout: undefined /* NUMBER */,
+                                            proxyPort: undefined /* INTEGER */,
+                                            password: undefined /* STRING */,
+                                            domain: undefined /* STRING */,
+                                            username: undefined /* STRING */
+                                        };
+                                        
+                                        var resultXML = Resources["ContentLoaderFunctions"].PostXML(params2);
+                                        // did not get consistent results using Xpath. to be solved. From now we do it like this
+                                        
+                                        var updateresult = "" + resultXML;
+                                        
+                                        if (updateresult.indexOf(incidentnumber) !== -1)
+                                        {
+                                            // All OK.
+                                            if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_UpdateIncident::UpdateIncidentResolveOK: " + me.name + " : Incident Number : " + incidentnumber); }
+                                        }
+                                        else
+                                        {
+                                            // We can have a number of problems here. Middleware down, interface changed, problems with the configuration in any of the systems.
+                                            // Right now we only consider the fact the incident might not be assigned. If this is the case then we just send a generic update 
+                                            // which can be done without having the incident being assigned.
+                                            
+                                            if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_UpdateIncident::UpdateIncidentResolveNotOKAddNote: " + me.name + " : Incident Number : " + incidentnumber + " : Transaction id: " + transactionid + " : " + updateresult); }
+                                            transactionid = generateGUID();
+                                        
+                                            var contentupdateincident2 = '<soap:Envelope xmlns:soap = "http://www.w3.org/2003/05/soap-envelope" xmlns:urn = "urn:CSDIIOTCreateUpdateIncident" > <soap:Header /><soap:Body><urn:IOTNEOSUpdateInputRequestService><urn:Header><urn:TransactionID>' + transactionid + '</urn:TransactionID><urn:USERID>' + userid + '</urn:USERID><urn:SourceSystem>' + sourcesystem + '</urn:SourceSystem></urn:Header><urn:IOTNEOSUpdateInputRequestServiceFields><urn:Categorization_Tier_1>' + categorizationtier1 + '</urn:Categorization_Tier_1><urn:Categorization_Tier_2>' + categorizationtier2 + '</urn:Categorization_Tier_2><urn:Categorization_Tier_3>' + categorizationtier3 + '</urn:Categorization_Tier_3><urn:Closure_Manufacturer></urn:Closure_Manufacturer><urn:Closure_Product_Category_Tier1></urn:Closure_Product_Category_Tier1><urn:Closure_Product_Category_Tier2></urn:Closure_Product_Category_Tier2><urn:Closure_Product_Category_Tier3></urn:Closure_Product_Category_Tier3><urn:Closure_Product_Model_Version></urn:Closure_Product_Model_Version><urn:Closure_Product_Name></urn:Closure_Product_Name><urn:Company></urn:Company><urn:Summary></urn:Summary><urn:Notes>' + nonassignednote + '</urn:Notes><urn:Impact></urn:Impact><urn:Manufacturer></urn:Manufacturer><urn:Product_Categorization_Tier_1></urn:Product_Categorization_Tier_1><urn:Product_Categorization_Tier_2></urn:Product_Categorization_Tier_2><urn:Product_Categorization_Tier_3></urn:Product_Categorization_Tier_3><urn:Product_Model_Version></urn:Product_Model_Version><urn:Product_Name></urn:Product_Name><urn:Reported_Source></urn:Reported_Source><urn:Resolution></urn:Resolution><urn:Resolution_Category></urn:Resolution_Category><urn:Resolution_Category_Tier_2></urn:Resolution_Category_Tier_2><urn:Resolution_Category_Tier_3></urn:Resolution_Category_Tier_3><urn:Resolution_Method></urn:Resolution_Method><urn:Service_Type></urn:Service_Type><urn:Status></urn:Status><urn:Urgency></urn:Urgency><urn:Action>' + action + '</urn:Action><urn:Work_Info_Summary></urn:Work_Info_Summary><urn:Work_Info_Notes></urn:Work_Info_Notes><urn:Work_Info_Type></urn:Work_Info_Type><urn:Work_Info_Date></urn:Work_Info_Date><urn:Work_Info_Source></urn:Work_Info_Source><urn:Work_Info_Locked></urn:Work_Info_Locked><urn:Work_Info_View_Access></urn:Work_Info_View_Access><urn:Incident_Number>' + incidentnumber + '</urn:Incident_Number><urn:ServiceCI></urn:ServiceCI><urn:ServiceCI_ReconID></urn:ServiceCI_ReconID><urn:HPD_CI></urn:HPD_CI><urn:HPD_CI_ReconID></urn:HPD_CI_ReconID><urn:HPD_CI_FormName></urn:HPD_CI_FormName><urn:z1D_CI_FormName></urn:z1D_CI_FormName><urn:WorkInfoAttachment1Name></urn:WorkInfoAttachment1Name><urn:WorkInfoAttachment1OrigSize></urn:WorkInfoAttachment1OrigSize><urn:Status_Reason></urn:Status_Reason></urn:IOTNEOSUpdateInputRequestServiceFields></urn:IOTNEOSUpdateInputRequestService></soap:Body></soap:Envelope>';
+                                        
+                                        
+                                        
+                                            contentupdateincident2 = contentupdateincident2.replace(/undefined/g, "");
+                                            if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_UpdateIncident::UpdateIncidentResolveNote: " + me.name + " : Incident Number : " + incidentnumber + " : Transaction id: " + transactionid + " : " + contentupdateincident2); }
+                                        
+                                        
+                                            var headers = new Object();
+                                        
+                                            headers.SOAPAction = "";
+                                            headers.Authorization = 'Basic REEyMzAyMDE6NE56bTVzZlhZTXNLRE0yWDRmQGQ5Nld6bmJFem43';
+                                        
+                                            var params3 = {
+                                                proxyScheme: undefined /* STRING */,
+                                                headers: headers /* JSON */,
+                                                ignoreSSLErrors: undefined /* BOOLEAN */,
+                                                useNTLM: undefined /* BOOLEAN */,
+                                                workstation: undefined /* STRING */,
+                                                useProxy: undefined /* BOOLEAN */,
+                                                withCookies: undefined /* BOOLEAN */,
+                                                proxyHost: undefined /* STRING */,
+                                                url: soupurlupdate /* STRING */,
+                                                content: contentupdateincident2 /* XML */,
+                                                timeout: undefined /* NUMBER */,
+                                                proxyPort: undefined /* INTEGER */,
+                                                password: undefined /* STRING */,
+                                                domain: undefined /* STRING */,
+                                                username: undefined /* STRING */
+                                            };
+                                        
+                                            resultXML = Resources["ContentLoaderFunctions"].PostXML(params3);
+                                            // did not get consistent results using Xpath. to be solved. From now we do it like this
+                                            updateresult = "" + resultXML;
+                                        
+                                        
+                                            if (updateresult.indexOf(incidentnumber) !== -1) {
+                                                // All OK.
+                                                if (enablescriptdebug) { logger.debug("We found incident id: " + incidentnumber + " in the response. Update webservice request with just a note was successful"); }
+                                                if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_UpdateIncident::UpdateIncidentResolveNoteOK: " + me.name + " : Incident Number : " + incidentnumber + " : Transaction id: " + transactionid ); }
+                                        
+                                            }
+                                            else 
+                                            {
+                                                if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_UpdateIncident::UpdateIncidentResolveFailed: " + me.name + " : Incident Number : " + incidentnumber + " : Transaction id: " + transactionid + " : " + updateresult); }
+                                        
+                                            }
+                                        }
+                                        
+                                        var result = "" + resultXML;
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions>
+                    <Subscription
+                     enabled="true"
+                     eventName="NCR_DCS_EdgeEvent"
+                     source=""
+                     sourceProperty=""
+                     sourceType="Thing">
+                        <ServiceImplementation
+                         description=""
+                         handlerName="Script"
+                         name="Event.NCR_DCS_EdgeEvent">
+                            <ConfigurationTables>
+                                <ConfigurationTable
+                                 description=""
+                                 isMultiRow="false"
+                                 name="Script"
+                                 ordinal="0">
+                                    <DataShape>
+                                        <FieldDefinitions>
+                                            <FieldDefinition
+                                             baseType="STRING"
+                                             description="code"
+                                             name="code"
+                                             ordinal="0"></FieldDefinition>
+                                        </FieldDefinitions>
+                                    </DataShape>
+                                    <Rows>
+                                        <Row>
+                                            <code>
+                                            <![CDATA[
+                                            var enablescriptdebug = false;
+                                            
+                                            
+                                            if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_DCS_EdgeEvent Started"); }
+                                            
+                                            
+                                            
+                                            // ms500001: note: Don't use the GetDataTableEntryByKey service as it will log errors.
+                                            
+                                            // ms500001: 2018-05-18: Added severity to the lookup as this is now part of the primary key
+                                            // ms500001: 2018-05-24: Added Clear / Resolve routine. Not including NEOS call to resolve the incident
+                                            
+                                            // TODO:ms500001: add proper logging using logger function
+                                            // TODO:ms500001: include NEOS specific calls in Event Clear -> Incident Resolve
+                                            
+                                            //------------------------------------------------------------------------------------------------------------
+                                            // Lookup event rules, determine if we need to process this event for this customer
+                                            var svalues = Things["NCR.DCS.EventRulesDT"].CreateValues();
+                                            
+                                            svalues.EventID = eventData.eventid;
+                                            svalues.CustomerName = me.Customer;
+                                            svalues.Severity = eventData.severity;
+                                            
+                                            var sparams = {
+                                            	values: svalues /* INFOTABLE*/
+                                            };
+                                            
+                                            // result: INFOTABLE
+                                            var sresult = Things["NCR.DCS.EventRulesDT"].FindDataTableEntries(sparams);
+                                            
+                                            // sresult contains the Event Rule record(s)
+                                            
+                                            // We know we have a valid record if the eventid lines up.
+                                            if (sresult.EventID == eventData.eventid) {
+                                            	if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_DCS_EdgeEvent found rule: " + sresult.EventID); }
+                                            	// Is this a Resolve event?
+                                            	if (eventData.severity == "00") 
+                                            	{
+                                            		// Find all open events and delete them from the NCR.DCS.EventsDT table.
+                                            		// Todo. Update the long term Event stream
+                                            		if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_DCS_EdgeEvent found Resolve Event"); }
+                                            		var rvalues = Things["NCR.DCS.EventsDT"].CreateValues();
+                                            		// We are only looking for assetName. Don't include severity.
+                                            		rvalues.eventid = eventData.eventid; //STRING [Primary Key]
+                                            		rvalues.assetName = eventData.assetName; //STRING [Primary Key]
+                                            
+                                            		var rparams = {
+                                            			values: rvalues /* INFOTABLE*/
+                                            		};
+                                            
+                                            		// See if we have open incidents. If so change status to Resolved
+                                            		var rresult = Things["NCR.DCS.EventsDT"].FindDataTableEntries(rparams);
+                                            		// Check how many records we have and if there are actual incident ids
+                                            
+                                            		var tableLength = rresult.rows.length;
+                                            	
+                                            		for (var x = 0; x < tableLength; x++) {
+                                            			var row = rresult.rows[x];
+                                            			if (row.incident != "")
+                                            			{
+                                            				// Resolve the NEOS incident
+                                            				var resolveparams = {
+                                            					userid: "IOTNEOS" /* STRING */,
+                                            					sourcesystem: "IOT" /* STRING */,
+                                            					action: "MODIFY" /* STRING */,
+                                            					incidentnumber: row.incident /* STRING */,
+                                            					workinfolocked: "No" /* STRING */,
+                                            					notes: sresult.IncidentResolveNotes, /* STRING */
+                                            					status: sresult.Status,
+                                            					resolutioncategorytier1: sresult.ITSMCategory1,
+                                            					resolutioncategorytier2: sresult.ITSMCategory2,
+                                            					resolutioncategorytier3: sresult.ITSMCategory3,
+                                            					resolution: sresult.IncidentResolveNotes,
+                                            					statusreason: sresult.StatusReason
+                                            				};
+                                            				
+                                            				// Sprint 8 lz121597
+                                            				try {
+                                            					var resolveresult = me.NCR_UpdateIncident(resolveparams);
+                                            					if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_DCS_EdgeEvent resolve result : " + resolveresult); }
+                                            				} catch (err) {
+                                            					logger.warn("Templates::NCR.BaseDevice::NCR_DCS_EdgeEvent:UpdateITSMIncidentFailed: " + err);
+                                            				}
+                                            				
+                                            			}
+                                            		}
+                                            
+                                            		try
+                                            		{
+                                            			Things["NCR.DCS.EventsDT"].DeleteDataTableEntries(rparams);
+                                            			if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_DCS_EdgeEvent resolved : " + eventData.assetName + " Eventid: " + eventData.eventid + " Optional Device: " + eventData.device); }
+                                            		}
+                                            		catch (err)
+                                            		{
+                                            			// Determine what to log. Not being able to delete entries will result in orphaned events.
+                                            			if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_DCS_EdgeEvent Failed to remove entry from event table: " + err); }
+                                            		}
+                                            	}
+                                            	else
+                                            	{
+                                            		
+                                            		// Check if there is an open event.
+                                            		if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_DCS_EdgeEventNew"); }		
+                                            		var dvalues = Things["NCR.DCS.EventsDT"].CreateValues();
+                                            		
+                                            		dvalues.eventid = eventData.eventid; //STRING [Primary Key]
+                                            		dvalues.assetName = eventData.assetName; //STRING [Primary Key]
+                                            		dvalues.severity = eventData.severity; //STRING [Primary key]
+                                            
+                                            		var dparams = {
+                                            			values: dvalues /* INFOTABLE*/
+                                            		};
+                                            
+                                            		var dresult = Things["NCR.DCS.EventsDT"].FindDataTableEntries(dparams);
+                                            
+                                            		if (dresult.eventid == eventData.eventid) {
+                                            				// There is an open event so we do a count update.
+                                            			if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_DCS_EdgeEventUpdateNeeded : Increment counter"); }
+                                            				var uvalues = Things["NCR.DCS.EventsDT"].CreateValues();
+                                            
+                                            				uvalues.eventid = eventData.eventid; //STRING [Primary Key]
+                                            				uvalues.count = dresult.count + 1; //INTEGER
+                                            				uvalues.assetName = eventData.assetName; //STRING [Primary Key]
+                                            				uvalues.severity = eventData.severity;
+                                            
+                                            				var uparams = {
+                                            					sourceType: undefined /* STRING */,
+                                            					values: uvalues /* INFOTABLE*/,
+                                            					location: undefined /* LOCATION */,
+                                            					source: eventData.assetName /* STRING */,
+                                            					tags: undefined /* TAGS */
+                                            				};
+                                            				try
+                                            				{
+                                            					Things["NCR.DCS.EventsDT"].UpdateDataTableEntry(uparams);
+                                            				}
+                                            				catch (err)
+                                            				{
+                                            					logger.debug("Templates::NCR.BaseDevice::NCR_DCS_EdgeEventUpdateError : " + err);
+                                            				}
+                                            
+                                            				// Send the NCR_DCS_EventUpdated event so additional workflow can be triggered.
+                                            				// TODO:ms500001: update the datashape. these fields are wrong
+                                            				var params = {
+                                            					//IncidentNum: "create ic" /* STRING */, //Don't include this. Should come from the ITSM system.
+                                            					UpdateNotes: "create update notes" /* STRING */,
+                                            					UpdateUrgency: "create update urgency" /* STRING */,
+                                            					UpdateWOInfoSummary: undefined /* STRING */,
+                                            					UpdateStatus: undefined /* STRING */,
+                                            					UpdateSummary: undefined /* STRING */,
+                                            					StatusReason: undefined /* STRING */,
+                                            					IncidentCompany: undefined /* STRING */
+                                            				};
+                                            
+                                            				try
+                                            				{
+                                            					//me.NCR_DCS_EventUpdated(params);
+                                            
+                                            				}
+                                            				catch(err)
+                                            				{
+                                            					// Logging to be determined
+                                            				}
+                                            			
+                                            
+                                            		}
+                                            		else {
+                                            			// There is no open event and we should process it for the customer.
+                                            			// Map the severity to the NEOS urgency
+                                            			// Map the severity to the NEOS impact.
+                                            			// 2018-05-25: ms500001; todo, determine if we want to utilize impact
+                                            			// 2018-05-25: ms500001; todo, take the details fromt the rules table. for now we
+                                            			// need to make sure first basic code is working.
+                                            			var neosurgency = "";
+                                            			var neosimpact = "";			
+                                            
+                                            			// Sigh, for consistency purposes, urgency without spaces, Impact with.
+                                            			// this will be removed as we will standardize on scheme
+                                            			switch (eventData.severity) {
+                                            				// lz121597 - Issue discovered 8-16-18 remote spaces in neosimpact
+                                            				case "01":
+                                            					neosurgency = "2-High";
+                                            					neosimpact = "2-Significant/Large";
+                                            					break;
+                                            				case "02":
+                                            					neosurgency = "4-Low";
+                                            					neosimpact = "4-Minor/Localized";
+                                            					break;
+                                            				case "Critical":
+                                            					neosurgency = "1-Critical";
+                                            					neosimpact = "1-Extensive/Widespread";
+                                            					break;
+                                            				case "High":
+                                            					neosurgency = "2-High";
+                                            					neosimpact = "2-Significant/Large";
+                                            					break;
+                                            				case "Medium":
+                                            					neosurgency = "3-Medium";
+                                            					neosimpact = "3-Moderate/Large";
+                                            					break;
+                                            				case "Low":
+                                            					neosurgency = "4-Low";
+                                            					neosimpact = "4-Minor/Localized";
+                                            					break;
+                                            				default:
+                                            					// 2018-05-28: ms500001: Determine what to do with for example NP or empty severity
+                                            					neosurgency = "4-Low";
+                                            					neosimpact = "4-Minor/Localized";
+                                            			}
+                                            
+                                            			// 2018-05-25: ms500001: Placeholders.
+                                            			// Send the NCR_DCS_EventCreated event so additional workflow can be triggered.
+                                            
+                                            			//var params = {
+                                            			//	Description1: "create desc" /* STRING */,
+                                            			//	CCID1: "create ccid" /* STRING */
+                                            			//};
+                                            
+                                            			//me.NCR_DCS_EventCreated(params);
+                                            
+                                            			var wmhostname = "";
+                                            
+                                            			if (me.Customer == "Walmart USA") 
+                                            			{
+                                            				var objJSON = JSON.parse(Things[me.name].CS_ALL); 
+                                            				 wmhostname = objJSON[0].DNSHostName;
+                                            				 if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_DCS_EdgeEvent:WM_HostName: " + wmhostname);}
+                                            				 if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_DCS_EdgeEvent:CS_ALL " + Things[me.name].CS_ALL);}
+                                            			}
+                                            
+                                            			// Sprint 8 lz121597 - Checks for creating new incident
+                                            			// Is there an existing Remedy incident open for the same enpoint? If Yes
+                                            			// Does the existing incident have the same severity? If Yes don't create a new incident, just create an event
+                                            			// Implemented as such: Is there an existing event for this asset with the same severity and an associated incident
+                                            			// If Yes, only create the event and update the new event with the incident of the previous event
+                                            			var sOpenInc = undefined;
+                                            
+                                            			var dvaluesSev = Things["NCR.DCS.EventsDT"].CreateValues();
+                                            			dvaluesSev.assetName = eventData.assetName; //STRING [Primary Key]
+                                            			dvaluesSev.severity = eventData.severity; //STRING [Primary key]
+                                            
+                                            			var dparamsSev = {
+                                            				values: dvaluesSev /* INFOTABLE*/
+                                            			};
+                                            
+                                            			var dresultSev = Things["NCR.DCS.EventsDT"].FindDataTableEntries(dparamsSev);	
+                                            
+                                            			// Iterate through InfoTable to find an incident set sOpenInc
+                                            			tableLength = dresultSev.rows.length;
+                                            			if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_DCS_EdgeEvent:EventsDT:Lookup Same Asset and Sev:tableLength:" + tableLength); }
+                                            
+                                            			for (var x = 0; x < tableLength; x++) {
+                                            				var row = dresultSev.rows[x];
+                                            
+                                            				if (row.incident && row.incident != "") {
+                                            					sOpenInc = row.incident;
+                                            					break;
+                                            				}
+                                            			}
+                                            
+                                            			// Or directly call the Incident Create Service. This will result in more complex code
+                                            
+                                            			var inccparams = {
+                                            				notes: eventData.description /* STRING */,
+                                            				action: "CREATE" /* STRING */,
+                                            				impact: neosimpact /* STRING */,
+                                            				reportedsource: "Systems Management" /* STRING */,
+                                            				servicetype: "User Service Restoration" /* STRING */,
+                                            				status: "0" /* STRING */,
+                                            				summary: sresult.EventID + " " + sresult.EventDescription /* STRING */,
+                                            				urgency: neosurgency /* STRING */,
+                                            				workinfoviewaccess: "Internal" /* STRING */,
+                                            				categorizationtier1: sresult.ITSMCategory1 /* STRING */,
+                                            				categorizationtier2: sresult.ITSMCategory2 /* STRING */,
+                                            				categorizationtier3: sresult.ITSMCategory3 /* STRING */,
+                                            				configurationitem: wmhostname
+                                            			};
+                                            
+                                            			// Sprint 8 - lz121597
+                                            			var createresult = undefined;
+                                            			if (sOpenInc == undefined) {
+                                            				try {
+                                            					createresult = me.NCR_CreateIncident(inccparams);
+                                            					if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_DCS_EdgeEvent:CreateITSMIncident"); }
+                                            				} catch (err) {
+                                            					logger.warn("Templates::NCR.BaseDevice::NCR_DCS_EdgeEvent:CreateITSMIncident Failed: " + err);
+                                            					
+                                            				}
+                                            				// DEBUG /* if WS is failing to return an incident (DEV) */ createresult = "INC" + new Date().getTime(); ;
+                                            			} else {
+                                            				createresult = sOpenInc;
+                                            				if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_DCS_EdgeEvent:Event w same Sev & Inc found new Inc not created used " + sOpenInc); }
+                                            			}
+                                            
+                                            			// Add the event to the event table.
+                                            			var cvalues = Things["NCR.DCS.EventsDT"].CreateValues();
+                                            
+                                            			cvalues.duration = eventData.duration; //INTEGER
+                                            			cvalues.severity = eventData.severity; //STRING
+                                            			cvalues.statuscode = eventData.statuscode; //STRING
+                                            			cvalues.assetName = eventData.assetName; //STRING [Primary Key]
+                                            			cvalues.description = eventData.description; //STRING
+                                            			cvalues.category = eventData.category; //STRING
+                                            			cvalues.timestamp = eventData.timestamp; //DATETIME
+                                            			cvalues.eventid = eventData.eventid; //STRING [Primary Key]
+                                            			cvalues.count = 1; //INTEGER
+                                            			cvalues.device = sresult.Device; // Specifically used for XFS
+                                            			cvalues.customer = me.Customer; // used for grouping purposes
+                                            			cvalues.storeidentifier = me.Asset_StoreIdentifier; // used for grouping purposes
+                                            
+                                            			if (createresult != undefined)
+                                            			{
+                                            				cvalues.incident = createresult; 
+                                            			}
+                                            
+                                            
+                                            			var cparams = {
+                                            				sourceType: undefined /* STRING */,
+                                            				values: cvalues /* INFOTABLE*/,
+                                            				location: undefined /* LOCATION */,
+                                            				source: me.name /* STRING */,
+                                            				tags: undefined /* TAGS */
+                                            			};
+                                            
+                                            			try
+                                            			{
+                                            				var idc = Things["NCR.DCS.EventsDT"].AddDataTableEntry(cparams);
+                                            			}
+                                            			catch(err)
+                                            			{
+                                            				// Logging to be determined
+                                            				logger.warn("Templates::NCR.BaseDevice::NCR_DCS_EdgeEvent:AddEventToTableFailed: " + err);
+                                            			}
+                                            
+                                            			// Add the event to the data stream. set the managed flag to true.
+                                            			var streamvalues = Things["NCR.DCS.LTEVENTSs"].CreateValues();
+                                            
+                                            			//streamvalues.duration = undefined; //INTEGER
+                                            			streamvalues.severity = eventData.severity; //STRING
+                                            			streamvalues.statuscode = eventData.statuscode; //STRING
+                                            			streamvalues.eventid = eventData.eventid; //STRING [Primary Key]
+                                            			streamvalues.data = eventData.data; //STRING
+                                            			//streamvalues.count = undefined; //INTEGER
+                                            			streamvalues.assetName = eventData.assetName; //STRING [Primary Key]
+                                            			streamvalues.description = eventData.description; //STRING
+                                            			streamvalues.category = eventData.category; //STRING
+                                            			//streamvalues.device = undefined; //STRING
+                                            			streamvalues.incident = createresult; //STRING
+                                            			streamvalues.timestamp = eventData.timestamp; //DATETIME
+                                            			streamvalues.managed = true; //BOOLEAN
+                                            			streamvalues.customer = me.Customer; //STRINg
+                                            			streamvalues.storeidentifier = me.Asset_StoreIdentifier; //STRING
+                                            
+                                            			var streamparams = {
+                                            				sourceType: undefined /* STRING */,
+                                            				values: streamvalues /* INFOTABLE*/,
+                                            				location: undefined /* LOCATION */,
+                                            				source: undefined /* STRING */,
+                                            				timestamp: undefined /* DATETIME */,
+                                            				tags: undefined /* TAGS */
+                                            			};
+                                            			try
+                                            			{
+                                            				Things["NCR.DCS.LTEVENTSs"].AddStreamEntry(streamparams);
+                                            			}
+                                            			catch(err)
+                                            			{
+                                            				// Logging to be determined
+                                            				logger.warn("Templates::NCR.BaseDevice::NCR_DCS_EdgeEvent:AddEventToAnalyticsTable: " + err);
+                                            			}
+                                            		}
+                                                }
+                                            }
+                                            else {
+                                            	if (enablescriptdebug) { logger.debug("Templates::NCR.BaseDevice::NCR_DCS_EdgeEvent:EventNotFoundForCustomer: " + eventData.eventid + " : " + me.Customer ); }
+                                            
+                                            	// Add the event to the data stream. set the managed flag to false.
+                                            	var streamvalues = Things["NCR.DCS.LTEVENTSs"].CreateValues();
+                                            
+                                            	//streamvalues.duration = undefined; //INTEGER
+                                            	streamvalues.severity = eventData.severity; //STRING
+                                            	streamvalues.statuscode = eventData.statuscode; //STRING
+                                            	streamvalues.eventid = eventData.eventid; //STRING [Primary Key]
+                                            	streamvalues.data = eventData.data; //STRING
+                                            	//streamvalues.count = undefined; //INTEGER
+                                            	streamvalues.assetName = eventData.assetName; //STRING [Primary Key]
+                                            	streamvalues.description = eventData.description; //STRING
+                                            	streamvalues.category = eventData.category; //STRING
+                                            	//streamvalues.device = undefined; //STRING
+                                            	//streamvalues.incident = undefined; //STRING
+                                            	streamvalues.timestamp = eventData.timestamp; //DATETIME
+                                            	streamvalues.managed = false; //BOOLEAN
+                                            	streamvalues.customer = me.Customer; //STRINg
+                                            	streamvalues.storeidentifier = me.Asset_StoreIdentifier; //STRING
+                                            
+                                            
+                                            	var streamparams = {
+                                            		sourceType: undefined /* STRING */,
+                                            		values: streamvalues /* INFOTABLE*/,
+                                            		location: undefined /* LOCATION */,
+                                            		source: undefined /* STRING */,
+                                            		timestamp: undefined /* DATETIME */,
+                                            		tags: undefined /* TAGS */
+                                            	};
+                                            
+                                            	try
+                                            	{
+                                            		Things["NCR.DCS.LTEVENTSs"].AddStreamEntry(streamparams);
+                                            	}
+                                            	catch(err)
+                                            	{
+                                            		logger.warn("Templates::NCR.BaseDevice::NCR_DCS_EdgeEvent:AddEventToAnalyticsTableFailed: " + err);
+                                            	}
+                                            
+                                            }
+                                            ]]>
+                                            </code>
+                                        </Row>
+                                    </Rows>
+                                </ConfigurationTable>
+                            </ConfigurationTables>
+                        </ServiceImplementation>
+                    </Subscription>
+                    <Subscription
+                     enabled="true"
+                     eventName="NCR_DCS_EventCreated"
+                     source=""
+                     sourceProperty=""
+                     sourceType="Thing">
+                        <ServiceImplementation
+                         description=""
+                         handlerName="Script"
+                         name="Event.NCR_DCS_EventCreated">
+                            <ConfigurationTables>
+                                <ConfigurationTable
+                                 description=""
+                                 isMultiRow="false"
+                                 name="Script"
+                                 ordinal="0">
+                                    <DataShape>
+                                        <FieldDefinitions>
+                                            <FieldDefinition
+                                             baseType="STRING"
+                                             description="code"
+                                             name="code"
+                                             ordinal="0"></FieldDefinition>
+                                        </FieldDefinitions>
+                                    </DataShape>
+                                    <Rows>
+                                        <Row>
+                                            <code>
+                                            <![CDATA[
+                                            //logger.info("Event created in table");
+                                            // We need to determine what to do with the event.
+                                            // Use the rules in the EventRulesDT and act accordingly
+                                            ]]>
+                                            </code>
+                                        </Row>
+                                    </Rows>
+                                </ConfigurationTable>
+                            </ConfigurationTables>
+                        </ServiceImplementation>
+                    </Subscription>
+                    <Subscription
+                     enabled="true"
+                     eventName="NCR_DCS_EventUpdated"
+                     source=""
+                     sourceProperty=""
+                     sourceType="Thing">
+                        <ServiceImplementation
+                         description=""
+                         handlerName="Script"
+                         name="Event.NCR_DCS_EventUpdated">
+                            <ConfigurationTables>
+                                <ConfigurationTable
+                                 description=""
+                                 isMultiRow="false"
+                                 name="Script"
+                                 ordinal="0">
+                                    <DataShape>
+                                        <FieldDefinitions>
+                                            <FieldDefinition
+                                             baseType="STRING"
+                                             description="code"
+                                             name="code"
+                                             ordinal="0"></FieldDefinition>
+                                        </FieldDefinitions>
+                                    </DataShape>
+                                    <Rows>
+                                        <Row>
+                                            <code>
+                                            <![CDATA[
+                                            //logger.info("ms500001: event updated in table");
+                                            ]]>
+                                            </code>
+                                        </Row>
+                                    </Rows>
+                                </ConfigurationTable>
+                            </ConfigurationTables>
+                        </ServiceImplementation>
+                    </Subscription>
+                </Subscriptions>
+            </ThingShape>
+            <ImplementedShapes>
+                <ImplementedShape
+                 name="TW.RSM.SFW.ThingShape.Updateable"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="PTC.BPE.BusinessProcessManageable"
+                 type="ThingShape"></ImplementedShape>
+                <ImplementedShape
+                 name="PTC.Resource.Asset.SCMResourceThingShape"
+                 type="ThingShape"></ImplementedShape>
+            </ImplementedShapes>
+            <SharedConfigurationTables>
+                <ConfigurationTable
+                 description="Shared Tunneling Destinations"
+                 isMultiRow="true"
+                 name="SharedTunnels"
+                 ordinal="1">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.friendlyName="Application Path"
+                             baseType="STRING"
+                             description="Location of the client app that will use this tunnel"
+                             name="appUri"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Description"
+                             baseType="STRING"
+                             description="A description of the tunnel"
+                             name="description"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Host"
+                             baseType="STRING"
+                             description="Host or IP that this tunnel will connect to at the edge"
+                             name="host"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Name"
+                             baseType="STRING"
+                             description="Name of the tunnel"
+                             name="name"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Number of Connects"
+                             baseType="NUMBER"
+                             description="The number of connections required to establish this tunnel"
+                             name="numConnects"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Port"
+                             baseType="NUMBER"
+                             description="Port that this tunnel will connect to at the edge"
+                             name="port"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Protocol"
+                             baseType="STRING"
+                             description="The protocol used over this tunnel"
+                             name="proto"
+                             ordinal="6"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="Shared Remote Tunneling Settings"
+                 isMultiRow="false"
+                 name="SharedTunnelSettings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="false"
+                             aspect.friendlyName="Enable Tunneling"
+                             baseType="BOOLEAN"
+                             description="Enable tunneling"
+                             name="enableTunneling"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <enableTunneling>true</enableTunneling>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </SharedConfigurationTables>
+            <InstanceDesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </InstanceDesignTimePermissions>
+            <InstanceRunTimePermissions>
+                <Permissions
+                 resourceName="ExecuteCommand">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.ICPSpecialistL2Group"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                    </PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                    </EventInvoke>
+                    <EventSubscribe>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.EMS"
+                         type="Group"></Principal>
+                    </EventSubscribe>
+                </Permissions>
+            </InstanceRunTimePermissions>
+            <InstanceVisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:EMS"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </InstanceVisibilityPermissions>
+        </ThingTemplate>
+    </ThingTemplates>
+</Entities>

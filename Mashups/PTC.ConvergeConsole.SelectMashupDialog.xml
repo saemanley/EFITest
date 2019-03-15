@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="true"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent="&lt;p&gt;&lt;br&gt;&lt;/p&gt;    "
+         homeMashup=""
+         lastModifiedDate="2018-10-24T20:59:51.342Z"
+         name="PTC.ConvergeConsole.SelectMashupDialog"
+         projectName=""
+         rows="0.0"
+         tags="PTC:ConvergeConsole;TWUTL:Core">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="STRING"
+                 description=""
+                 name="MashupName"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things>
+                <Thing>PTC.ConvergeConsole.DataTable</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_PTC_ConvergeConsole_DataTable" : {
+                  "DataName" : "Things_PTC_ConvergeConsole_DataTable",
+                  "EntityName" : "PTC.ConvergeConsole.DataTable",
+                  "EntityType" : "Things",
+                  "Id" : "c8f92f12-5a16-48b0-96bd-4ca991fd1c96",
+                  "Services" : [ {
+                    "APIMethod" : "get",
+                    "Characteristic" : "Services",
+                    "Id" : "be83d25b-4841-43a2-810d-1a072758731b",
+                    "Name" : "SetProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "SetProperties"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "c3e8e1eb-e66f-49de-8e85-295ebb507a91",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Entity",
+                  "SourcePropertyBaseType" : "MASHUPNAME",
+                  "TargetProperty" : "MashupName",
+                  "TargetPropertyBaseType" : "MASHUPNAME",
+                  "TargetPropertyType" : "Property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "EntityPicker-2",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "SetProperties",
+                "TargetSection" : "Things_PTC_ConvergeConsole_DataTable"
+              }, {
+                "Id" : "9f621509-9a31-459e-88a9-47e9350bb66e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "MashupName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "SearchTerm",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Session",
+                "SourceDetails" : "AllData",
+                "SourceId" : "Session",
+                "SourceSection" : "Session",
+                "TargetArea" : "UI",
+                "TargetId" : "EntityPicker-2",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "Button-4",
+                "EventTriggerSection" : "",
+                "Id" : "e55542d1-8197-4cdd-8dab-fc5d30933d15"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_PTC_ConvergeConsole_DataTable",
+                "EventHandlerService" : "SetProperties",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "Button-3",
+                "EventTriggerSection" : "",
+                "Id" : "583e8b92-1d56-4dba-8e18-b2e761efdc4a"
+              }, {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "Button-3",
+                "EventTriggerSection" : "",
+                "Id" : "5cfb0f67-ecdb-4aef-bdb1-df87e4283322"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_PTC_ConvergeConsole_DataTable",
+                "EventHandlerService" : "SetProperties",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "SelectedEntityChanged",
+                "EventTriggerId" : "EntityPicker-2",
+                "EventTriggerSection" : "",
+                "Id" : "ae6ee2d1-e391-4a22-83a3-c15a9897c7b3"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "Height" : 618,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : true,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultMashupStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 1024,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "MashupName"
+                  } ],
+                  "id_index" : 4,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "Panel-1",
+                    "Height" : 200,
+                    "HorizontalAnchor" : "left",
+                    "Id" : "Panel-1",
+                    "Left" : 25,
+                    "ResponsiveLayout" : true,
+                    "ShowDataLoading" : true,
+                    "Style" : "DefaultPanelStyle",
+                    "Top" : 20,
+                    "Type" : "panel",
+                    "VerticalAnchor" : "top",
+                    "Visible" : true,
+                    "Width" : 300,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Panel"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "DisplayName" : "EntityPicker-2",
+                      "EntityType" : "Mashups",
+                      "FocusStyle" : "DefaultFocusStyle",
+                      "Height" : 30,
+                      "Id" : "EntityPicker-2",
+                      "IncludeSystemObjects" : false,
+                      "Left" : 20,
+                      "ModelTags" : [ {
+                        "_magicPickerId" : "c9ab2bcf-a964-44dd-840b-bd978a856b1b",
+                        "vocabulary" : "PTC",
+                        "vocabularyTerm" : "AppMashup"
+                      } ],
+                      "ResponsiveLayout" : false,
+                      "SearchIncludesDescriptions" : true,
+                      "SearchTerm" : "",
+                      "ShowAdvanced" : true,
+                      "ShowDataLoading" : true,
+                      "TabSequence" : 0,
+                      "Top" : 20,
+                      "Type" : "entitypicker",
+                      "UseMostRecentlyUsed" : true,
+                      "Visible" : true,
+                      "Width" : 300,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Entity Picker"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "ActiveStyle" : "DefaultButtonActiveStyle",
+                      "Area" : "UI",
+                      "CancelConfirmationButton" : "button2",
+                      "ConfirmationButton1Label" : "[[PTC.Core.Yes]]",
+                      "ConfirmationButton2Label" : "[[PTC.Core.No]]",
+                      "ConfirmationPrompt" : "[[PTC.Core.Do Action?]]",
+                      "ConfirmationRequired" : false,
+                      "ConfirmationTitle" : "[[PTC.Core.Confirm Action]]",
+                      "DefaultConfirmationButton" : "button1",
+                      "Disabled" : false,
+                      "DisabledStyle" : "DefaultButtonDisabledStyle",
+                      "DisplayName" : "Button-3",
+                      "FocusStyle" : "DefaultButtonFocusStyle",
+                      "Height" : 30,
+                      "HoverStyle" : "DefaultButtonHoverStyle",
+                      "IconAlignment" : "left",
+                      "Id" : "Button-3",
+                      "Label" : "[[PTC.Core.Ok]]",
+                      "Left" : 160,
+                      "ResponsiveLayout" : false,
+                      "RoundedCorners" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultButtonStyle",
+                      "TabSequence" : 0,
+                      "Top" : 70,
+                      "Type" : "button",
+                      "Visible" : true,
+                      "Width" : 75,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Button"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "ActiveStyle" : "DefaultButtonActiveStyle",
+                      "Area" : "UI",
+                      "CancelConfirmationButton" : "button2",
+                      "ConfirmationButton1Label" : "[[PTC.Core.Yes]]",
+                      "ConfirmationButton2Label" : "[[PTC.Core.No]]",
+                      "ConfirmationPrompt" : "[[PTC.Core.Do Action?]]",
+                      "ConfirmationRequired" : false,
+                      "ConfirmationTitle" : "[[PTC.Core.Confirm Action]]",
+                      "DefaultConfirmationButton" : "button1",
+                      "Disabled" : false,
+                      "DisabledStyle" : "DefaultButtonDisabledStyle",
+                      "DisplayName" : "Button-4",
+                      "FocusStyle" : "DefaultButtonFocusStyle",
+                      "Height" : 30,
+                      "HoverStyle" : "DefaultButtonHoverStyle",
+                      "IconAlignment" : "left",
+                      "Id" : "Button-4",
+                      "Label" : "[[PTC.Core.Cancel]]",
+                      "Left" : 245,
+                      "ResponsiveLayout" : false,
+                      "RoundedCorners" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "DefaultButtonStyle",
+                      "TabSequence" : 0,
+                      "Top" : 70,
+                      "Type" : "button",
+                      "Visible" : true,
+                      "Width" : 75,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Button"
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

@@ -1,0 +1,1279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <ThingTemplates>
+        <ThingTemplate
+         aspect.isExtension="true"
+         baseThingTemplate="GenericThing"
+         description=""
+         documentationContent="&lt;p&gt;&lt;br&gt;&lt;/p&gt;                 "
+         effectiveThingPackage="TW.RSM.SFW.SoftwareUtilsPackage"
+         homeMashup=""
+         lastModifiedDate="2018-10-24T21:00:18.253Z"
+         name="TW.RSM.SFW.SoftwareUtilsTemplate"
+         projectName=""
+         tags="Applications:RSM;Applications:SCM"
+         thingPackage="TW.RSM.SFW.SoftwareUtilsPackage"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 description="Internal SoftwareUtils settings"
+                 isHidden="true"
+                 isMultiRow="false"
+                 name="InternalSettings"
+                 ordinal="1">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.thingTemplate="MailServer"
+                             baseType="THINGNAME"
+                             description="Mail server thing to send notification emails"
+                             name="MailServerThing"
+                             ordinal="1"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <MailServerThing></MailServerThing>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="SoftwareUtils settings"
+                 isMultiRow="false"
+                 name="Settings"
+                 ordinal="1">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             baseType="BOOLEAN"
+                             description="Set to true to disable search results on mashup load"
+                             name="DisableSearchOnMashupLoad"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Email address from which notification emails will be sent"
+                             name="notificationFromEmail"
+                             ordinal="1"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <DisableSearchOnMashupLoad>false</DisableSearchOnMashupLoad>
+                            <notificationFromEmail></notificationFromEmail>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="AddTargetParameter">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="ParameterName"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="ParameterValue"
+                             ordinal="2"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="Create a list of email addresses."
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="AddToList">
+                        <ResultType
+                         aspect.dataShape="EntityList"
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="InputElement"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="ListName"
+                             ordinal="2"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="Create a list of email addresses."
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="AddToUserGroupNotificationList">
+                        <ResultType
+                         aspect.dataShape="EntityList"
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="GROUPNAME"
+                             description=""
+                             name="InputElement"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="ListName"
+                             ordinal="2"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ClearGlobalList">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="ListName"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="Delete the specified email address from the specified list"
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="DeleteFromList">
+                        <ResultType
+                         aspect.dataShape="EntityList"
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="InputElement"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="ListName"
+                             ordinal="3"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetGlobalList">
+                        <ResultType
+                         aspect.dataShape="EntityList"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="ListName"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetSelectedDeploymentStatus">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetTargetMashupName">
+                        <ResultType
+                         baseType="MASHUPNAME"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="defaultTargetMashupName"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetTargetParameterCount">
+                        <ResultType
+                         aspect.dataShape="TW.RSM.SFW.DataShape.DeliveryTargetParameters"
+                         baseType="NUMBER"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetTargetParameters">
+                        <ResultType
+                         aspect.dataShape="TW.RSM.SFW.DataShape.DeliveryTargetParameters"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="Get the number of email notification recipients"
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetTotalEmailNotificationRecipients">
+                        <ResultType
+                         baseType="NUMBER"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="EntityList"
+                             aspect.isRequired="true"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="EmailAddressNotificationList"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.dataShape="EntityList"
+                             aspect.isRequired="true"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="UserGroupNotificationList"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.dataShape="EntityList"
+                             aspect.isRequired="true"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="UserNotificationList"
+                             ordinal="2"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="RemoveTargetParameter">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="ParameterName"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="Deprecated. Use TW.UTL.SFW.SessionHelper ResetSessionDeployment service"
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ResetSessionState">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="SetSelectedDeploymentStatus">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="selectedDeploymentStatus"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="SetSession">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="sessionName"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="sessionValue"
+                             ordinal="2"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="SetTargetMashupName">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="MashupName"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                </ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="AddTargetParameter">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // result: INFOTABLE
+                                        var targetParams = Resources["CurrentSessionInfo"].GetGlobalSessionValues().DeliveryTargetParameters;
+                                        
+                                        var params = {
+                                        	infoTableName : "InfoTable",
+                                        	dataShapeName : "TW.RSM.SFW.DataShape.DeliveryTargetParameters"
+                                        };
+                                        
+                                        // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(TW.RSM.SFW.DataShape.DeliveryTargetParameters)
+                                        var tempParams = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        
+                                        if(targetParams == null || targetParams == undefined)
+                                        {
+                                            var targetParams = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        }
+                                        
+                                        // TW.RSM.SFW.DataShape.DeliveryTargetParameters entry object
+                                        var newEntry = new Object();
+                                        newEntry.Name = ParameterName; // STRING - isPrimaryKey = true
+                                        newEntry.Value = ParameterValue; // STRING
+                                        
+                                        var added = false;
+                                        for(var i=0; i<targetParams.getRowCount(); i++)
+                                        {
+                                        	var row = targetParams.getRow(i);
+                                            if(row.Name != ParameterName)
+                                            {
+                                                tempParams.AddRow(row);
+                                            }else
+                                            {
+                                                tempParams.AddRow(newEntry);
+                                                added = true;
+                                            }
+                                        }
+                                        
+                                        if(!added)
+                                        {
+                                        	tempParams.AddRow(newEntry);
+                                        }
+                                        
+                                        params = {
+                                        	name: "DeliveryTargetParameters",
+                                        	value: tempParams
+                                        };
+                                        
+                                        
+                                        Resources["CurrentSessionInfo"].SetGlobalSessionStringValue(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="AddToList">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                        	infoTableName : "InfoTable",
+                                        	dataShapeName : "EntityList"
+                                        };
+                                        
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        
+                                        // result: INFOTABLE
+                                        var InputElementList = Resources["CurrentSessionInfo"].GetGlobalSessionValues()[ListName];
+                                        if( (InputElementList != null) && (InputElementList != undefined ) && (InputElementList.getRowCount() > 0) )
+                                        {
+                                            var exists = false;
+                                            for (var i=0; i<InputElementList.getRowCount(); i++) {
+                                                var row = InputElementList.getRow(i);
+                                                if(InputElement == row.name)
+                                                {
+                                                    exists = true;
+                                                }
+                                                result.AddRow(row);
+                                            }
+                                        }
+                                        if(! exists && (InputElement != null) && (InputElement != undefined) && (InputElement.length > 0) && (InputElement != "")) {
+                                        	// EntityList entry object
+                                        	var newEntry = new Object();
+                                        	newEntry.description = undefined;
+                                        	newEntry.name = InputElement;
+                                        	result.AddRow(newEntry);
+                                        }
+                                        
+                                        
+                                        // no return
+                                        
+                                        params = {
+                                        	name: ListName /* STRING */,
+                                        	value: result /* INFOTABLE */
+                                        };
+                                        Resources["CurrentSessionInfo"].SetGlobalSessionInfoTableValue(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="AddToUserGroupNotificationList">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                        	infoTableName : "InfoTable",
+                                        	dataShapeName : "EntityList"
+                                        };
+                                        
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        
+                                        // result: INFOTABLE
+                                        var InputElementList = Resources["CurrentSessionInfo"].GetGlobalSessionValues()[ListName];
+                                        if( (InputElementList != null) && (InputElementList != undefined ) && (InputElementList.getRowCount() > 0) )
+                                        {
+                                            var exists = false;
+                                            for (var i=0; i<InputElementList.getRowCount(); i++) {
+                                                var row = InputElementList.getRow(i);
+                                                if(InputElement == row.name)
+                                                {
+                                                    exists = true;
+                                                }
+                                                result.AddRow(row);
+                                            }
+                                        }
+                                        if(! exists && (InputElement != null) && (InputElement != undefined) && (InputElement.length > 0) && (InputElement != "")) {
+                                        	// EntityList entry object
+                                        	var newEntry = new Object();
+                                        	newEntry.description = undefined;
+                                        	newEntry.name = InputElement;
+                                        	result.AddRow(newEntry);
+                                        }
+                                        
+                                        
+                                        // no return
+                                        
+                                        params = {
+                                        	name: ListName /* STRING */,
+                                        	value: result /* INFOTABLE */
+                                        };
+                                        Resources["CurrentSessionInfo"].SetGlobalSessionInfoTableValue(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ClearGlobalList">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                        	infoTableName : "InfoTable",
+                                        	dataShapeName : "EntityList"
+                                        };
+                                        
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        
+                                        params = {
+                                        	name: ListName /* STRING */,
+                                        	value: result /* INFOTABLE */
+                                        };
+                                        Resources["CurrentSessionInfo"].SetGlobalSessionInfoTableValue(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="DeleteFromList">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        if((InputElement == null) || (InputElement == undefined) || (InputElement.length <= 0)) {
+                                            throw "No Email Address specified.";
+                                        }
+                                        
+                                        var params = {
+                                        	infoTableName : "InfoTable",
+                                        	dataShapeName : "EntityList"
+                                        };
+                                        
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        var InputElementList = Resources["CurrentSessionInfo"].GetGlobalSessionValues()[ListName];
+                                        
+                                        if( (InputElementList != null) && (InputElementList != undefined ) && (InputElementList.getRowCount() > 0) )
+                                        {
+                                            for (var i=0; i< InputElementList.getRowCount(); i++) {
+                                                var row = InputElementList.getRow(i);
+                                                if(InputElement != row.name)
+                                                {
+                                                    result.AddRow(row);
+                                                }
+                                            }
+                                        }
+                                        
+                                        params = {
+                                        	name: ListName /* STRING */,
+                                        	value: result /* INFOTABLE */
+                                        };
+                                        
+                                        // no return
+                                        Resources["CurrentSessionInfo"].SetGlobalSessionInfoTableValue(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetGlobalList">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var result = Resources["CurrentSessionInfo"].GetGlobalSessionValues()[ListName];
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetSelectedDeploymentStatus">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var result = Resources["CurrentSessionInfo"].GetGlobalSessionValues()["selectedDeploymentStatus"];
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetTargetMashupName">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var result = Resources["CurrentSessionInfo"].GetGlobalSessionValues()["targetNavigationMashup"];
+                                        if(result == null || result == undefined || result.length == 0)
+                                        {
+                                            result = defaultTargetMashupName;
+                                        }
+                                        else
+                                        {
+                                            params = {
+                                        		name: "targetNavigationMashup" /* STRING */,
+                                        		value: undefined /* STRING */
+                                        	};
+                                            Resources["CurrentSessionInfo"].SetGlobalSessionStringValue(params);
+                                            logger.info("Resetting target Asset name.");
+                                        }
+                                        logger.info("Target Asset Name: " + result);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetTargetParameterCount">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // result: INFOTABLE
+                                        var targetParams = Resources["CurrentSessionInfo"].GetGlobalSessionValues().DeliveryTargetParameters;
+                                        
+                                        if(targetParams == null || targetParams == undefined)
+                                        {
+                                            var params = {
+                                                infoTableName : "InfoTable",
+                                                dataShapeName : "TW.RSM.SFW.DataShape.DeliveryTargetParameters"
+                                            };
+                                        
+                                            // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(TW.RSM.SFW.DataShape.DeliveryTargetParameters)
+                                            var targetParams = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        }
+                                        
+                                        result = targetParams.getRowCount();
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetTargetParameters">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // result: INFOTABLE
+                                        var targetParams = Resources["CurrentSessionInfo"].GetGlobalSessionValues().DeliveryTargetParameters;
+                                        
+                                        if(targetParams == null || targetParams == undefined)
+                                        {
+                                            var params = {
+                                                infoTableName : "InfoTable",
+                                                dataShapeName : "TW.RSM.SFW.DataShape.DeliveryTargetParameters"
+                                            };
+                                        
+                                            // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(TW.RSM.SFW.DataShape.DeliveryTargetParameters)
+                                            var targetParams = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        }
+                                        
+                                        result = targetParams;
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetTotalEmailNotificationRecipients">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                        // Count email addresses:
+                                        //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                        var totalRecipients = 0;
+                                        var emailList = EmailAddressNotificationList;
+                                        if(emailList != null && emailList != undefined)
+                                        {
+                                            totalRecipients += emailList.rows.length;
+                                        }
+                                        //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                        // Count users:
+                                        //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                        emailList = UserNotificationList;
+                                        if(emailList != null && emailList != undefined)
+                                        {
+                                            totalRecipients += emailList.rows.length;
+                                        }
+                                        //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                        // Count users in user groups:
+                                        //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                        emailList = UserGroupNotificationList;
+                                        if(emailList != null && emailList != undefined)
+                                        {
+                                            tableLength = emailList.rows.length;
+                                        	for (var x = 0; x < tableLength; x++) {
+                                                var row = emailList.rows[x];
+                                                var members = Groups[row.name].GetGroupMembers();
+                                                totalRecipients += members.rows.length;
+                                            }
+                                        }
+                                        
+                                        result = totalRecipients;
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="RemoveTargetParameter">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // result: INFOTABLE
+                                        var targetParams = Resources["CurrentSessionInfo"].GetGlobalSessionValues().DeliveryTargetParameters;
+                                        
+                                        var params = {
+                                            infoTableName : "InfoTable",
+                                            dataShapeName : "TW.RSM.SFW.DataShape.DeliveryTargetParameters"
+                                        };
+                                        
+                                        // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(TW.RSM.SFW.DataShape.DeliveryTargetParameters)
+                                        var tempParams = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        
+                                        if(targetParams == null || targetParams == undefined)
+                                        {
+                                            targetParams = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        }
+                                        
+                                        
+                                        
+                                        for(var i=0; i<targetParams.getRowCount(); i++)
+                                        {
+                                        	var row = targetParams.getRow(i);
+                                            if(row.Name != ParameterName)
+                                            {
+                                                tempParams.AddRow(row);
+                                            }
+                                        }
+                                        
+                                        params = {
+                                        	name: "DeliveryTargetParameters",
+                                        	value: tempParams
+                                        };
+                                        
+                                        Resources["CurrentSessionInfo"].SetGlobalSessionStringValue(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ResetSessionState">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // no return
+                                        Things["TW.UTL.SFW.SessionHelper"].ResetSessionDeployment();
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="SetSelectedDeploymentStatus">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        params = {
+                                        		name: "selectedDeploymentStatus" /* STRING */,
+                                        		value: selectedDeploymentStatus /* STRING */
+                                        };
+                                        Resources["CurrentSessionInfo"].SetGlobalSessionStringValue(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="SetSession">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        params = {
+                                        	name: sessionName,
+                                        	value: sessionValue
+                                        };
+                                        logger.error("Setting - "+sessionName+": "+sessionValue);
+                                        
+                                        Resources["CurrentSessionInfo"].SetGlobalSessionStringValue(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="SetTargetMashupName">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        params = {
+                                        	name: "targetNavigationMashup" /* STRING */,
+                                        	value: MashupName /* STRING */
+                                        };
+                                        Resources["CurrentSessionInfo"].SetGlobalSessionStringValue(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <ImplementedShapes></ImplementedShapes>
+            <SharedConfigurationTables></SharedConfigurationTables>
+            <InstanceDesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </InstanceDesignTimePermissions>
+            <InstanceRunTimePermissions></InstanceRunTimePermissions>
+            <InstanceVisibilityPermissions>
+                <Visibility></Visibility>
+            </InstanceVisibilityPermissions>
+        </ThingTemplate>
+    </ThingTemplates>
+</Entities>

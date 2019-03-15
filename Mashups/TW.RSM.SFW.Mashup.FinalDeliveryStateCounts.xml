@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-10-24T21:00:18.791Z"
+         name="TW.RSM.SFW.Mashup.FinalDeliveryStateCounts"
+         projectName=""
+         rows="0.0"
+         tags="Applications:RSM;Applications:SCM;TWUTL:RemoteServices">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions></ParameterDefinitions>
+            <Things>
+                <Thing>TW.RSM.SFW.SoftwareManager</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_TW.RSM.SFW.SoftwareManager" : {
+                  "DataName" : "Things_TW.RSM.SFW.SoftwareManager",
+                  "EntityName" : "TW.RSM.SFW.SoftwareManager",
+                  "EntityType" : "Things",
+                  "Id" : "5ce44a08-d846-4a65-8dad-1fea814726bf",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "b58a495e-699c-40f6-b43d-7d6f7c8f12d9",
+                    "Name" : "GetFinalDeliveryStateCounts",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetFinalDeliveryStateCounts"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "28d08649-498d-42a7-9030-1d286522e773",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "campaignID",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "CampaignID",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Session",
+                "SourceDetails" : "AllData",
+                "SourceId" : "Session",
+                "SourceSection" : "Session",
+                "TargetArea" : "Data",
+                "TargetId" : "GetFinalDeliveryStateCounts",
+                "TargetSection" : "Things_TW.RSM.SFW.SoftwareManager"
+              }, {
+                "Id" : "f8077816-73c7-4271-8ebc-13bee77f2074",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetFinalDeliveryStateCounts",
+                "SourceSection" : "Things_TW.RSM.SFW.SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "dhxgrid-1",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW.RSM.SFW.SoftwareManager",
+                "EventHandlerService" : "GetFinalDeliveryStateCounts",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "RefreshRequested",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "774db4db-8926-4027-b5a2-f12c44667efe"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW.RSM.SFW.SoftwareManager",
+                "EventHandlerService" : "GetFinalDeliveryStateCounts",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "1c898583-e096-4cb8-b897-c853bb6a2faf"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 60,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultMashupStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 950,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "id_index" : 1,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "AlignHeader" : false,
+                    "Area" : "UI",
+                    "AutoSelectFirstRow" : false,
+                    "CellTextWrapping" : false,
+                    "ColumnFormat" : {
+                      "formatInfo" : [ {
+                        "Align" : "left",
+                        "AllowEdit" : false,
+                        "FieldName" : "InProgressCount",
+                        "FormatOptions" : {
+                          "FormatString" : "0",
+                          "formatInfo" : {
+                            "FieldName" : "",
+                            "StateDefinition" : "",
+                            "StateDefinitionType" : "fixed",
+                            "StateFormats" : [ {
+                              "state" : "",
+                              "stateName" : "fixed"
+                            } ]
+                          },
+                          "formatText" : "View",
+                          "renderer" : "NUMBER"
+                        },
+                        "Title" : "[[TW.RSM.SFW.DeploymentState.In Progress]]",
+                        "ValidationExpression" : "",
+                        "ValidationMessage" : "",
+                        "Width" : "150"
+                      }, {
+                        "Align" : "left",
+                        "AllowEdit" : false,
+                        "FieldName" : "CompletedCount",
+                        "FormatOptions" : {
+                          "FormatString" : "0",
+                          "formatInfo" : {
+                            "FieldName" : "",
+                            "StateDefinition" : "",
+                            "StateDefinitionType" : "fixed",
+                            "StateFormats" : [ {
+                              "state" : "",
+                              "stateName" : "fixed"
+                            } ]
+                          },
+                          "formatText" : "View",
+                          "renderer" : "NUMBER"
+                        },
+                        "Title" : "[[TW.RSM.SFW.DeploymentState.Completed]]",
+                        "ValidationExpression" : "",
+                        "ValidationMessage" : "",
+                        "Width" : "150"
+                      }, {
+                        "Align" : "left",
+                        "AllowEdit" : false,
+                        "FieldName" : "FailedCount",
+                        "FormatOptions" : {
+                          "FormatString" : "0",
+                          "formatInfo" : {
+                            "FieldName" : "",
+                            "StateDefinition" : "",
+                            "StateDefinitionType" : "fixed",
+                            "StateFormats" : [ {
+                              "state" : "",
+                              "stateName" : "fixed"
+                            } ]
+                          },
+                          "formatText" : "View",
+                          "renderer" : "NUMBER"
+                        },
+                        "Title" : "[[TW.RSM.SFW.DeploymentState.Failed]]",
+                        "ValidationExpression" : "",
+                        "ValidationMessage" : "",
+                        "Width" : "150"
+                      }, {
+                        "Align" : "left",
+                        "AllowEdit" : false,
+                        "FieldName" : "Ineligible",
+                        "FormatOptions" : {
+                          "FormatString" : "0",
+                          "formatInfo" : {
+                            "FieldName" : "",
+                            "StateDefinition" : "",
+                            "StateDefinitionType" : "fixed",
+                            "StateFormats" : [ {
+                              "state" : "",
+                              "stateName" : "fixed"
+                            } ]
+                          },
+                          "formatText" : "View",
+                          "renderer" : "NUMBER"
+                        },
+                        "Title" : "[[TW.RSM.SFW.DeploymentState.Ineligible]]",
+                        "ValidationExpression" : "",
+                        "ValidationMessage" : "",
+                        "Width" : "150"
+                      }, {
+                        "Align" : "left",
+                        "AllowEdit" : false,
+                        "FieldName" : "AbortedCount",
+                        "FormatOptions" : {
+                          "FormatString" : "0",
+                          "formatInfo" : {
+                            "FieldName" : "",
+                            "StateDefinition" : "",
+                            "StateDefinitionType" : "fixed",
+                            "StateFormats" : [ {
+                              "state" : "",
+                              "stateName" : "fixed"
+                            } ]
+                          },
+                          "formatText" : "View",
+                          "renderer" : "NUMBER"
+                        },
+                        "Title" : "[[TW.RSM.SFW.DeploymentState.Aborted]]",
+                        "ValidationExpression" : "",
+                        "ValidationMessage" : "",
+                        "Width" : "150"
+                      }, {
+                        "Align" : "left",
+                        "AllowEdit" : false,
+                        "FieldName" : "CanceledByUserCount",
+                        "FormatOptions" : {
+                          "FormatString" : "0",
+                          "formatInfo" : {
+                            "FieldName" : "",
+                            "StateDefinition" : "",
+                            "StateDefinitionType" : "fixed",
+                            "StateFormats" : [ {
+                              "state" : "",
+                              "stateName" : "fixed"
+                            } ]
+                          },
+                          "formatText" : "View",
+                          "renderer" : "NUMBER"
+                        },
+                        "Title" : "[[TW.RSM.SFW.DeploymentState.Canceled By User]]",
+                        "ValidationExpression" : "",
+                        "ValidationMessage" : "",
+                        "Width" : "auto"
+                      } ]
+                    },
+                    "CurrentScrollTop" : 0,
+                    "DisplayName" : "dhxgrid-1",
+                    "FocusStyle" : "DefaultFocusStyle",
+                    "GridBackgroundStyle" : "TW.RSM.Style.GridBackground",
+                    "GridEditableFieldStyle" : "TW.RSM.Style.GridEditableField",
+                    "GridHeaderStyle" : "TW.RSM.Style.GridHeader",
+                    "GridHeaderTextCase" : "none",
+                    "GridInvalidFieldStyle" : "DefaultGridInvalidFieldStyle",
+                    "Height" : 60,
+                    "Id" : "dhxgrid-1",
+                    "IsEditable" : false,
+                    "IsPrintLayout" : false,
+                    "Left" : 0,
+                    "MultiSelect" : false,
+                    "ResponsiveLayout" : false,
+                    "RowAlternateBackgroundStyle" : "TW.RSM.Style.GridRowAlternateBackgroundStyle",
+                    "RowBackgroundStyle" : "TW.RSM.Style.GridRowBackgroundStyle",
+                    "RowFormat_StateParameters" : [ ],
+                    "RowHeight" : 30,
+                    "RowHoverStyle" : "TW.RSM.Style.GridHoverStyle",
+                    "RowSelectedStyle" : "PTC.Core.Accent2RowSelectedStyle",
+                    "ScrollTop" : 0,
+                    "ShowAllColumns" : false,
+                    "ShowDataLoading" : true,
+                    "TabSequence" : 0,
+                    "Top" : 0,
+                    "Type" : "dhxgrid",
+                    "Visible" : true,
+                    "Width" : 950,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Grid"
+                  },
+                  "Widgets" : [ ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="true"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-10-24T21:00:10.485Z"
+         name="TW.UTL.Audit.Mashup.AuditArchive"
+         projectName=""
+         rows="0.0"
+         tags="PTC:AuditSubsystem">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions></ParameterDefinitions>
+            <Things>
+                <Thing>TW.UTL.Thing.AuditExportManager</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_TW.UTL.Thing.AuditExportManager" : {
+                  "DataName" : "Things_TW.UTL.Thing.AuditExportManager",
+                  "EntityName" : "TW.UTL.Thing.AuditExportManager",
+                  "EntityType" : "Things",
+                  "Id" : "8c232be8-0de2-4000-b035-ca11044f021f",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "a684954a-586f-4013-8fd3-e6ad3d85988c",
+                    "Name" : "ValidationResult",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "ValidationResult"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "8c0d9e19-4a21-455e-b6ef-d303407c2183",
+                    "Name" : "DateValidation",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "DateValidation"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "5a2bdbb0-9e4f-4546-a89d-c4acd6a00f12",
+                    "Name" : "ExportAndDownload",
+                    "Parameters" : { },
+                    "Properties" : {
+                      "CustomErrorMessage" : "[server-message]",
+                      "CustomSuccessMessage" : "[[TW.UTL.Audit.Export.Success]]",
+                      "ShowErrorMessage" : true,
+                      "ShowSuccessMessage" : true
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "ExportAndDownload"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "bb885d89-c030-4833-8ca2-1f288d7010c4",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "TargetProperty" : "startDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "datetimepicker-77",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "ExportFile",
+                "TargetSection" : "Things_TW.UTL.Thing.AuditExportManager"
+              }, {
+                "Id" : "836008cf-478d-481b-9696-4ae871020f92",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "TargetProperty" : "endDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "datetimepicker-78",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "ExportFile",
+                "TargetSection" : "Things_TW.UTL.Thing.AuditExportManager"
+              }, {
+                "Id" : "56670e56-d80c-41b9-a340-c187ec910cd9",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "TargetProperty" : "startDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "datetimepicker-77",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "DateValidation",
+                "TargetSection" : "Things_TW.UTL.Thing.AuditExportManager"
+              }, {
+                "Id" : "96b611ab-3f4c-4e7e-af1e-c03927542aa9",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "TargetProperty" : "endDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "datetimepicker-78",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "DateValidation",
+                "TargetSection" : "Things_TW.UTL.Thing.AuditExportManager"
+              }, {
+                "Id" : "1147c317-aa2a-43e0-93ce-266ebe5618b4",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "DateResult",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "DateValidation",
+                "SourceSection" : "Things_TW.UTL.Thing.AuditExportManager",
+                "TargetArea" : "UI",
+                "TargetId" : "validator-89",
+                "TargetSection" : ""
+              }, {
+                "Id" : "818ac66f-a52e-472c-b36c-5e884147ea95",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "validationResult",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "DateValidation",
+                "SourceSection" : "Things_TW.UTL.Thing.AuditExportManager",
+                "TargetArea" : "Data",
+                "TargetId" : "ValidationResult",
+                "TargetSection" : "Things_TW.UTL.Thing.AuditExportManager"
+              }, {
+                "Id" : "ed4ca150-3489-43d0-85cf-2e60136ad76b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Disabled",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ValidationResult",
+                "SourceSection" : "Things_TW.UTL.Thing.AuditExportManager",
+                "TargetArea" : "UI",
+                "TargetId" : "button-80",
+                "TargetSection" : ""
+              }, {
+                "Id" : "7750631e-b5d5-41f8-aa42-1212b7454a69",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "link",
+                  "SourcePropertyBaseType" : "HYPERLINK",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "SourceURL",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ExportAndDownload",
+                "SourceSection" : "Things_TW.UTL.Thing.AuditExportManager",
+                "TargetArea" : "UI",
+                "TargetId" : "link-97",
+                "TargetSection" : ""
+              }, {
+                "Id" : "f2971d13-8945-4e87-8f95-718894372c56",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Message",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "DateValidation",
+                "SourceSection" : "Things_TW.UTL.Thing.AuditExportManager",
+                "TargetArea" : "UI",
+                "TargetId" : "statusmessage-99",
+                "TargetSection" : ""
+              }, {
+                "Id" : "fcc885bb-8ecd-478c-b300-bea579f0ca10",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "TargetProperty" : "startDate",
+                  "TargetPropertyBaseType" : "DATETIME"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "datetimepicker-77",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "ExportAndDownload",
+                "TargetSection" : "Things_TW.UTL.Thing.AuditExportManager"
+              }, {
+                "Id" : "2507b56d-0661-4b57-9a66-bb66633c9908",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "TargetProperty" : "endDate",
+                  "TargetPropertyBaseType" : "DATETIME"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "datetimepicker-78",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "ExportAndDownload",
+                "TargetSection" : "Things_TW.UTL.Thing.AuditExportManager"
+              }, {
+                "Id" : "3bb8e7ed-5b5e-4159-b9d5-a3677a2b6bae",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "link",
+                  "SourcePropertyBaseType" : "HYPERLINK",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "Result",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ExportAndDownload",
+                "SourceSection" : "Things_TW.UTL.Thing.AuditExportManager",
+                "TargetArea" : "UI",
+                "TargetId" : "validator-95",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW.UTL.Thing.AuditExportManager",
+                "EventHandlerService" : "DateValidation",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Changed",
+                "EventTriggerId" : "datetimepicker-77",
+                "EventTriggerSection" : "",
+                "Id" : "50b3dee6-619b-416b-8e5e-171ba8f35b67"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW.UTL.Thing.AuditExportManager",
+                "EventHandlerService" : "DateValidation",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Changed",
+                "EventTriggerId" : "datetimepicker-78",
+                "EventTriggerSection" : "",
+                "Id" : "ed4ffb5c-c8ed-4fbb-a5ec-a06dd1cc3798"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "validator-89",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "DateValidation",
+                "EventTriggerSection" : "Things_TW.UTL.Thing.AuditExportManager",
+                "Id" : "cc50593c-65c0-42cc-8fb8-b07675c62925"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW.UTL.Thing.AuditExportManager",
+                "EventHandlerService" : "ValidationResult",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "DateValidation",
+                "EventTriggerSection" : "Things_TW.UTL.Thing.AuditExportManager",
+                "Id" : "44f0bb77-64fb-4ce3-926b-9bfb7b5b312e"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW.UTL.Thing.AuditExportManager",
+                "EventHandlerService" : "ExportAndDownload",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "button-80",
+                "EventTriggerSection" : "",
+                "Id" : "f704d164-a252-43e3-a353-41acbbcd9f00"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "validator-95",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "ExportAndDownload",
+                "EventTriggerSection" : "Things_TW.UTL.Thing.AuditExportManager",
+                "Id" : "1aec74ca-8674-4686-a5c8-1c07c280cb58"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "link-97",
+                "EventHandlerService" : "Navigate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "validator-95",
+                "EventTriggerSection" : "",
+                "Id" : "a1b58519-e41d-458f-89a4-ef8577d24089"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "statusmessage-99",
+                "EventHandlerService" : "ShowMessage",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "False",
+                "EventTriggerId" : "validator-89",
+                "EventTriggerSection" : "",
+                "Id" : "691c942f-32d7-4468-9829-55842261ee3d"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "Description" : "",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 618,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "Master" : "TW.UTL.Audit.Master.AuditSubsystem",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : true,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultMashupStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 1024,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "id_index" : 111,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "Columns" : 0,
+                    "DisplayName" : "layout-1",
+                    "Footer" : false,
+                    "FooterHeight" : 0,
+                    "Header" : false,
+                    "HeaderHeight" : 0,
+                    "Id" : "layout-1",
+                    "IncludeSpacingInFixedAreas" : false,
+                    "IsPrintLayout" : false,
+                    "Left" : 105,
+                    "LeftSidebar" : false,
+                    "LeftSidebarWidth" : 0,
+                    "Orientation" : "vertical",
+                    "PctColumn1" : 50,
+                    "PctColumn2" : 50,
+                    "PctColumn3" : 1,
+                    "PctColumn4" : 1,
+                    "PctColumn5" : 1,
+                    "PctColumn6" : 1,
+                    "PctColumn7" : 1,
+                    "PctColumn8" : 1,
+                    "PctRow1" : 100,
+                    "PctRow2" : 0,
+                    "PctRow3" : 0,
+                    "PctRow4" : 0,
+                    "PctRow5" : 0,
+                    "PctRow6" : 0,
+                    "PctRow7" : 0,
+                    "PctRow8" : 0,
+                    "PrintMarginLeftRight" : 0.5,
+                    "PrintMarginTopBottom" : 0.5,
+                    "PrintWidth" : 650,
+                    "ResponsiveLayout" : true,
+                    "RightSidebar" : false,
+                    "RightSidebarWidth" : 0,
+                    "Rows" : 1,
+                    "ShowDataLoading" : true,
+                    "Spacing" : 2,
+                    "Top" : 30,
+                    "Type" : "layout",
+                    "Visible" : true,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Layout"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Row 1",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-3",
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "DefaultContainerStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Container"
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "Area" : "UI",
+                        "Description" : "",
+                        "DisplayName" : "panel-76",
+                        "Height" : 200,
+                        "HideScrollbars" : false,
+                        "HorizontalAnchor" : "left",
+                        "Id" : "panel-76",
+                        "Left" : 10,
+                        "ResponsiveLayout" : true,
+                        "ShowDataLoading" : true,
+                        "Style" : "PTC.Asset.Style.Panel",
+                        "Top" : 40,
+                        "Type" : "panel",
+                        "VerticalAnchor" : "top",
+                        "Visible" : true,
+                        "Width" : 300,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Panel"
+                      },
+                      "Widgets" : [ {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "DateDelimiter" : "-",
+                          "DateDisplay" : "short",
+                          "DateFormat" : "yy-M-dd",
+                          "DateFormatToken" : "",
+                          "DateOnly" : false,
+                          "DateOrder" : "yy-mm-dd",
+                          "DecadeView" : false,
+                          "Description" : "",
+                          "DisplayName" : "StartDate",
+                          "DisplaySeconds" : true,
+                          "Height" : 38,
+                          "Id" : "datetimepicker-77",
+                          "InitializeWithCurrentDateTime" : true,
+                          "Interval" : 0,
+                          "IntervalType" : "h",
+                          "Label" : "",
+                          "Left" : 10,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Style" : "TW.UTL.Audit.Style.TabSelected",
+                          "TabSequence" : 0,
+                          "TimeFormat" : "hh:mm:ss",
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 86,
+                          "Type" : "datetimepicker",
+                          "Visible" : true,
+                          "Width" : 200,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Date Time Picker",
+                          "__supportsLabel" : true,
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "DateDelimiter" : "-",
+                          "DateDisplay" : "short",
+                          "DateFormat" : "yy-M-dd",
+                          "DateFormatToken" : "",
+                          "DateOnly" : false,
+                          "DateOrder" : "yy-mm-dd",
+                          "DecadeView" : false,
+                          "DisplayName" : "EndDate",
+                          "DisplaySeconds" : true,
+                          "Height" : 38,
+                          "Id" : "datetimepicker-78",
+                          "InitializeWithCurrentDateTime" : true,
+                          "Interval" : 0,
+                          "IntervalType" : "h",
+                          "Label" : "",
+                          "Left" : 286,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Style" : "TW.UTL.Audit.Style.TabSelected",
+                          "TabSequence" : 0,
+                          "TimeFormat" : "hh:mm:ss",
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 86,
+                          "Type" : "datetimepicker",
+                          "Visible" : true,
+                          "Width" : 200,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Date Time Picker",
+                          "__supportsLabel" : true,
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "ActiveStyle" : "TW.UTL.Audit.Style.Button",
+                          "Area" : "UI",
+                          "CancelConfirmationButton" : "button2",
+                          "ConfirmationButton1Label" : "Yes",
+                          "ConfirmationButton2Label" : "No",
+                          "ConfirmationPrompt" : "Do Action?",
+                          "ConfirmationRequired" : false,
+                          "ConfirmationTitle" : "Confirm Action",
+                          "ContextId" : "",
+                          "DefaultConfirmationButton" : "button1",
+                          "Description" : "",
+                          "Disabled" : false,
+                          "DisabledStyle" : "TW.UTL.Audit.Style.ButtonDisable",
+                          "DisplayName" : "ExportButton",
+                          "FocusStyle" : "TW.UTL.Audit.Style.Button",
+                          "Height" : 30,
+                          "HoverStyle" : "TW.UTL.Audit.Style.ButtonHover",
+                          "IconAlignment" : "left",
+                          "Id" : "button-80",
+                          "Label" : "[[TW.UTL.Audit.Export.ButtonLabel]]",
+                          "Left" : 10,
+                          "ResponsiveLayout" : false,
+                          "RoundedCorners" : true,
+                          "ShowDataLoading" : true,
+                          "Style" : "TW.UTL.Audit.Style.Button",
+                          "TabSequence" : 0,
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 169,
+                          "Type" : "button",
+                          "Visible" : true,
+                          "Width" : 151,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Button",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "AutoEvaluate" : false,
+                          "Description" : "",
+                          "DisplayName" : "DateValidator",
+                          "Expression" : "DateResult == \"Success\" ? true : false",
+                          "Height" : 28,
+                          "Id" : "validator-89",
+                          "Left" : 580.9098205566406,
+                          "Output" : false,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Top" : 161.9166717529297,
+                          "Type" : "validator",
+                          "Visible" : true,
+                          "Width" : 200,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Validator",
+                          "_currentParameterDefs" : [ {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "DateResult"
+                          } ]
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Alignment" : "left",
+                          "Area" : "UI",
+                          "Description" : "",
+                          "DisplayName" : "label-93",
+                          "Height" : 32,
+                          "Id" : "label-93",
+                          "Left" : 10,
+                          "ResponsiveLayout" : false,
+                          "SetLabelTextAsToolTip" : false,
+                          "ShowDataLoading" : true,
+                          "Style" : "DefaultLabelStyle",
+                          "Text" : "[[TW.UTL.Audit.Export.Label]]",
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 15,
+                          "Type" : "label",
+                          "Visible" : true,
+                          "Width" : 311,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Label",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "AutoEvaluate" : false,
+                          "Description" : "",
+                          "DisplayName" : "ExportValidator",
+                          "Expression" : "Result!=null",
+                          "Height" : 28,
+                          "Id" : "validator-95",
+                          "Left" : 580.1111755371094,
+                          "Output" : false,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Top" : 215.1111297607422,
+                          "Type" : "validator",
+                          "Visible" : true,
+                          "Width" : 200,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Validator",
+                          "_currentParameterDefs" : [ {
+                            "BaseType" : "STRING",
+                            "Description" : "",
+                            "ParameterName" : "Result"
+                          } ]
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Alignment" : "left",
+                          "Area" : "UI",
+                          "Description" : "",
+                          "DisplayName" : "DownloadAuditArchive",
+                          "Height" : 20,
+                          "Id" : "link-97",
+                          "Left" : 175.25,
+                          "LinkDisplay" : "textOnly",
+                          "LinkHoverStyle" : "DefaultLinkHoverStyle",
+                          "LinkStyle" : "DefaultLinkStyle",
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "SourceURL" : "",
+                          "TabSequence" : 0,
+                          "TargetWindow" : "replace",
+                          "Text" : "Download Audit Archive",
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 175.25,
+                          "Type" : "link",
+                          "Visible" : false,
+                          "Width" : 135,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Link",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "DisplayName" : "statusmessage-99",
+                          "Height" : 28,
+                          "Id" : "statusmessage-99",
+                          "Left" : 580.25,
+                          "MessageType" : "info",
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Top" : 240.25,
+                          "Type" : "statusmessage",
+                          "Visible" : true,
+                          "Width" : 200,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Status Message"
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Alignment" : "left",
+                          "Area" : "UI",
+                          "DisplayName" : "label-110",
+                          "Height" : 22,
+                          "Id" : "label-110",
+                          "Left" : 10,
+                          "ResponsiveLayout" : false,
+                          "SetLabelTextAsToolTip" : false,
+                          "ShowDataLoading" : true,
+                          "Style" : "DefaultLabelStyle",
+                          "Text" : "[[TW.UTL.Audit.Export.StartDate]]",
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 60,
+                          "Type" : "label",
+                          "Visible" : true,
+                          "Width" : 75,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Label",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Alignment" : "left",
+                          "Area" : "UI",
+                          "DisplayName" : "label-111",
+                          "Height" : 22,
+                          "Id" : "label-111",
+                          "Left" : 286,
+                          "ResponsiveLayout" : false,
+                          "SetLabelTextAsToolTip" : false,
+                          "ShowDataLoading" : true,
+                          "Style" : "DefaultLabelStyle",
+                          "Text" : "[[TW.UTL.Audit.Export.EndDate]]",
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 60,
+                          "Type" : "label",
+                          "Visible" : true,
+                          "Width" : 75,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Label",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      } ]
+                    } ]
+                  } ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

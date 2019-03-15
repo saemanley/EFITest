@@ -1,0 +1,897 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isResponsive="true"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-11-06T02:37:24.127Z"
+         name="NCR.DCS.NpmCustomerReport"
+         projectName="DCS. Project.Main"
+         rows="0.0"
+         tags="Applications:DCS;DCS:Mashup">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR_All"
+                         type="Group"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR_All"
+                         type="Group"></Principal>
+                    </PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR_All"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR_All"
+                         type="Group"></Principal>
+                    </EventInvoke>
+                    <EventSubscribe>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR_All"
+                         type="Group"></Principal>
+                    </EventSubscribe>
+                </Permissions>
+            </RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:Developers"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:ReleaseManagement"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:SCM"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:TCS"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions></ParameterDefinitions>
+            <Things>
+                <Thing>NCR.DCS.DATABASE.THING</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "CustomMashupCss" : "",
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_NCR.DCS.DATABASE.THING" : {
+                  "DataName" : "Things_NCR.DCS.DATABASE.THING",
+                  "EntityName" : "NCR.DCS.DATABASE.THING",
+                  "EntityType" : "Things",
+                  "Id" : "f00c4bff-cb30-492b-a722-8802bc0057a6",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "1e177473-34f2-44bf-bfe9-57b2bce82faa",
+                    "Name" : "getNpmCustomer",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "getNpmCustomer"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "3a11fe74-a492-45fb-9d41-a4011e3ac6ee",
+                    "Name" : "getNpmReport",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "getNpmReport"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "0fe960f0-d453-44dc-8ba2-4e747ff14cfc",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "customer",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "customer",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "SelectedRows",
+                "SourceId" : "getNpmCustomer",
+                "SourceSection" : "Things_NCR.DCS.DATABASE.THING",
+                "TargetArea" : "Data",
+                "TargetId" : "getCustomerNpmData",
+                "TargetSection" : "Things_NCR.DCS.DATABASE.THING"
+              }, {
+                "Id" : "9cc52a2d-6f83-4856-a3cd-3dcfb65d8471",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "getNpmReport",
+                "SourceSection" : "Things_NCR.DCS.DATABASE.THING",
+                "TargetArea" : "UI",
+                "TargetId" : "gridadvanced-30",
+                "TargetSection" : ""
+              }, {
+                "Id" : "01e10f16-351c-4512-969f-6d8c89d881b1",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "customer",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "customer",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "SelectedRows",
+                "SourceId" : "getNpmCustomer",
+                "SourceSection" : "Things_NCR.DCS.DATABASE.THING",
+                "TargetArea" : "Data",
+                "TargetId" : "getNpmReport",
+                "TargetSection" : "Things_NCR.DCS.DATABASE.THING"
+              }, {
+                "Id" : "62a30788-3b40-42e7-ae92-0b2fe7abcf62",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "getNpmReport",
+                "SourceSection" : "Things_NCR.DCS.DATABASE.THING",
+                "TargetArea" : "UI",
+                "TargetId" : "dataexport-27",
+                "TargetSection" : ""
+              }, {
+                "Id" : "798be51b-9c59-4a87-b460-d619cf88ec70",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "QueryFilter",
+                  "SourcePropertyBaseType" : "QUERY",
+                  "TargetProperty" : "Query",
+                  "TargetPropertyBaseType" : "QUERY",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "gridadvanced-30",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "getNpmReport",
+                "TargetSection" : "Things_NCR.DCS.DATABASE.THING"
+              }, {
+                "Id" : "be4d5a0f-e95c-45c4-a851-8c03db110c19",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "TargetProperty" : "startDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "datetimepicker-20",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "getNpmReport",
+                "TargetSection" : "Things_NCR.DCS.DATABASE.THING"
+              }, {
+                "Id" : "b9226bc1-d3be-4f52-8802-f446bb7aea8d",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "TargetProperty" : "endDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "datetimepicker-21",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "getNpmReport",
+                "TargetSection" : "Things_NCR.DCS.DATABASE.THING"
+              }, {
+                "Id" : "4019b364-0938-4e9c-a91c-71065feabda9",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "getNpmCustomer",
+                "SourceSection" : "Things_NCR.DCS.DATABASE.THING",
+                "TargetArea" : "UI",
+                "TargetId" : "dhxlist-24",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.DCS.DATABASE.THING",
+                "EventHandlerService" : "getNpmCustomer",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "7fdd82ac-6c82-4f5f-9752-f473def519f0"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.DCS.DATABASE.THING",
+                "EventHandlerService" : "getNpmReport",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "button-22",
+                "EventTriggerSection" : "",
+                "Id" : "1f4356a1-d7c5-4647-81d3-657a76d4c94a"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.DCS.DATABASE.THING",
+                "EventHandlerService" : "getNpmReport",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Filter",
+                "EventTriggerId" : "gridadvanced-30",
+                "EventTriggerSection" : "",
+                "Id" : "f86b1b6b-0cef-460b-93b2-00ef0c6964c5"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 618,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : true,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : {
+                    "backgroundColor" : "#d3dae0",
+                    "displayString" : "",
+                    "fontEmphasisBold" : false,
+                    "fontEmphasisItalic" : false,
+                    "fontEmphasisUnderline" : false,
+                    "foregroundColor" : "",
+                    "image" : "",
+                    "lineColor" : "",
+                    "lineStyle" : "solid",
+                    "lineThickness" : 1,
+                    "secondaryBackgroundColor" : "",
+                    "textSize" : "normal"
+                  },
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 1024,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "id_index" : 30,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "Columns" : 0,
+                    "DisplayName" : "layout-17",
+                    "Footer" : false,
+                    "FooterHeight" : 0,
+                    "Header" : true,
+                    "HeaderHeight" : 100,
+                    "Id" : "layout-17",
+                    "IncludeSpacingInFixedAreas" : false,
+                    "IsPrintLayout" : false,
+                    "Left" : 380,
+                    "LeftSidebar" : false,
+                    "LeftSidebarWidth" : 0,
+                    "Orientation" : "vertical",
+                    "PctColumn1" : 50,
+                    "PctColumn2" : 50,
+                    "PctColumn3" : 1,
+                    "PctColumn4" : 1,
+                    "PctColumn5" : 1,
+                    "PctColumn6" : 1,
+                    "PctColumn7" : 1,
+                    "PctColumn8" : 1,
+                    "PctRow1" : 100,
+                    "PctRow2" : 0,
+                    "PctRow3" : 0,
+                    "PctRow4" : 0,
+                    "PctRow5" : 0,
+                    "PctRow6" : 0,
+                    "PctRow7" : 0,
+                    "PctRow8" : 0,
+                    "PrintMarginLeftRight" : 0.5,
+                    "PrintMarginTopBottom" : 0.5,
+                    "PrintWidth" : 650,
+                    "ResponsiveLayout" : true,
+                    "RightSidebar" : false,
+                    "RightSidebarWidth" : 0,
+                    "Rows" : 1,
+                    "ShowDataLoading" : true,
+                    "Spacing" : 2,
+                    "Top" : 140,
+                    "Type" : "layout",
+                    "Visible" : true,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Layout"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Header",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-18",
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : {
+                        "backgroundColor" : "#d3dae0",
+                        "displayString" : "",
+                        "fontEmphasisBold" : false,
+                        "fontEmphasisItalic" : false,
+                        "fontEmphasisUnderline" : false,
+                        "foregroundColor" : "",
+                        "image" : "",
+                        "lineColor" : "",
+                        "lineStyle" : "solid",
+                        "lineThickness" : 1,
+                        "secondaryBackgroundColor" : "",
+                        "textSize" : "normal"
+                      },
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Container"
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "Area" : "UI",
+                        "DisplayName" : "panel-19",
+                        "Height" : 200,
+                        "HideScrollbars" : false,
+                        "HorizontalAnchor" : "left",
+                        "Id" : "panel-19",
+                        "Left" : 220,
+                        "ResponsiveLayout" : true,
+                        "ShowDataLoading" : true,
+                        "Style" : {
+                          "backgroundColor" : "#d3dae0",
+                          "displayString" : "",
+                          "fontEmphasisBold" : false,
+                          "fontEmphasisItalic" : false,
+                          "fontEmphasisUnderline" : false,
+                          "foregroundColor" : "",
+                          "image" : "",
+                          "lineColor" : "",
+                          "lineStyle" : "solid",
+                          "lineThickness" : 1,
+                          "secondaryBackgroundColor" : "",
+                          "textSize" : "normal"
+                        },
+                        "Top" : 50,
+                        "Type" : "panel",
+                        "VerticalAnchor" : "top",
+                        "Visible" : true,
+                        "Width" : 300,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Panel"
+                      },
+                      "Widgets" : [ {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "DateDelimiter" : "-",
+                          "DateDisplay" : "short",
+                          "DateFormat" : "dd-M-yy",
+                          "DateFormatToken" : "",
+                          "DateOnly" : false,
+                          "DateOrder" : "dd-mm-yy",
+                          "DecadeView" : false,
+                          "DisplayName" : "datetimepicker-20",
+                          "DisplaySeconds" : true,
+                          "Height" : 28,
+                          "Id" : "datetimepicker-20",
+                          "InitializeWithCurrentDateTime" : true,
+                          "Interval" : 0,
+                          "IntervalType" : "h",
+                          "Label" : "",
+                          "Left" : 864.982666015625,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Style" : "DefaultTimePickerStyle",
+                          "TabSequence" : 0,
+                          "TimeFormat" : "hh:mm:ss",
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 61.96528625488281,
+                          "Type" : "datetimepicker",
+                          "Visible" : true,
+                          "Width" : 96,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Date Time Picker",
+                          "__supportsLabel" : true,
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Area" : "UI",
+                          "DateDelimiter" : "-",
+                          "DateDisplay" : "short",
+                          "DateFormat" : "dd-M-yy",
+                          "DateFormatToken" : "",
+                          "DateOnly" : false,
+                          "DateOrder" : "dd-mm-yy",
+                          "DecadeView" : false,
+                          "DisplayName" : "datetimepicker-21",
+                          "DisplaySeconds" : true,
+                          "Height" : 28,
+                          "Id" : "datetimepicker-21",
+                          "InitializeWithCurrentDateTime" : true,
+                          "Interval" : 0,
+                          "IntervalType" : "h",
+                          "Label" : "",
+                          "Left" : 1034.9653282165527,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Style" : "DefaultTimePickerStyle",
+                          "TabSequence" : 0,
+                          "TimeFormat" : "hh:mm:ss",
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 61.94444274902344,
+                          "Type" : "datetimepicker",
+                          "Visible" : true,
+                          "Width" : 96,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Date Time Picker",
+                          "__supportsLabel" : true,
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "ActiveStyle" : "DefaultButtonActiveStyle",
+                          "Area" : "UI",
+                          "CancelConfirmationButton" : "button2",
+                          "ConfirmationButton1Label" : "Yes",
+                          "ConfirmationButton2Label" : "No",
+                          "ConfirmationPrompt" : "Do Action?",
+                          "ConfirmationRequired" : false,
+                          "ConfirmationTitle" : "Confirm Action",
+                          "ContextId" : "",
+                          "DefaultConfirmationButton" : "button1",
+                          "Disabled" : false,
+                          "DisabledStyle" : "DefaultButtonDisabledStyle",
+                          "DisplayName" : "button-22",
+                          "FocusStyle" : "DefaultButtonFocusStyle",
+                          "Height" : 28,
+                          "HoverStyle" : "DefaultButtonHoverStyle",
+                          "IconAlignment" : "left",
+                          "Id" : "button-22",
+                          "Label" : "Get Data",
+                          "Left" : 1164.947998046875,
+                          "ResponsiveLayout" : false,
+                          "RoundedCorners" : true,
+                          "ShowDataLoading" : true,
+                          "Style" : "DefaultButtonStyle",
+                          "TabSequence" : 0,
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 61.90278625488281,
+                          "Type" : "button",
+                          "Visible" : true,
+                          "Width" : 75,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Button",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Alignment" : "left",
+                          "AllowEllipsis" : false,
+                          "Area" : "UI",
+                          "DisplayName" : "label-23",
+                          "Height" : 22,
+                          "Id" : "label-23",
+                          "Left" : 536.9618225097656,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Style" : "NCR.DCS.EventsHeaderLabelStyle",
+                          "Text" : "By Customer",
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 66.96180725097656,
+                          "Type" : "label",
+                          "Visible" : true,
+                          "Width" : 70,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Label",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Alignment" : "left",
+                          "Area" : "UI",
+                          "AutoSelectFirstRow" : false,
+                          "ClearIfNoSelection" : false,
+                          "ComboDropdownButtonStyle" : "DefaultComboDropdownButtonStyle",
+                          "ComboEnableCheckbox" : false,
+                          "ComboItemHighlightedStyle" : "DefaultComboItemHighlightedStyle",
+                          "ComboTextboxStyle" : "DefaultComboTextboxStyle",
+                          "DisableSelectedStyle" : false,
+                          "DisplayField" : "customer",
+                          "DisplayName" : "dhxlist-24",
+                          "DropdownButtonStyle" : "NCR.DCS.DefaultDropdownButtonStyle",
+                          "DropdownSelectedStyle" : "NCR.DCS.DefaultDropdownSelectedStyle",
+                          "DropdownStyle" : "NCR.DCS.DefaultDropdownStyle",
+                          "EnableKeyboardSelections" : true,
+                          "Height" : 28,
+                          "HeightOfDropdownView" : 170,
+                          "Id" : "dhxlist-24",
+                          "Label" : "",
+                          "LabelAlignment" : "left",
+                          "Left" : 615.9896240234375,
+                          "ListBackgroundStyle" : "NCR.DCS.DefaultListBackgroundStyle",
+                          "ListFocusStyle" : "NCR.DCS.DefaultListBackgroundStyle",
+                          "ListItemAlternateStyle" : "NCR.DCS.DefaultListItemAlternateStyle",
+                          "ListItemHoverStyle" : "NCR.DCS.DefaultListItemHoverStyle",
+                          "ListItemSelectedStyle" : "NCR.DCS.DefaultListItemSelectedStyle",
+                          "ListItemStyle" : "NCR.DCS.EventsListItemStyle",
+                          "ListLabelStyle" : "DefaultWidgetLabelStyle",
+                          "MultiSelect" : false,
+                          "NumberOfItemsInDropdownView" : 3,
+                          "ResponsiveLayout" : false,
+                          "RowHeight" : 30,
+                          "ShowDataLoading" : true,
+                          "TabSequence" : -1,
+                          "TextIfNoSelectionType" : "editable",
+                          "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                          "Top" : 60.97222900390625,
+                          "Type" : "dhxlist",
+                          "ValueField" : "customer",
+                          "View" : "dropdown",
+                          "Visible" : true,
+                          "Width" : 160,
+                          "WidthOfDropdownView" : 160,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "List",
+                          "__supportsLabel" : true,
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Alignment" : "left",
+                          "AllowEllipsis" : false,
+                          "Area" : "UI",
+                          "DisplayName" : "label-25",
+                          "Height" : 22,
+                          "Id" : "label-25",
+                          "Left" : 787.9688110351562,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Style" : "NCR.DCS.EventsHeaderLabelStyle",
+                          "Text" : "Start Date",
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 66.90972900390625,
+                          "Type" : "label",
+                          "Visible" : true,
+                          "Width" : 70,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Label",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Alignment" : "left",
+                          "AllowEllipsis" : false,
+                          "Area" : "UI",
+                          "DisplayName" : "label-26",
+                          "Height" : 22,
+                          "Id" : "label-26",
+                          "Left" : 973.9583740234375,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Style" : "NCR.DCS.EventsHeaderLabelStyle",
+                          "Text" : "End Date",
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 66.90972900390625,
+                          "Type" : "label",
+                          "Visible" : true,
+                          "Width" : 70,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Label",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "ActiveStyle" : "DefaultButtonActiveStyle",
+                          "Area" : "UI",
+                          "ColumnFormat" : "{}",
+                          "DataBinding" : {
+                            "Id" : "62a30788-3b40-42e7-ae92-0b2fe7abcf62",
+                            "PropertyMaps" : [ {
+                              "SourceProperty" : "",
+                              "SourcePropertyBaseType" : "INFOTABLE",
+                              "SourcePropertyType" : "InfoTable",
+                              "TargetProperty" : "Data",
+                              "TargetPropertyBaseType" : "INFOTABLE",
+                              "TargetPropertyType" : "property"
+                            } ],
+                            "SourceArea" : "Data",
+                            "SourceDetails" : "AllData",
+                            "SourceId" : "getNpmReport",
+                            "SourceSection" : "Things_NCR.DCS.DATABASE.THING",
+                            "TargetArea" : "UI",
+                            "TargetId" : "dataexport-27",
+                            "TargetSection" : ""
+                          },
+                          "DisplayName" : "dataexport-27",
+                          "ExportFileName" : "NpmReport",
+                          "FocusStyle" : "DefaultButtonFocusStyle",
+                          "Height" : 28,
+                          "HoverStyle" : "DefaultButtonHoverStyle",
+                          "IconAlignment" : "left",
+                          "Id" : "dataexport-27",
+                          "IncludeBOM" : false,
+                          "Label" : "Export Data",
+                          "Left" : 1256.9271240234375,
+                          "ResponsiveLayout" : false,
+                          "RoundedCorners" : true,
+                          "ShowDataLoading" : true,
+                          "Style" : "DefaultButtonStyle",
+                          "TabSequence" : 0,
+                          "Top" : 61.892364501953125,
+                          "Type" : "dataexport",
+                          "Visible" : true,
+                          "Width" : 70,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Data Export"
+                        },
+                        "Widgets" : [ ]
+                      }, {
+                        "Properties" : {
+                          "Alignment" : "left",
+                          "AllowEllipsis" : false,
+                          "Area" : "UI",
+                          "DisplayName" : "label-28",
+                          "Height" : 52,
+                          "Id" : "label-28",
+                          "Left" : 0,
+                          "ResponsiveLayout" : false,
+                          "ShowDataLoading" : true,
+                          "Style" : {
+                            "backgroundColor" : "",
+                            "displayString" : "",
+                            "fontEmphasisBold" : true,
+                            "fontEmphasisItalic" : false,
+                            "fontEmphasisUnderline" : false,
+                            "foregroundColor" : "#293948",
+                            "image" : "",
+                            "lineColor" : "",
+                            "lineStyle" : "solid",
+                            "lineThickness" : 4,
+                            "secondaryBackgroundColor" : "",
+                            "textSize" : "24px"
+                          },
+                          "Text" : "Software Delivery Report",
+                          "ToolTipField" : "",
+                          "ToolTipStyle" : "DefaultTooltipStyle",
+                          "Top" : 15,
+                          "Type" : "label",
+                          "Visible" : true,
+                          "Width" : 446,
+                          "Z-index" : 10,
+                          "__TypeDisplayName" : "Label",
+                          "__supportsTooltip" : true
+                        },
+                        "Widgets" : [ ]
+                      } ]
+                    } ]
+                  }, {
+                    "Properties" : {
+                      "AnimateExpandCollapse" : true,
+                      "Area" : "UI",
+                      "BGImageRepeat" : "no-repeat",
+                      "BGImageSize" : "auto",
+                      "DisplayName" : "Row",
+                      "ExpandCollapseTabLocation" : "outside",
+                      "Expanded" : true,
+                      "Id" : "container-29",
+                      "MinHeight" : 0,
+                      "MinWidth" : 0,
+                      "Overlay" : false,
+                      "OverlayIsTransparent" : false,
+                      "ResponsiveLayout" : true,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "Style" : "DefaultContainerStyle",
+                      "TabCollapseStyle" : "DefaultTabCollapseStyle",
+                      "TabExpandStyle" : "DefaultTabExpandStyle",
+                      "TabHeight" : 36,
+                      "TabLocation" : "center",
+                      "TabOffset" : 0,
+                      "TabWidth" : 36,
+                      "Type" : "container",
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Container"
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "Area" : "UI",
+                        "AutoScroll" : true,
+                        "CellBorderStyle" : "DefaultGridAdvancedCellBorderStyle",
+                        "ColumnFormat" : {
+                          "formatInfo" : [ ]
+                        },
+                        "Configuration" : "",
+                        "ConfigurationId" : 3,
+                        "CookiePersistence" : true,
+                        "DataOverflow" : "clipped",
+                        "DataServiceBindingDef" : {
+                          "entityName" : "NCR.DCS.DATABASE.THING",
+                          "entityType" : "Things",
+                          "target" : "getNpmReport"
+                        },
+                        "DefaultSelectedRows" : "",
+                        "DisplayName" : "gridadvanced-30",
+                        "EnableContextMenu" : true,
+                        "EnableFilterEventOnConfigChange" : true,
+                        "EnableGridReset" : true,
+                        "EnableGridSearch" : true,
+                        "EnableSorting" : true,
+                        "FocusStyle" : "DefaultFocusStyle",
+                        "GridResetButtonLocation" : "top-right",
+                        "GridSearchLocation" : "top-left",
+                        "HeaderOverflow" : "tooltip",
+                        "Height" : 200,
+                        "IDFieldName" : "id",
+                        "Id" : "gridadvanced-30",
+                        "IsEditable" : false,
+                        "Left" : 0,
+                        "MaxHeaderHeight" : 100,
+                        "MinRowHeight" : 30,
+                        "ResponsiveLayout" : true,
+                        "RowAlternateBackgroundStyle" : "DefaultGridAdvancedRowAlternateBackgroundStyle",
+                        "RowBackgroundStyle" : "DefaultGridAdvancedRowBackgroundStyle",
+                        "RowBorderStyle" : "DefaultGridAdvancedRowBorderStyle",
+                        "RowFormat_StateParameters" : [ ],
+                        "RowHoverStyle" : "DefaultGridAdvancedRowHoverStyle",
+                        "RowSelectedStyle" : "DefaultGridAdvancedRowSelectedStyle",
+                        "RowSelection" : "list",
+                        "SelectedRows" : "",
+                        "ShowDataLoading" : true,
+                        "SortAscendingStyle" : "DefaultSortAscendingStyle",
+                        "SortDescendingStyle" : "DefaultSortDescendingStyle",
+                        "TableHeaderStyle" : "DefaultGridAdvancedHeaderStyle",
+                        "TableWrapperStyle" : "DefaultGridAdvancedWrapperStyle",
+                        "ToolbarStyle" : "DefaultToolbarStyle",
+                        "TooltipStyle" : "DefaultTooltipStyle",
+                        "Top" : 0,
+                        "Type" : "gridadvanced",
+                        "Visible" : true,
+                        "Width" : 400,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Grid Advanced"
+                      },
+                      "Widgets" : [ ]
+                    } ]
+                  } ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

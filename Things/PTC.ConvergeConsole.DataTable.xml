@@ -1,0 +1,1367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Things>
+        <Thing
+         aspect.isExtension="true"
+         description="DataTable for the ThingWorx Utilities Console"
+         documentationContent=""
+         effectiveThingPackage="DataTableThing"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         lastModifiedDate="2018-10-24T20:59:51.467Z"
+         name="PTC.ConvergeConsole.DataTable"
+         projectName=""
+         published="false"
+         tags="PTC:ConvergeConsole;TWUTL:Core"
+         thingTemplate="DataTable"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions>
+                <Permissions
+                 resourceName="QueryDataTableEntries">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="Users"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="true"
+                         name="Users"
+                         type="Group"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke></ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+                <Permissions
+                 resourceName="CheckDesignTimePermission">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="Users"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+                <Permissions
+                 resourceName="GetNamedProperties">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="Users"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+                <Permissions
+                 resourceName="GetDataTableEntriesLocalized">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="Users"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+                <Permissions
+                 resourceName="CheckPermission">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="Users"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+                <Permissions
+                 resourceName="QueryDataTableEntriesLocalized">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="Users"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+            </RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 description="Data Thing Configuration"
+                 isMultiRow="false"
+                 name="DataThingSettings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Persistence Provider Name"
+                             name="persistenceProvider"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <persistenceProvider>
+                            <![CDATA[
+                            ThingworxPersistenceProvider
+                            ]]>
+                            </persistenceProvider>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="Index Settings"
+                 isMultiRow="true"
+                 name="Indexes"
+                 ordinal="1">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.friendlyName="Index Field Names"
+                             baseType="STRING"
+                             description="Index fields"
+                             name="fieldNames"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Index Name"
+                             baseType="STRING"
+                             description="Index name"
+                             name="name"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="Data Shape Configuration"
+                 isMultiRow="false"
+                 name="Settings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.friendlyName="Data Shape"
+                             baseType="DATASHAPENAME"
+                             description="Data shape"
+                             name="dataShape"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <accumulatedDataShape>
+                                <json>
+                                <![CDATA[
+                                {"fieldDefinitions":{"TileLabel":{"name":"TileLabel","aspects":{},"description":"","baseType":"TEXT","ordinal":11},"TileBackground":{"name":"TileBackground","aspects":{},"description":"","baseType":"STRING","ordinal":9},"InAppSwitcher":{"name":"InAppSwitcher","aspects":{"defaultValue":true},"description":"","baseType":"BOOLEAN","ordinal":0},"TileIcon":{"name":"TileIcon","aspects":{},"description":"","baseType":"STRING","ordinal":10},"LocalizedLabel":{"name":"LocalizedLabel","aspects":{},"description":"","baseType":"TEXT","ordinal":5},"RestrictedUserGroups":{"name":"RestrictedUserGroups","aspects":{},"description":"Comma separated list of user groups to restrict access to mashup.","baseType":"STRING","ordinal":8},"OpenInNewWindow":{"name":"OpenInNewWindow","aspects":{},"description":"","baseType":"BOOLEAN","ordinal":7},"InConvergeConsole":{"name":"InConvergeConsole","aspects":{"defaultValue":true},"description":"","baseType":"BOOLEAN","ordinal":1},"TileMashupOrURL":{"name":"TileMashupOrURL","aspects":{},"description":"","baseType":"STRING","ordinal":12},"TileTooltip":{"name":"TileTooltip","aspects":{},"description":"","baseType":"TEXT","ordinal":14},"TileOrder":{"name":"TileOrder","aspects":{},"description":"","baseType":"INTEGER","ordinal":13},"IsMashup":{"name":"IsMashup","aspects":{"defaultValue":true},"description":"","baseType":"BOOLEAN","ordinal":2},"LabelColor":{"name":"LabelColor","aspects":{"defaultValue":"white"},"description":"","baseType":"STRING","ordinal":4},"LocalizedTooltip":{"name":"LocalizedTooltip","aspects":{},"description":"","baseType":"TEXT","ordinal":6},"key":{"name":"key","aspects":{"isPrimaryKey":true},"description":"","baseType":"STRING","ordinal":3}}}
+                                ]]>
+                                </json>
+                            </accumulatedDataShape>
+                            <dataShape>
+                            <![CDATA[
+                            PTC.ConvergeConsole.DataShape
+                            ]]>
+                            </dataShape>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeThreshold="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.defaultValue="3"
+                     aspect.isLogged="false"
+                     aspect.isPersistent="true"
+                     aspect.isReadOnly="false"
+                     baseType="INTEGER"
+                     category=""
+                     description="Number of the columns in the App Switcher"
+                     isLocalOnly="false"
+                     name="NumberOfColumn"
+                     ordinal="1"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.isLogged="false"
+                     aspect.isPersistent="false"
+                     aspect.isReadOnly="false"
+                     baseType="MASHUPNAME"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="MashupName"
+                     ordinal="4"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeThreshold="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.defaultValue="3"
+                     aspect.isLogged="false"
+                     aspect.isPersistent="true"
+                     aspect.isReadOnly="false"
+                     baseType="INTEGER"
+                     category=""
+                     description="Number of rows in the App Switcher"
+                     isLocalOnly="false"
+                     name="NumberOfRow"
+                     ordinal="2"></PropertyDefinition>
+                    <PropertyDefinition
+                     aspect.cacheTime="0.0"
+                     aspect.dataChangeType="VALUE"
+                     aspect.defaultValue="&lt;p&gt;This utility is used to add/remove tiles to/from the ThingWorx Console or App Switcher. Each row in the table represents a tile.&lt;/p&gt;&lt;p&gt;To add/update a tile&lt;/p&gt;&lt;blockquote&gt;Specify the following fields&lt;/blockquote&gt;&lt;blockquote&gt;&lt;blockquote&gt;&lt;b&gt;Order&lt;/b&gt;: specify an integer number (0 - 1000) to indicate the tile order; a tile with a smaller number will appear before a tile with a larger number.&lt;/blockquote&gt;&lt;blockquote&gt;&lt;b&gt;Label&lt;/b&gt;: type a label if desirable.&lt;/blockquote&gt;&lt;blockquote&gt;&lt;b&gt;Show in Console&lt;/b&gt;: check to show the tile in the ThingWorx Console.&lt;/blockquote&gt;&lt;blockquote&gt;&lt;b&gt;Show in App Switcher&lt;/b&gt;: check to show the tile in the App Switcher.&lt;/blockquote&gt;&lt;blockquote&gt;&lt;b&gt;Mashup or URL&lt;/b&gt;: specify a Thingworx Mashup or URL to open upon the tile is clicked.&lt;/blockquote&gt;&lt;blockquote&gt;&lt;b&gt;Open in new window&lt;/b&gt;: check to open the mashup or URL in a new window.&lt;/blockquote&gt;&lt;blockquote&gt;&lt;b&gt;Icon&lt;/b&gt;: specify a ThingWorx Media for the icon.&lt;/blockquote&gt;&lt;blockquote&gt;&lt;b&gt;Background&lt;/b&gt;: specify a ThingWorx Media for the background.&lt;/blockquote&gt;&lt;/blockquote&gt;&lt;blockquote&gt;Choose&amp;nbsp;&lt;b&gt;Add/Update&lt;/b&gt;&lt;/blockquote&gt;&lt;p&gt;To delete a tile&lt;/p&gt;&lt;blockquote&gt;Select a row&lt;/blockquote&gt;&lt;blockquote&gt;Choose&amp;nbsp;&lt;b&gt;Delete Tile&lt;/b&gt;&lt;/blockquote&gt;&lt;p&gt;&lt;b&gt;Note: to change the position of a tile, add a new one at the desired position and delete the existing one.&lt;/b&gt;&lt;/p&gt; "
+                     aspect.isLogged="false"
+                     aspect.isPersistent="true"
+                     aspect.isReadOnly="false"
+                     baseType="HTML"
+                     category=""
+                     description=""
+                     isLocalOnly="false"
+                     name="Notes"
+                     ordinal="3"></PropertyDefinition>
+                </PropertyDefinitions>
+                <ServiceDefinitions>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="AddMissingInitialTiles">
+                        <ResultType
+                         baseType="INTEGER"
+                         description="Number of missing tiles that were added."
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="DEPRECATED. Use PTC.ConvergeConsoleHelper AddTile instead."
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="AddNewTile">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="BOOLEAN"
+                             description=""
+                             name="InAppSwitcher"
+                             ordinal="8"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="BOOLEAN"
+                             description=""
+                             name="InConvergeConsole"
+                             ordinal="10"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="BOOLEAN"
+                             description=""
+                             name="IsMashup"
+                             ordinal="7"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="BOOLEAN"
+                             description=""
+                             name="OpenInNewWindow"
+                             ordinal="9"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="RestrictedUserGroups"
+                             ordinal="11"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="TileBackground"
+                             ordinal="6"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="TileIcon"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="TileLabel"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="TileMashupOrURL"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="100.0"
+                             aspect.isRequired="true"
+                             baseType="NUMBER"
+                             description=""
+                             name="TileOrder"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="TileTooltip"
+                             ordinal="5"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="CleanupTileData">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GenerateInitialTiles">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetDataTableEntriesLocalized">
+                        <ResultType
+                         aspect.dataShape="PTC.ConvergeConsole.DataShape"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetInitialTileData">
+                        <ResultType
+                         aspect.dataShape="PTC.ConvergeConsole.DataShape"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="QueryDataTableEntriesLocalized">
+                        <ResultType
+                         aspect.dataShape="PTC.ConvergeConsole.DataShape"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="QUERY"
+                             description="Filter the results."
+                             name="query"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="UpdateTileEntries">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="PTC.ConvergeConsole.DataShape"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="values"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                </ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="AddMissingInitialTiles">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var result = 0;
+                                        var initialTiles = me.GetInitialTileData();
+                                        var tableLength = initialTiles.rows.length;
+                                        var missingRecords = me.CreateValues();
+                                        for (var x = 0; x < tableLength; x++) {
+                                            var row = initialTiles.rows[x];
+                                            try {
+                                                var params = {
+                                                    key: row.key /* STRING */
+                                                };
+                                                me.GetDataTableEntryByKey(params);
+                                            } catch(err) {
+                                                missingRecords.AddRow(row);
+                                                result++;
+                                            }
+                                        }
+                                        if (missingRecords.getRowCount() >= 1) {
+                                            var params = {
+                                                values: missingRecords
+                                            };
+                                            me.AddDataTableEntries(params);
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="AddNewTile">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var values = me.CreateValues();
+                                        
+                                        values.TileLabel = TileLabel; //TEXT
+                                        values.TileBackground = TileBackground; //STRING
+                                        values.InAppSwitcher = InAppSwitcher; //BOOLEAN
+                                        values.TileIcon = TileIcon; //STRING
+                                        values.OpenInNewWindow = OpenInNewWindow; //BOOLEAN
+                                        values.InConvergeConsole = InConvergeConsole; //BOOLEAN
+                                        values.TileMashupOrURL = TileMashupOrURL; //STRING
+                                        values.TileTooltip = TileTooltip; //TEXT
+                                        values.TileOrder = TileOrder; //INTEGER
+                                        values.IsMashup = IsMashup; //BOOLEAN
+                                        values.RestrictedUserGroups = RestrictedUserGroups; // String
+                                        values.key = Date.now();
+                                        
+                                        var params = {
+                                            sourceType: undefined /* STRING */,
+                                            values: values /* INFOTABLE*/,
+                                            location: undefined /* LOCATION */,
+                                            source: undefined /* STRING */,
+                                            tags: undefined /* TAGS */
+                                        };
+                                        
+                                        // result: STRING
+                                        var result = me.AddDataTableEntry(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="CleanupTileData">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // when importing an old release, the data in this data table will be imported as well. We need to update some entries
+                                        var tiles = me.GetDataTableEntries();
+                                        var updates = me.CreateValues();
+                                        for (var i = 0, l = tiles.rows.length; i < l; i++) {
+                                            var row = tiles.rows[i];
+                                        
+                                            // remove old RAC tile
+                                            if (row.TileMashupOrURL === "TW.RSM.Mashup.AssetSearchByKeyword") {
+                                                var values = me.CreateValues();
+                                                values.AddRow(row);
+                                                params = {
+                                                    values: values
+                                                };
+                                                me.DeleteDataTableEntries(params);
+                                                continue;
+                                            }
+                                        
+                                            // Workflow Editor updates
+                                            if (row.key === "10") {
+                                                row.TileMashupOrURL = "PTC.BusinessProcessEditor";
+                                                row.TileLabel = "[[TW.UTL.WB.ApplicationTitle]]";
+                                                row.TileTooltip = "[[PTC.Core.Create and edit workflows]]";
+                                                row.TileBackground = "TW.UTL.TileBackground.Orange";
+                                                row.TileIcon = "TW.UTL.TileIcon.WorkflowBuilder";
+                                                row.IsMashup = true;
+                                                row.LabelColor = "black";
+                                                updates.AddRow(row);
+                                            }
+                                        
+                                            // Workflow Manager updates
+                                            if (row.key === "20") {
+                                                row.TileMashupOrURL = "PTC.BusinessProcessManager";
+                                                row.TileLabel = "[[TW.UTL.WM.ApplicationTitle]]";
+                                                row.TileTooltip = "[[PTC.Core.View and manage workflows]]";
+                                                row.TileBackground = "TW.UTL.TileBackground.Orange";
+                                                row.TileIcon = "TW.UTL.TileIcon.WorkflowMgt";
+                                                row.IsMashup = true;
+                                                row.LabelColor = "black";
+                                                updates.AddRow(row);
+                                            }
+                                        
+                                            // Asset Manager updates
+                                            if (row.key === "45") {
+                                                row.TileMashupOrURL = "PTC.Asset.Mashup.AssetSearchByKeyword";
+                                                row.TileLabel = "[[TW.UTL.Asset.ApplicationTitle]]";
+                                                row.TileTooltip = "[[PTC.Core.AssetMonitorTileTooltip]]";
+                                                row.TileBackground = "TW.UTL.TileBackground.LightBlue";
+                                                row.TileIcon = "TW.UTL.TileIcon.AssetMgt";
+                                                row.IsMashup = true;
+                                                row.LabelColor = "black";
+                                                updates.AddRow(row);
+                                            }
+                                        
+                                            // SCM updates
+                                            if (row.key === "50") {
+                                                row.TileMashupOrURL = "TW.RSM.SFW.Mashup.SoftwareDashboard";
+                                                row.TileLabel = "[[TW.RSM.SFW.ApplicationTitle]]";
+                                                row.TileTooltip = "[[PTC.Core.Create, manage, test, and deploy packages to connected assets]]";
+                                                row.TileBackground = "TW.UTL.TileBackground.DarkBlue";
+                                                row.TileIcon = "TW.UTL.TileIcon.SoftwareContentMgt";
+                                                row.IsMashup = true;
+                                                row.LabelColor = "black";
+                                                if (!(row.RestrictedUserGroups || "").trim()) {
+                                                    row.RestrictedUserGroups = "TW.RSM.RemoteServices, TW.RSM.Admin";
+                                                }
+                                                updates.AddRow(row);
+                                            }
+                                        
+                                            // Alert Manager updates
+                                            if (row.key === "55") {
+                                                row.TileMashupOrURL = "PTC.Alert.Mashup.AlertMonitor";
+                                                row.TileLabel = "[[TW.UTL.Alert.ApplicationTitle]]";
+                                                row.TileTooltip = "[[PTC.Alert.AlertMonitorTileTooltip]]";
+                                                row.TileBackground = "TW.UTL.TileBackground.Red";
+                                                row.TileIcon = "TW.UTL.TileIcon.AlertMgt";
+                                                row.IsMashup = true;
+                                                row.LabelColor = "black";
+                                                updates.AddRow(row);
+                                            }
+                                        
+                                            // PRM updates
+                                            if (row.key === "30") {
+                                                row.TileMashupOrURL = "PTC.CRM.ProductRelationshipManager";
+                                                row.TileLabel = "[[TW.UTL.PRM.ApplicationTitle]]";
+                                                row.TileTooltip = "[[PTC.Core.Manage relationships between customers and assets]]";
+                                                row.TileBackground = "TW.UTL.TileBackground.Green";
+                                                row.TileIcon = "TW.UTL.TileIcon.ProductRelationshipMgt";
+                                                row.IsMashup = true;
+                                                row.LabelColor = "black";
+                                                updates.AddRow(row);
+                                            }
+                                        
+                                            // help center updates
+                                            if (row.key === "70") {
+                                                row.TileMashupOrURL = "[[TW.UTL.HelpCenterURL.8]]";
+                                                row.TileLabel = "[[PTC.Core.ThingWorx Utilities Help Center]]";
+                                                row.TileTooltip = "[[PTC.Core.ThingWorx Utilities Help Center]]";
+                                                row.TileBackground = "TW.UTL.TileBackground.Purple";
+                                                row.TileIcon = "TW.UTL.TileIcon.HelpCenter";
+                                                row.IsMashup = false;
+                                                row.LabelColor = "black";
+                                                updates.AddRow(row);
+                                            }
+                                        
+                                            // composer updates
+                                            if (row.key === "60") {
+                                                row.TileMashupOrURL = "/Thingworx/Composer/";
+                                                row.TileLabel = "[[PTC.Core.ThingWorx Composer]]";
+                                                row.TileTooltip = "[[PTC.Core.Build and model unique applications]]";
+                                                row.TileBackground = "TW.UTL.TileBackground.DarkGreen";
+                                                row.TileIcon = "TW.UTL.TileIcon.TwxComposer";
+                                                row.IsMashup = false;
+                                                row.LabelColor = "black";
+                                                updates.AddRow(row);
+                                            }
+                                            // audit management
+                                            if (row.key === "65") {
+                                                row.TileMashupOrURL = "TW.UTL.Audit.Mashup.AuditArchive";
+                                                row.TileLabel = "Audit Management";
+                                                row.TileTooltip = "Audit Management";
+                                                row.TileBackground = "TW.UTL.TileBackground.Red";
+                                                row.TileIcon = "TW.UTL.TileIcon.AuditMgt";
+                                                row.IsMashup = true;
+                                                row.LabelColor = "black";
+                                                updates.AddRow(row);
+                                            }
+                                        }
+                                        me.UpdateDataTableEntries({
+                                            "values": updates
+                                        });
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GenerateInitialTiles">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        if (me.GetDataTableEntryCount() === 0) {
+                                            me.AddDataTableEntries({
+                                                values: me.GetInitialTileData()
+                                            });
+                                        } else {
+                                            var num = me.AddMissingInitialTiles();
+                                            if (num > 0)
+                                            {
+                                               logger.info("Added " + num + " missing initial Thingworx Utility Console Tiles.");
+                                            }
+                                            me.CleanupTileData();
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetDataTableEntriesLocalized">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                            maxItems: undefined,
+                                            query: {"sorts":[{"fieldName":"TileOrder","isAscending":true}]}
+                                        };
+                                        
+                                        var result = me.QueryDataTableEntries(params);
+                                        
+                                        var x = result.rows.length;
+                                        
+                                        while (x--) {
+                                            var row = result.rows[x];
+                                            if (row.IsMashup && !Mashups[row.TileMashupOrURL]) {
+                                                result.RemoveRow(x);
+                                            }
+                                            else {
+                                                var label = row.TileLabel;
+                                                row.LocalizedLabel = label;
+                                                if (label && label.indexOf("[[") == 0) {
+                                                    try {
+                                                        row.LocalizedLabel = Resources["RuntimeLocalizationFunctions"].GetEffectiveToken({token: label.substring(2, label.length -2)});
+                                                    } catch (e) {}
+                                                }
+                                                var tooltip = row.TileTooltip;
+                                                row.LocalizedTooltip = tooltip || '';
+                                                if (tooltip && tooltip.indexOf("[[") == 0) {
+                                                    try {
+                                                      row.LocalizedTooltip = Resources["RuntimeLocalizationFunctions"].GetEffectiveToken({token: tooltip.substring(2, tooltip.length -2)});
+                                                      } catch (e) {}
+                                                }
+                                            }
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetInitialTileData">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var values = [
+                                            {
+                                                "TileBackground":"TW.UTL.TileBackground.Orange",
+                                                "TileMashupOrURL":"PTC.BusinessProcessEditor",
+                                                "OpenInNewWindow":false,
+                                                "TileLabel":"[[TW.UTL.WB.ApplicationTitle]]",
+                                                "TileOrder":10,
+                                                "key": "10",
+                                                "TileIcon":"TW.UTL.TileIcon.WorkflowBuilder",
+                                                "InConvergeConsole":true,
+                                                "InAppSwitcher":true,
+                                                "IsMashup":true,
+                                                "TileTooltip":"[[PTC.Core.Create and edit workflows]]",
+                                                "RestrictedUserGroups":"",
+                                                "LabelColor":"black"
+                                            },
+                                            {
+                                                "TileBackground":"TW.UTL.TileBackground.Orange",
+                                                "TileMashupOrURL":"PTC.BusinessProcessManager",
+                                                "OpenInNewWindow":false,
+                                                "TileLabel":"[[TW.UTL.WM.ApplicationTitle]]",
+                                                "TileOrder":10,
+                                                "key": "20",
+                                                "TileIcon":"TW.UTL.TileIcon.WorkflowMgt",
+                                                "InConvergeConsole":true,
+                                                "InAppSwitcher":true,
+                                                "IsMashup":true,
+                                                "TileTooltip":"[[PTC.Core.View and manage workflows]]",
+                                                "RestrictedUserGroups":"",
+                                                "LabelColor":"black"
+                                            },
+                                            {
+                                                "TileBackground":"TW.UTL.TileBackground.Green",
+                                                "TileMashupOrURL":"PTC.CRM.ProductRelationshipManager",
+                                                "OpenInNewWindow":false,
+                                                "TileLabel":"[[TW.UTL.PRM.ApplicationTitle]]",
+                                                "TileOrder":10,
+                                                "key": "30",
+                                                "TileIcon":"TW.UTL.TileIcon.ProductRelationshipMgt",
+                                                "InConvergeConsole":true,
+                                                "InAppSwitcher":true,
+                                                "IsMashup":true,
+                                                "TileTooltip":"[[PTC.Core.Manage relationships between customers and assets]]",
+                                                "RestrictedUserGroups":"",
+                                                "LabelColor":"black"
+                                            },
+                                            {
+                                                "TileBackground":"TW.UTL.TileBackground.LightBlue",
+                                                "TileMashupOrURL":"PTC.Asset.Mashup.AssetSearchByKeyword",
+                                                "OpenInNewWindow":false,
+                                                "TileLabel":"[[TW.UTL.Asset.ApplicationTitle]]",
+                                                "TileOrder":10,
+                                                "key": "45",
+                                                "TileIcon":"TW.UTL.TileIcon.AssetMgt",
+                                                "InConvergeConsole":true,
+                                                "InAppSwitcher":true,
+                                                "IsMashup":true,
+                                                "TileTooltip":"[[PTC.Core.AssetMonitorTileTooltip]]",
+                                                "RestrictedUserGroups":"",
+                                                "LabelColor":"black"
+                                            },
+                                            {
+                                                "TileBackground":"TW.UTL.TileBackground.DarkBlue",
+                                                "TileMashupOrURL":"TW.RSM.SFW.Mashup.SoftwareDashboard",
+                                                "OpenInNewWindow":false,
+                                                "TileLabel":"[[TW.RSM.SFW.ApplicationTitle]]",
+                                                "TileOrder":10,
+                                                "key": "50",
+                                                "TileIcon":"TW.UTL.TileIcon.SoftwareContentMgt",
+                                                "InConvergeConsole":true,
+                                                "InAppSwitcher":true,
+                                                "IsMashup":true,
+                                                "TileTooltip":"[[PTC.Core.Create, manage, test, and deploy packages to connected assets]]",
+                                                "RestrictedUserGroups":"TW.RSM.RemoteServices, TW.RSM.Admin",
+                                                "LabelColor":"black"
+                                            },
+                                            {
+                                                "TileBackground":"TW.UTL.TileBackground.Red",
+                                                "TileMashupOrURL":"PTC.Alert.Mashup.AlertMonitor",
+                                                "OpenInNewWindow":false,
+                                                "TileLabel":"[[TW.UTL.Alert.ApplicationTitle]]",
+                                                "TileOrder":10,
+                                                "key": "55",
+                                                "TileIcon":"TW.UTL.TileIcon.AlertMgt",
+                                                "InConvergeConsole":true,
+                                                "InAppSwitcher":true,
+                                                "IsMashup":true,
+                                                "TileTooltip":"[[PTC.Alert.AlertMonitorTileTooltip]]",
+                                                "RestrictedUserGroups":"",
+                                                "LabelColor":"black"
+                                            },
+                                            {
+                                                "TileBackground":"TW.UTL.TileBackground.DarkGreen",
+                                                "TileMashupOrURL":"/Thingworx/Composer/",
+                                                "OpenInNewWindow":true,
+                                                "TileLabel":"[[PTC.Core.ThingWorx Composer]]",
+                                                "TileOrder":60,
+                                                "key": "60",
+                                                "TileIcon":"TW.UTL.TileIcon.TwxComposer",
+                                                "InConvergeConsole":true,
+                                                "InAppSwitcher":false,
+                                                "IsMashup":false,
+                                                "TileTooltip":"[[PTC.Core.Build and model unique applications]]",
+                                                "RestrictedUserGroups":"",
+                                                "LabelColor":"black"
+                                            },
+                                            {
+                                                "TileBackground":"TW.UTL.TileBackground.Purple",
+                                                "TileMashupOrURL":"[[TW.UTL.HelpCenterURL.8]]",
+                                                "OpenInNewWindow":true,
+                                                "TileLabel":"[[PTC.Core.ThingWorx Utilities Help Center]]",
+                                                "TileOrder":70,
+                                                "key": "70",
+                                                "TileIcon":"TW.UTL.TileIcon.HelpCenter",
+                                                "InConvergeConsole":true,
+                                                "InAppSwitcher":true,
+                                                "IsMashup":false,
+                                                "TileTooltip":"[[PTC.Core.ThingWorx Utilities Help Center]]",
+                                                "RestrictedUserGroups":"",
+                                                "LabelColor":"black"
+                                            },
+                                            {
+                                                "TileBackground":"PTC.Gray",
+                                                "TileMashupOrURL":"PTC.ConvergeConsole.AddRemoveTiles",
+                                                "OpenInNewWindow":false,
+                                                "TileLabel":"[[PTC.Core.Add/Remove Tiles]]",
+                                                "TileOrder":80,
+                                                "key": "80",
+                                                "TileIcon":"PTC.AddRemoveTiles",
+                                                "InConvergeConsole":true,
+                                                "InAppSwitcher":false,
+                                                "IsMashup":true,
+                                                "TileTooltip":"[[PTC.Core.Add or remove tiles on the ThingWorx Console]]",
+                                                "RestrictedUserGroups":"",
+                                                "LabelColor":"white"
+                                            },
+                                            {
+                                                "TileBackground":"PTC.Gray",
+                                                "TileMashupOrURL":"PTC.ConvergeConsole",
+                                                "OpenInNewWindow":false,
+                                                "TileLabel":"[[PTC.Core.ThingWorx Console]]",
+                                                "TileOrder":90,
+                                                "key": "90",
+                                                "TileIcon":"PTC.ConvergeConsole",
+                                                "InConvergeConsole":false,
+                                                "InAppSwitcher":true,
+                                                "IsMashup":true,
+                                                "TileTooltip":"[[PTC.Core.ThingWorx Console]]",
+                                                "RestrictedUserGroups":"",
+                                                "LabelColor":"white"
+                                            },
+                                            {
+                                                "TileBackground":"TW.UTL.TileBackground.Red",
+                                                "TileMashupOrURL":"TW.UTL.Audit.Mashup.AuditArchive",
+                                                "OpenInNewWindow":false,
+                                                "TileLabel":"Audit Management",
+                                                "TileOrder":10,
+                                                "key": "65",
+                                                "TileIcon":"TW.UTL.TileIcon.AuditMgt",
+                                                "InConvergeConsole":true,
+                                                "InAppSwitcher":true,
+                                                "IsMashup":true,
+                                                "TileTooltip":"Audit Management",
+                                                "RestrictedUserGroups":"",
+                                                "LabelColor":"black"
+                                            },
+                                            {
+                                                "TileOrder":91,
+                                                "key": "91",
+                                                "TileLabel":"[[PTC.Core.MRI Demo Simulator]]",
+                                                "InConvergeConsole":false,
+                                                "InAppSwitcher":false,
+                                                "IsMashup":true,
+                                                "TileMashupOrURL":"PTC.Demo.Assets.AllMRIMachines",
+                                                "OpenInNewWindow":true,
+                                                "TileIcon":"PTC.MRI",
+                                                "TileBackground":"PTC.Magenta",
+                                                "TileTooltip":"",
+                                                "RestrictedUserGroups":"",
+                                                "LabelColor":"white"
+                                            },
+                                            {
+                                                "TileOrder":92,
+                                                "key": "92",
+                                                "TileLabel":"www.ptc.com",
+                                                "InConvergeConsole":false,
+                                                "InAppSwitcher":false,
+                                                "IsMashup":false,
+                                                "TileMashupOrURL":"http://www.ptc.com",
+                                                "OpenInNewWindow":true,
+                                                "TileIcon":"PTC.Logo.White.100",
+                                                "TileBackground":"PTC.DarkGray",
+                                                "TileTooltip":"[[PTC.Core.Official PTC website]]",
+                                                "RestrictedUserGroups":"",
+                                                "LabelColor":"white"
+                                            },
+                                            {
+                                                "TileOrder":93,
+                                                "key": "93",
+                                                "TileLabel":"[[PTC.Core.Dark Red Template]]",
+                                                "InConvergeConsole":false,
+                                                "InAppSwitcher":false,
+                                                "IsMashup":false,
+                                                "TileMashupOrURL":"",
+                                                "OpenInNewWindow":true,
+                                                "TileIcon":"PTC.Mashup",
+                                                "TileBackground":"PTC.DarkRed",
+                                                "TileTooltip":"[[PTC.Core.Dark Red Template]]",
+                                                "RestrictedUserGroups":"",
+                                                "LabelColor":"white"
+                                            },
+                                            {
+                                                "TileOrder":94,
+                                                "key": "94",
+                                                "TileLabel":"[[PTC.Core.Yellow Template]]",
+                                                "InConvergeConsole":false,
+                                                "InAppSwitcher":false,
+                                                "IsMashup":false,
+                                                "TileMashupOrURL":"",
+                                                "OpenInNewWindow":true,
+                                                "TileIcon":"PTC.Mashup",
+                                                "TileBackground":"PTC.Yellow",
+                                                "TileTooltip":"[[PTC.Core.Yellow Template]]",
+                                                "RestrictedUserGroups":"",
+                                                "LabelColor":"white"
+                                            },
+                                            {
+                                                "TileOrder":95,
+                                                "key": "95",
+                                                "TileLabel":"[[PTC.Core.Red Template]]",
+                                                "InConvergeConsole":false,
+                                                "InAppSwitcher":false,
+                                                "IsMashup":false,
+                                                "TileMashupOrURL":"",
+                                                "OpenInNewWindow":true,
+                                                "TileIcon":"PTC.ExternalLink",
+                                                "TileBackground":"PTC.Red",
+                                                "TileTooltip":"[[PTC.Core.Red Template]]",
+                                                "RestrictedUserGroups":"",
+                                                "LabelColor":"white"
+                                            },
+                                            {
+                                                "TileOrder":96,
+                                                "key": "96",
+                                                "TileLabel":"[[PTC.Core.Dark Teal Template]]",
+                                                "InConvergeConsole":false,
+                                                "InAppSwitcher":false,
+                                                "IsMashup":false,
+                                                "TileMashupOrURL":"",
+                                                "OpenInNewWindow":true,
+                                                "TileIcon":"PTC.ExternalLink",
+                                                "TileBackground":"PTC.DarkTeal",
+                                                "TileTooltip":"[[PTC.Core.Dark Teal Template]]",
+                                                "RestrictedUserGroups":"",
+                                                "LabelColor":"white"
+                                            }
+                                        ];
+                                        
+                                        var result = me.CreateValues();
+                                        
+                                        values.map(function(value) {
+                                            result.AddRow(value);
+                                        });
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="QueryDataTableEntriesLocalized">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                            query: query
+                                        };
+                                        
+                                        var result = me.QueryDataTableEntries(params);
+                                        var x = result.rows.length;
+                                        
+                                        var hasUpdate = me.CheckPermission({
+                                            type: 'ServiceInvoke',
+                                            name: 'UpdateDataTableEntry'
+                                        });
+                                        
+                                        var hasAdmin = me.CheckDesignTimePermission({
+                                            type: 'Create'
+                                        });
+                                        
+                                        while (x--) {
+                                            var row = result.rows[x];
+                                            if ( (row.IsMashup && !Mashups[row.TileMashupOrURL])
+                                               || (row.TileMashupOrURL === '/Thingworx/Composer/' && !hasAdmin)
+                                               || (row.TileMashupOrURL === 'PTC.ConvergeConsole.AddRemoveTiles' && !hasUpdate)) {
+                                                result.RemoveRow(x);
+                                            }
+                                            else {
+                                                var label = row.TileLabel;
+                                                row.LocalizedLabel = label;
+                                                if (label && label.indexOf("[[") == 0) {
+                                                   try {
+                                                       row.LocalizedLabel = Resources["RuntimeLocalizationFunctions"].GetEffectiveToken({
+                                                           token: label.substring(2, label.length -2)});
+                                                    } catch (e) {}
+                                                }
+                                                var tooltip = row.TileTooltip;
+                                                row.LocalizedTooltip = tooltip || '';
+                                                if (tooltip && tooltip.indexOf("[[") == 0) {
+                                                    try {
+                                                        row.LocalizedTooltip = Resources["RuntimeLocalizationFunctions"].GetEffectiveToken(
+                                                            { token: tooltip.substring(2, tooltip.length -2) });
+                                                    } catch (e) {}
+                                                }
+                                            }
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="UpdateTileEntries">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        if (values && values.getRowCount() > 0) {
+                                            var params = {
+                                                values: values /* INFOTABLE*/,
+                                            };
+                                            me.UpdateDataTableEntries(params);
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions>
+                    <Subscription
+                     enabled="true"
+                     eventName="ThingStart"
+                     source=""
+                     sourceProperty=""
+                     sourceType="Thing">
+                        <ServiceImplementation
+                         description=""
+                         handlerName="Script"
+                         name="Event.ThingStart">
+                            <ConfigurationTables>
+                                <ConfigurationTable
+                                 description=""
+                                 isMultiRow="false"
+                                 name="Script"
+                                 ordinal="0">
+                                    <DataShape>
+                                        <FieldDefinitions>
+                                            <FieldDefinition
+                                             baseType="STRING"
+                                             description="code"
+                                             name="code"
+                                             ordinal="0"></FieldDefinition>
+                                        </FieldDefinitions>
+                                    </DataShape>
+                                    <Rows>
+                                        <Row>
+                                            <code>
+                                            <![CDATA[
+                                            me.GenerateInitialTiles();
+                                            ]]>
+                                            </code>
+                                        </Row>
+                                    </Rows>
+                                </ConfigurationTable>
+                            </ConfigurationTables>
+                        </ServiceImplementation>
+                    </Subscription>
+                </Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations>
+                <AlertDefinitions
+                 name="MashupName"></AlertDefinitions>
+                <AlertDefinitions
+                 name="Notes"></AlertDefinitions>
+                <AlertDefinitions
+                 name="NumberOfColumn"></AlertDefinitions>
+                <AlertDefinitions
+                 name="NumberOfRow"></AlertDefinitions>
+            </AlertConfigurations>
+            <ImplementedShapes></ImplementedShapes>
+            <ThingProperties>
+                <NumberOfColumn>
+                    <Value>4</Value>
+                    <Timestamp>2016-11-11T14:26:17.986Z</Timestamp>
+                    <Quality>UNKNOWN</Quality>
+                </NumberOfColumn>
+                <NumberOfRow>
+                    <Value>2</Value>
+                    <Timestamp>2016-11-11T14:26:17.987Z</Timestamp>
+                    <Quality>UNKNOWN</Quality>
+                </NumberOfRow>
+                <Notes>
+                    <Value>
+                    <![CDATA[
+                    <p>This utility is used to add/remove tiles to/from the ThingWorx Utilities Console or App Switcher. Each row in the table represents a tile.</p>
+                    
+                    <p>To create a tile and add it to the table</p>
+                    
+                    <blockquote>Specify the following fields in the Console Tile panel</blockquote>
+                    
+                    <blockquote>
+                    <blockquote><b>Order</b>: specify an integer number (0 - 1000) to indicate the tile order; a tile with a smaller number will appear before a tile with a larger number.</blockquote>
+                    
+                    <blockquote><b>Label</b>: type a label if desirable.</blockquote>
+                    
+                    <blockquote><b>Mashup or URL</b>: specify a Thingworx Mashup or URL to open upon the tile is clicked.</blockquote>
+                    
+                    <blockquote><b>Open in new window</b>: check to open the mashup or URL in a new window.</blockquote>
+                    
+                    <blockquote><b>Icon</b>: specify a Thingworx Media for the icon. Use PTC.ConvergeConsole.Tile.Dummy.Icon if no icon is available or desirable.</blockquote>
+                    
+                    <blockquote><b>Background</b>: specify a Thingworx Media for the background. &nbsp;Use PTC.ConvergeConsole.Tile.Dummy.Background if no background is available or desirable.</blockquote>
+                    
+                    <blockquote><b>Tile Visibility</b>: Optional (use with caution) comma delimited string of user groups to restrict the visibility of the tile.</blockquote>
+                    </blockquote>
+                    
+                    <blockquote>Choose <b>Create Tile</b></blockquote>
+                    
+                    <p>To delete a tile</p>
+                    
+                    <blockquote>Select a row</blockquote>
+                    
+                    <blockquote>Choose&nbsp;<b>Delete Tile </b>from the toolbar</blockquote>
+                    
+                    <p>To modify a tile</p>
+                    
+                    <blockquote>Select a row</blockquote>
+                    
+                    <blockquote>Change the corresponding fields</blockquote>
+                    
+                    <blockquote>Choose&nbsp;<b>Save Tile</b></blockquote>
+                    
+                    <p>To show a tile</p>
+                    
+                    <blockquote>Select a row</blockquote>
+                    <blockquote>Check <b>In Console</b>&nbsp;to show the tile in the ThingWorx Utilities Console</blockquote>
+                    <blockquote>Check <b>In App Switcher</b>&nbsp;to show the tile in the App Switcher</blockquote>
+                    ]]>
+                    </Value>
+                    <Timestamp>2016-11-11T14:26:17.988Z</Timestamp>
+                    <Quality>UNKNOWN</Quality>
+                </Notes>
+            </ThingProperties>
+        </Thing>
+    </Things>
+</Entities>

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent="&lt;p&gt;&lt;br&gt;&lt;/p&gt;"
+         homeMashup=""
+         lastModifiedDate="2018-10-24T21:00:18.696Z"
+         name="TW.RSM.SFW.Mashup.TargetParameterEditor"
+         projectName=""
+         rows="0.0"
+         tags="Applications:RSM;Applications:SCM;TWUTL:RemoteServices">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="2"
+                 baseType="THINGNAME"
+                 description=""
+                 name="ManagerName"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="STRING"
+                 description=""
+                 name="ParameterName"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="1"
+                 baseType="STRING"
+                 description=""
+                 name="ParameterValue"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things></Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates>
+                <ThingTemplate>TW.RSM.SFW.Tmpl.Manager</ThingTemplate>
+            </ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "DynamicThingTemplates_TW_RSM_SFW_Tmpl_Manager" : {
+                  "DataName" : "DynamicThingTemplates_TW_RSM_SFW_Tmpl_Manager",
+                  "EntityName" : "TW.RSM.SFW.Tmpl.Manager",
+                  "EntityType" : "DynamicThingTemplates",
+                  "Id" : "a6e09318-2d83-4a21-804b-7041efd93d98",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "c4ac5342-96e3-44d4-835f-6da18d2ae3df",
+                    "Name" : "AddOrUpdateDeliveryTargetParameter",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "AddOrUpdateDeliveryTargetParameter"
+                  } ]
+                },
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "af15ab08-5a01-4030-8c31-64c957663680",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ParameterName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Textbox-1",
+                "TargetSection" : ""
+              }, {
+                "Id" : "9c61314a-d810-46d3-854e-ee5dc749c26c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ParameterValue",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Textbox-2",
+                "TargetSection" : ""
+              }, {
+                "Id" : "d07ce016-2455-46c0-8b45-b90c97092b82",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ManagerName",
+                  "SourcePropertyBaseType" : "THINGNAME",
+                  "TargetProperty" : "value",
+                  "TargetPropertyBaseType" : "THINGNAME",
+                  "TargetPropertyType" : "Entity"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "EntityName",
+                "TargetSection" : "DynamicThingTemplates_TW_RSM_SFW_Tmpl_Manager"
+              }, {
+                "Id" : "a803d863-4b38-4467-b840-cd84da2d9c36",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "Name",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textbox-1",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "AddOrUpdateDeliveryTargetParameter",
+                "TargetSection" : "DynamicThingTemplates_TW_RSM_SFW_Tmpl_Manager"
+              }, {
+                "Id" : "8d1b64e4-bb8b-4157-8879-6d3cfe2a88e3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "Value",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textbox-2",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "AddOrUpdateDeliveryTargetParameter",
+                "TargetSection" : "DynamicThingTemplates_TW_RSM_SFW_Tmpl_Manager"
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "AddOrUpdateDeliveryTargetParameter",
+                "EventTriggerSection" : "DynamicThingTemplates_TW_RSM_SFW_Tmpl_Manager",
+                "Id" : "076c45bf-b5f4-48ab-b568-b724ab721e16"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "DynamicThingTemplates_TW_RSM_SFW_Tmpl_Manager",
+                "EventHandlerService" : "AddOrUpdateDeliveryTargetParameter",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "Button-4",
+                "EventTriggerSection" : "",
+                "Id" : "be51917a-f433-4697-ab1f-11418fb5c1da"
+              }, {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "Button-3",
+                "EventTriggerSection" : "",
+                "Id" : "bb4da508-b9e0-4d4d-a11f-0380abf7448c"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "Area" : "Mashup",
+                  "DisplayName" : "Mashup",
+                  "Height" : 178,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Style" : "DefaultMashupStyle",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 279,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "ParameterName"
+                  }, {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "ParameterValue"
+                  }, {
+                    "BaseType" : "THINGNAME",
+                    "Description" : "",
+                    "ParameterName" : "ManagerName"
+                  } ],
+                  "id_index" : 4,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                    "DisplayName" : "Name",
+                    "Height" : 24,
+                    "Id" : "Textbox-1",
+                    "InnerShadow" : true,
+                    "Label" : "[[TW.RSM.SFW.Name]]",
+                    "Left" : 15,
+                    "MaskInputCharacters" : false,
+                    "ReadOnly" : false,
+                    "ResponsiveLayout" : false,
+                    "Style" : "DefaultTextBoxStyle",
+                    "TabSequence" : 0,
+                    "Text" : "",
+                    "TextAlign" : "left",
+                    "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                    "Top" : 12,
+                    "Type" : "textbox",
+                    "Visible" : true,
+                    "Width" : 245,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Textbox",
+                    "__supportsLabel" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                    "DisplayName" : "Value",
+                    "Height" : 24,
+                    "Id" : "Textbox-2",
+                    "InnerShadow" : true,
+                    "Label" : "[[TW.RSM.SFW.Value]]",
+                    "Left" : 15,
+                    "MaskInputCharacters" : false,
+                    "ReadOnly" : false,
+                    "ResponsiveLayout" : false,
+                    "Style" : "DefaultTextBoxStyle",
+                    "TabSequence" : 0,
+                    "Text" : "",
+                    "TextAlign" : "left",
+                    "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                    "Top" : 62,
+                    "Type" : "textbox",
+                    "Visible" : true,
+                    "Width" : 245,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Textbox",
+                    "__supportsLabel" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "ActiveStyle" : "DefaultButtonActiveStyle",
+                    "Area" : "UI",
+                    "CancelConfirmationButton" : "button2",
+                    "ConfirmationButton1Label" : "[[TW.RSM.SFW.Yes]]",
+                    "ConfirmationButton2Label" : "[[TW.RSM.SFW.No]]",
+                    "ConfirmationPrompt" : "[[TW.RSM.SFW.Do Action?]]",
+                    "ConfirmationRequired" : false,
+                    "ConfirmationTitle" : "[[TW.RSM.SFW.Confirm Action]]",
+                    "DefaultConfirmationButton" : "button1",
+                    "DisplayName" : "Cancel",
+                    "FocusStyle" : "DefaultButtonFocusStyle",
+                    "Height" : 30,
+                    "HoverStyle" : "DefaultButtonHoverStyle",
+                    "Id" : "Button-3",
+                    "Label" : "[[TW.RSM.SFW.Cancel]]",
+                    "Left" : 15,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : true,
+                    "Style" : "DefaultButtonStyle",
+                    "TabSequence" : 0,
+                    "Top" : 130,
+                    "Type" : "button",
+                    "Visible" : true,
+                    "Width" : 75,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Button"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "ActiveStyle" : "DefaultButtonActiveStyle",
+                    "Area" : "UI",
+                    "CancelConfirmationButton" : "button2",
+                    "ConfirmationButton1Label" : "[[TW.RSM.SFW.Yes]]",
+                    "ConfirmationButton2Label" : "[[TW.RSM.SFW.No]]",
+                    "ConfirmationPrompt" : "[[TW.RSM.SFW.Do Action?]]",
+                    "ConfirmationRequired" : false,
+                    "ConfirmationTitle" : "[[TW.RSM.SFW.Confirm Action]]",
+                    "DefaultConfirmationButton" : "button1",
+                    "DisplayName" : "OK",
+                    "FocusStyle" : "DefaultButtonFocusStyle",
+                    "Height" : 30,
+                    "HoverStyle" : "DefaultButtonHoverStyle",
+                    "Id" : "Button-4",
+                    "Label" : "[[TW.RSM.SFW.OK]]",
+                    "Left" : 185,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : true,
+                    "Style" : "DefaultButtonStyle",
+                    "TabSequence" : 0,
+                    "Top" : 130,
+                    "Type" : "button",
+                    "Visible" : true,
+                    "Width" : 75,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Button"
+                  },
+                  "Widgets" : [ ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

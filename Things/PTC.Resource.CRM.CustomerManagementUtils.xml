@@ -1,0 +1,2031 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Things>
+        <Thing
+         aspect.isExtension="true"
+         description="DEPRECATED. Should no longer be used and could be removed in a later release."
+         documentationContent=""
+         effectiveThingPackage="ConfiguredThing"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         lastModifiedDate="2018-10-24T20:59:55.921Z"
+         name="PTC.Resource.CRM.CustomerManagementUtils"
+         projectName=""
+         published="false"
+         tags="PTC:CRM;TWUTL:Core;TWUTL:DEPRECATED"
+         thingTemplate="GenericThing"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions>
+                <Permissions
+                 resourceName="FindCustomerRow">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="Users"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+                <Permissions
+                 resourceName="GetAllCustomersCount">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="Users"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+                <Permissions
+                 resourceName="GetAllCustomers">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="Users"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+                <Permissions
+                 resourceName="GetTWXCustomer">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="Users"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+                <Permissions
+                 resourceName="IsNewCustomer">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="Users"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+                <Permissions
+                 resourceName="GetCustomerDetailsMashup">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="Users"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="PTC.ProductRelationshipAdministrators"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+                <Permissions
+                 resourceName="GetNewCustomersCount">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="Users"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+                <Permissions
+                 resourceName="CheckPermission">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="Users"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+                <Permissions
+                 resourceName="GetCustomersByGeography">
+                    <PropertyRead></PropertyRead>
+                    <PropertyWrite></PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="Users"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke></EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+            </RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="AssignAssets">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="PTC.Resource.CRM.AssignAssetShape"
+                             aspect.isRequired="true"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="Assets"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.dataShape="PTC.Resource.CRM.CommonCustomerData"
+                             aspect.isRequired="true"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="Customer"
+                             ordinal="2"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="CreateCustomer">
+                        <ResultType
+                         aspect.dataShape="PTC.Resource.CRM.ThingworxCustomerDataShape"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="PTC.Resource.CRM.ThingworxCustomerDataShape"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="objects"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="CreateThingworxCustomer">
+                        <ResultType
+                         aspect.dataShape="PTC.Resource.CRM.ThingworxCustomerDataShape"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="Address1"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="Address2"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="City"
+                             ordinal="6"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="Country"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="DisplayName"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="IMAGELINK"
+                             description=""
+                             name="Image"
+                             ordinal="10"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="Number"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="PostalCode"
+                             ordinal="8"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="State"
+                             ordinal="7"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="StateCode"
+                             ordinal="9"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="DeleteThingworxCustomer">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="PTC.Resource.CRM.CommonCustomerData"
+                             aspect.isRequired="true"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="Customer"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="FindCustomerRow">
+                        <ResultType
+                         baseType="NUMBER"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="customerId"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.dataShape="PTC.Resource.CRM.CommonCustomerData"
+                             aspect.isRequired="true"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="customers"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetAllCustomers">
+                        <ResultType
+                         aspect.dataShape="PTC.Resource.CRM.CommonCustomerData"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="JSON"
+                             description=""
+                             name="extraParams"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="QUERY"
+                             description=""
+                             name="query"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetAllCustomersCount">
+                        <ResultType
+                         baseType="INTEGER"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="PTC.Resource.CRM.CommonCustomerData"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="Customers"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetCountryList">
+                        <ResultType
+                         aspect.dataShape="PTC.Resource.ListItem"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetCustomerDetailsMashup">
+                        <ResultType
+                         baseType="MASHUPNAME"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="id"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetCustomerRelationships">
+                        <ResultType
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="PTC.Resource.CRM.CommonCustomerData"
+                             aspect.isRequired="true"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="Customer"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetCustomersByGeography">
+                        <ResultType
+                         aspect.dataShape="PTC.Resource.ChartableItemShape"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="PTC.Resource.CRM.CommonCustomerData"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="Customers"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetNewCustomersCount">
+                        <ResultType
+                         baseType="INTEGER"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="PTC.Resource.CRM.CommonCustomerData"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="Customers"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetStateList">
+                        <ResultType
+                         aspect.dataShape="PTC.Resource.ListItem"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="United States"
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="Country"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetTWXCustomer">
+                        <ResultType
+                         aspect.dataShape="PTC.Resource.CRM.ThingworxCustomerDataShape"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="QUERY"
+                             description=""
+                             name="assetQuery"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.isRequired="false"
+                             baseType="STRING"
+                             description=""
+                             name="id"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description="Filters the results to only include items that the user has write access to the Owner attribute."
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetUnassignedAssets">
+                        <ResultType
+                         aspect.dataShape="PTC.Resource.CRM.AssignAssetShape"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="QUERY"
+                             description=""
+                             name="Query"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="HasAssets">
+                        <ResultType
+                         baseType="BOOLEAN"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="PTC.Resource.TemplateDataShape"
+                             aspect.isRequired="true"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="CustomerRelationships"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="IsNewCustomer">
+                        <ResultType
+                         aspect.dataShape="PTC.Resource.CRM.CommonCustomerData"
+                         baseType="BOOLEAN"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="DATETIME"
+                             description=""
+                             name="CustomerCreateDate"
+                             ordinal="2"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category="PRM"
+                     description="Migrate Customer Things that were created before renaming customers was enabled. This will copy the Customer Thing's name to a new &quot;Name&quot; property."
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="MigrateCustomerNames">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="UnassignAssets">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.dataShape="PTC.Resource.TemplateDataShape"
+                             aspect.isRequired="true"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="Relationships"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="UpdateThingworxCustomer">
+                        <ResultType
+                         aspect.dataShape="PTC.Resource.CRM.ThingworxCustomerDataShape"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="Address1"
+                             ordinal="5"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="Address2"
+                             ordinal="6"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="City"
+                             ordinal="7"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="Country"
+                             ordinal="4"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="CustomerId"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="DisplayName"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="IMAGELINK"
+                             description=""
+                             name="Image"
+                             ordinal="11"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="Number"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="PostalCode"
+                             ordinal="9"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="State"
+                             ordinal="8"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="StateCode"
+                             ordinal="10"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="UpdateVisibilityToCustomerImages">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                </ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="AssignAssets">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        if (Assets) {
+                                            var customerUrn = Customer.getRow(0).Id;
+                                        
+                                            var objects = {
+                                                dataShape: {
+                                                    fieldDefinitions: {
+                                                        "Owner-Id": {
+                                                            name: "Owner-Id",
+                                                            baseType: "STRING"
+                                                        },
+                                                        "Ownables-Id": {
+                                                            name: "Ownables-Id",
+                                                            baseType: "STRING"
+                                                        }
+                                                    }
+                                                },
+                                                rows: []
+                                            };
+                                        
+                                            for (var i = 0 ; i < Assets.rows.length; i++) {
+                                                var row = Assets.rows[i];
+                                                if (row.Selected) {
+                                                    objects.rows.push({
+                                                        "Owner-Id": customerUrn,
+                                                        "Ownables-Id": row.Id
+                                                    });
+                                                }
+                                            }
+                                        
+                                            var params = {
+                                                modelTags: [{"vocabulary":"Relationship","vocabularyTerm":"Ownership"}] /* TAGS */,
+                                                serviceName: "Create" /* STRING */,
+                                                params: {
+                                                    dataShape: {
+                                                        fieldDefinitions: {
+                                                            objects: {
+                                                                name: "objects",
+                                                                baseType: "INFOTABLE"
+                                                            }
+                                                        }
+                                                    },
+                                                    rows: [
+                                                        {
+                                                            "objects": objects
+                                                        }
+                                                    ]
+                                                }/* INFOTABLE */
+                                            };
+                                        
+                                            var result;
+                                            try {
+                                                result = Things["PTC.Resource.ResourceManager"].CallServiceByCriteria(params);
+                                            } catch (e) {
+                                                //Create a better error message with fewer java exception class names
+                                                var excpetionStr = 'xception:';
+                                                var message = e.toString();
+                                                var index = message.indexOf(excpetionStr);
+                                                while (index > 0) {
+                                                    message = message.substring(index + excpetionStr.length + 1);
+                                                    index = message.indexOf(excpetionStr);
+                                                }
+                                                throw new Error(message);
+                                            }
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="CreateCustomer">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                            resourceProvider: "PTC.Resource.CRM.ThingworxCustomerResourceProvider" /* THINGNAME */,
+                                            dataShapeName: "PTC.Resource.CRM.ThingworxCustomerDataShape" /* DATASHAPENAME */,
+                                            objects: objects /* INFOTABLE */,
+                                            extraParams: undefined /* JSON */
+                                        };
+                                        
+                                        // result: INFOTABLE
+                                        var result = Things["PTC.Resource.ResourceManager"].Create(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="CreateThingworxCustomer">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                            infoTableName : "InfoTable",
+                                            dataShapeName : "PTC.Resource.CRM.ThingworxCustomerDataShape"
+                                        };
+                                        // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(PTC.Resource.CRM.ThingworxCustomerDataShape)
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        
+                                        var street = Address1;
+                                        if (Address2 && Address2 != '') {
+                                            street = street + ' ' + Address2;
+                                        }
+                                        
+                                        var formattedAddress = street + ', ' + City + ', ' + StateCode + ' ' + PostalCode;
+                                        var params = {
+                                            headers: undefined /* JSON */,
+                                            useProxy: undefined /* BOOLEAN */,
+                                            proxyHost: undefined /* STRING */,
+                                            useNTLM: undefined /* BOOLEAN */,
+                                            ignoreSSLErrors: undefined /* BOOLEAN */,
+                                            proxyPort: undefined /* INTEGER */,
+                                            withCookies: undefined /* BOOLEAN */,
+                                            password: undefined /* STRING */,
+                                            url: 'http://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent(formattedAddress) /* STRING */,
+                                            workstation: undefined /* STRING */,
+                                            username: undefined /* STRING */,
+                                            proxyScheme: undefined /* STRING */,
+                                            domain: undefined /* STRING */,
+                                            timeout: undefined /* NUMBER */
+                                        };
+                                        // result: JSON
+                                        var addressLocation = Resources["ContentLoaderFunctions"].GetJSON(params);
+                                        
+                                        if (addressLocation.results && addressLocation.results.length > 0) {
+                                            var location = {
+                                                latitude: addressLocation.results[0].geometry.location.lat,
+                                                longitude: addressLocation.results[0].geometry.location.lng
+                                            }
+                                        }
+                                        
+                                        // PTC.Resource.CRM.ThingworxCustomerDataShape entry object
+                                        var newEntry = new Object();
+                                        newEntry.ImageAssociableImage = picture; // IMAGELINK
+                                        newEntry.ShippingStateCode = StateCode; // STRING
+                                        newEntry.ShippingCountry = Country; // STRING
+                                        newEntry.ShippingStreet = street; // STRING
+                                        newEntry.Number = Number; // STRING
+                                        newEntry.ShippingState = State; // STRING
+                                        newEntry.DisplayName = DisplayName; // STRING
+                                        newEntry.Ownable = undefined; // INFOTABLE
+                                        newEntry.ShippingCity = City; // STRING
+                                        newEntry.ShippingLocation = location; // LOCATION
+                                        newEntry.Id = undefined; // STRING
+                                        newEntry.ShippingCountryCode = undefined; // STRING
+                                        newEntry.ShippingPostalCode = PostalCode; // STRING
+                                        newEntry.CustomerTemplate = "PTC.Resource.CRM.CustomerTemplate";
+                                        
+                                        result.AddRow(newEntry);
+                                        
+                                        var params = {
+                                            resourceProvider: 'PTC.Resource.CRM.ThingworxCustomerResourceProvider' /* THINGNAME */,
+                                            dataShapeName: 'PTC.Resource.CRM.ThingworxCustomerDataShape' /* DATASHAPENAME */,
+                                            objects: result /* INFOTABLE */,
+                                            extraParams: undefined /* JSON */
+                                        };
+                                        // result: INFOTABLE
+                                        var result = Things["PTC.Resource.ResourceManager"].Create(params);
+                                        
+                                        // If there is an image, add it to the result and then update.
+                                        //Thingworx/MediaEntities is default return of file upload widget
+                                        if (Image != null && Image != '/Thingworx/MediaEntities/') {
+                                          var customer = result.getRow(0);
+                                          var params = {
+                                            path: Image /* STRING */
+                                          };
+                                          // result: IMAGE
+                                          var Content = Things["SystemRepository"].LoadImage(params);
+                                        
+                                          var params = {
+                                            image: Content /* IMAGE */,
+                                            tags: "TWUTL:PRMImage",
+                                            entityName: Things["PTC.Resource.ResourceManager"].GetIdFromUrn({urn: customer.Id}) + '-Picture' /* STRING */
+                                          };
+                                          // result: IMAGELINK
+                                          var picture = Resources["PTC.Resource.ResourcePersistenceFunctions"].CreateMediaEntity(params);
+                                        
+                                          customer.ImageAssociableImage = picture; // IMAGELINK
+                                        
+                                          var params1 = {
+                                            infoTableName : "InfoTable",
+                                            dataShapeName : "PTC.Resource.CRM.ThingworxCustomerDataShape"
+                                          };
+                                          // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(PTC.Resource.CRM.ThingworxCustomerDataShape)
+                                          var updated = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params1);
+                                          updated.AddRow(customer);
+                                        
+                                          var params2 = {
+                                            dataShapeName: "PTC.Resource.CRM.ThingworxCustomerDataShape" /* DATASHAPENAME */,
+                                            objects: updated /* INFOTABLE */,
+                                            extraParams: undefined /* JSON */
+                                          };
+                                          // result: INFOTABLE
+                                          var result = Things["PTC.Resource.ResourceManager"].Update(params2);
+                                        
+                                          me.UpdateVisibilityToCustomerImages();
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="DeleteThingworxCustomer">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                          entityName: Customer.ImageAssociableImage /* STRING */
+                                        };
+                                        
+                                        Resources["PTC.Resource.ResourcePersistenceFunctions"].DeleteMediaEntity(params);
+                                        
+                                        params = {
+                                          objects: Customer /* INFOTABLE */
+                                        };
+                                        // result: INFOTABLE
+                                        Things["PTC.Resource.ResourceManager"].Delete(params);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="FindCustomerRow">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var tableLength = customers.rows.length;
+                                        for (var x = 0; x < tableLength; x++) {
+                                            var row = customers.rows[x];
+                                            //Your code here
+                                            if (row.Id === customerId) {
+                                                var result = x;
+                                                break;
+                                            }
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetAllCustomers">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                            modelTags: [{"vocabulary":"Role","vocabularyTerm":"Owner"}] /* TAGS */,
+                                            serviceName: "Get" /* STRING */,
+                                            params: { /* INFOTABLE */
+                                                dataShape: {
+                                                    fieldDefinitions: {
+                                                        dataShapeName: {
+                                                            name: "dataShapeName",
+                                                            baseType: "STRING"
+                                                        },
+                                                        query: {
+                                                            name: "query",
+                                                            baseType: "QUERY"
+                                                        },
+                                                        extraParams: {
+                                                            name: "extraParams",
+                                                            baseType: "JSON"
+                                                        }
+                                                    }
+                                                },
+                                                rows: [{
+                                                    dataShapeName: "PTC.Resource.CRM.CommonCustomerData",
+                                                    query: query,
+                                                    extraParams: extraParams
+                                                }]
+                                            },
+                                            resourceType: undefined /* THINGTEMPLATENAME */
+                                        };
+                                        
+                                        // result: INFOTABLE
+                                        var result = Things["PTC.Resource.ResourceManager"].CallServiceByCriteria(params);
+                                        
+                                        var tableLength = result.rows.length;
+                                        for (var i = 0; i < tableLength; i++) {
+                                            var customer = result.rows[i];
+                                        
+                                            var params = {
+                                                CustomerCreateDate: customer["CreateTimestamp"] /* DATETIME */
+                                            };
+                                        
+                                            customer["IsNewCustomer"] = me.IsNewCustomer(params);
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetAllCustomersCount">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // result: INFOTABLE dataShape: "PTC.Resource.CRM.CommonCustomerData"
+                                        var result = (Customers) ? Customers.getRowCount() : 0;
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetCountryList">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                            infoTableName : "InfoTable",
+                                            dataShapeName : "PTC.Resource.ListItem"
+                                        };
+                                        // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(PTC.Resource.ListItem)
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        
+                                        result.AddRow({value: 'United States', label: 'United States'});
+                                        result.AddRow({value: 'Canada', label: 'Canada'});
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetCustomerDetailsMashup">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var result;
+                                        if (!id || id === '') {
+                                            // default to overview mashup
+                                            result = "PTC.Resource.CRM.CustomerOverview";
+                                        } else {
+                                            var params = {
+                                                urn: id /* STRING */
+                                            };
+                                            // result: MASHUPNAME
+                                            result = Things["PTC.Resource.ResourceManager"].GetDetailsMashup(params);
+                                        }
+                                        
+                                        // check for google widgets
+                                        if (!Resources["TW.UTL.UtilSetupHelper"].GoogleWidgetsExtensionExists()) {
+                                            var altMashup = result + ".NoMap";
+                                            if (Mashups[altMashup]) {
+                                                result = altMashup;
+                                            }
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetCustomerRelationships">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // Get the resource provider
+                                        var provider = Things["PTC.Resource.ResourceManager"].GetProviderFromUrn({
+                                            urn: Customer.rows[0].Id
+                                        });
+                                        
+                                        
+                                        var roles = Things[provider].tags.GetTerms("Role");
+                                        
+                                        for (var i = 0; i < roles.length; i++) {
+                                            var params = {
+                                                serviceName: "InflateFromRole" /* STRING */,
+                                                resourceType: "PTC.Resource.KeyBasedRelationshipResourceProviderTemplate",
+                                                params: {
+                                                    dataShape: {
+                                                        fieldDefinitions: {
+                                                            fromRoleResources: {
+                                                                name: "fromRoleResources",
+                                                                baseType: "INFOTABLE"
+                                                            },
+                                                            fromRole: {
+                                                                name: "fromRole",
+                                                                baseType: "STRING"
+                                                            },
+                                                            dataShapeName: {
+                                                                name: "dataShapeName",
+                                                                baseType: "DATASHAPENAME"
+                                                            }
+                                                        }
+                                                    },
+                                                    rows: [
+                                                        {
+                                                            fromRoleResources: Customer,
+                                                            fromRole: roles[i],
+                                                            dataShapeName: "PTC.Resource.TemplateDataShape"
+                                                        }
+                                                    ]
+                                                }/* INFOTABLE */
+                                            };
+                                        
+                                            var resources = Things["PTC.Resource.ResourceManager"].CallServiceByCriteria(params);
+                                        
+                                            if (i == 0) {
+                                                var result = resources;
+                                            } else {
+                                                for (var j = 0 ; j < resources.rows.length; j++) {
+                                                    result.AddRow(resources.rows[j]);
+                                                }
+                                            }
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetCustomersByGeography">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var geographies = {};
+                                        
+                                        if(Customers && Customers.rows) {
+                                            var tableLength = Customers.rows.length;
+                                            for (var i = 0; i < tableLength; i++) {
+                                                  var state = Customers.rows[i]["ShippingState"];
+                                        
+                                                var stateCount = ((geographies[state]) ? geographies[state] : 0) + 1;
+                                                geographies[state] = stateCount;
+                                            }
+                                        }
+                                        
+                                        var params = {
+                                            infoTableName : "InfoTable",
+                                            dataShapeName : "PTC.Resource.ChartableItemShape"
+                                        };
+                                        
+                                        // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(PTC.Resource.CRM.CustomersByGeographyShape)
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        var property;
+                                        for(property in geographies) {
+                                            var percentage = (geographies[property]/tableLength) * 100;
+                                            result.AddRow({Label: property, Value: percentage});
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetNewCustomersCount">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var result = 0;
+                                        if(Customers && Customers.rows) {
+                                            var tableLength = Customers.rows.length;
+                                            for (var i = 0; i < tableLength; i++) {
+                                                var customer = Customers.rows[i];
+                                        
+                                                var params = {
+                                                    CustomerCreateDate: customer["CreateTimestamp"] /* DATETIME */
+                                                };
+                                        
+                                                if(me.IsNewCustomer(params)) {
+                                                    // add the current customer as a "New" customer
+                                                    result++;
+                                                }
+                                            }
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetStateList">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                            infoTableName : "InfoTable",
+                                            dataShapeName : "PTC.Resource.ListItem"
+                                        };
+                                        // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(PTC.Resource.ListItem)
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        
+                                        if (Country == 'United States') {
+                                            result.AddRow({label: "AL", value: "Alabama"});
+                                            result.AddRow({label: "AK", value: "Alaska"});
+                                            result.AddRow({label: "AZ", value: "Arizona"});
+                                            result.AddRow({label: "AR", value: "Arkansas"});
+                                            result.AddRow({label: "CA", value: "California"});
+                                            result.AddRow({label: "CO", value: "Colorado"});
+                                            result.AddRow({label: "CT", value: "Connecticut"});
+                                            result.AddRow({label: "DE", value: "Delaware"});
+                                            result.AddRow({label: "FL", value: "Florida"});
+                                            result.AddRow({label: "GA", value: "Georgia"});
+                                            result.AddRow({label: "HI", value: "Hawaii"});
+                                            result.AddRow({label: "ID", value: "Idaho"});
+                                            result.AddRow({label: "IL", value: "Illinois"});
+                                            result.AddRow({label: "IN", value: "Indiana"});
+                                            result.AddRow({label: "IA", value: "Iowa"});
+                                            result.AddRow({label: "KS", value: "Kansas"});
+                                            result.AddRow({label: "KY", value: "Kentucky"});
+                                            result.AddRow({label: "LA", value: "Louisiana"});
+                                            result.AddRow({label: "ME", value: "Maine"});
+                                            result.AddRow({label: "MD", value: "Maryland"});
+                                            result.AddRow({label: "MA", value: "Massachusetts"});
+                                            result.AddRow({label: "MI", value: "Michigan"});
+                                            result.AddRow({label: "MN", value: "Minnesota"});
+                                            result.AddRow({label: "MS", value: "Mississippi"});
+                                            result.AddRow({label: "MO", value: "Missouri"});
+                                            result.AddRow({label: "MT", value: "Montana"});
+                                            result.AddRow({label: "NE", value: "Nebraska"});
+                                            result.AddRow({label: "NV", value: "Nevada"});
+                                            result.AddRow({label: "NH", value: "New Hampshire"});
+                                            result.AddRow({label: "NJ", value: "New Jersey"});
+                                            result.AddRow({label: "NM", value: "New Mexico"});
+                                            result.AddRow({label: "NY", value: "New York"});
+                                            result.AddRow({label: "NC", value: "North Carolina"});
+                                            result.AddRow({label: "ND", value: "North Dakota"});
+                                            result.AddRow({label: "OH", value: "Ohio"});
+                                            result.AddRow({label: "OK", value: "Oklahoma"});
+                                            result.AddRow({label: "OR", value: "Oregon"});
+                                            result.AddRow({label: "PA", value: "Pennsylvania"});
+                                            result.AddRow({label: "RI", value: "Rhode Island"});
+                                            result.AddRow({label: "SC", value: "South Carolina"});
+                                            result.AddRow({label: "SD", value: "South Dakota"});
+                                            result.AddRow({label: "TN", value: "Tennessee"});
+                                            result.AddRow({label: "TX", value: "Texas"});
+                                            result.AddRow({label: "UT", value: "Utah"});
+                                            result.AddRow({label: "VT", value: "Vermont"});
+                                            result.AddRow({label: "VA", value: "Virginia"});
+                                            result.AddRow({label: "WA", value: "Washington"});
+                                            result.AddRow({label: "WV", value: "West Virginia"});
+                                            result.AddRow({label: "WI", value: "Wisconsin"});
+                                            result.AddRow({label: "WY", value: "Wyoming"});
+                                        } else {
+                                            result.AddRow({label: "AB", value: "Alberta"});
+                                            result.AddRow({label: "BC", value: "British Columbia"});
+                                            result.AddRow({label: "MB", value: "Manitoba"});
+                                            result.AddRow({label: "NB", value: "New Brunswick"});
+                                            result.AddRow({label: "NL", value: "Newfoundland and Labrador"});
+                                            result.AddRow({label: "NS", value: "Nova Scotia"});
+                                            result.AddRow({label: "ON", value: "Ontario"});
+                                            result.AddRow({label: "PE", value: "Prince Edward Island"});
+                                            result.AddRow({label: "QC", value: "Quebec"});
+                                            result.AddRow({label: "SK", value: "Saskatchewan"});
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetTWXCustomer">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var result;
+                                        if (id) {
+                                           var params = {
+                                                id: id /* STRING */,
+                                                dataShapeName: "PTC.Resource.CRM.ThingworxCustomerDataShape" /* DATASHAPENAME */,
+                                                extraParams: {
+                                                    "$expand": {
+                                                        "Ownables": {
+                                                            "query": assetQuery,
+                                                            "dataShape": "PTC.Resource.Asset.CommonAssetShape"
+                                                        }
+                                                    }
+                                                }
+                                            };
+                                            result = Things["PTC.Resource.ResourceManager"].GetById(params);
+                                        } else {
+                                            var params = {
+                                                infoTableName : "InfoTable",
+                                                dataShapeName : "PTC.Resource.CRM.ThingworxCustomerDataShape"
+                                            };
+                                            result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetUnassignedAssets">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                        	query: Query /* QUERY */
+                                        };
+                                        
+                                        // result: INFOTABLE
+                                        var assets = Resources["PTC.Asset.AssetMonitorUtilities"].QueryAssets(params);
+                                        
+                                        
+                                        
+                                        var params = {
+                                            infoTableName : "InfoTable",
+                                            dataShapeName : "PTC.Resource.CRM.AssignAssetShape"
+                                        };
+                                        // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(PTC.Resource.CRM.AssignAssetShape)
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        
+                                        var tableLength = assets.rows.length;
+                                        for (var x = 0; x < tableLength; x++) {
+                                            var row = assets.rows[x];
+                                            if (row.IsActive === false) {
+                                                continue;
+                                            }
+                                            //Your code here
+                                            row.Selected = false;
+                                            result.AddRow(row);
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="HasAssets">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var result = false;
+                                        
+                                        if (CustomerRelationships.rows.length > 0) {
+                                           result = true;
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="IsNewCustomer">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var currentTime = new Date();
+                                        
+                                        // this will determine how far back we'll check, currently it's looking back 1 week (7 days)
+                                        var maxDateRange = 1000*60*60*24*7; // default is one week
+                                        
+                                        var result = false;
+                                        var difference = dateDifference(currentTime, CustomerCreateDate);
+                                        
+                                        if(difference <= maxDateRange) {
+                                            result = true;
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="MigrateCustomerNames">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        // customers: INFOTABLE dataShape: RootEntityList
+                                        var customers = Resources["SearchFunctions"].SearchThingsByShape({thingShape: "PTC.Resource.CRM.ThingworxCustomer"});
+                                        var tableLength = customers.rows.length;
+                                        
+                                        for (var x = 0; x < tableLength; x++) {
+                                            var customer = customers.rows[x];
+                                        
+                                            if (Things[customer.name].DisplayName == null) {
+                                                Things[customer.name].AddPropertyDefinition({
+                                                    type: "STRING" /* BASETYPENAME */,
+                                                    name: "DisplayName" /* STRING */,
+                                                    persistent: true /* BOOLEAN */
+                                                });
+                                            }
+                                        
+                                            // Check the length of the DisplayName property from this Customer Thing
+                                            if (Things[customer.name].DisplayName.length === 0) {
+                                                // Update Customer Thing's DisplayName property with its Thing name
+                                                Things[customer.name].DisplayName = customer.name;
+                                            }
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="UnassignAssets">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        if (Relationships && Relationships.rows.length > 0) {
+                                            Things["PTC.Resource.ResourceManager"].Delete({
+                                                objects: Relationships
+                                            });
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="UpdateThingworxCustomer">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var params = {
+                                            id: CustomerId /* STRING */
+                                        };
+                                        // result: INFOTABLE dataShape: "PTC.Resource.CRM.ThingworxCustomerDataShape"
+                                        var customer = me.GetTWXCustomer(params).getRow(0);
+                                        
+                                        var street = Address1;
+                                        if (Address2 && Address2 != '') {
+                                            street = street + ' ' + Address2;
+                                        }
+                                        var formattedAddress = street + ', ' + City + ', ' + StateCode + ' ' + PostalCode;
+                                        var params = {
+                                            headers: undefined /* JSON */,
+                                            useProxy: undefined /* BOOLEAN */,
+                                            proxyHost: undefined /* STRING */,
+                                            useNTLM: undefined /* BOOLEAN */,
+                                            ignoreSSLErrors: undefined /* BOOLEAN */,
+                                            proxyPort: undefined /* INTEGER */,
+                                            withCookies: undefined /* BOOLEAN */,
+                                            password: undefined /* STRING */,
+                                            url: 'http://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURIComponent(formattedAddress) /* STRING */,
+                                            workstation: undefined /* STRING */,
+                                            username: undefined /* STRING */,
+                                            proxyScheme: undefined /* STRING */,
+                                            domain: undefined /* STRING */,
+                                            timeout: undefined /* NUMBER */
+                                        };
+                                        // result: JSON
+                                        var addressLocation = Resources["ContentLoaderFunctions"].GetJSON(params);
+                                        
+                                        if (addressLocation.results && addressLocation.results.length > 0) {
+                                            var location = {
+                                                latitude: addressLocation.results[0].geometry.location.lat,
+                                                longitude: addressLocation.results[0].geometry.location.lng
+                                            };
+                                        }
+                                        
+                                        
+                                        //Thingworx/MediaEntities is default return of file upload widget
+                                        if (Image != null && Image != '/Thingworx/MediaEntities/') {
+                                          var params = {
+                                            path: Image /* STRING */
+                                          };
+                                          // result: IMAGE
+                                          var Content = Things["SystemRepository"].LoadImage(params);
+                                          var params = {
+                                            image: Content /* IMAGE */,
+                                            tags: "TWUTL:PRMImage",
+                                            entityName: Things["PTC.Resource.ResourceManager"].GetIdFromUrn({urn: CustomerId}) + '-Picture' /* STRING */
+                                          };
+                                          // result: IMAGELINK
+                                          var picture = Resources["PTC.Resource.ResourcePersistenceFunctions"].CreateOrUpdateMediaEntity(params);
+                                          customer.ImageAssociableImage = picture; // IMAGELINK
+                                        
+                                          me.UpdateVisibilityToCustomerImages();
+                                        }
+                                        
+                                        customer.DisplayName = DisplayName; // STRING
+                                        customer.Name = DisplayName; // STRING
+                                        customer.Number = Number; // STRING
+                                        customer.ShippingStateCode = StateCode; // STRING
+                                        customer.ShippingCountry = Country; // STRING
+                                        customer.ShippingStreet = street; // STRING
+                                        customer.ShippingState = State; // STRING
+                                        customer.ShippingCity = City; // STRING
+                                        customer.ShippingPostalCode = PostalCode; // STRING
+                                        if (location) {
+                                          customer.ShippingLocation = location; // LOCATION
+                                        }
+                                        
+                                        var params1 = {
+                                            infoTableName : "InfoTable",
+                                            dataShapeName : "PTC.Resource.CRM.ThingworxCustomerDataShape"
+                                        };
+                                        // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(PTC.Resource.CRM.ThingworxCustomerDataShape)
+                                        var updated = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params1);
+                                        updated.AddRow(customer);
+                                        
+                                        var params2 = {
+                                            dataShapeName: "PTC.Resource.CRM.ThingworxCustomerDataShape" /* DATASHAPENAME */,
+                                            objects: updated /* INFOTABLE */,
+                                            extraParams: undefined /* JSON */
+                                        };
+                                        // result: INFOTABLE
+                                        var result = Things["PTC.Resource.ResourceManager"].Update(params2);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="UpdateVisibilityToCustomerImages">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        try {
+                                            // make sure PRM admin have access to any new media entities
+                                            var permissions = me.GetVisibilityPermissions();
+                                            var tableLength = permissions.rows.length;
+                                        
+                                            for (var x = 0; x < tableLength; x++) {
+                                                var row = permissions.rows[x];
+                                                var params = {
+                                                    tags: "TWUTL:PRMImage",
+                                                    orgOrOrgUnit: row.name
+                                                };
+                                                Resources["TW.UTL.UtilSetupHelper"].AddVisibilityForTaggedEntities(params);
+                                            }
+                                        } catch(e) {}
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ImplementedShapes></ImplementedShapes>
+            <ThingProperties></ThingProperties>
+        </Thing>
+    </Things>
+</Entities>

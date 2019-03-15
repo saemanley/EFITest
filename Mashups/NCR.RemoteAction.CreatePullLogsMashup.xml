@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isResponsive="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-11-06T02:37:23.998Z"
+         name="NCR.RemoteAction.CreatePullLogsMashup"
+         projectName="DCS. Project.Main"
+         rows="0.0"
+         tags="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:ReleaseManagement"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:SCM"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:TCS"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="STRING"
+                 description=""
+                 name="assetName"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="1"
+                 baseType="STRING"
+                 description=""
+                 name="assetType"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things>
+                <Thing>NCR.BaseDeviceHelper</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "CustomMashupCss" : "",
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_NCR.BaseDeviceHelper" : {
+                  "DataName" : "Things_NCR.BaseDeviceHelper",
+                  "EntityName" : "NCR.BaseDeviceHelper",
+                  "EntityType" : "Things",
+                  "Id" : "a5831e91-0d16-4a81-a33b-e554b5049411",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "f87e1fd2-ce56-4653-a088-50d2baebb959",
+                    "Name" : "disableButton",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "disableButton"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "1e2c31af-9152-44cb-ad51-5b7305fde081",
+                    "Name" : "GetRemoteActionsForCategory",
+                    "Parameters" : {
+                      "category" : "PULLLOGS"
+                    },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetRemoteActionsForCategory"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "eb2f5b72-c1ef-44e5-81e7-7030bbd18daa",
+                    "Name" : "ProcessRemoteAction",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "ProcessRemoteAction"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "d8c065b2-7156-46d5-ab7d-9130acaefd33",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Disabled",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "disableButton",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "button-52",
+                "TargetSection" : ""
+              }, {
+                "Id" : "82b7d48b-e938-4189-a5f7-610bf2637b8d",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "assetName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "assetName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetRemoteActionsForCategory",
+                "TargetSection" : "Things_NCR.BaseDeviceHelper"
+              }, {
+                "Id" : "b2d637c7-4a17-4a27-bb5f-b53d391eb901",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "assetType",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "assetType",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetRemoteActionsForCategory",
+                "TargetSection" : "Things_NCR.BaseDeviceHelper"
+              }, {
+                "Id" : "b7eb6dbf-9801-4847-aa28-f6e366ec6795",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "SourcePropertyType" : "InfoTable",
+                  "TargetProperty" : "Data",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetRemoteActionsForCategory",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "dhxlist-46",
+                "TargetSection" : ""
+              }, {
+                "Id" : "2f47e57f-ced9-49f0-b69d-421511a67094",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "assetName",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "assetName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "ProcessRemoteAction",
+                "TargetSection" : "Things_NCR.BaseDeviceHelper"
+              }, {
+                "Id" : "b14c31fa-0ad2-4828-ab30-2c6884519766",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Command",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "remoteActionID",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "SelectedRows",
+                "SourceId" : "GetRemoteActionsForCategory",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "Data",
+                "TargetId" : "ProcessRemoteAction",
+                "TargetSection" : "Things_NCR.BaseDeviceHelper"
+              }, {
+                "Id" : "30246aae-bfa1-4802-aca4-f331c8f64119",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "ProcessRemoteAction",
+                "SourceSection" : "Things_NCR.BaseDeviceHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "htmltextarea-64",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "button-51",
+                "EventTriggerSection" : "",
+                "Id" : "9f02efdd-3581-412a-841a-9b9bbeffa3a4"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.BaseDeviceHelper",
+                "EventHandlerService" : "disableButton",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "button-52",
+                "EventTriggerSection" : "",
+                "Id" : "99c40203-bf12-421d-aa76-f461692ccba1"
+              }, {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "fontawesomeicon-61",
+                "EventTriggerSection" : "",
+                "Id" : "b438273d-8a8c-4df1-91f6-9d1682dcc9b0"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.BaseDeviceHelper",
+                "EventHandlerService" : "GetRemoteActionsForCategory",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "0f27e75d-4087-4be0-905a-164a5daa58e3"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.BaseDeviceHelper",
+                "EventHandlerService" : "ProcessRemoteAction",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "button-52",
+                "EventTriggerSection" : "",
+                "Id" : "cd121edc-811d-4185-a86d-3dbb3b4ba2c9"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 400,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultMashupStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 800,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "assetName"
+                  }, {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "assetType"
+                  } ],
+                  "id_index" : 64,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "panel-32",
+                    "Height" : 50,
+                    "HideScrollbars" : true,
+                    "HorizontalAnchor" : "left",
+                    "Id" : "panel-32",
+                    "Left" : 0,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.PanelStyleLabelRemoteAction",
+                    "Top" : 0,
+                    "Type" : "panel",
+                    "VerticalAnchor" : "top",
+                    "Visible" : true,
+                    "Width" : 800,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Panel"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "AllowEllipsis" : false,
+                      "Area" : "UI",
+                      "DisplayName" : "label-39",
+                      "Height" : 22,
+                      "Id" : "label-39",
+                      "Left" : 10,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : {
+                        "backgroundColor" : "",
+                        "displayString" : "",
+                        "fontEmphasisBold" : true,
+                        "fontEmphasisItalic" : false,
+                        "fontEmphasisUnderline" : false,
+                        "foregroundColor" : "#ffffff",
+                        "image" : "",
+                        "lineColor" : "",
+                        "lineStyle" : "solid",
+                        "lineThickness" : 1,
+                        "secondaryBackgroundColor" : "",
+                        "textSize" : "xlarge"
+                      },
+                      "Text" : "Create / Pull Logs",
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 15,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 200,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label",
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "center",
+                      "Area" : "UI",
+                      "BackgroundColor" : "transparent",
+                      "CancelConfirmationButton" : "button2",
+                      "Color" : "#fff",
+                      "ConfirmationButton1Label" : "Yes",
+                      "ConfirmationButton2Label" : "No",
+                      "ConfirmationPrompt" : "Do Action?",
+                      "ConfirmationRequired" : false,
+                      "ConfirmationTitle" : "Confirm Action",
+                      "DefaultConfirmationButton" : "button1",
+                      "Disabled" : false,
+                      "DisabledColor" : "#CCC",
+                      "DisplayName" : "fontawesomeicon-61",
+                      "FontAwesome Class" : "fa-times",
+                      "Height" : 30,
+                      "HorizontalAlignment" : "Center",
+                      "HoverColor" : "#fff",
+                      "IconFontSize" : "20px",
+                      "Id" : "fontawesomeicon-61",
+                      "Left" : 750,
+                      "Padding" : "0px 0px 0px 0px",
+                      "PressedColor" : "#fff",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Stacked" : false,
+                      "StackedClass" : "fa-circle fa-stack-2x",
+                      "StackedColor" : "#000",
+                      "Text" : "",
+                      "TextFontSize" : "20px",
+                      "TextShadowCss" : "1px 1px 1px #ccc",
+                      "Top" : 15,
+                      "Type" : "fontawesomeicon",
+                      "VerticalAlignment" : "Middle",
+                      "Visible" : true,
+                      "Width" : 30,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "FontAwesomeIcon",
+                      "isButton" : true
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "panel-44",
+                    "Height" : 60,
+                    "HideScrollbars" : false,
+                    "HorizontalAnchor" : "left",
+                    "Id" : "panel-44",
+                    "Left" : 0,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.PanelStyleFooterRemoteAction",
+                    "Top" : 350,
+                    "Type" : "panel",
+                    "VerticalAnchor" : "top",
+                    "Visible" : true,
+                    "Width" : 800,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Panel"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "ActiveStyle" : "NCR.DCS.SecondaryButtonActiveStyle",
+                      "Area" : "UI",
+                      "CancelConfirmationButton" : "button2",
+                      "ConfirmationButton1Label" : "Yes",
+                      "ConfirmationButton2Label" : "No",
+                      "ConfirmationPrompt" : "Do Action?",
+                      "ConfirmationRequired" : false,
+                      "ConfirmationTitle" : "Confirm Action",
+                      "ContextId" : "",
+                      "DefaultConfirmationButton" : "button1",
+                      "Disabled" : false,
+                      "DisabledStyle" : "NCR.DCS.SecondaryButtonDisabledStyle",
+                      "DisplayName" : "button-51",
+                      "FocusStyle" : "NCR.DCS.SecondaryButtonFocusStyle",
+                      "Height" : 30,
+                      "HoverStyle" : "NCR.DCS.SecondaryButtonHoverStyle",
+                      "IconAlignment" : "left",
+                      "Id" : "button-51",
+                      "Label" : "CANCEL",
+                      "Left" : 575,
+                      "ResponsiveLayout" : false,
+                      "RoundedCorners" : true,
+                      "ShowDataLoading" : true,
+                      "Style" : "NCR.DCS.SecondaryButtonStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 15,
+                      "Type" : "button",
+                      "Visible" : true,
+                      "Width" : 90,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Button",
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "ActiveStyle" : "NCR.DCS.PrimaryButtonActiveStyle",
+                      "Area" : "UI",
+                      "CancelConfirmationButton" : "button2",
+                      "ConfirmationButton1Label" : "Yes",
+                      "ConfirmationButton2Label" : "No",
+                      "ConfirmationPrompt" : "Do Action?",
+                      "ConfirmationRequired" : false,
+                      "ConfirmationTitle" : "Confirm Action",
+                      "ContextId" : "",
+                      "DefaultConfirmationButton" : "button1",
+                      "Disabled" : false,
+                      "DisabledStyle" : "NCR.DCS.PrimaryButtonDisabledStyle",
+                      "DisplayName" : "button-52",
+                      "FocusStyle" : "NCR.DCS.PrimaryButtonFocusStyle",
+                      "Height" : 30,
+                      "HoverStyle" : "NCR.DCS.PrimaryButtonHoverStyle",
+                      "IconAlignment" : "left",
+                      "Id" : "button-52",
+                      "Label" : "EXECUTE",
+                      "Left" : 675,
+                      "ResponsiveLayout" : false,
+                      "RoundedCorners" : true,
+                      "ShowDataLoading" : true,
+                      "Style" : "NCR.DCS.PrimaryButtonStyle",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 15,
+                      "Type" : "button",
+                      "Visible" : true,
+                      "Width" : 90,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Button",
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "AutoSelectFirstRow" : false,
+                    "ClearIfNoSelection" : false,
+                    "ComboDropdownButtonStyle" : "DefaultComboDropdownButtonStyle",
+                    "ComboEnableCheckbox" : false,
+                    "ComboItemHighlightedStyle" : "DefaultComboItemHighlightedStyle",
+                    "ComboTextboxStyle" : "DefaultComboTextboxStyle",
+                    "DisableSelectedStyle" : false,
+                    "DisplayField" : "CommandName",
+                    "DisplayName" : "dhxlist-46",
+                    "DropdownButtonStyle" : "NCR.DCS.DefaultDropdownButtonStyle",
+                    "DropdownSelectedStyle" : "NCR.DCS.DefaultDropdownSelectedStyle",
+                    "DropdownStyle" : "NCR.DCS.DefaultDropdownStyle",
+                    "EnableKeyboardSelections" : true,
+                    "Height" : 28,
+                    "HeightOfDropdownView" : 170,
+                    "Id" : "dhxlist-46",
+                    "Label" : "",
+                    "LabelAlignment" : "left",
+                    "Left" : 130,
+                    "ListBackgroundStyle" : "NCR.DCS.DefaultListBackgroundStyle",
+                    "ListFocusStyle" : "DefaultFocusStyle",
+                    "ListItemAlternateStyle" : "NCR.DCS.DefaultListItemAlternateStyle",
+                    "ListItemHoverStyle" : "NCR.DCS.DefaultListItemHoverStyle",
+                    "ListItemSelectedStyle" : "NCR.DCS.DefaultListItemSelectedStyle",
+                    "ListItemStyle" : "NCR.DCS.DefaultListItemStyle",
+                    "ListLabelStyle" : "DefaultWidgetLabelStyle",
+                    "MultiSelect" : false,
+                    "NumberOfItemsInDropdownView" : 6,
+                    "ResponsiveLayout" : false,
+                    "RowHeight" : 28,
+                    "ShowDataLoading" : true,
+                    "TabSequence" : -1,
+                    "TextIfNoSelectionType" : "editable",
+                    "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                    "Top" : 75,
+                    "Type" : "dhxlist",
+                    "ValueField" : "Command",
+                    "View" : "dropdown",
+                    "Visible" : true,
+                    "Width" : 550,
+                    "WidthOfDropdownView" : 550,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "List",
+                    "__supportsLabel" : true,
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-47",
+                    "Height" : 22,
+                    "Id" : "label-47",
+                    "Left" : 15,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.RemoteActionsModalLabelStyle",
+                    "Text" : "File / Log (s)",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 75,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 110,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "htmltextarea-64",
+                    "Height" : 155,
+                    "Id" : "htmltextarea-64",
+                    "Label" : "Result",
+                    "LabelAlignment" : "left",
+                    "LabelStyle" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : false,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 0,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "normal"
+                    },
+                    "Left" : 15,
+                    "ReadOnly" : true,
+                    "ResponsiveLayout" : false,
+                    "ShowBorder" : true,
+                    "ShowDataLoading" : true,
+                    "Text" : "Select File / Log then click Execute button",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                    "Top" : 150,
+                    "Type" : "htmltextarea",
+                    "Visible" : true,
+                    "Width" : 665,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Html TextArea",
+                    "__supportsLabel" : true,
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

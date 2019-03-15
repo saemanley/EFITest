@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description="DEPRECATED. Should no longer be used and could be removed in a later release."
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-10-24T20:59:55.671Z"
+         name="PTC.Resource.CRM.DeleteCustomerWarning"
+         projectName=""
+         rows="0.0"
+         tags="PTC:CRM;TWUTL:PRMAdmin;TWUTL:DEPRECATED">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.dataShape="PTC.Resource.CRM.ThingworxCustomerDataShape"
+                 aspect.ordinal="0"
+                 baseType="INFOTABLE"
+                 description=""
+                 name="Customer"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things>
+                <Thing>PTC.Resource.CRM.CustomerManagementUtils</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_PTC_Resource_CRM_CustomerManagementUtils" : {
+                  "DataName" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                  "EntityName" : "PTC.Resource.CRM.CustomerManagementUtils",
+                  "EntityType" : "Things",
+                  "Id" : "c90fcd92-4029-43a9-8a55-e7f86e5493a0",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "fbe354aa-89f0-4a06-83ea-981fd8979573",
+                    "Name" : "DeleteThingworxCustomer",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "DeleteThingworxCustomer"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "e64dfdb7-7c65-43a1-959b-0a99002c80b9",
+                    "Name" : "HasAssets",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "HasAssets"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "3fc7b839-a4fb-4b0f-8068-cef14444474f",
+                    "Name" : "GetCustomerRelationships",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCustomerRelationships"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "5cec3f42-809d-42f2-87d8-d547499f21a3",
+                    "Name" : "UnassignAssets",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "UnassignAssets"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "2771cb2c-f8dc-4210-8b2c-81b239a30aac",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "HasAssets",
+                "SourceSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-42",
+                "TargetSection" : ""
+              }, {
+                "Id" : "c56bdac7-9c60-434e-89a2-6815f183bd2c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "hasAssets",
+                  "TargetPropertyBaseType" : "BOOLEAN"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "HasAssets",
+                "SourceSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-44",
+                "TargetSection" : ""
+              }, {
+                "Id" : "3b278317-cf32-4bf6-8ca3-d3495513d272",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Data",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "HasAssets",
+                "SourceSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-42",
+                "TargetSection" : ""
+              }, {
+                "Id" : "ea26c5da-e4ab-48a4-8a0c-eef57554812f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-44",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-43",
+                "TargetSection" : ""
+              }, {
+                "Id" : "5e86c8c1-b1c1-4376-8398-5fc50b378fdc",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Customer",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "TargetProperty" : "Customer",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceDetails" : "AllData",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "DeleteThingworxCustomer",
+                "TargetSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils"
+              }, {
+                "Id" : "acc7bf10-324c-42cb-8692-0a302051bf6e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Customer",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "TargetProperty" : "Customer",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceDetails" : "AllData",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetCustomerRelationships",
+                "TargetSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils"
+              }, {
+                "Id" : "d9782745-9d8a-4bfe-8797-8e9f9eedadeb",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "TargetProperty" : "CustomerRelationships",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCustomerRelationships",
+                "SourceSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "TargetArea" : "Data",
+                "TargetId" : "HasAssets",
+                "TargetSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils"
+              }, {
+                "Id" : "2351ec05-24ce-4ab5-9ae9-9f4b2fe3eb35",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "",
+                  "SourcePropertyBaseType" : "INFOTABLE",
+                  "TargetProperty" : "Relationships",
+                  "TargetPropertyBaseType" : "INFOTABLE",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCustomerRelationships",
+                "SourceSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "TargetArea" : "Data",
+                "TargetId" : "UnassignAssets",
+                "TargetSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils"
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "Button-22",
+                "EventTriggerSection" : "",
+                "Id" : "b06d0691-9c88-4524-80d1-7daaf874fd44"
+              }, {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "DeleteThingworxCustomer",
+                "EventTriggerSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "Id" : "a586bd8b-88ec-4657-80c4-75f4fd9d1387"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Expression-44",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "HasAssets",
+                "EventTriggerSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "Id" : "0b14b19c-2435-4373-98bc-617cdf6807c4"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "EventHandlerService" : "GetCustomerRelationships",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "72a3564b-8f61-4050-893b-e61de36b4bb0"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "EventHandlerService" : "HasAssets",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "GetCustomerRelationships",
+                "EventTriggerSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "Id" : "0aff1673-e880-4132-a2e8-566f09bf6802"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "EventHandlerService" : "UnassignAssets",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "Button-21",
+                "EventTriggerSection" : "",
+                "Id" : "7eafff6c-73e8-4121-8d9f-16927e3263ca"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "EventHandlerService" : "DeleteThingworxCustomer",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "UnassignAssets",
+                "EventTriggerSection" : "Things_PTC_Resource_CRM_CustomerManagementUtils",
+                "Id" : "04016ae5-db5d-40b8-8620-08e749ec69d8"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 225,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "PTC.Core.MashupStyle",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 360,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "Aspects" : {
+                      "dataShape" : "PTC.Resource.CRM.ThingworxCustomerDataShape"
+                    },
+                    "BaseType" : "INFOTABLE",
+                    "Description" : "",
+                    "ParameterName" : "Customer"
+                  } ],
+                  "id_index" : 44,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "Panel-3",
+                    "Height" : 35,
+                    "HideScrollbars" : false,
+                    "HorizontalAnchor" : "left",
+                    "Id" : "Panel-3",
+                    "Left" : 0,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "PTC.Core.HeaderStyle",
+                    "Top" : 0,
+                    "Type" : "panel",
+                    "VerticalAnchor" : "top",
+                    "Visible" : true,
+                    "Width" : 360,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Panel"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "BackgroundFill" : "content",
+                      "DisplayName" : "ValueDisplay-4",
+                      "Height" : 14,
+                      "Id" : "ValueDisplay-4",
+                      "ImageScaling" : "width",
+                      "Label" : "",
+                      "LabelAlignment" : "left",
+                      "Left" : 5,
+                      "Overflow" : "hidden",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "TextIfNoValue" : "[[PTC.Core.Delete customer]]",
+                      "TextIfNoValueOffset" : 10,
+                      "TextIfNoValueStyle" : "PTC.Core.PopupHeaderStyle",
+                      "TextWrap" : true,
+                      "ToolTipField" : "",
+                      "ToolTipStyle" : "DefaultTooltipStyle",
+                      "Top" : 8,
+                      "Type" : "valuedisplay",
+                      "ValueDisplayLabelStyle" : "DefaultWidgetLabelStyle",
+                      "ValueDisplayStyle" : "DefaultValueDisplayStyle",
+                      "VerticalAlignment" : "middle",
+                      "Visible" : true,
+                      "Width" : 180,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Value Display",
+                      "__supportsLabel" : true,
+                      "__supportsTooltip" : true
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                }, {
+                  "Properties" : {
+                    "ActiveStyle" : "PTC.Core.Accent1ButtonActiveStyle",
+                    "Area" : "UI",
+                    "CancelConfirmationButton" : "button2",
+                    "ConfirmationButton1Label" : "Yes",
+                    "ConfirmationButton2Label" : "No",
+                    "ConfirmationPrompt" : "Do Action?",
+                    "ConfirmationRequired" : false,
+                    "ConfirmationTitle" : "Confirm Action",
+                    "ContextId" : "",
+                    "DefaultConfirmationButton" : "button1",
+                    "Disabled" : false,
+                    "DisabledStyle" : "PTC.Core.Accent1ButtonDisabledStyle",
+                    "DisplayName" : "Button-Delete",
+                    "FocusStyle" : "PTC.Core.Accent1ButtonFocusStyle",
+                    "Height" : 30,
+                    "HoverStyle" : "PTC.Core.Accent1ButtonHoverStyle",
+                    "IconAlignment" : "left",
+                    "Id" : "Button-21",
+                    "Label" : "[[PTC.Core.Yes]]",
+                    "Left" : 190,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "PTC.Core.Accent1ButtonStyle",
+                    "TabSequence" : 0,
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 185,
+                    "Type" : "button",
+                    "Visible" : true,
+                    "Width" : 75,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Button",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "ActiveStyle" : "PTC.Core.ButtonActiveStyle",
+                    "Area" : "UI",
+                    "CancelConfirmationButton" : "button2",
+                    "ConfirmationButton1Label" : "Yes",
+                    "ConfirmationButton2Label" : "No",
+                    "ConfirmationPrompt" : "Do Action?",
+                    "ConfirmationRequired" : false,
+                    "ConfirmationTitle" : "Confirm Action",
+                    "ContextId" : "",
+                    "DefaultConfirmationButton" : "button1",
+                    "Disabled" : false,
+                    "DisabledStyle" : "PTC.Core.ButtonDisabledStyle",
+                    "DisplayName" : "Button-cancel",
+                    "FocusStyle" : "PTC.Core.ButtonFocusStyle",
+                    "Height" : 30,
+                    "HoverStyle" : "PTC.Core.ButtonHoverStyle",
+                    "IconAlignment" : "left",
+                    "Id" : "Button-22",
+                    "Label" : "[[PTC.Core.Cancel]]",
+                    "Left" : 275,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "PTC.Core.ButtonStyle",
+                    "TabSequence" : 0,
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 185,
+                    "Type" : "button",
+                    "Visible" : true,
+                    "Width" : 75,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Button",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "AlternateText" : "",
+                    "Area" : "UI",
+                    "BorderStyle" : "DefaultImageBorderStyle",
+                    "DisplayName" : "Image-41",
+                    "Height" : 40,
+                    "Id" : "Image-41",
+                    "Left" : 10,
+                    "PreventCaching" : false,
+                    "ResponsiveLayout" : false,
+                    "Scaling" : "width",
+                    "ShowDataLoading" : true,
+                    "SourceURL" : "PTC.Core.StatusWarning",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 45,
+                    "Type" : "image",
+                    "Visible" : true,
+                    "Width" : 40,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Image",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "DisplayName" : "Label-Has assets",
+                    "Height" : 22,
+                    "Id" : "Label-42",
+                    "Left" : 60,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "PTC.Core.ValueDisplayStyle",
+                    "Text" : "[[PTC.Core.Delete Customer Warning Has Assets]]",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 45,
+                    "Type" : "label",
+                    "Visible" : false,
+                    "Width" : 290,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "DisplayName" : "Label-No Assets",
+                    "Height" : 22,
+                    "Id" : "Label-43",
+                    "Left" : 60,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "PTC.Core.ValueDisplayStyle",
+                    "Text" : "[[PTC.Core.Delete Customer Warning No Assets]]",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 45,
+                    "Type" : "label",
+                    "Visible" : false,
+                    "Width" : 290,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : false,
+                    "DataChangeType" : "VALUE",
+                    "DisplayName" : "Expression-No assets",
+                    "Expression" : "! hasAssets",
+                    "FireOnFirstValue" : false,
+                    "Height" : 28,
+                    "Id" : "Expression-44",
+                    "Left" : 0,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 195,
+                    "Type" : "expression",
+                    "Visible" : true,
+                    "Width" : 200,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "BOOLEAN",
+                      "Description" : "",
+                      "ParameterName" : "hasAssets"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

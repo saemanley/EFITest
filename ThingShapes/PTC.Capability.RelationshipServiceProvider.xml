@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <ThingShapes>
+        <ThingShape
+         aspect.isExtension="true"
+         className="com.ptc.resource.RelationshipServiceProvider"
+         description="Common, base ThingShape of all relationship resource providers"
+         documentationContent="Note that implementing Thing's implementation must be augmented as well -- one                                           cannot simply add this ThingShape to a resource provider to make it a relationship                                           resource provider."
+         homeMashup=""
+         lastModifiedDate="2018-10-24T20:59:54.800Z"
+         name="PTC.Capability.RelationshipServiceProvider"
+         projectName=""
+         tags="PTC:CORE;TWUTL:ResourceProvider">
+            <PropertyDefinitions></PropertyDefinitions>
+            <ServiceDefinitions>
+                <ServiceDefinition
+                 category="PTC"
+                 description="Finds applicable resource providers for a specified role."
+                 isAllowOverride="false"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetRoleProviders">
+                    <ResultType
+                     aspect.dataShape="EntityReference"
+                     baseType="INFOTABLE"
+                     description="References to resource providers; name field may convey partial status aspect"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         aspect.isRequired="true"
+                         baseType="STRING"
+                         description="Name of role to find applicable resource providers for"
+                         name="role"
+                         ordinal="0"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 category="PTC"
+                 description="Get names, tags, and other information for each of the relationship's roles"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="GetRoles">
+                    <ResultType
+                     aspect.dataShape="PTC.Resource.RoleDataShape"
+                     baseType="INFOTABLE"
+                     description="InfoTable of roles"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions></ParameterDefinitions>
+                </ServiceDefinition>
+                <ServiceDefinition
+                 category="PTC"
+                 description="Equivalent to Get(), except that the resources for one role are provided as a starting point"
+                 isAllowOverride="true"
+                 isLocalOnly="false"
+                 isOpen="false"
+                 isPrivate="false"
+                 name="InflateFromRole">
+                    <ResultType
+                     baseType="INFOTABLE"
+                     description="An InfoTable of relationship resources"
+                     name="result"
+                     ordinal="0"></ResultType>
+                    <ParameterDefinitions>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="Data shape passed on InfoTable to use in the result table; alternative to dataShapeName"
+                         name="dataShape"
+                         ordinal="3"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="DATASHAPENAME"
+                         description="Name of data shape to use for the result table"
+                         name="dataShapeName"
+                         ordinal="2"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="JSON"
+                         description="Optional parameters used by overriding methods, including OData parameters"
+                         name="extraParams"
+                         ordinal="5"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="STRING"
+                         description="Name of role to inflate from"
+                         name="fromRole"
+                         ordinal="0"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="INFOTABLE"
+                         description="Resources for role to inflate from"
+                         name="fromRoleResources"
+                         ordinal="1"></FieldDefinition>
+                        <FieldDefinition
+                         baseType="QUERY"
+                         description="A query/filter object"
+                         name="query"
+                         ordinal="4"></FieldDefinition>
+                    </ParameterDefinitions>
+                </ServiceDefinition>
+            </ServiceDefinitions>
+            <EventDefinitions></EventDefinitions>
+            <ServiceMappings></ServiceMappings>
+            <ServiceImplementations>
+                <ServiceImplementation
+                 description="Finds applicable resource providers for a specified role."
+                 handlerName="Reflection"
+                 name="GetRoleProviders">
+                    <ConfigurationTables></ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description="Get names, tags, and other information for each of the relationship's roles"
+                 handlerName="Reflection"
+                 name="GetRoles">
+                    <ConfigurationTables></ConfigurationTables>
+                </ServiceImplementation>
+                <ServiceImplementation
+                 description="Equivalent to Get(), except that the resources for one role are provided as a starting point"
+                 handlerName="Reflection"
+                 name="InflateFromRole">
+                    <ConfigurationTables></ConfigurationTables>
+                </ServiceImplementation>
+            </ServiceImplementations>
+            <Subscriptions></Subscriptions>
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <InstanceRunTimePermissions></InstanceRunTimePermissions>
+        </ThingShape>
+    </ThingShapes>
+</Entities>

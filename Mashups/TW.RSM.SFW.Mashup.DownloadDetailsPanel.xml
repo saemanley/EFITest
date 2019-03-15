@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent="&lt;p&gt;&lt;br&gt;&lt;/p&gt; "
+         homeMashup=""
+         lastModifiedDate="2018-10-24T21:00:18.721Z"
+         name="TW.RSM.SFW.Mashup.DownloadDetailsPanel"
+         projectName=""
+         rows="0.0"
+         tags="Applications:RSM;Applications:SCM;TWUTL:RemoteServices">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="1"
+                 baseType="STRING"
+                 description=""
+                 name="instructionFile"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="STRING"
+                 description=""
+                 name="packageFile"
+                 ordinal="0"></FieldDefinition>
+                <FieldDefinition
+                 aspect.ordinal="2"
+                 baseType="BOOLEAN"
+                 description=""
+                 name="useCdn"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things>
+                <Thing>TW.RSM.SFW.SoftwareManager</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_TW.RSM.SFW.SoftwareManager" : {
+                  "DataName" : "Things_TW.RSM.SFW.SoftwareManager",
+                  "EntityName" : "TW.RSM.SFW.SoftwareManager",
+                  "EntityType" : "Things",
+                  "Id" : "634817ed-c0a4-4737-bdca-9f446880166c",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "ecaf0199-6253-4cfa-9a44-ca3a757075d4",
+                    "Name" : "IsCdnAvailable",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "IsCdnAvailable"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "573dc451-9950-4c33-9bfa-14b8056fe553",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "packageFile",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-4",
+                "TargetSection" : ""
+              }, {
+                "Id" : "61dd2e5e-0542-4261-b58e-a12bd36af21c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "instructionFile",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-5",
+                "TargetSection" : ""
+              }, {
+                "Id" : "8c84ed99-1899-4ecc-a60e-f26c6ad4a3aa",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "useCdn",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "State",
+                  "TargetPropertyBaseType" : "BOOLEAN"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "checkbox-6",
+                "TargetSection" : ""
+              }, {
+                "Id" : "5cdcf607-09bb-4006-b808-668d9a5044f8",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "IsCdnAvailable",
+                "SourceSection" : "Things_TW.RSM.SFW.SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "checkbox-6",
+                "TargetSection" : ""
+              }, {
+                "Id" : "c0e1c856-fd02-4533-9c84-99b07ba79575",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "IsCdnAvailable",
+                "SourceSection" : "Things_TW.RSM.SFW.SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-7",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW.RSM.SFW.SoftwareManager",
+                "EventHandlerService" : "IsCdnAvailable",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "0cb40d9c-4234-4644-bf27-ba9301839999"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 93,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "TW.RSM.SFW.Style.PackagePanel",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 950,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "packageFile"
+                  }, {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "instructionFile"
+                  }, {
+                    "BaseType" : "BOOLEAN",
+                    "Description" : "",
+                    "ParameterName" : "useCdn"
+                  } ],
+                  "id_index" : 7,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "Fieldset-1",
+                    "FieldsetLabelStyle" : "TW.RSM.Style.FieldSetLabel",
+                    "FieldsetStyle" : "TW.RSM.Style.FieldSetPanel",
+                    "Height" : 93,
+                    "Id" : "Fieldset-1",
+                    "Left" : 0,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Title" : "",
+                    "Top" : 0,
+                    "Type" : "fieldset",
+                    "Visible" : true,
+                    "Width" : 950,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Fieldset"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "DisplayName" : "Label-2",
+                      "Height" : 22,
+                      "Id" : "Label-2",
+                      "Left" : 10,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.Package Content Zip File:]]",
+                      "ToolTipField" : "",
+                      "Top" : 10,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 250,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "Label-3",
+                      "Height" : 22,
+                      "Id" : "Label-3",
+                      "Left" : 10,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.Instruction File Name in Zip File:]]",
+                      "ToolTipField" : "",
+                      "Top" : 35,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 250,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "DisplayName" : "Label-4",
+                      "Height" : 22,
+                      "Id" : "Label-4",
+                      "Left" : 270,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.LabelValue",
+                      "Text" : "[[TW.RSM.SFW.file name]]",
+                      "ToolTipField" : "",
+                      "Top" : 10,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 660,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "DisplayName" : "Label-5",
+                      "Height" : 22,
+                      "Id" : "Label-5",
+                      "Left" : 270,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.LabelValue",
+                      "Text" : "[[TW.RSM.SFW.file name]]",
+                      "ToolTipField" : "",
+                      "Top" : 35,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 660,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "Disabled" : true,
+                      "DisplayName" : "checkbox-6",
+                      "FocusStyle" : "DefaultFocusStyle",
+                      "Height" : 20,
+                      "Id" : "checkbox-6",
+                      "Left" : 270,
+                      "Prompt" : "",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "State" : false,
+                      "Style" : "TW.RSM.Style.LabelValue",
+                      "TabSequence" : 0,
+                      "ToolTipField" : "",
+                      "Top" : 60,
+                      "Type" : "checkbox",
+                      "Visible" : false,
+                      "Width" : 280,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "checkbox"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "DisplayName" : "Label-7",
+                      "Height" : 22,
+                      "Id" : "Label-7",
+                      "Left" : 10,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.Label",
+                      "Text" : "[[TW.RSM.SFW.UseCDN:]]",
+                      "ToolTipField" : "",
+                      "Top" : 60,
+                      "Type" : "label",
+                      "Visible" : false,
+                      "Width" : 250,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

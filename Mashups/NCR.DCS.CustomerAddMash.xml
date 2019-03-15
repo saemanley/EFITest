@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isResponsive="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2018-11-06T02:37:24.107Z"
+         name="NCR.DCS.CustomerAddMash"
+         projectName="DCS. Project.Main"
+         rows="0.0"
+         tags="DCS:Mashup;Applications:DCS">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:ReleaseManagement"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:TCS"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions></ParameterDefinitions>
+            <Things>
+                <Thing>NCR.DCS.CustomerHelper</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "CustomMashupCss" : "",
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_NCR.DCS.CustomerHelper" : {
+                  "DataName" : "Things_NCR.DCS.CustomerHelper",
+                  "EntityName" : "NCR.DCS.CustomerHelper",
+                  "EntityType" : "Things",
+                  "Id" : "a74b4c99-508e-4445-b21a-f85992089672",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "cc685fba-aa66-4e83-aa1e-767c35a04fef",
+                    "Name" : "CreateCustomerThing",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "CreateCustomerThing"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "9e09efa7-8d1b-41bb-893f-fcd8fa7f0376",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "Disabled",
+                  "TargetPropertyBaseType" : "BOOLEAN"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "expression-18",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "button-15",
+                "TargetSection" : ""
+              }, {
+                "Id" : "e1cbb212-5012-4254-bb4e-ae1d3dc6c18a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "name",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textbox-20",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateCustomerThing",
+                "TargetSection" : "Things_NCR.DCS.CustomerHelper"
+              }, {
+                "Id" : "cae386fc-67a5-48bd-b375-5978ed238437",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "valuesForCustomer.description",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textbox-27",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateCustomerThing",
+                "TargetSection" : "Things_NCR.DCS.CustomerHelper"
+              }, {
+                "Id" : "19dec0dd-d7e1-442a-af85-f6fdab2759cf",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Tags",
+                  "SourcePropertyBaseType" : "TAGS",
+                  "TargetProperty" : "valuesForCustomer.tags",
+                  "TargetPropertyBaseType" : "TAGS",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "tagpicker-35",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateCustomerThing",
+                "TargetSection" : "Things_NCR.DCS.CustomerHelper"
+              }, {
+                "Id" : "ac2532fe-4867-41b2-bb24-4a2fc2c75230",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "valuesForCustomer.CustomerName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textbox-29",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateCustomerThing",
+                "TargetSection" : "Things_NCR.DCS.CustomerHelper"
+              }, {
+                "Id" : "58c4f16b-1656-4e19-96d9-8109d62fb625",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "valuesForCustomer.MasterCustomerNumber",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textbox-30",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateCustomerThing",
+                "TargetSection" : "Things_NCR.DCS.CustomerHelper"
+              }, {
+                "Id" : "b1caca7f-c2ae-4789-968d-77de7bf2bbe4",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "valuesForCustomer.EnterpriseCustomerNumber",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textbox-39",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateCustomerThing",
+                "TargetSection" : "Things_NCR.DCS.CustomerHelper"
+              }, {
+                "Id" : "ab71655b-dff5-4874-87b9-0a09b358f73f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "valuesForCustomer.ISOCountryCode",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textbox-40",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateCustomerThing",
+                "TargetSection" : "Things_NCR.DCS.CustomerHelper"
+              }, {
+                "Id" : "e57c5ebe-9f2e-43cc-a926-759fbbdcee76",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "valuesForCustomer.AppKey",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textbox-42",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateCustomerThing",
+                "TargetSection" : "Things_NCR.DCS.CustomerHelper"
+              }, {
+                "Id" : "4d7f0ef5-309d-47e9-ad46-dde09957514a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Value",
+                  "SourcePropertyBaseType" : "NUMBER",
+                  "TargetProperty" : "valuesForCustomer.Status",
+                  "TargetPropertyBaseType" : "INTEGER",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "numericentry-45",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateCustomerThing",
+                "TargetSection" : "Things_NCR.DCS.CustomerHelper"
+              }, {
+                "Id" : "6ad1e16e-07a0-405e-b498-864bc071ea21",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "valuesForCustomer.SoftwareDelivery",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-52",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateCustomerThing",
+                "TargetSection" : "Things_NCR.DCS.CustomerHelper"
+              }, {
+                "Id" : "aef4b6c9-4b85-496c-b3cd-a2cfb54eda0b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "valuesForCustomer.RemoteResolution",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-50",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateCustomerThing",
+                "TargetSection" : "Things_NCR.DCS.CustomerHelper"
+              }, {
+                "Id" : "7ba0efe0-4ed2-444a-8b6f-9ce7efa08bf0",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "State",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "valuesForCustomer.EventManagement",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "checkbox-48",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "CreateCustomerThing",
+                "TargetSection" : "Things_NCR.DCS.CustomerHelper"
+              }, {
+                "Id" : "23a2525b-488c-4ede-b1d2-5ac13c1f6731",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "nameF",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "textbox-20",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "expression-18",
+                "TargetSection" : ""
+              }, {
+                "Id" : "9b82eeb4-f0a8-4124-b02a-3d87b4a9f37d",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "result",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Message",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "CreateCustomerThing",
+                "SourceSection" : "Things_NCR.DCS.CustomerHelper",
+                "TargetArea" : "UI",
+                "TargetId" : "statusmessage-16",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "button-14",
+                "EventTriggerSection" : "",
+                "Id" : "825e2149-2355-4a63-913f-0311e02aab07"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "expression-18",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Changed",
+                "EventTriggerId" : "textbox-20",
+                "EventTriggerSection" : "",
+                "Id" : "edec418e-bf41-47a2-a41c-ec5217499e83"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_NCR.DCS.CustomerHelper",
+                "EventHandlerService" : "CreateCustomerThing",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "button-15",
+                "EventTriggerSection" : "",
+                "Id" : "9e1e3237-1e02-4dd8-b679-4e434c0ebb69"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "statusmessage-16",
+                "EventHandlerService" : "ShowMessage",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "CreateCustomerThing",
+                "EventTriggerSection" : "Things_NCR.DCS.CustomerHelper",
+                "Id" : "860a471b-1f32-4fe0-aa90-9fb8ed72fb6c"
+              }, {
+                "EventHandlerArea" : "Mashup",
+                "EventHandlerId" : "mashup-root",
+                "EventHandlerService" : "CloseIfPopup",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "CreateCustomerThing",
+                "EventTriggerSection" : "Things_NCR.DCS.CustomerHelper",
+                "Id" : "70f4cf46-1bf6-4442-b0ac-f41cc9adda2a"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "CustomClass" : "",
+                  "Description" : "",
+                  "DisplayName" : "mashup-logout",
+                  "EnableParameterEditing" : false,
+                  "Height" : 540,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : {
+                    "backgroundColor" : "#ffffff",
+                    "displayString" : "",
+                    "fontEmphasisBold" : false,
+                    "fontEmphasisItalic" : false,
+                    "fontEmphasisUnderline" : false,
+                    "foregroundColor" : "",
+                    "image" : "",
+                    "lineColor" : "",
+                    "lineStyle" : "solid",
+                    "lineThickness" : 1,
+                    "secondaryBackgroundColor" : "",
+                    "textSize" : "normal"
+                  },
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 440,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ ],
+                  "id_index" : 52,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "divider-4",
+                    "Height" : 1,
+                    "Id" : "divider-4",
+                    "Left" : 5,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : {
+                      "backgroundColor" : "#f0f0f0",
+                      "displayString" : "",
+                      "fontEmphasisBold" : false,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "normal"
+                    },
+                    "Top" : 40,
+                    "Type" : "divider",
+                    "Visible" : true,
+                    "Width" : 380,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Divider"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-6",
+                    "Height" : 22,
+                    "Id" : "label-6",
+                    "Left" : 15,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : true,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "#000000",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "2xl"
+                    },
+                    "Text" : "Create Customer",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 10,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 250,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-7",
+                    "Height" : 22,
+                    "Id" : "label-7",
+                    "Left" : 20,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : false,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "#000000",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "large"
+                    },
+                    "Text" : "Fill out the form and click Submit to create a Customer Thing",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 45,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 345,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "divider-13",
+                    "Height" : 1,
+                    "Id" : "divider-13",
+                    "Left" : 10,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : {
+                      "backgroundColor" : "#f0f0f0",
+                      "displayString" : "",
+                      "fontEmphasisBold" : false,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "normal"
+                    },
+                    "Top" : 485,
+                    "Type" : "divider",
+                    "Visible" : true,
+                    "Width" : 380,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Divider"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "ActiveStyle" : "NCR.DCS.DefaultButtonActiveStyle",
+                    "Area" : "UI",
+                    "CancelConfirmationButton" : "button2",
+                    "ConfirmationButton1Label" : "[[confirmationOptionYes]]",
+                    "ConfirmationButton2Label" : "[[confirmationOptionNo]]",
+                    "ConfirmationPrompt" : "[[deleteThisEntry]]",
+                    "ConfirmationRequired" : false,
+                    "ConfirmationTitle" : "Confirm Action",
+                    "ContextId" : "",
+                    "DefaultConfirmationButton" : "button1",
+                    "Disabled" : false,
+                    "DisabledStyle" : "DefaultButtonDisabledStyle",
+                    "DisplayName" : "button-14",
+                    "FocusStyle" : "NCR.DCS.DefaultButtonFocusStyle",
+                    "Height" : 30,
+                    "HoverStyle" : "NCR.DCS.DefaultButtonHoverStyle",
+                    "IconAlignment" : "left",
+                    "Id" : "button-14",
+                    "Label" : "Cancel",
+                    "Left" : 210,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : true,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.DefaultButtonStyle",
+                    "TabSequence" : 0,
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 500,
+                    "Type" : "button",
+                    "Visible" : true,
+                    "Width" : 110,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Button",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "ActiveStyle" : "NCR.DCS.DefaultButtonActiveStyle",
+                    "Area" : "UI",
+                    "CancelConfirmationButton" : "button2",
+                    "ConfirmationButton1Label" : "[[confirmationOptionYes]]",
+                    "ConfirmationButton2Label" : "[[confirmationOptionNo]]",
+                    "ConfirmationPrompt" : "[[deleteThisEntry]]",
+                    "ConfirmationRequired" : false,
+                    "ConfirmationTitle" : "Confirm Action",
+                    "ContextId" : "",
+                    "DefaultConfirmationButton" : "button1",
+                    "Disabled" : false,
+                    "DisabledStyle" : "DefaultButtonDisabledStyle",
+                    "DisplayName" : "button-15",
+                    "FocusStyle" : "NCR.DCS.DefaultButtonFocusStyle",
+                    "Height" : 30,
+                    "HoverStyle" : "NCR.DCS.DefaultButtonHoverStyle",
+                    "IconAlignment" : "left",
+                    "Id" : "button-15",
+                    "Label" : "Submit",
+                    "Left" : 90,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : true,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.DefaultButtonStyle",
+                    "TabSequence" : 0,
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 500,
+                    "Type" : "button",
+                    "Visible" : true,
+                    "Width" : 110,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Button",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "statusmessage-16",
+                    "Height" : 18,
+                    "Id" : "statusmessage-16",
+                    "Left" : 230,
+                    "Message" : "Create Successful",
+                    "MessageType" : "info",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 5,
+                    "Type" : "statusmessage",
+                    "Visible" : true,
+                    "Width" : 200,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Status Message"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : true,
+                    "DataChangeType" : "VALUE",
+                    "DisplayName" : "expression-18",
+                    "Expression" : "!nameF",
+                    "FireOnFirstValue" : false,
+                    "Height" : 23,
+                    "Id" : "expression-18",
+                    "Left" : 230,
+                    "Output" : true,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 25,
+                    "Type" : "expression",
+                    "Visible" : true,
+                    "Width" : 200,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "nameF"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-19",
+                    "Height" : 22,
+                    "Id" : "label-19",
+                    "Left" : 20,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsHeaderLabelStyle",
+                    "Text" : "Name",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 80,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 140,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "CursorPosition" : 0,
+                    "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                    "DisplayName" : "textbox-20",
+                    "Height" : 28,
+                    "Id" : "textbox-20",
+                    "InnerShadow" : true,
+                    "Label" : "",
+                    "LabelAlignment" : "left",
+                    "Left" : 180,
+                    "MaskInputCharacters" : false,
+                    "PlaceholderText" : "",
+                    "ReadOnly" : false,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsTextBoxStyle",
+                    "TabSequence" : 0,
+                    "Text" : "",
+                    "TextAlign" : "left",
+                    "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                    "Top" : 80,
+                    "Type" : "textbox",
+                    "Visible" : true,
+                    "Width" : 225,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "TextBox",
+                    "__supportsLabel" : true,
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-21",
+                    "Height" : 22,
+                    "Id" : "label-21",
+                    "Left" : 20,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsHeaderLabelStyle",
+                    "Text" : "Description",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 112.5,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 140,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-22",
+                    "Height" : 22,
+                    "Id" : "label-22",
+                    "Left" : 20,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsHeaderLabelStyle",
+                    "Text" : "Tags",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 150,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 140,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-23",
+                    "Height" : 22,
+                    "Id" : "label-23",
+                    "Left" : 20,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsHeaderLabelStyle",
+                    "Text" : "Customer Name",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 182.5,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 140,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-24",
+                    "Height" : 22,
+                    "Id" : "label-24",
+                    "Left" : 20,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsHeaderLabelStyle",
+                    "Text" : "Master Customer Number",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 220,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 140,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-25",
+                    "Height" : 22,
+                    "Id" : "label-25",
+                    "Left" : 20,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsHeaderLabelStyle",
+                    "Text" : "Enterprise Customer Number",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 257.5,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 155,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-26",
+                    "Height" : 22,
+                    "Id" : "label-26",
+                    "Left" : 20,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsHeaderLabelStyle",
+                    "Text" : "ISO Country Code",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 292.5,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 140,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "CursorPosition" : 0,
+                    "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                    "DisplayName" : "textbox-27",
+                    "Height" : 28,
+                    "Id" : "textbox-27",
+                    "InnerShadow" : true,
+                    "Label" : "",
+                    "LabelAlignment" : "left",
+                    "Left" : 180,
+                    "MaskInputCharacters" : false,
+                    "PlaceholderText" : "",
+                    "ReadOnly" : false,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsTextBoxStyle",
+                    "TabSequence" : 0,
+                    "Text" : "",
+                    "TextAlign" : "left",
+                    "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                    "Top" : 112.5,
+                    "Type" : "textbox",
+                    "Visible" : true,
+                    "Width" : 225,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "TextBox",
+                    "__supportsLabel" : true,
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "CursorPosition" : 0,
+                    "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                    "DisplayName" : "textbox-29",
+                    "Height" : 28,
+                    "Id" : "textbox-29",
+                    "InnerShadow" : true,
+                    "Label" : "",
+                    "LabelAlignment" : "left",
+                    "Left" : 180,
+                    "MaskInputCharacters" : false,
+                    "PlaceholderText" : "",
+                    "ReadOnly" : false,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsTextBoxStyle",
+                    "TabSequence" : 0,
+                    "Text" : "",
+                    "TextAlign" : "left",
+                    "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                    "Top" : 183,
+                    "Type" : "textbox",
+                    "Visible" : true,
+                    "Width" : 225,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "TextBox",
+                    "__supportsLabel" : true,
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "CursorPosition" : 0,
+                    "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                    "DisplayName" : "textbox-30",
+                    "Height" : 28,
+                    "Id" : "textbox-30",
+                    "InnerShadow" : true,
+                    "Label" : "",
+                    "LabelAlignment" : "left",
+                    "Left" : 180,
+                    "MaskInputCharacters" : false,
+                    "PlaceholderText" : "",
+                    "ReadOnly" : false,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsTextBoxStyle",
+                    "TabSequence" : 0,
+                    "Text" : "",
+                    "TextAlign" : "left",
+                    "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                    "Top" : 220,
+                    "Type" : "textbox",
+                    "Visible" : true,
+                    "Width" : 225,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "TextBox",
+                    "__supportsLabel" : true,
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "tagpicker-35",
+                    "Height" : 18,
+                    "Id" : "tagpicker-35",
+                    "Left" : 180,
+                    "MultiSelect" : true,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "TagType" : "ModelTags",
+                    "Top" : 150,
+                    "Type" : "tagpicker",
+                    "Visible" : true,
+                    "VocabularyRestriction" : "",
+                    "Width" : 35,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Tag Picker"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-37",
+                    "Height" : 22,
+                    "Id" : "label-37",
+                    "Left" : 410,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : true,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "#bf3030",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "xxl"
+                    },
+                    "Text" : "*",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 80,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 30,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "CursorPosition" : 0,
+                    "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                    "DisplayName" : "textbox-39",
+                    "Height" : 28,
+                    "Id" : "textbox-39",
+                    "InnerShadow" : true,
+                    "Label" : "",
+                    "LabelAlignment" : "left",
+                    "Left" : 180,
+                    "MaskInputCharacters" : false,
+                    "PlaceholderText" : "",
+                    "ReadOnly" : false,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsTextBoxStyle",
+                    "TabSequence" : 0,
+                    "Text" : "",
+                    "TextAlign" : "left",
+                    "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                    "Top" : 257.5,
+                    "Type" : "textbox",
+                    "Visible" : true,
+                    "Width" : 225,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "TextBox",
+                    "__supportsLabel" : true,
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "CursorPosition" : 0,
+                    "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                    "DisplayName" : "textbox-40",
+                    "Height" : 28,
+                    "Id" : "textbox-40",
+                    "InnerShadow" : true,
+                    "Label" : "",
+                    "LabelAlignment" : "left",
+                    "Left" : 180,
+                    "MaskInputCharacters" : false,
+                    "PlaceholderText" : "",
+                    "ReadOnly" : false,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsTextBoxStyle",
+                    "TabSequence" : 0,
+                    "Text" : "",
+                    "TextAlign" : "left",
+                    "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                    "Top" : 292.5,
+                    "Type" : "textbox",
+                    "Visible" : true,
+                    "Width" : 225,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "TextBox",
+                    "__supportsLabel" : true,
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-41",
+                    "Height" : 22,
+                    "Id" : "label-41",
+                    "Left" : 20,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsHeaderLabelStyle",
+                    "Text" : "Application Key",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 329.5,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 140,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "CursorPosition" : 0,
+                    "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                    "DisplayName" : "textbox-42",
+                    "Height" : 28,
+                    "Id" : "textbox-42",
+                    "InnerShadow" : true,
+                    "Label" : "",
+                    "LabelAlignment" : "left",
+                    "Left" : 180,
+                    "MaskInputCharacters" : false,
+                    "PlaceholderText" : "",
+                    "ReadOnly" : false,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsTextBoxStyle",
+                    "TabSequence" : 0,
+                    "Text" : "",
+                    "TextAlign" : "left",
+                    "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                    "Top" : 329.5,
+                    "Type" : "textbox",
+                    "Visible" : true,
+                    "Width" : 225,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "TextBox",
+                    "__supportsLabel" : true,
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-44",
+                    "Height" : 22,
+                    "Id" : "label-44",
+                    "Left" : 20,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsHeaderLabelStyle",
+                    "Text" : "Status",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 367.5,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 140,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "AllowDecimals" : false,
+                    "AllowNegatives" : false,
+                    "Area" : "UI",
+                    "ConstrainValue" : false,
+                    "DisplayName" : "numericentry-45",
+                    "FixedDigits" : 0,
+                    "Height" : 24,
+                    "Id" : "numericentry-45",
+                    "InnerShadow" : false,
+                    "Label" : "",
+                    "LabelAlignment" : "left",
+                    "Left" : 180,
+                    "Maximum" : 5,
+                    "Minimum" : 0,
+                    "NumericEntryFocusStyle" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : false,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "normal"
+                    },
+                    "NumericEntryLabelStyle" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : true,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "#161f28",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "normal"
+                    },
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : {
+                      "backgroundColor" : "#f4f5f7",
+                      "displayString" : "",
+                      "fontEmphasisBold" : true,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "#161f28",
+                      "image" : "",
+                      "lineColor" : "#abb2b9",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "normal"
+                    },
+                    "TabSequence" : 0,
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                    "Top" : 367.5,
+                    "Type" : "numericentry",
+                    "Value" : 0,
+                    "ValueAlign" : "right",
+                    "Visible" : true,
+                    "Width" : 120,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Numeric Entry",
+                    "__supportsLabel" : true,
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-46",
+                    "Height" : 22,
+                    "Id" : "label-46",
+                    "Left" : 20,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsHeaderLabelStyle",
+                    "Text" : "Event Management",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 455,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 140,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "Disabled" : false,
+                    "DisplayName" : "checkbox-48",
+                    "FocusStyle" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : false,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "normal"
+                    },
+                    "Height" : 20,
+                    "Id" : "checkbox-48",
+                    "Left" : 180,
+                    "Prompt" : "Enabled",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "State" : false,
+                    "Style" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : false,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "#161f28",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "normal"
+                    },
+                    "TabSequence" : 0,
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                    "Top" : 455,
+                    "Type" : "checkbox",
+                    "Visible" : true,
+                    "Width" : 120,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Checkbox",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-49",
+                    "Height" : 22,
+                    "Id" : "label-49",
+                    "Left" : 20,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsHeaderLabelStyle",
+                    "Text" : "Remote Resolution",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 427.5,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 140,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "Disabled" : false,
+                    "DisplayName" : "checkbox-50",
+                    "FocusStyle" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : false,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "normal"
+                    },
+                    "Height" : 20,
+                    "Id" : "checkbox-50",
+                    "Left" : 180,
+                    "Prompt" : "Enabled",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "State" : false,
+                    "Style" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : false,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "normal"
+                    },
+                    "TabSequence" : 0,
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                    "Top" : 427.5,
+                    "Type" : "checkbox",
+                    "Visible" : true,
+                    "Width" : 120,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Checkbox",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "AllowEllipsis" : false,
+                    "Area" : "UI",
+                    "DisplayName" : "label-51",
+                    "Height" : 22,
+                    "Id" : "label-51",
+                    "Left" : 20,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "NCR.DCS.EventsHeaderLabelStyle",
+                    "Text" : "Software Delivery",
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "DefaultTooltipStyle",
+                    "Top" : 400,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 140,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "Disabled" : false,
+                    "DisplayName" : "checkbox-52",
+                    "FocusStyle" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : false,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "normal"
+                    },
+                    "Height" : 20,
+                    "Id" : "checkbox-52",
+                    "Left" : 180,
+                    "Prompt" : "Enabled",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "State" : false,
+                    "Style" : {
+                      "backgroundColor" : "",
+                      "displayString" : "",
+                      "fontEmphasisBold" : false,
+                      "fontEmphasisItalic" : false,
+                      "fontEmphasisUnderline" : false,
+                      "foregroundColor" : "#161f28",
+                      "image" : "",
+                      "lineColor" : "",
+                      "lineStyle" : "solid",
+                      "lineThickness" : 1,
+                      "secondaryBackgroundColor" : "",
+                      "textSize" : "normal"
+                    },
+                    "TabSequence" : 0,
+                    "ToolTipField" : "",
+                    "ToolTipStyle" : "NCR.DCS.DefaultTooltipStyle",
+                    "Top" : 400,
+                    "Type" : "checkbox",
+                    "Visible" : true,
+                    "Width" : 120,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Checkbox",
+                    "__supportsTooltip" : true
+                  },
+                  "Widgets" : [ ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

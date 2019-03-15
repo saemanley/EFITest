@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Things>
+        <Thing
+         aspect.isExtension="true"
+         description=""
+         documentationContent=""
+         effectiveThingPackage="TimerThing"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         lastModifiedDate="2018-10-24T21:00:18.994Z"
+         name="CacheableFileDownloaderPurgeTimer"
+         projectName=""
+         published="false"
+         tags=""
+         thingTemplate="Timer"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 description="General Settings"
+                 isMultiRow="false"
+                 name="Settings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="true"
+                             baseType="BOOLEAN"
+                             description="Automatically enable timer on startup"
+                             name="enabled"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="USERNAME"
+                             description="User context in which to run event handlers"
+                             name="runAsUser"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="60000.0"
+                             baseType="NUMBER"
+                             description="Update rate"
+                             name="updateRate"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <enabled>true</enabled>
+                            <runAsUser>
+                            <![CDATA[
+                            SuperUser
+                            ]]>
+                            </runAsUser>
+                            <updateRate>3600000.0</updateRate>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions></ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations></ServiceImplementations>
+                <Subscriptions>
+                    <Subscription
+                     enabled="true"
+                     eventName="Timer"
+                     source=""
+                     sourceProperty=""
+                     sourceType="Thing">
+                        <ServiceImplementation
+                         description=""
+                         handlerName="Script"
+                         name="Event.Timer">
+                            <ConfigurationTables>
+                                <ConfigurationTable
+                                 description=""
+                                 isMultiRow="false"
+                                 name="Script"
+                                 ordinal="0">
+                                    <DataShape>
+                                        <FieldDefinitions>
+                                            <FieldDefinition
+                                             baseType="STRING"
+                                             description="code"
+                                             name="code"
+                                             ordinal="0"></FieldDefinition>
+                                        </FieldDefinitions>
+                                    </DataShape>
+                                    <Rows>
+                                        <Row>
+                                            <code>
+                                            <![CDATA[
+                                            // query the CacheableFileDownloader datatable for expired rows
+                                            var expiredRows = Things["CacheableFileDownloader"].QueryDataTableEntries({
+                                                maxItems: 10, // do reasonably sized batches of deletes per time event
+                                                query: {
+                                                    filters: {
+                                                        type: "LE",
+                                                        fieldName: "expiry",
+                                                        value: dateFormatISO(new Date())
+                                                    }
+                                                }
+                                            });
+                                            
+                                            // iterate and purge row
+                                            for (var i = 0; i < expiredRows.rows.length; i++) {
+                                                var expiredRow = expiredRows.rows[i];
+                                                var okey = expiredRow["okey"];
+                                            
+                                                if (okey == null || okey == "") {
+                                                    continue;
+                                                }
+                                            
+                                                // delete from from its cache repository
+                                                try {
+                                                    var cacheRepoName = expiredRow["cacheRepository"];
+                                                    Things[cacheRepoName].DeleteFile({
+                                                        path: okey
+                                                    });
+                                                }
+                                                catch (e) {
+                                                    logger.error(e);
+                                                }
+                                            
+                                                // delete from the datatable by okey (which is its primary key)
+                                                try {
+                                                    Things["CacheableFileDownloader"].DeleteDataTableEntryByKey({
+                                                        key: okey
+                                                    });
+                                                }
+                                                catch (e) {
+                                                    logger.error(e);
+                                                }
+                                            }
+                                            ]]>
+                                            </code>
+                                        </Row>
+                                    </Rows>
+                                </ConfigurationTable>
+                            </ConfigurationTables>
+                        </ServiceImplementation>
+                    </Subscription>
+                </Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ImplementedShapes></ImplementedShapes>
+            <ThingProperties></ThingProperties>
+        </Thing>
+    </Things>
+</Entities>

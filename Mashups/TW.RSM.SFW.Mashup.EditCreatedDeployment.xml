@@ -1,0 +1,2496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Mashups>
+        <Mashup
+         aspect.isExtension="true"
+         aspect.isResponsive="false"
+         aspect.mashupType="mashup"
+         columns="0.0"
+         description=""
+         documentationContent="&lt;p&gt;&lt;br&gt;&lt;/p&gt; "
+         homeMashup=""
+         lastModifiedDate="2018-10-24T21:00:18.612Z"
+         name="TW.RSM.SFW.Mashup.EditCreatedDeployment"
+         projectName=""
+         rows="0.0"
+         tags="Applications:RSM;Applications:SCM;TWUTL:RemoteServices">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ParameterDefinitions>
+                <FieldDefinition
+                 aspect.ordinal="0"
+                 baseType="STRING"
+                 description=""
+                 name="DeploymentId"
+                 ordinal="0"></FieldDefinition>
+            </ParameterDefinitions>
+            <Things>
+                <Thing>TW.RSM.SFW.SoftwareManager</Thing>
+            </Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "Things_TW_RSM_SFW_SoftwareManager" : {
+                  "DataName" : "Things_TW_RSM_SFW_SoftwareManager",
+                  "EntityName" : "TW.RSM.SFW.SoftwareManager",
+                  "EntityType" : "Things",
+                  "Id" : "ed2c1cea-1cbb-4cc1-9870-eeff6854e8cc",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "08841655-70ad-4ce6-b13c-6bf856f0af7c",
+                    "Name" : "GetCampaignById",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCampaignById"
+                  }, {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "981ed431-58b7-4800-ae1f-fd6572e3680b",
+                    "Name" : "EditCampaign",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "EditCampaign"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ {
+                "Id" : "ecc5a609-2c69-4a38-a3c7-9c37c376c26b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "SelectedValue",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "downloadImmediately",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "RadioButton-34",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-48",
+                "TargetSection" : ""
+              }, {
+                "Id" : "8497b4c5-8b28-44fa-81d8-df094d4d404c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "SelectedValue",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "installImmediately",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "RadioButton-40",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-50",
+                "TargetSection" : ""
+              }, {
+                "Id" : "bc054c97-8f69-496f-8457-e792c2a1e6e9",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "requiredDeploymentName",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textboxvalidate-59",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-61",
+                "TargetSection" : ""
+              }, {
+                "Id" : "1a8a02af-2756-49cf-906d-3a4dd5a12f2a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "isValid",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Validator-61",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Textboxvalidate-59",
+                "TargetSection" : ""
+              }, {
+                "Id" : "ea00ef5f-6da4-40d9-85f5-a312794e74bd",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "installDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "DateTimePicker-38",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-63",
+                "TargetSection" : ""
+              }, {
+                "Id" : "ca3d6d74-80ad-4721-8cf4-22bbf09a22ee",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "downloadDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "DateTimePicker-33",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Validator-63",
+                "TargetSection" : ""
+              }, {
+                "Id" : "1b812732-f7ac-4bf9-95a2-165bbbac2f00",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DeploymentId",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "CampaignID",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "GetCampaignById",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "9d11ef75-053e-4cb3-96cd-8c500e940f54",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Name",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Textboxvalidate-59",
+                "TargetSection" : ""
+              }, {
+                "Id" : "1728b867-0b07-4345-9b18-c27795b68c68",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Description",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Textbox-54",
+                "TargetSection" : ""
+              }, {
+                "Id" : "c3def65b-f668-4dfc-bf2d-16bc563e7217",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ScheduledInstallDate",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "DateTime",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "DateTimePicker-38",
+                "TargetSection" : ""
+              }, {
+                "Id" : "a743fe96-67e6-4aa8-8de9-4973580edddc",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ScheduledDownloadDate",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "DateTime",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "DateTimePicker-33",
+                "TargetSection" : ""
+              }, {
+                "Id" : "3292c792-4f73-49fe-a0a7-e316367635e4",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "SelectedValue",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-70",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "RadioButton-34",
+                "TargetSection" : ""
+              }, {
+                "Id" : "8274db02-2273-437a-84ee-4768e9a1f1cd",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "SelectedValue",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-71",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "RadioButton-40",
+                "TargetSection" : ""
+              }, {
+                "Id" : "6a49a4b9-195c-4cb0-81b5-0e54d06a71c9",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "InstallImmediately",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "immediate",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-71",
+                "TargetSection" : ""
+              }, {
+                "Id" : "694b7a7b-5153-4aa5-bcd9-83d9610f5e46",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DownloadImmediately",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "immediate",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-70",
+                "TargetSection" : ""
+              }, {
+                "Id" : "cf4adf6a-2122-4304-8529-9ca40099eb4e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ScheduledDownloadDate",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-74",
+                "TargetSection" : ""
+              }, {
+                "Id" : "ca55e2bf-2ebd-4e4b-8c5e-f7db8fa42b3c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "DownloadEditable",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-51",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-75",
+                "TargetSection" : ""
+              }, {
+                "Id" : "1de7dad4-805c-4958-8ab9-ecc384b3a5e6",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ScheduledDownloadDate",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "downloadDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-51",
+                "TargetSection" : ""
+              }, {
+                "Id" : "68211f6b-ef71-40ca-bb64-6624f1f5e29a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-51",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "RadioButton-34",
+                "TargetSection" : ""
+              }, {
+                "Id" : "e3a5bc6e-6f01-4df1-8b60-b3d4740678b1",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "InstallImmediately",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-50",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "EditCampaign",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "cedf6787-a89e-423e-865d-b03a8f4e6994",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "TargetProperty" : "DownloadImmediately",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-48",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "EditCampaign",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "a6c0a71a-8531-4d51-ab1c-472129d6c236",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DeploymentId",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "ID",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "Mashup",
+                "SourceId" : "mashup-root",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "EditCampaign",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "45440b81-461a-4cb5-9f4e-ddef8584b9dc",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "Description",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textbox-54",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "EditCampaign",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "459f95e4-9822-413d-abf8-de6bef9f9e72",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Text",
+                  "SourcePropertyBaseType" : "STRING",
+                  "TargetProperty" : "Name",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Textboxvalidate-59",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "EditCampaign",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "7bef5dcf-ccf8-41c1-83d2-9e7b14d259bf",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "TargetProperty" : "DownloadDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "DateTimePicker-33",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "EditCampaign",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "f3f6399d-08cb-45e7-8a8d-68a3ba43667f",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DateTime",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "TargetProperty" : "InstallDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "Parameter"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "DateTimePicker-38",
+                "SourceSection" : "",
+                "TargetArea" : "Data",
+                "TargetId" : "EditCampaign",
+                "TargetSection" : "Things_TW_RSM_SFW_SoftwareManager"
+              }, {
+                "Id" : "d63d10bf-b020-4efe-8fe7-2777ccce80b7",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-76",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "DateTimePicker-38",
+                "TargetSection" : ""
+              }, {
+                "Id" : "d168f556-8b68-44f6-bd28-6e77ee1f06e1",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-77",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "DateTimePicker-33",
+                "TargetSection" : ""
+              }, {
+                "Id" : "5be2f073-9b58-4f6a-8026-3ddc6cd43a87",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DownloadImmediately",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "DownloadImmediate",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-77",
+                "TargetSection" : ""
+              }, {
+                "Id" : "918c9eb8-780c-4d8b-b797-e285821a6ffa",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DownloadImmediately",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-78",
+                "TargetSection" : ""
+              }, {
+                "Id" : "6d961ca1-7b8e-4dbd-81c0-553404b9fc00",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DownloadImmediately",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "downloadImmediately",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-79",
+                "TargetSection" : ""
+              }, {
+                "Id" : "17dfb1a4-7c04-4c3b-b4b2-9005f8d4f95a",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ScheduledDownloadDate",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "downloadDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-79",
+                "TargetSection" : ""
+              }, {
+                "Id" : "55ab0d45-84b0-41fc-936c-166bbd249028",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-79",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-74",
+                "TargetSection" : ""
+              }, {
+                "Id" : "2d29af8d-0329-4217-8480-4ea43c8432f3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "SelectedValue",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "ImmediateSelected",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "RadioButton-34",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-77",
+                "TargetSection" : ""
+              }, {
+                "Id" : "5dac992d-8a27-4ce4-85f2-e67081d87604",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ScheduledDownloadDate",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "downloadDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-77",
+                "TargetSection" : ""
+              }, {
+                "Id" : "87553bac-f1e7-4849-88bc-94488c5ee2f4",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DownloadImmediately",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "downloadImmediately",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-51",
+                "TargetSection" : ""
+              }, {
+                "Id" : "ae0e693c-16b8-4175-afe0-152469fc9afa",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "SelectedValue",
+                  "SourcePropertyBaseType" : "STRING",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "ImmediateSelected",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "RadioButton-40",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-76",
+                "TargetSection" : ""
+              }, {
+                "Id" : "6e237ad3-2d6d-4e57-8ae0-cafbe33a2398",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "InstallImmediately",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "installImmediately",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-76",
+                "TargetSection" : ""
+              }, {
+                "Id" : "9e37fef0-06ac-48ff-8cbc-aa8181e1ef88",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "InstallImmediately",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "installImmediately",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-81",
+                "TargetSection" : ""
+              }, {
+                "Id" : "0046f5cc-f647-4c5d-b601-0834b5f2947c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ScheduledInstallDate",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "installDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-81",
+                "TargetSection" : ""
+              }, {
+                "Id" : "dee9a502-2497-4886-8aab-d967712ab810",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "InstallImmediately",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "installImmediately",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-84",
+                "TargetSection" : ""
+              }, {
+                "Id" : "f82c70ba-bd47-42cc-8f8e-eaa1fc187815",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ScheduledInstallDate",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "installDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-84",
+                "TargetSection" : ""
+              }, {
+                "Id" : "5717ffe4-c2c5-4d86-bbe6-453a3d648532",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DownloadImmediately",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "downloadImmediately",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-85",
+                "TargetSection" : ""
+              }, {
+                "Id" : "50b8a4cf-fce2-4de3-9ac7-2a0d06f27dce",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "InstallImmediately",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "installImmediately",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-85",
+                "TargetSection" : ""
+              }, {
+                "Id" : "a633a9ab-ee79-4666-9def-c2f83f93b383",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ScheduledDownloadDate",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "downloadDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-85",
+                "TargetSection" : ""
+              }, {
+                "Id" : "d3550f13-ca65-4897-80de-fbf57f0e3e21",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-85",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-83",
+                "TargetSection" : ""
+              }, {
+                "Id" : "503506b2-7c52-4d9a-937a-def9e1775a95",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DownloadImmediately",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "downloadImmediately",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-84",
+                "TargetSection" : ""
+              }, {
+                "Id" : "ef7fcff6-028d-472d-b772-30e90c6e02f8",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ScheduledDownloadDate",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "downloadDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-84",
+                "TargetSection" : ""
+              }, {
+                "Id" : "4bb2e55d-12dd-4221-8105-15a034bb8b5e",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-84",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "RadioButton-40",
+                "TargetSection" : ""
+              }, {
+                "Id" : "abdfcce0-5dbf-43fa-8118-b0c206806666",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "InstallImmediately",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "installImmediately",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-88",
+                "TargetSection" : ""
+              }, {
+                "Id" : "6039938e-49ff-4aca-8f34-d6441ce3ef7c",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DownloadImmediately",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "downloadImmediately",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-88",
+                "TargetSection" : ""
+              }, {
+                "Id" : "1c000ca6-2246-4b4e-b76b-a13907f0e703",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ScheduledDownloadDate",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "downloadDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-88",
+                "TargetSection" : ""
+              }, {
+                "Id" : "e18ba2d3-b295-4a82-8c50-20af816e1288",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "Output",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Property",
+                  "TargetProperty" : "Visible",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "UI",
+                "SourceId" : "Expression-81",
+                "SourceSection" : "",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-82",
+                "TargetSection" : ""
+              }, {
+                "Id" : "e4c79e84-3ef7-466c-8d59-1b39838b1da6",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ScheduledInstallDate",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "Text",
+                  "TargetPropertyBaseType" : "STRING",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Label-82",
+                "TargetSection" : ""
+              }, {
+                "Id" : "e5943e3c-216f-4409-b768-03ba9a09cf4b",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ScheduledInstallDate",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "installDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-76",
+                "TargetSection" : ""
+              }, {
+                "Id" : "07c44d02-fa13-4958-8ad7-ab1e2e1954d3",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "ScheduledDownloadDate",
+                  "SourcePropertyBaseType" : "DATETIME",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "downloadDate",
+                  "TargetPropertyBaseType" : "DATETIME",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-76",
+                "TargetSection" : ""
+              }, {
+                "Id" : "5753132f-fe95-4a59-b6b0-6be0b50043f6",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "DownloadImmediately",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "downloadImmediately",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "Expression-76",
+                "TargetSection" : ""
+              }, {
+                "Id" : "eb61d64c-ae15-4ef0-af8b-185b18142e78",
+                "PropertyMaps" : [ {
+                  "SourceProperty" : "UseCdn",
+                  "SourcePropertyBaseType" : "BOOLEAN",
+                  "SourcePropertyType" : "Field",
+                  "TargetProperty" : "State",
+                  "TargetPropertyBaseType" : "BOOLEAN",
+                  "TargetPropertyType" : "property"
+                } ],
+                "SourceArea" : "Data",
+                "SourceDetails" : "AllData",
+                "SourceId" : "GetCampaignById",
+                "SourceSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "TargetArea" : "UI",
+                "TargetId" : "checkbox-90",
+                "TargetSection" : ""
+              } ],
+              "DesignTimePermissions" : { },
+              "Events" : [ {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Expression-48",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "SelectionChanged",
+                "EventTriggerId" : "RadioButton-34",
+                "EventTriggerSection" : "",
+                "Id" : "6d2d18ea-e3bc-41d1-802e-d911cf3b8d27"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Expression-50",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "SelectionChanged",
+                "EventTriggerId" : "RadioButton-40",
+                "EventTriggerSection" : "",
+                "Id" : "1251cf52-c954-4aae-988c-03a093c3d91f"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Expression-51",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "SelectionChanged",
+                "EventTriggerId" : "RadioButton-34",
+                "EventTriggerSection" : "",
+                "Id" : "882fbbd6-b7b8-4176-9015-d4f1ddca80fc"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Validator-61",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "Clicked",
+                "EventTriggerId" : "Button-31",
+                "EventTriggerSection" : "",
+                "Id" : "23d1077a-6d9a-49f1-8d01-87f7cfc0e606"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Validator-63",
+                "EventHandlerService" : "Evaluate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "Validator-61",
+                "EventTriggerSection" : "",
+                "Id" : "124311b0-8787-4cfe-abde-5c7b6ec8a8cb"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Navigation-64",
+                "EventHandlerService" : "Navigate",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "True",
+                "EventTriggerId" : "Validator-63",
+                "EventTriggerSection" : "",
+                "Id" : "c196ea90-75db-4fa8-9f0d-5d7d790e5394"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "GetCampaignById",
+                "EventTriggerArea" : "Mashup",
+                "EventTriggerEvent" : "Loaded",
+                "EventTriggerId" : "mashup-root",
+                "EventTriggerSection" : "",
+                "Id" : "1d7a989e-7c03-443a-bb6b-3dd3c6415e1b"
+              }, {
+                "EventHandlerArea" : "Data",
+                "EventHandlerId" : "Things_TW_RSM_SFW_SoftwareManager",
+                "EventHandlerService" : "EditCampaign",
+                "EventTriggerArea" : "UI",
+                "EventTriggerEvent" : "False",
+                "EventTriggerId" : "Validator-63",
+                "EventTriggerSection" : "",
+                "Id" : "dd30751a-c920-4c06-8818-9bc6c627a516"
+              }, {
+                "EventHandlerArea" : "UI",
+                "EventHandlerId" : "Navigation-14",
+                "EventHandlerService" : "Navigate",
+                "EventTriggerArea" : "Data",
+                "EventTriggerEvent" : "ServiceInvokeCompleted",
+                "EventTriggerId" : "EditCampaign",
+                "EventTriggerSection" : "Things_TW_RSM_SFW_SoftwareManager",
+                "Id" : "2a60331a-a665-44fc-a8b0-f4603968d766"
+              } ],
+              "RunTimePermissions" : { },
+              "UI" : {
+                "Properties" : {
+                  "AddToDashboardButtonStyle" : "DefaultAddToDashboardButtonStyle",
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "Columns" : 0,
+                  "ConfigureGadgetButtonStyle" : "DefaultConfigureGadgetButtonStyle",
+                  "DisplayName" : "Mashup",
+                  "EnableParameterEditing" : false,
+                  "Height" : 400,
+                  "Id" : "mashup-root",
+                  "IgnoreWarningsInViewMashup" : false,
+                  "IsPrintLayout" : false,
+                  "Left" : 0,
+                  "MashupToEditGadget" : "DefaultMashupToEditGadget",
+                  "Master" : "TW.RSM.SFW.Master.ApplicationMaster",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : false,
+                  "Rows" : 0,
+                  "ShowDataLoading" : true,
+                  "Style" : "TW.RSM.Style.Panel",
+                  "Title" : "",
+                  "TitleBar" : false,
+                  "TitleBarStyle" : "DefaultTitleBarStyle",
+                  "TitleBarText" : "Gadget Title Here",
+                  "Top" : 0,
+                  "Type" : "mashup",
+                  "Visible" : true,
+                  "Width" : 950,
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Mashup",
+                  "_currentParameterDefs" : [ {
+                    "BaseType" : "STRING",
+                    "Description" : "",
+                    "ParameterName" : "DeploymentId"
+                  } ],
+                  "id_index" : 92,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "AlternateText" : "",
+                    "Area" : "UI",
+                    "BorderStyle" : "DefaultImageBorderStyle",
+                    "DisplayName" : "Image-1",
+                    "Height" : 30,
+                    "Id" : "Image-1",
+                    "Left" : 10,
+                    "PreventCaching" : false,
+                    "ResponsiveLayout" : false,
+                    "Scaling" : "none",
+                    "ShowDataLoading" : true,
+                    "SourceURL" : "TW.RSM.SFW.Icon.Deployment",
+                    "ToolTipField" : "",
+                    "Top" : 10,
+                    "Type" : "image",
+                    "Visible" : true,
+                    "Width" : 30,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Image"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "Description" : "",
+                    "DisplayName" : "Label-2",
+                    "Height" : 25,
+                    "Id" : "Label-2",
+                    "Left" : 50,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "PTC.Core.Accent2PageTitleTextStyle",
+                    "Text" : "[[TW.RSM.SFW.Edit Created Deployment]]",
+                    "ToolTipField" : "",
+                    "Top" : 15,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 865,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "ContainedMashup-3",
+                    "Height" : 75,
+                    "Id" : "ContainedMashup-3",
+                    "Left" : 1,
+                    "MashupParameters" : [ {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "noPkgSelectedMashupName",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "2"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "",
+                        "name" : "noPkgSelectedMashupName",
+                        "ordinal" : 0
+                      }
+                    }, {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "targetMashupName",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "0"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "",
+                        "name" : "targetMashupName",
+                        "ordinal" : 0
+                      }
+                    }, {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "findPackageMashupName",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "1"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "",
+                        "name" : "findPackageMashupName",
+                        "ordinal" : 0
+                      }
+                    } ],
+                    "Name" : "TW.RSM.SFW.Mashup.PackagePanel",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "TabSequenceGroup" : 0,
+                    "Top" : 50,
+                    "Type" : "mashupcontainer",
+                    "Visible" : true,
+                    "Width" : 950,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Contained Mashup",
+                    "findPackageMashupName" : "FindPkg",
+                    "noPkgSelectedMashupName" : "TW.RSM.SFW.Mashup.FindPackage",
+                    "targetMashupName" : "TW.RSM.SFW.Mashup.EditCreatedDeployment"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "DisplayName" : "Label-4",
+                    "Height" : 22,
+                    "Id" : "Label-4",
+                    "Left" : 10,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.Style.Label",
+                    "Text" : "[[TW.RSM.SFW.Deployment Name:]]",
+                    "ToolTipField" : "",
+                    "Top" : 140,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 180,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "center",
+                    "Area" : "UI",
+                    "ClickOutsideToClose" : false,
+                    "DisplayName" : "Navigation-14",
+                    "FixedPopupHeight" : 0,
+                    "FixedPopupWidth" : 0,
+                    "Height" : 30,
+                    "IconAlignment" : "left",
+                    "Id" : "Navigation-14",
+                    "Left" : 770,
+                    "MashupName" : "TW.RSM.SFW.Mashup.TrackCreatedDeployments",
+                    "MashupParameters" : [ ],
+                    "MessageToShow" : "Mashup must be selected",
+                    "ModalPopupOpacity" : 0.5,
+                    "NavigationActiveStyle" : "PTC.Core.ButtonActiveStyle",
+                    "NavigationFocusStyle" : "DefaultNavigationFocusStyle",
+                    "NavigationHoverStyle" : "PTC.Core.Accent2ButtonHoverStyle",
+                    "PopupScrolling" : "auto",
+                    "PopupTitle" : "",
+                    "PopupTitleStyle" : "TW.RSM.Style.PopupTitle",
+                    "ReloadOnReplace" : false,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : false,
+                    "ShowCloseButton" : false,
+                    "ShowDataLoading" : true,
+                    "ShowMessageIfNoMashup" : false,
+                    "Style" : "PTC.Core.Accent2ButtonStyle",
+                    "TabSequence" : 0,
+                    "TargetWindow" : "replace",
+                    "Text" : "[[TW.RSM.SFW.CANCEL]]",
+                    "ToolTipField" : "",
+                    "Top" : 320,
+                    "Transparent" : false,
+                    "Type" : "navigation",
+                    "Visible" : true,
+                    "Width" : 75,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Navigation"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "center",
+                    "Area" : "UI",
+                    "ClickOutsideToClose" : false,
+                    "DisplayName" : "Next-Navigation-15",
+                    "FixedPopupHeight" : 0,
+                    "FixedPopupWidth" : 0,
+                    "Height" : 30,
+                    "IconAlignment" : "left",
+                    "Id" : "Navigation-15",
+                    "Left" : 895,
+                    "MashupName" : "TW.RSM.SFW.Mashup.EditCreatedDeployment",
+                    "MashupParameters" : [ {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "DeploymentId",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "0"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "",
+                        "name" : "DeploymentId",
+                        "ordinal" : 0
+                      }
+                    } ],
+                    "MessageToShow" : "Mashup must be selected",
+                    "ModalPopupOpacity" : 0.5,
+                    "NavigationActiveStyle" : "DefaultNavigationActiveStyle",
+                    "NavigationFocusStyle" : "DefaultNavigationFocusStyle",
+                    "NavigationHoverStyle" : "DefaultNavigationHoverStyle",
+                    "PopupScrolling" : "auto",
+                    "PopupTitle" : "",
+                    "PopupTitleStyle" : "DefaultPopupTitleStyle",
+                    "ReloadOnReplace" : false,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : false,
+                    "ShowCloseButton" : true,
+                    "ShowDataLoading" : true,
+                    "ShowMessageIfNoMashup" : false,
+                    "Style" : "DefaultNavigationStyle",
+                    "TabSequence" : 0,
+                    "TargetWindow" : "replace",
+                    "Text" : "",
+                    "ToolTipField" : "",
+                    "Top" : 185,
+                    "Transparent" : false,
+                    "Type" : "navigation",
+                    "Visible" : false,
+                    "Width" : 50,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Navigation"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "ActiveStyle" : "PTC.Core.ButtonActiveStyle",
+                    "Area" : "UI",
+                    "CancelConfirmationButton" : "button2",
+                    "ConfirmationButton1Label" : "[[TW.RSM.SFW.Yes]]",
+                    "ConfirmationButton2Label" : "[[TW.RSM.SFW.No]]",
+                    "ConfirmationPrompt" : "[[TW.RSM.SFW.Do Action?]]",
+                    "ConfirmationRequired" : false,
+                    "ConfirmationTitle" : "[[TW.RSM.SFW.Confirm Action]]",
+                    "ContextId" : "",
+                    "DefaultConfirmationButton" : "button1",
+                    "Disabled" : false,
+                    "DisabledStyle" : "TW.RSM.Style.ButtonDisabled",
+                    "DisplayName" : "Button-31",
+                    "FocusStyle" : "PTC.Core.ButtonFocusStyle",
+                    "Height" : 30,
+                    "HoverStyle" : "PTC.Core.Accent2ButtonHoverStyle",
+                    "IconAlignment" : "left",
+                    "Id" : "Button-31",
+                    "Label" : "[[TW.RSM.SFW.SAVE]]",
+                    "Left" : 865,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "PTC.Core.Accent2ButtonStyle",
+                    "TabSequence" : 0,
+                    "ToolTipField" : "",
+                    "Top" : 320,
+                    "Type" : "button",
+                    "Visible" : true,
+                    "Width" : 75,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Button"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "Fieldset-32",
+                    "FieldsetLabelStyle" : "TW.RSM.Style.FieldSetLabel",
+                    "FieldsetStyle" : "TW.RSM.Style.FieldSetPanel",
+                    "Height" : 80,
+                    "Id" : "Fieldset-32",
+                    "Left" : 0,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Title" : "",
+                    "Top" : 223.00001525878906,
+                    "Type" : "fieldset",
+                    "Visible" : true,
+                    "Width" : 465,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Fieldset"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "DateDisplay" : "numeric",
+                      "DateFormat" : "yy-mm-dd",
+                      "DateOnly" : false,
+                      "DateOrder" : "yy-mm-dd",
+                      "DisplayName" : "DateTimePicker-33",
+                      "DisplaySeconds" : true,
+                      "Height" : 28,
+                      "Id" : "DateTimePicker-33",
+                      "InitializeWithCurrentDateTime" : true,
+                      "Interval" : 0,
+                      "IntervalType" : "h",
+                      "Label" : "",
+                      "Left" : 170,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.DatePicker",
+                      "TabSequence" : 0,
+                      "TimeFormat" : "hh:mm:ss",
+                      "ToolTipField" : "",
+                      "Top" : 40,
+                      "Type" : "datetimepicker",
+                      "Visible" : true,
+                      "Width" : 135,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Date Time Picker",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "ButtonStates" : "TW.RSM.SFW.StateDef.DeploymentTime",
+                      "DisplayName" : "RadioButton-34",
+                      "Height" : 28,
+                      "Id" : "RadioButton-34",
+                      "Left" : 10,
+                      "Orientation" : "horz",
+                      "RadioButtonDepressedStyle" : "PTC.Core.Accent2RadioButtonDepressedStyle",
+                      "RadioButtonStyle" : "TW.RSM.Style.RadioButton",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Top" : 40,
+                      "Type" : "radiobuttonlist",
+                      "Visible" : true,
+                      "Width" : 142,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Radio Button"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "Label-35",
+                      "Height" : 22,
+                      "Id" : "Label-35",
+                      "Left" : 10,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.GridTitle",
+                      "Text" : "[[TW.RSM.SFW.Package Download Time]]",
+                      "ToolTipField" : "",
+                      "Top" : 10,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 400,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "AutoEvaluate" : true,
+                      "DataChangeType" : "VALUE",
+                      "DisplayName" : "Expression-70",
+                      "Expression" : "immediate ? \"true\":\"false\"",
+                      "FireOnFirstValue" : false,
+                      "Height" : 18,
+                      "Id" : "Expression-70",
+                      "Left" : 285,
+                      "OutputBaseType" : "STRING",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Top" : 5,
+                      "Type" : "expression",
+                      "Visible" : true,
+                      "Width" : 175,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Expression",
+                      "_currentParameterDefs" : [ {
+                        "BaseType" : "BOOLEAN",
+                        "Description" : "",
+                        "ParameterName" : "immediate"
+                      } ]
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "Label-74",
+                      "Height" : 22,
+                      "Id" : "Label-74",
+                      "Left" : 10,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.LabelValue",
+                      "Text" : "",
+                      "ToolTipField" : "",
+                      "Top" : 45,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 130,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "Description" : "",
+                      "DisplayName" : "Label-78",
+                      "Height" : 22,
+                      "Id" : "Label-78",
+                      "Left" : 10,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.LabelValue",
+                      "Text" : "[[TW.RSM.SFW.Immediately]]",
+                      "ToolTipField" : "",
+                      "Top" : 45,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 400,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "Fieldset-37",
+                    "FieldsetLabelStyle" : "TW.RSM.Style.FieldSetLabel",
+                    "FieldsetStyle" : "TW.RSM.Style.FieldSetPanel",
+                    "Height" : 80,
+                    "Id" : "Fieldset-37",
+                    "Left" : 483.9895935058594,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Title" : "",
+                    "Top" : 223.00001525878906,
+                    "Type" : "fieldset",
+                    "Visible" : true,
+                    "Width" : 465,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Fieldset"
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "DateDisplay" : "numeric",
+                      "DateFormat" : "yy-mm-dd",
+                      "DateOnly" : false,
+                      "DateOrder" : "yy-mm-dd",
+                      "DisplayName" : "DateTimePicker-38",
+                      "DisplaySeconds" : true,
+                      "Height" : 28,
+                      "Id" : "DateTimePicker-38",
+                      "InitializeWithCurrentDateTime" : true,
+                      "Interval" : 0,
+                      "IntervalType" : "h",
+                      "Label" : "",
+                      "Left" : 170,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.DatePicker",
+                      "TabSequence" : 0,
+                      "TimeFormat" : "hh:mm:ss",
+                      "ToolTipField" : "",
+                      "Top" : 40,
+                      "Type" : "datetimepicker",
+                      "Visible" : true,
+                      "Width" : 135,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Date Time Picker",
+                      "__supportsLabel" : true
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "ButtonStates" : "TW.RSM.SFW.StateDef.DeploymentTime",
+                      "DisplayName" : "RadioButton-40",
+                      "Height" : 28,
+                      "Id" : "RadioButton-40",
+                      "Left" : 10,
+                      "Orientation" : "horz",
+                      "RadioButtonDepressedStyle" : "PTC.Core.Accent2RadioButtonDepressedStyle",
+                      "RadioButtonStyle" : "TW.RSM.Style.RadioButton",
+                      "ReadOnly" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Top" : 40,
+                      "Type" : "radiobuttonlist",
+                      "Visible" : true,
+                      "Width" : 142,
+                      "Z-index" : 8,
+                      "__TypeDisplayName" : "Radio Button"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Alignment" : "left",
+                      "Area" : "UI",
+                      "DisplayName" : "Label-42",
+                      "Height" : 22,
+                      "Id" : "Label-42",
+                      "Left" : 10,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Style" : "TW.RSM.Style.GridTitle",
+                      "Text" : "[[TW.RSM.SFW.Package Install Time]]",
+                      "ToolTipField" : "",
+                      "Top" : 10,
+                      "Type" : "label",
+                      "Visible" : true,
+                      "Width" : 400,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Label"
+                    },
+                    "Widgets" : [ ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "AutoEvaluate" : true,
+                      "DataChangeType" : "VALUE",
+                      "DisplayName" : "Expression-71",
+                      "Expression" : "immediate ? \"true\":\"false\"",
+                      "FireOnFirstValue" : false,
+                      "Height" : 18,
+                      "Id" : "Expression-71",
+                      "Left" : 285,
+                      "OutputBaseType" : "STRING",
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "Top" : 5,
+                      "Type" : "expression",
+                      "Visible" : true,
+                      "Width" : 175,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Expression",
+                      "_currentParameterDefs" : [ {
+                        "BaseType" : "BOOLEAN",
+                        "Description" : "",
+                        "ParameterName" : "immediate"
+                      } ]
+                    },
+                    "Widgets" : [ ]
+                  } ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : true,
+                    "DataChangeType" : "VALUE",
+                    "Description" : "",
+                    "DisplayName" : "Expression-48",
+                    "Expression" : "downloadImmediately==\"true\"",
+                    "FireOnFirstValue" : true,
+                    "Height" : 18,
+                    "Id" : "Expression-48",
+                    "Left" : 0,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 346,
+                    "Type" : "expression",
+                    "Visible" : true,
+                    "Width" : 170,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "downloadImmediately"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : true,
+                    "DataChangeType" : "VALUE",
+                    "DisplayName" : "Expression-50",
+                    "Expression" : "installImmediately==\"true\"",
+                    "FireOnFirstValue" : true,
+                    "Height" : 18,
+                    "Id" : "Expression-50",
+                    "Left" : 0,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 366,
+                    "Type" : "expression",
+                    "Visible" : true,
+                    "Width" : 170,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "installImmediately"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : true,
+                    "DataChangeType" : "VALUE",
+                    "Description" : "",
+                    "DisplayName" : "Expression-51",
+                    "Expression" : "!downloadImmediately &&  downloadDate > new Date()",
+                    "FireOnFirstValue" : true,
+                    "Height" : 18,
+                    "Id" : "Expression-51",
+                    "Left" : 175,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 370,
+                    "Type" : "expression",
+                    "Visible" : true,
+                    "Width" : 175,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "BOOLEAN",
+                      "Description" : "",
+                      "ParameterName" : "downloadImmediately"
+                    }, {
+                      "BaseType" : "DATETIME",
+                      "Description" : "",
+                      "ParameterName" : "downloadDate"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "ClickOutsideToClose" : false,
+                    "DisplayName" : "NavigationTooltip-53",
+                    "FixedPopupHeight" : 0,
+                    "FixedPopupWidth" : 0,
+                    "Height" : 25,
+                    "HelpContent" : "<body><div><p></p><ol> <li><p>Edit the <b>Deployment Name</b>, if necessary.</p></li> <li><p>Edit the <b>Deployment Description</b>, if necessary.</p></li> <li><p>Reschedule the Package Install Time, if necessary.</p><ul> <li><p>To install the package to target assets immediately after the package downloads, click <b>Immediately</b>.</p></li> <li><p>To install the package to target assets at a specific date/time after the package downloads, click <b>Date</b> and use the calendar to set a date/time.</p></li> </ul></li> <li><p>Click <b>Save</b>. The Find One-Time Deployments page appears.</p></li> </ol></div></body>",
+                    "HelpTitle" : "Edit Created Deployment",
+                    "IconAlignment" : "left",
+                    "Id" : "NavigationTooltip-53",
+                    "Left" : 917,
+                    "MashupName" : "TW.RSM.SFW.Mashup.HelpDialog",
+                    "MashupParameters" : [ {
+                      "BaseType" : "STRING",
+                      "Description" : "Help Title",
+                      "ParameterName" : "HelpTitle",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "0"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "Help Title",
+                        "name" : "HelpTitle",
+                        "ordinal" : 0
+                      }
+                    }, {
+                      "BaseType" : "STRING",
+                      "Description" : "Help Content",
+                      "ParameterName" : "HelpContent",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "1"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "Help Content",
+                        "name" : "HelpContent",
+                        "ordinal" : 0
+                      }
+                    } ],
+                    "MessageToShow" : "Mashup must be selected",
+                    "ModalPopupOpacity" : 0.5,
+                    "NavigationActiveStyle" : "TW.RSM.Style.HelpIcon",
+                    "NavigationFocusStyle" : "TW.RSM.Style.HelpIcon",
+                    "NavigationHoverStyle" : "TW.RSM.Style.HelpIconRollover",
+                    "PopupScrolling" : "off",
+                    "PopupTitle" : "[[TW.RSM.SFW.HELP DIALOG]]",
+                    "PopupTitleStyle" : "TW.RSM.Style.PopupTitle",
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : true,
+                    "ShowCloseButton" : true,
+                    "ShowDataLoading" : true,
+                    "ShowMessageIfNoMashup" : false,
+                    "Style" : "TW.RSM.Style.HelpIcon",
+                    "TargetWindow" : "popup",
+                    "Text" : "",
+                    "ToolTipDuration" : 2,
+                    "ToolTipField" : "[[TW.RSM.SFW.Help]]",
+                    "ToolTipPosition" : "top right,bottom left",
+                    "ToolTipStyles" : "qtip-green",
+                    "Top" : 12,
+                    "Transparent" : false,
+                    "Type" : "navigation",
+                    "Visible" : true,
+                    "Width" : 30,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Navigation"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "Description" : "",
+                    "DisplayName" : "Label-55",
+                    "Height" : 22,
+                    "Id" : "Label-55",
+                    "Left" : 10,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.Style.Label",
+                    "Text" : "[[TW.RSM.SFW.Deployment Description:]]",
+                    "ToolTipField" : "",
+                    "Top" : 180,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 180,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : false,
+                    "DisplayName" : "Validator-61",
+                    "Expression" : "requiredDeploymentName.length>0",
+                    "Height" : 18,
+                    "Id" : "Validator-61",
+                    "Left" : 360,
+                    "Output" : false,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 328,
+                    "Type" : "validator",
+                    "Visible" : true,
+                    "Width" : 165,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Validator",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "requiredDeploymentName"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "CursorPosition" : 0,
+                    "DefaultTextboxFocusStyle" : "DefaultFocusStyle",
+                    "DisplayName" : "Textboxvalidate-59",
+                    "Height" : 24,
+                    "Id" : "Textboxvalidate-59",
+                    "InnerShadow" : true,
+                    "InvalidInputStyle" : "TW.RSM.Style.InvalidInput",
+                    "Label" : "",
+                    "LabelAlignment" : "left",
+                    "Left" : 200,
+                    "MaskInputCharacters" : false,
+                    "MaxChars" : 300,
+                    "PlaceholderText" : "",
+                    "ReadOnly" : false,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : false,
+                    "Style" : "DefaultTextBoxStyle",
+                    "TabSequence" : 0,
+                    "Text" : "",
+                    "TextAlign" : "left",
+                    "TextboxLabelStyle" : "DefaultWidgetLabelStyle",
+                    "ToolTip" : "",
+                    "ToolTipDuration" : 2,
+                    "ToolTipPosition" : "Lower Right",
+                    "ToolTipStyles" : ".qtip-shadow",
+                    "Top" : 140,
+                    "Type" : "textboxValidate",
+                    "ValidInputStyle" : "TW.RSM.Style.ValidInput",
+                    "ValidationHint" : "[[TW.RSM.SFW.Required]]",
+                    "ValidationHinting" : true,
+                    "Visible" : true,
+                    "Width" : 250,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Textboxvalidate",
+                    "__supportsLabel" : true,
+                    "isValid" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "CursorPosition" : 0,
+                    "DefaultTextboxFocusStyle" : "TW.RSM.Style.TextBoxForeground",
+                    "DisplayName" : "Textbox-54",
+                    "Height" : 24,
+                    "Id" : "Textbox-54",
+                    "InnerShadow" : false,
+                    "Label" : "",
+                    "LabelAlignment" : "left",
+                    "Left" : 200,
+                    "MaskInputCharacters" : false,
+                    "PlaceholderText" : "",
+                    "ReadOnly" : false,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.Style.TextBox",
+                    "TabSequence" : 0,
+                    "Text" : "",
+                    "TextAlign" : "left",
+                    "TextboxLabelStyle" : "TW.RSM.Style.TextBoxLabel",
+                    "ToolTipField" : "",
+                    "Top" : 180,
+                    "Type" : "textbox",
+                    "Visible" : true,
+                    "Width" : 250,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Textbox",
+                    "__supportsLabel" : true
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : false,
+                    "DisplayName" : "Validator-63",
+                    "Expression" : "(downloadDate>installDate) && !installImmediately",
+                    "Height" : 18,
+                    "Id" : "Validator-63",
+                    "Left" : 360,
+                    "Output" : false,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 370,
+                    "Type" : "validator",
+                    "Visible" : true,
+                    "Width" : 170,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Validator",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "DATETIME",
+                      "Description" : "",
+                      "ParameterName" : "downloadDate"
+                    }, {
+                      "BaseType" : "DATETIME",
+                      "Description" : "",
+                      "ParameterName" : "installDate"
+                    }, {
+                      "BaseType" : "BOOLEAN",
+                      "Description" : "",
+                      "ParameterName" : "installImmediately"
+                    }, {
+                      "BaseType" : "BOOLEAN",
+                      "Description" : "",
+                      "ParameterName" : "downloadImmediately"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "center",
+                    "Area" : "UI",
+                    "ClickOutsideToClose" : false,
+                    "DisplayName" : "Navigation-64",
+                    "FixedPopupHeight" : 0,
+                    "FixedPopupWidth" : 0,
+                    "Height" : 30,
+                    "IconAlignment" : "left",
+                    "Id" : "Navigation-64",
+                    "Left" : 840,
+                    "MashupName" : "TW.RSM.Mashup.MessageDialog",
+                    "MashupParameters" : [ {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "title",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "0"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "",
+                        "name" : "title",
+                        "ordinal" : 0
+                      }
+                    }, {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "message",
+                      "ParmDef" : {
+                        "aspects" : {
+                          "ordinal" : "1"
+                        },
+                        "baseType" : "STRING",
+                        "description" : "",
+                        "name" : "message",
+                        "ordinal" : 0
+                      }
+                    } ],
+                    "MessageToShow" : "Mashup must be selected",
+                    "ModalPopupOpacity" : 0.5,
+                    "NavigationActiveStyle" : "DefaultNavigationActiveStyle",
+                    "NavigationFocusStyle" : "DefaultNavigationFocusStyle",
+                    "NavigationHoverStyle" : "DefaultNavigationHoverStyle",
+                    "PopupScrolling" : "visible",
+                    "PopupTitle" : "",
+                    "PopupTitleStyle" : "DefaultPopupTitleStyle",
+                    "ReloadOnReplace" : false,
+                    "ResponsiveLayout" : false,
+                    "RoundedCorners" : false,
+                    "ShowCloseButton" : true,
+                    "ShowDataLoading" : true,
+                    "ShowMessageIfNoMashup" : false,
+                    "Style" : "DefaultNavigationStyle",
+                    "TabSequence" : 0,
+                    "TargetWindow" : "popup",
+                    "Text" : "",
+                    "ToolTipField" : "",
+                    "Top" : 185,
+                    "Transparent" : false,
+                    "Type" : "navigation",
+                    "Visible" : false,
+                    "Width" : 50,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Navigation",
+                    "message" : "The scheduled installation date was before the scheduled download date. Please schedule an installation after the scheduled download.",
+                    "title" : "Invalid Installation Date"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : false,
+                    "DataChangeType" : "VALUE",
+                    "DisplayName" : "Expression-75",
+                    "Expression" : "!DownloadEditable",
+                    "FireOnFirstValue" : false,
+                    "Height" : 18,
+                    "Id" : "Expression-75",
+                    "Left" : 0,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 305,
+                    "Type" : "expression",
+                    "Visible" : true,
+                    "Width" : 175,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "BOOLEAN",
+                      "Description" : "",
+                      "ParameterName" : "DownloadEditable"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : true,
+                    "DataChangeType" : "VALUE",
+                    "DisplayName" : "Expression-76",
+                    "Expression" : "ImmediateSelected==\"false\" && (!installImmediately || (!downloadImmediately && downloadDate > new Date())) && (installDate > new Date())",
+                    "FireOnFirstValue" : true,
+                    "Height" : 18,
+                    "Id" : "Expression-76",
+                    "Left" : 355,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 350,
+                    "Type" : "expression",
+                    "Visible" : false,
+                    "Width" : 175,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "BOOLEAN",
+                      "Description" : "",
+                      "ParameterName" : "installImmediately"
+                    }, {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "ImmediateSelected"
+                    }, {
+                      "BaseType" : "DATETIME",
+                      "Description" : "",
+                      "ParameterName" : "installDate"
+                    }, {
+                      "BaseType" : "BOOLEAN",
+                      "Description" : "",
+                      "ParameterName" : "downloadImmediately"
+                    }, {
+                      "BaseType" : "DATETIME",
+                      "Description" : "",
+                      "ParameterName" : "downloadDate"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : true,
+                    "DataChangeType" : "VALUE",
+                    "Description" : "",
+                    "DisplayName" : "Expression-77",
+                    "Expression" : "ImmediateSelected==\"false\" && !DownloadImmediate &&  downloadDate > new Date()",
+                    "FireOnFirstValue" : true,
+                    "Height" : 18,
+                    "Id" : "Expression-77",
+                    "Left" : 0,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 325,
+                    "Type" : "expression",
+                    "Visible" : false,
+                    "Width" : 175,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "BOOLEAN",
+                      "Description" : "",
+                      "ParameterName" : "DownloadImmediate"
+                    }, {
+                      "BaseType" : "STRING",
+                      "Description" : "",
+                      "ParameterName" : "ImmediateSelected"
+                    }, {
+                      "BaseType" : "DATETIME",
+                      "Description" : "",
+                      "ParameterName" : "downloadDate"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : true,
+                    "DataChangeType" : "VALUE",
+                    "DisplayName" : "Expression-79",
+                    "Expression" : "!downloadImmediately && (downloadDate < new Date())",
+                    "FireOnFirstValue" : false,
+                    "Height" : 18,
+                    "Id" : "Expression-79",
+                    "Left" : 175,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 305,
+                    "Type" : "expression",
+                    "Visible" : false,
+                    "Width" : 180,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "BOOLEAN",
+                      "Description" : "",
+                      "ParameterName" : "downloadImmediately"
+                    }, {
+                      "BaseType" : "DATETIME",
+                      "Description" : "",
+                      "ParameterName" : "downloadDate"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : true,
+                    "DataChangeType" : "VALUE",
+                    "Description" : "",
+                    "DisplayName" : "Expression-81",
+                    "Expression" : "!installImmediately &&  installDate < new Date()",
+                    "FireOnFirstValue" : true,
+                    "Height" : 18,
+                    "Id" : "Expression-81",
+                    "Left" : 360,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 305,
+                    "Type" : "expression",
+                    "Visible" : true,
+                    "Width" : 170,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "BOOLEAN",
+                      "Description" : "",
+                      "ParameterName" : "installImmediately"
+                    }, {
+                      "BaseType" : "DATETIME",
+                      "Description" : "",
+                      "ParameterName" : "installDate"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "Description" : "",
+                    "DisplayName" : "Label-82",
+                    "Height" : 22,
+                    "Id" : "Label-82",
+                    "Left" : 495,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.Style.LabelValue",
+                    "Text" : "",
+                    "ToolTipField" : "",
+                    "Top" : 265,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 140,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "Description" : "",
+                    "DisplayName" : "Label-83",
+                    "Height" : 22,
+                    "Id" : "Label-83",
+                    "Left" : 495,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.Style.LabelValue",
+                    "Text" : "[[TW.RSM.SFW.Immediately]]",
+                    "ToolTipField" : "",
+                    "Top" : 265,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 400,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : true,
+                    "DataChangeType" : "VALUE",
+                    "Description" : "",
+                    "DisplayName" : "Expression-84",
+                    "Expression" : "(!installImmediately || (!downloadImmediately && downloadDate > new Date())) && (installDate > new Date())",
+                    "FireOnFirstValue" : false,
+                    "Height" : 18,
+                    "Id" : "Expression-84",
+                    "Left" : 175,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 328,
+                    "Type" : "expression",
+                    "Visible" : false,
+                    "Width" : 175,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "BOOLEAN",
+                      "Description" : "",
+                      "ParameterName" : "installImmediately"
+                    }, {
+                      "BaseType" : "DATETIME",
+                      "Description" : "",
+                      "ParameterName" : "installDate"
+                    }, {
+                      "BaseType" : "BOOLEAN",
+                      "Description" : "",
+                      "ParameterName" : "downloadImmediately"
+                    }, {
+                      "BaseType" : "DATETIME",
+                      "Description" : "",
+                      "ParameterName" : "downloadDate"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : true,
+                    "DataChangeType" : "VALUE",
+                    "DisplayName" : "Expression-85",
+                    "Expression" : "installImmediately && (downloadImmediately || downloadDate < new Date())",
+                    "FireOnFirstValue" : false,
+                    "Height" : 18,
+                    "Id" : "Expression-85",
+                    "Left" : 175,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 350,
+                    "Type" : "expression",
+                    "Visible" : true,
+                    "Width" : 175,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "BOOLEAN",
+                      "Description" : "",
+                      "ParameterName" : "installImmediately"
+                    }, {
+                      "BaseType" : "BOOLEAN",
+                      "Description" : "",
+                      "ParameterName" : "downloadImmediately"
+                    }, {
+                      "BaseType" : "DATETIME",
+                      "Description" : "",
+                      "ParameterName" : "downloadDate"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "AutoEvaluate" : true,
+                    "DataChangeType" : "VALUE",
+                    "DisplayName" : "Expression-88",
+                    "Expression" : "(!installImmediately || (!downloadImmediately && downloadDate > new Date()))",
+                    "FireOnFirstValue" : false,
+                    "Height" : 18,
+                    "Id" : "Expression-88",
+                    "Left" : 535,
+                    "OutputBaseType" : "BOOLEAN",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Top" : 310,
+                    "Type" : "expression",
+                    "Visible" : false,
+                    "Width" : 180,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Expression",
+                    "_currentParameterDefs" : [ {
+                      "BaseType" : "BOOLEAN",
+                      "Description" : "",
+                      "ParameterName" : "installImmediately"
+                    }, {
+                      "BaseType" : "BOOLEAN",
+                      "Description" : "",
+                      "ParameterName" : "downloadImmediately"
+                    }, {
+                      "BaseType" : "DATETIME",
+                      "Description" : "",
+                      "ParameterName" : "downloadDate"
+                    } ]
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "Description" : "",
+                    "Disabled" : true,
+                    "DisplayName" : "UseCdnCheckbox",
+                    "FocusStyle" : "DefaultFocusStyle",
+                    "Height" : 20,
+                    "Id" : "checkbox-90",
+                    "Left" : 640,
+                    "Prompt" : "",
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "State" : false,
+                    "Style" : "DefaultCheckboxStyle",
+                    "TabSequence" : 0,
+                    "ToolTipField" : "",
+                    "Top" : 140,
+                    "Type" : "checkbox",
+                    "Visible" : true,
+                    "Width" : 115,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "checkbox"
+                  },
+                  "Widgets" : [ ]
+                }, {
+                  "Properties" : {
+                    "Alignment" : "left",
+                    "Area" : "UI",
+                    "DisplayName" : "CDN Label",
+                    "Height" : 22,
+                    "Id" : "Label-91",
+                    "Left" : 475,
+                    "ResponsiveLayout" : false,
+                    "ShowDataLoading" : true,
+                    "Style" : "TW.RSM.Style.Label",
+                    "Text" : "[[TW.RSM.SFW.UseCDN:]]",
+                    "ToolTipField" : "",
+                    "Top" : 140,
+                    "Type" : "label",
+                    "Visible" : true,
+                    "Width" : 160,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Label"
+                  },
+                  "Widgets" : [ ]
+                } ]
+              },
+              "mashupType" : "mashup"
+            }
+            ]]>
+            </mashupContent>
+        </Mashup>
+    </Mashups>
+</Entities>

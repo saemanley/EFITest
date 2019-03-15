@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Things>
+        <Thing
+         description="Data table used to store GetPerformanceMetrics for System PlatformSubsystem"
+         documentationContent=""
+         effectiveThingPackage="DataTableThing"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         lastModifiedDate="2018-11-06T02:37:24.631Z"
+         name="NCR.DCS.MonitorPlatformSubsystemDT"
+         projectName="DCS. Project.Main"
+         published="false"
+         tags="Applications:NCR;Applications:DCS"
+         thingTemplate="DataTable"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read>
+                    <Principal
+                     isPermitted="true"
+                     name="NCR.DCS.DEVELOPERS"
+                     type="Group"></Principal>
+                </Read>
+                <Update>
+                    <Principal
+                     isPermitted="false"
+                     name="NCR.DCS.DEVELOPERS"
+                     type="Group"></Principal>
+                </Update>
+                <Delete>
+                    <Principal
+                     isPermitted="false"
+                     name="NCR.DCS.DEVELOPERS"
+                     type="Group"></Principal>
+                </Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                    </PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.Mashup"
+                         type="Group"></Principal>
+                    </EventInvoke>
+                    <EventSubscribe></EventSubscribe>
+                </Permissions>
+            </RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:Developers"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:ReleaseManagement"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 description="Data Thing Configuration"
+                 isMultiRow="false"
+                 name="DataThingSettings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description="Persistence Provider Name"
+                             name="persistenceProvider"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <persistenceProvider>
+                            <![CDATA[
+                            ThingworxPersistenceProvider
+                            ]]>
+                            </persistenceProvider>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="Index Settings"
+                 isMultiRow="true"
+                 name="Indexes"
+                 ordinal="1">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.friendlyName="Index Field Names"
+                             baseType="STRING"
+                             description="Index fields"
+                             name="fieldNames"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.friendlyName="Index Name"
+                             baseType="STRING"
+                             description="Index name"
+                             name="name"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows></Rows>
+                </ConfigurationTable>
+                <ConfigurationTable
+                 description="Data Shape Configuration"
+                 isMultiRow="false"
+                 name="Settings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.friendlyName="Data Shape"
+                             baseType="DATASHAPENAME"
+                             description="Data shape"
+                             name="dataShape"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <accumulatedDataShape>
+                                <json>
+                                <![CDATA[
+                                {"fieldDefinitions":{"eventQueueSize":{"name":"eventQueueSize","aspects":{},"description":"","baseType":"NUMBER","ordinal":0},"thingCount":{"name":"thingCount","aspects":{},"description":"","baseType":"NUMBER","ordinal":3},"valueStreamQueueSize":{"name":"valueStreamQueueSize","aspects":{},"description":"","baseType":"NUMBER","ordinal":6},"memoryInUse":{"name":"memoryInUse","aspects":{},"description":"","baseType":"NUMBER","ordinal":1},"streamQueueSize":{"name":"streamQueueSize","aspects":{},"description":"","baseType":"NUMBER","ordinal":2},"totalMemoryAllocated":{"name":"totalMemoryAllocated","aspects":{},"description":"","baseType":"NUMBER","ordinal":5},"timestamp":{"name":"timestamp","aspects":{"isPrimaryKey":true},"description":"","baseType":"DATETIME","ordinal":4}}}
+                                ]]>
+                                </json>
+                            </accumulatedDataShape>
+                            <dataShape>
+                            <![CDATA[
+                            NCR.DCS.MonitorPlatformSubsystemDS
+                            ]]>
+                            </dataShape>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetPerformanceMetrics">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="QueryDataTableEntriesSortedByTime">
+                        <ResultType
+                         aspect.dataShape="NCR.DCS.MonitorPlatformSubsystemDS"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions></ParameterDefinitions>
+                    </ServiceDefinition>
+                </ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetPerformanceMetrics">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var enablescriptdebug = false;
+                                        
+                                        if (enablescriptdebug) {
+                                            logger.debug("NCRDCSMASHUP::NCR.DCS.MonitorPlatformSubsystemDT::GetPerformanceMetrics:Start");
+                                        }
+                                        
+                                        // result: INFOTABLE dataShape: ThingworxMetric
+                                        var itPS = Subsystems["PlatformSubsystem"].GetPerformanceMetrics();
+                                        
+                                        var tableLength = itPS.rows.length;
+                                        var eqs;
+                                        var sqs;
+                                        var vsqs;
+                                        var miu;
+                                        var tma;
+                                        var tc;
+                                        
+                                        for (var x = 0; x < tableLength; x++) {
+                                            var row = itPS.rows[x];
+                                        
+                                            if (row.name == "eventQueueSize") {
+                                                eqs = row.value;
+                                            }
+                                            if (row.name == "streamQueueSize-ThingworxPersistenceProvider") {
+                                                sqs = row.value;
+                                            }
+                                            if (row.name == "valueStreamQueueSize-ThingworxPersistenceProvider") {
+                                                vsqs = row.value;
+                                            }
+                                            if (row.name == "memoryInUse") {
+                                                miu = row.value;
+                                            }
+                                            if (row.name == "totalMemoryAllocated") {
+                                                tma = row.value;
+                                            }
+                                            if (row.name == "thingCount") {
+                                                tc = row.value;
+                                            }
+                                        
+                                        }
+                                        
+                                        if (enablescriptdebug) {
+                                            logger.debug("NCRDCSMASHUP::NCR.DCS.MonitorPlatformSubsystemDT::GetPerformanceMetrics:"
+                                                + "eventQueueSize:" + eqs
+                                                + ":streamQueueSize-ThingworxPersistenceProvider:" + sqs
+                                                + ":valueStreamQueueSize-ThingworxPersistenceProvider:" + vsqs
+                                                + ":memoryInUse:" + miu
+                                                + ":totalMemoryAllocated:" + tma
+                                                + ":thingCount:" + tc
+                                            );
+                                        }
+                                        
+                                        var timeStamp = new Date();
+                                        
+                                        var values = me.CreateValues();
+                                        
+                                        values.eventQueueSize = eqs; //NUMBER
+                                        values.streamQueueSize = sqs; //NUMBER
+                                        values.valueStreamQueueSize = vsqs; //NUMBER
+                                        values.memoryInUse = miu; //NUMBER
+                                        values.totalMemoryAllocated = tma; //NUMBER
+                                        values.thingCount = tc; //NUMBER
+                                        values.timestamp = timeStamp; //DATETIME [Primary Key]
+                                        
+                                        var params = {
+                                            sourceType: undefined /* STRING */,
+                                            values: values /* INFOTABLE*/,
+                                            location: undefined /* LOCATION */,
+                                            source: undefined /* STRING */,
+                                            tags: undefined /* TAGS */
+                                        };
+                                        
+                                        me.AddDataTableEntries(params);
+                                        
+                                        if (enablescriptdebug) {
+                                            logger.debug("NCRDCSMASHUP::NCR.DCS.MonitorPlatformSubsystemDT::GetPerformanceMetrics:Completed");
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="QueryDataTableEntriesSortedByTime">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        /*
+                                        var values = me.CreateValues();
+                                        
+                                        values.eventQueueSize = undefined; //NUMBER
+                                        values.valueStreamQueueSize = undefined; //NUMBER
+                                        values.thingCount = undefined; //NUMBER
+                                        values.memoryInUse = undefined; //NUMBER
+                                        values.streamQueueSize = undefined; //NUMBER
+                                        values.totalMemoryAllocated = undefined; //NUMBER
+                                        values.timestamp = undefined; //DATETIME [Primary Key]
+                                        */
+                                        
+                                        var params = {
+                                        	maxItems: 100000 /* NUMBER */,
+                                        	values: undefined /* INFOTABLE*/,
+                                        	query: undefined /* QUERY */,
+                                        	source: undefined /* STRING */,
+                                        	tags: undefined /* TAGS */
+                                        };
+                                        
+                                        // result: INFOTABLE dataShape: "undefined"
+                                        var result = me.QueryDataTableEntries(params);
+                                        
+                                        var sort = new Object();
+                                        sort.name = "timestamp"
+                                        sort.ascending = false;
+                                        result.Sort(sort);
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ImplementedShapes></ImplementedShapes>
+            <ThingProperties></ThingProperties>
+        </Thing>
+    </Things>
+</Entities>

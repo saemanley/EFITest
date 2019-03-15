@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b557"
+ majorVersion="8"
+ minorVersion="2"
+ modelPersistenceProviderPackage="PostgresPersistenceProviderPackage"
+ revision="7"
+ schemaVersion="1020"
+ universal="">
+    <Things>
+        <Thing
+         description=""
+         documentationContent=""
+         effectiveThingPackage="ConfiguredThing"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         lastModifiedDate="2018-11-06T02:37:24.658Z"
+         name="NCR.DCS.ConfigureAssetHelper"
+         projectName="DCS. Project.Main"
+         published="false"
+         tags="Applications:DCS"
+         thingTemplate="GenericThing"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions>
+                <Permissions
+                 resourceName="*">
+                    <PropertyRead>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.DATAADMIN"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.ICPSpecialistL2Group"
+                         type="Group"></Principal>
+                    </PropertyRead>
+                    <PropertyWrite>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.DATAADMIN"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.ICPSpecialistL2Group"
+                         type="Group"></Principal>
+                    </PropertyWrite>
+                    <ServiceInvoke>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.DCS.DATAADMIN"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="true"
+                         name="NCR.ICPSpecialistL2Group"
+                         type="Group"></Principal>
+                    </ServiceInvoke>
+                    <EventInvoke>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.DATAADMIN"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.ICPSpecialistL2Group"
+                         type="Group"></Principal>
+                    </EventInvoke>
+                    <EventSubscribe>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.DCS.DATAADMIN"
+                         type="Group"></Principal>
+                        <Principal
+                         isPermitted="false"
+                         name="NCR.ICPSpecialistL2Group"
+                         type="Group"></Principal>
+                    </EventSubscribe>
+                </Permissions>
+            </RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:DataAdmin"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:ReleaseManagement"
+                     type="OrganizationalUnit"></Principal>
+                    <Principal
+                     isPermitted="true"
+                     name="DCS:TCS"
+                     type="OrganizationalUnit"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTables></ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="CreateAssetThing">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="name"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.dataShape="NCR.DCS.AssetDS"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="valuesForAsset"
+                             ordinal="2"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="DeleteAssetThing">
+                        <ResultType
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="name"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="GetThingsImplementBaseDevice">
+                        <ResultType
+                         aspect.dataShape="NCR.DCS.AssetDS"
+                         baseType="INFOTABLE"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="QUERY"
+                             description=""
+                             name="query"
+                             ordinal="1"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="ProcessAssetCSVImport">
+                        <ResultType
+                         aspect.dataShape="NCR.DCS.CustomerCSVImportDS"
+                         baseType="STRING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="fileName"
+                             ordinal="3"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="path"
+                             ordinal="1"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="THINGNAME"
+                             description=""
+                             name="repositoryName"
+                             ordinal="2"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                    <ServiceDefinition
+                     aspect.isAsync="false"
+                     category=""
+                     description=""
+                     isAllowOverride="false"
+                     isLocalOnly="false"
+                     isOpen="false"
+                     isPrivate="false"
+                     name="UpdatePropertyValuesAssetThing">
+                        <ResultType
+                         baseType="NOTHING"
+                         description=""
+                         name="result"
+                         ordinal="0"></ResultType>
+                        <ParameterDefinitions>
+                            <FieldDefinition
+                             aspect.isRequired="true"
+                             baseType="STRING"
+                             description=""
+                             name="name"
+                             ordinal="2"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.dataShape="NCR.DCS.AssetDS"
+                             baseType="INFOTABLE"
+                             description=""
+                             name="valuesForAsset"
+                             ordinal="2"></FieldDefinition>
+                        </ParameterDefinitions>
+                    </ServiceDefinition>
+                </ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="CreateAssetThing">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var enablescriptdebug = false;
+                                        
+                                        if (enablescriptdebug) {
+                                            logger.debug("NCRDCSMASHUP::NCR.DCS.ConfigureAssetHelper::CreateAssetThing" + ":name:" + name);
+                                        }
+                                        
+                                        var desc = "";
+                                        var vfcD = valuesForAsset.description;
+                                        if (vfcD != null && vfcD != "") { 
+                                            desc = vfcD;
+                                        }
+                                        var customer;
+                                        var asset_type = "";
+                                        var asset_id = "";
+                                        var asset_name = "";
+                                        var asset_manufacturer = "";
+                                        var asset_model = "";
+                                        var asset_serial_number = "";
+                                        var asset_tag = "";
+                                        var asset_storeidentifier = "";
+                                        var asset_status = 0;
+                                        var asset_programdir = "";
+                                        var asset_datadir = "";
+                                        
+                                        if (valuesForAsset.Customer) {
+                                            customer= valuesForAsset.Customer;
+                                        }
+                                        if (valuesForAsset.Asset_Type) {
+                                            asset_type = valuesForAsset.Asset_Type;
+                                        }
+                                        if (valuesForAsset.Asset_ID) {
+                                            asset_id = valuesForAsset.Asset_ID;
+                                        }
+                                        if (valuesForAsset.Asset_Name) {
+                                            asset_name = valuesForAsset.Asset_Name;
+                                        }
+                                        if (valuesForAsset.Asset_Manufacturer) {
+                                            asset_manufacturer = valuesForAsset.Asset_Manufacturer;
+                                        }
+                                        if (valuesForAsset.Asset_Model) {
+                                            asset_model = valuesForAsset.Asset_Model;
+                                        }
+                                        if (valuesForAsset.Asset_Serial_Number) {
+                                            asset_serial_number = valuesForAsset.Asset_Serial_Number;
+                                        }
+                                        if (valuesForAsset.Asset_Tag) {
+                                            asset_tag = valuesForAsset.Asset_Tag;
+                                        }
+                                        if (valuesForAsset.Asset_StoreIdentifier) {
+                                            asset_storeidentifier = valuesForAsset.Asset_StoreIdentifier;
+                                        }
+                                        if (valuesForAsset.Asset_Status) {
+                                            asset_status = valuesForAsset.Asset_Status;
+                                        }
+                                        if (valuesForAsset.Asset_ProgramDir) {
+                                            asset_programdir = valuesForAsset.Asset_ProgramDir;
+                                        }
+                                        if (valuesForAsset.Asset_DataDir) {
+                                            asset_datadir = valuesForAsset.Asset_DataDir;
+                                        }
+                                        
+                                        var result = "Create Successful";
+                                        
+                                        // Thing Template set based on Asset Type
+                                        var thingtemplate;
+                                        if (valuesForAsset.Asset_Type == "POS") {
+                                            thingtemplate = "NCR.POS";
+                                        } else if (valuesForAsset.Asset_Type == "HANDHELD") {
+                                            thingtemplate = "NCR.HANDHELD";
+                                        } else if (valuesForAsset.Asset_Type == "ATM") {
+                                            thingtemplate = "NCR.ATM";
+                                        } else if (valuesForAsset.Asset_Type == "LAPTOP") {
+                                            thingtemplate = "NCR.LAPTOP";
+                                        } else if (valuesForAsset.Asset_Type == "MGMTSERVER") {
+                                            thingtemplate = "NCR.MGMTSERVER";
+                                        } else if (valuesForAsset.Asset_Type == "POSWM") {
+                                            thingtemplate = "NCR.POSWM";
+                                        } else if (valuesForAsset.Asset_Type == "PRINTER") {
+                                            thingtemplate = "NCR.NETPRINTER";
+                                        } else if (valuesForAsset.Asset_Type == "BOSERVER") {
+                                            thingtemplate = "NCR.BOSERVER";
+                                        } else {
+                                            thingtemplate = "NCR.LAPTOP";
+                                        }
+                                        
+                                        try {
+                                            var params = {
+                                                name: name,
+                                                description: desc,
+                                                thingTemplateName: thingtemplate
+                                            };
+                                        
+                                            Resources["EntityServices"].CreateThing(params);
+                                            // Always enable and restart a new thing to make it active on the Platform
+                                            // no return
+                                            Things[name].EnableThing();
+                                            // no return
+                                            Things[name].RestartThing();
+                                        
+                                            // Set Properties
+                                            Things[name].Customer = customer;
+                                            Things[name].Asset_Type = asset_type;
+                                            Things[name].Asset_ID = asset_id;
+                                            Things[name].Asset_Name = asset_name;
+                                            Things[name].Asset_Manufacturer = asset_manufacturer;
+                                            Things[name].Asset_Model = asset_model;
+                                            Things[name].Asset_Serial_Number = asset_serial_number;
+                                            Things[name].Asset_Tag = asset_tag;
+                                            Things[name].Asset_StoreIdentifier = asset_storeidentifier;
+                                            Things[name].Asset_Status = asset_status;
+                                            Things[name].Asset_ProgramDir = asset_programdir;
+                                            Things[name].Asset_DataDir = asset_datadir;
+                                        
+                                        
+                                            // Project does not need to be set
+                                            var params = {
+                                        	    tags: "Applications:NCR" /* TAGS */
+                                            };
+                                        
+                                            // no return
+                                            Things[name].SetTags(params);    
+                                          
+                                        } catch (e) {
+                                        
+                                            // If an exception is caught, we need to attempt to delete everything
+                                            // that was created to roll back the entire transaction.
+                                            // If we do not do this a "ghost" entity will remain in memory
+                                            // We must do this in reverse order of creation so there are no dependency conflicts
+                                            // We also do not know where it failed so we must attempt to remove all of them,
+                                            // but also handle exceptions in case they were not created
+                                            result = "Create Failed:" + e.toString();
+                                            logger.warn("NCRDCSMASHUP::NCR.DCS.ConfigureAssetHelper::CreateAssetThing::CreateAsset::Error: " + e.toString())
+                                        
+                                            /*
+                                            try {
+                                        
+                                                var paramsDT = { name: name };
+                                                Resources["EntityServices"].DeleteThing(paramsDT);
+                                        
+                                            } catch (e2) {
+                                                // Thing was not created
+                                                if (enablescriptdebug) {
+                                                    logger.debug("NCRDCSMASHUP::NCR.DCS.ConfigureAssetHelper::CreateAssetThing"CreateAsset::Error: " + e2.toString());
+                                                }
+                                            }
+                                            */
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="DeleteAssetThing">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var enablescriptdebug = false;
+                                        
+                                        if (enablescriptdebug) {
+                                        	logger.debug("NCRDCSMASHUP::NCR.DCS.ConfigureAssetHelper::DeleteAssetThing"	+ ":name:" + name);
+                                        }
+                                        
+                                        var params = {
+                                        	name: name /* THINGNAME */
+                                        };
+                                        
+                                        var result = "";
+                                        
+                                        try {
+                                        	// no return
+                                        	Resources["EntityServices"].DeleteThing(params);
+                                        } catch (e) {
+                                        	result = e.toString();
+                                        	logger.warn("NCRDCSMASHUP::NCR.DCS.ConfigureAssetHelper::DeleteAssetThing" + ":ERROR:" + e.toString());
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="GetThingsImplementBaseDevice">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var enablescriptdebug = false;
+                                        
+                                        if (enablescriptdebug) {
+                                        	logger.debug("NCRDCSMASHUP::NCR.DCS.ConfigureAssetHelper::GetThingsImplementBaseDevice");
+                                        }
+                                        
+                                        var params = {
+                                        	maxItems: 5000 /* NUMBER */,
+                                        	nameMask: undefined /* STRING */,
+                                        	query: query /* QUERY */,
+                                        	tags: undefined /* TAGS */
+                                        };
+                                        
+                                        // result: INFOTABLE dataShape: RootEntityList
+                                        var assetsIT = ThingTemplates["NCR.BaseDevice"].QueryImplementingThingsWithData(params);
+                                        
+                                        var params = {
+                                        	infoTableName : "InfoTable",
+                                        	dataShapeName : "NCR.DCS.AssetDS"
+                                        };
+                                        
+                                        // CreateInfoTableFromDataShape(infoTableName:STRING("InfoTable"), dataShapeName:STRING):INFOTABLE(NCR.DCS.AssetDS)
+                                        var result = Resources["InfoTableFunctions"].CreateInfoTableFromDataShape(params);
+                                        
+                                        var tableLength = assetsIT.rows.length;
+                                        for (var x = 0; x < tableLength; x++) {
+                                        	var row = assetsIT.rows[x];
+                                        
+                                        	// NCR.DCS.AssetDS entry object
+                                        	var newEntry = new Object();
+                                        	newEntry.Asset_DataDir = row.Asset_DataDir; // STRING
+                                        	newEntry.Asset_StoreIdentifier = row.Asset_StoreIdentifier; // STRING
+                                        	newEntry.Customer = row.Customer; // THINGNAME
+                                        	newEntry.Asset_Serial_Number = row.Asset_Serial_Number; // STRING
+                                        	newEntry.description = row.description; // STRING
+                                        	newEntry.Asset_Name = row.Asset_Name; // STRING
+                                        	newEntry.tags = row.tags; // TAGS
+                                        	newEntry.Asset_ID = row.Asset_ID; // STRING
+                                        	newEntry.Asset_ProgramDir = row.Asset_ProgramDir; // STRING
+                                        	newEntry.Asset_Tag = row.Asset_Tag; // STRING
+                                        	newEntry.Asset_Manufacturer = row.Asset_Manufacturer; // STRING
+                                        	newEntry.name = row.name; // STRING
+                                        	newEntry.Asset_Type = row.Asset_Type; // STRING
+                                        	newEntry.Asset_Model = row.Asset_Model; // STRING
+                                        	newEntry.Asset_Status = row.Asset_Status; // INTEGER
+                                        
+                                        	result.AddRow(newEntry);	
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="ProcessAssetCSVImport">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var enablescriptdebug = false;
+                                        
+                                        if (enablescriptdebug) {
+                                            logger.debug("NCRDCSMASHUP::NCR.DCS.ConfigureAssetHelper::ProcessAssetCSVImport:path:" 
+                                            + path + ":repositoryName:" + repositoryName + ":fileName:" + fileName);
+                                        }
+                                        
+                                        var params = {
+                                            path: path + "" + fileName /* STRING */,
+                                            columnMappings: "name;description;Customer;Asset_Type;Asset_ID;Asset_Name;Asset_Manufacturer;Asset_Model;Asset_Serial_Number;Asset_Tag;Asset_StoreIdentifier;Asset_Status;Asset_ProgramDir;Asset_DataDir;tags" /* STRING */,
+                                            hasHeader: true /* BOOLEAN */,
+                                            longitudeField: undefined /* NUMBER */,
+                                            dateFormat: undefined /* STRING */,
+                                            fileRepository: repositoryName /* THINGNAME */,
+                                            latitudeField: undefined /* NUMBER */,
+                                            fieldDelimiter: "," /* STRING */,
+                                            stringDelimiter: undefined /* STRING */,
+                                            dataShape: "NCR.DCS.AssetDS" /* DATASHAPENAME */
+                                        };
+                                        
+                                        // result: INFOTABLE
+                                        var csvData;
+                                        var result = "File Processed Successfully";
+                                        
+                                        /*
+                                        // DEBUG
+                                        csvData = Resources["Parsley"].ParseCSV(params);
+                                        result = csvData;
+                                        */
+                                        
+                                        try {
+                                            // InfoTable
+                                            csvData = Resources["Parsley"].ParseCSV(params);
+                                        
+                                            // Iterate through InfoTable
+                                            var length = csvData.rows.length;
+                                        
+                                            for (var item = 0; item < length; item++) {
+                                                var csvDataRow = csvData.rows[item];
+                                        
+                                                var desc = " ";
+                                                if (csvDataRow.getValue('description') != null || csvDataRow.getValue('description') != '') {
+                                                    desc = csvDataRow.getValue('description');
+                                                }       
+                                        
+                                                var name = csvDataRow.getValue('name');
+                                                var sc = 0;
+                                                if (csvDataRow.getValue('Asset_Status') != null && csvDataRow.getValue('Asset_Status') != '') {
+                                                    sc = parseInt(csvDataRow.getValue('Asset_Status'));
+                                                }
+                                        
+                                                // Update Asset Thing
+                                                Things[name].Customer = csvDataRow.getValue('Customer');
+                                                Things[name].Asset_Type = csvDataRow.getValue('Asset_Type');
+                                                Things[name].Asset_ID = csvDataRow.getValue('Asset_ID');
+                                                Things[name].Asset_Name = csvDataRow.getValue('Asset_Name');
+                                                Things[name].Asset_Manufacturer = csvDataRow.getValue('Asset_Manufacturer');
+                                                Things[name].Asset_Model = csvDataRow.getValue('Asset_Model');
+                                                Things[name].Asset_Serial_Number = csvDataRow.getValue('Asset_Serial_Number');
+                                                Things[name].Asset_Tag = csvDataRow.getValue('Asset_Tag');
+                                                Things[name].Asset_StoreIdentifier = csvDataRow.getValue('Asset_StoreIdentifier');
+                                                Things[name].Asset_Status = sc;
+                                                Things[name].Asset_ProgramDir = csvDataRow.getValue('Asset_ProgramDir');
+                                                Things[name].Asset_DataDir = csvDataRow.getValue('Asset_DataDir');
+                                        
+                                                var paramsD = {
+                                                    description: desc  /* STRING */
+                                                };
+                                        
+                                                // no return
+                                                Things[name].SetDescription(paramsD);
+                                        
+                                                var paramsTGS = {
+                                                    tags: csvDataRow.getValue('tags') /* TAGS */
+                                                };
+                                        
+                                                // no return
+                                                Things[name].SetTags(paramsTGS);
+                                        
+                                            }
+                                        
+                                            // Delete CSV File from Repository
+                                            var paramsDF = {
+                                                path: path + "" + fileName /* STRING */
+                                            };
+                                        
+                                            // no return
+                                            Things[repositoryName].DeleteFile(paramsDF);
+                                        
+                                        } catch (e) {
+                                            logger.warn("NCRDCSMASHUP::NCR.DCS.ConfigureAssetHelper::ProcessAssetCSVImport::Error:" + e.toString());
+                                        
+                                            // Delete CSV File from Repository
+                                            var paramsDF = {
+                                                path: path + "" + fileName // STRING 
+                                            };
+                                        
+                                            // no return
+                                            Things[repositoryName].DeleteFile(paramsDF);
+                                            result = "Import Failed: " + e.toString();;
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                    <ServiceImplementation
+                     description=""
+                     handlerName="Script"
+                     name="UpdatePropertyValuesAssetThing">
+                        <ConfigurationTables>
+                            <ConfigurationTable
+                             description="Script"
+                             isMultiRow="false"
+                             name="Script"
+                             ordinal="0">
+                                <DataShape>
+                                    <FieldDefinitions>
+                                        <FieldDefinition
+                                         baseType="STRING"
+                                         description="code"
+                                         name="code"
+                                         ordinal="0"></FieldDefinition>
+                                    </FieldDefinitions>
+                                </DataShape>
+                                <Rows>
+                                    <Row>
+                                        <code>
+                                        <![CDATA[
+                                        var enablescriptdebug = false;
+                                        
+                                        if (enablescriptdebug) {
+                                            logger.debug("NCRDCSMASHUP::NCR.DCS.ConfigureAssetHelper::UpdatePropertyValuesAssetThing" + ":name:" + name);
+                                        }
+                                        
+                                        
+                                        var desc = "";
+                                        var vfcD = valuesForAsset.description;
+                                        if (vfcD != null && vfcD != "") {
+                                            desc = vfcD;
+                                        }
+                                        var customer;
+                                        var asset_type = "";
+                                        var asset_id = "";
+                                        var asset_name = "";
+                                        var asset_manufacturer = "";
+                                        var asset_model = "";
+                                        var asset_serial_number = "";
+                                        var asset_tag = "";
+                                        var asset_storeidentifier = "";
+                                        var asset_status = 0;
+                                        var asset_programdir = "";
+                                        var asset_datadir = "";
+                                        var tgs;
+                                        
+                                        if (valuesForAsset.Customer) {
+                                            customer = valuesForAsset.Customer;
+                                        }
+                                        if (valuesForAsset.Asset_ID) {
+                                            asset_id = valuesForAsset.Asset_ID;
+                                        }
+                                        if (valuesForAsset.Asset_Name) {
+                                            asset_name = valuesForAsset.Asset_Name;
+                                        }
+                                        if (valuesForAsset.Asset_Manufacturer) {
+                                            asset_manufacturer = valuesForAsset.Asset_Manufacturer;
+                                        }
+                                        if (valuesForAsset.Asset_Model) {
+                                            asset_model = valuesForAsset.Asset_Model;
+                                        }
+                                        if (valuesForAsset.Asset_Serial_Number) {
+                                            asset_serial_number = valuesForAsset.Asset_Serial_Number;
+                                        }
+                                        if (valuesForAsset.Asset_Tag) {
+                                            asset_tag = valuesForAsset.Asset_Tag;
+                                        }
+                                        if (valuesForAsset.Asset_StoreIdentifier) {
+                                            asset_storeidentifier = valuesForAsset.Asset_StoreIdentifier;
+                                        }
+                                        if (valuesForAsset.Asset_Status) {
+                                            asset_status = valuesForAsset.Asset_Status;
+                                        }
+                                        if (valuesForAsset.Asset_ProgramDir) {
+                                            asset_programdir = valuesForAsset.Asset_ProgramDir;
+                                        }
+                                        if (valuesForAsset.Asset_DataDir) {
+                                            asset_datadir = valuesForAsset.Asset_DataDir;
+                                        }
+                                        if (valuesForAsset.tags) {
+                                            tgs = valuesForAsset.tags;
+                                        }
+                                        
+                                        try {
+                                            
+                                            // Set Properties
+                                            Things[name].Customer = customer;
+                                            Things[name].Asset_Type = asset_type;
+                                            Things[name].Asset_ID = asset_id;
+                                            Things[name].Asset_Name = asset_name;
+                                            Things[name].Asset_Manufacturer = asset_manufacturer;
+                                            Things[name].Asset_Model = asset_model;
+                                            Things[name].Asset_Serial_Number = asset_serial_number;
+                                            Things[name].Asset_Tag = asset_tag;
+                                            Things[name].Asset_StoreIdentifier = asset_storeidentifier;
+                                            Things[name].Asset_Status = asset_status;
+                                            Things[name].Asset_ProgramDir = asset_programdir;
+                                            Things[name].Asset_DataDir = asset_datadir;   
+                                           
+                                            var params = {
+                                                description: desc  /* STRING */
+                                            };
+                                        
+                                            // no return
+                                            Things[name].SetDescription(params);
+                                            
+                                            
+                                            // Tags are Read Only 
+                                            var paramsTG = {
+                                        	    tags: tgs /* TAGS */
+                                            };
+                                        
+                                            // No Return
+                                            Things[name].SetTags(paramsTG);    
+                                        
+                                            /* Fails because of description
+                                            var params = {
+                                        	    values: valuesForCustomer // INFOTABLE 
+                                            };
+                                        
+                                            // no return
+                                            Things[name].UpdatePropertyValues(params);
+                                            */
+                                        
+                                        } catch (err) {
+                                              logger.warn("NCR.DCS.ConfigureAssetHelper::UpdatePropertyValuesAssetThing::Error: " + err.toString());    
+                                        }
+                                        ]]>
+                                        </code>
+                                    </Row>
+                                </Rows>
+                            </ConfigurationTable>
+                        </ConfigurationTables>
+                    </ServiceImplementation>
+                </ServiceImplementations>
+                <Subscriptions></Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ImplementedShapes></ImplementedShapes>
+            <ThingProperties></ThingProperties>
+        </Thing>
+    </Things>
+</Entities>
